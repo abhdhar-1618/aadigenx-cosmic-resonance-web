@@ -15,21 +15,32 @@ const Index = () => {
   const [introComplete, setIntroComplete] = useState(false);
   const [hasNavigated, setHasNavigated] = useState(false);
 
+  console.log('Index component state:', { 
+    currentSection, 
+    showClickOverlay, 
+    introComplete, 
+    hasNavigated 
+  });
+
   const handleIntroComplete = () => {
+    console.log('Intro completed');
     setIntroComplete(true);
     setShowClickOverlay(true);
   };
 
   const handleClickOverlayClick = () => {
+    console.log('Click overlay clicked');
     setShowClickOverlay(false);
   };
 
   const handleNavigation = (section: string) => {
+    console.log('Navigating to section:', section);
     setCurrentSection(section);
     setHasNavigated(true);
   };
 
   const handleHomeNavigation = () => {
+    console.log('Navigating to home');
     setCurrentSection('home');
   };
 
