@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const aboutContent = {
@@ -88,8 +87,16 @@ export const AboutSection = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 bg-gradient-to-br from-purple-900/20 via-black to-black">
-      <div className="max-w-7xl mx-auto">
+    <div 
+      className="min-h-screen pt-20 pb-12 px-4 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-1/4">

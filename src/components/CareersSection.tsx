@@ -3,8 +3,16 @@ import React from 'react';
 
 export const CareersSection = () => {
   return (
-    <div className="min-h-screen pt-20 flex items-center justify-center bg-gradient-to-br from-purple-900/20 via-black to-black">
-      <div className="text-center px-4">
+    <div 
+      className="min-h-screen pt-20 flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60" />
+      
+      <div className="text-center px-4 relative z-10">
         <div className="bg-black/40 backdrop-blur-md rounded-lg p-12 border border-white/10 max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
             <span className="text-yellow-400">C</span>areers
