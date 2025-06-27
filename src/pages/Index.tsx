@@ -22,6 +22,19 @@ const Index = () => {
     hasNavigated 
   });
 
+  // Fallback mechanism - if intro doesn't complete within 10 seconds, force complete
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      if (!introComplete) {
+        console.log('Fallback: Force completing intro after 10 seconds');
+        setIntroComplete(true);
+        setShowClickOverlay(true);
+      }
+    }, 10000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [introComplete]);
+
   const handleIntroComplete = () => {
     console.log('Intro completed');
     setIntroComplete(true);
