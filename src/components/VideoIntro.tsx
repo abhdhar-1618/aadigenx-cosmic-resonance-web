@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 
 interface VideoIntroProps {
@@ -7,6 +8,8 @@ interface VideoIntroProps {
 export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showSkip, setShowSkip] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     console.log('VideoIntro component mounted');
@@ -16,11 +19,11 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       setShowSkip(true);
     }, 2000);
 
-    // Auto-complete after 4 seconds regardless of video status
+    // Auto-complete after 15 seconds to allow full video playback
     const autoCompleteTimer = setTimeout(() => {
-      console.log('Auto-completing intro after 4 seconds');
+      console.log('Auto-completing intro after 15 seconds');
       onComplete();
-    }, 4000);
+    }, 15000);
 
     const video = videoRef.current;
     if (video) {
@@ -28,6 +31,16 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       
       const handleCanPlay = () => {
         console.log('Video can play, starting playback');
+        setVideoLoaded(true);
+        video.play().catch((error) => {
+          console.log('Video play failed:', error);
+          setVideoError(true);
+        });
+      };
+
+      const handleLoadedData = () => {
+        console.log('Video data loaded');
+        setVideoLoaded(true);
       };
 
       const handleEnded = () => {
@@ -36,20 +49,18 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       };
 
       const handleError = (e: Event) => {
-        console.log('Video error, will complete via timer:', e);
+        console.log('Video error:', e);
+        setVideoError(true);
       };
 
       video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', handleLoadedData);
       video.addEventListener('ended', handleEnded);
       video.addEventListener('error', handleError);
 
-      // Try to play the video
-      video.play().catch((error) => {
-        console.log('Video play failed:', error);
-      });
-
       return () => {
         video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleLoadedData);
         video.removeEventListener('ended', handleEnded);
         video.removeEventListener('error', handleError);
         clearTimeout(skipTimer);
@@ -70,31 +81,45 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-      <div className="text-center text-white">
-        <h2 className="text-3xl mb-6 font-bold">AadiGenX</h2>
-        <p className="text-white/80 mb-6">Welcome to the future</p>
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-8"></div>
-        
-        {showSkip && (
+      {/* Video element - now visible and properly configured */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        muted
+        playsInline
+        preload="auto"
+        autoPlay
+      >
+        <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Vedic_Temple_Splendor_remix_02.mp4" type="video/mp4" />
+      </video>
+
+      {/* Fallback content shown when video fails to load or while loading */}
+      {(!videoLoaded || videoError) && (
+        <div className="absolute inset-0 bg-black flex items-center justify-center z-10">
+          <div className="text-center text-white">
+            <h2 className="text-3xl mb-6 font-bold">AadiGenX</h2>
+            <p className="text-white/80 mb-6">Welcome to the future</p>
+            {!videoError && (
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-8"></div>
+            )}
+            {videoError && (
+              <p className="text-red-400 mb-6">Video loading failed, continuing...</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Skip button overlay */}
+      {showSkip && (
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <button
             onClick={handleSkip}
             className="bg-yellow-400/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-yellow-400/30 transition-all duration-300 border border-yellow-400/30"
           >
             Enter Site
           </button>
-        )}
-      </div>
-
-      {/* Hidden video element - keep for potential future use */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
-        muted
-        playsInline
-        preload="none"
-      >
-        <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx_intro_vid.mp4" type="video/mp4" />
-      </video>
+        </div>
+      )}
     </div>
   );
 };
