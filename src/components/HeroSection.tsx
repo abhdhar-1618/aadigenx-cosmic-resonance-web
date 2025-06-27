@@ -11,6 +11,7 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
   const logoRef = useRef<HTMLImageElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [logoSpinning, setLogoSpinning] = useState(false);
 
   console.log('HeroSection rendered with hasNavigated:', hasNavigated);
 
@@ -31,6 +32,14 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
       }).catch(console.error);
     }
 
+    // Auto-trigger logo spinning after intro completes (when component first loads)
+    if (!hasNavigated && logo) {
+      setTimeout(() => {
+        console.log('Auto-triggering logo animation after intro');
+        handleLogoClick();
+      }, 1000);
+    }
+
     return () => {
       if (video) video.pause();
       if (audio) audio.pause();
@@ -43,13 +52,13 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
     
     if (audio && logo) {
       console.log('Playing audio and starting logo animation');
+      setLogoSpinning(true);
       audio.currentTime = 0;
       audio.play().then(() => {
         setIsPlaying(true);
-        logo.classList.add('animate-spin');
         
         setTimeout(() => {
-          logo.classList.remove('animate-spin');
+          setLogoSpinning(false);
           setIsPlaying(false);
           
           const video = videoRef.current;
@@ -58,7 +67,11 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
             video.play().catch(console.error);
           }
         }, 11000);
-      }).catch(console.error);
+      }).catch((error) => {
+        console.error('Audio play failed:', error);
+        setIsPlaying(false);
+        setLogoSpinning(false);
+      });
     }
   };
 
@@ -89,7 +102,7 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black/40 to-black/60 z-10" />
 
       {/* Welcome Text */}
-      <div className="relative z-20 text-center mb-8 px-4">
+      <div className="relative z-20 text-center mb-8 px-4 animate-fade-in">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">
           प्राचीनानां निनादः भविष्यस्य संरचना
         </h1>
@@ -99,22 +112,23 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
       </div>
 
       {/* Logo - clickable to trigger audio/video */}
-      <div className="relative z-20 mb-8">
+      <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
           src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx%20Logo_Clear_BG.png"
           alt="AadiGenX Logo"
-          className="w-48 md:w-64 lg:w-80 h-auto transition-transform duration-1000 cursor-pointer hover:scale-105"
+          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 cursor-pointer hover:scale-105 ${logoSpinning ? 'animate-spin' : ''}`}
           onClick={handleLogoClick}
         />
-        {!isPlaying && (
+        {!isPlaying && !logoSpinning && (
           <p className="text-white/60 text-sm mt-4 animate-pulse">Click the logo to awaken</p>
         )}
       </div>
 
-      {/* Audio */}
+      {/* Audio - corrected file path */}
       <audio ref={audioRef} preload="auto">
         <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.ogg" type="audio/ogg" />
+        <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 

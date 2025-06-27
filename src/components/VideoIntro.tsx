@@ -10,6 +10,7 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   const [showSkip, setShowSkip] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     console.log('VideoIntro component mounted');
@@ -22,7 +23,7 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
     // Auto-complete after 15 seconds to allow full video playback
     const autoCompleteTimer = setTimeout(() => {
       console.log('Auto-completing intro after 15 seconds');
-      onComplete();
+      handleComplete();
     }, 15000);
 
     const video = videoRef.current;
@@ -45,7 +46,7 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
 
       const handleEnded = () => {
         console.log('Video ended naturally');
-        onComplete();
+        handleComplete();
       };
 
       const handleError = (e: Event) => {
@@ -72,15 +73,23 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       clearTimeout(skipTimer);
       clearTimeout(autoCompleteTimer);
     };
-  }, [onComplete]);
+  }, []);
+
+  const handleComplete = () => {
+    console.log('Starting intro exit animation');
+    setIsExiting(true);
+    setTimeout(() => {
+      onComplete();
+    }, 500); // Wait for fade out animation
+  };
 
   const handleSkip = () => {
     console.log('User skipped intro');
-    onComplete();
+    handleComplete();
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-500 ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
       {/* Video element - now visible and properly configured */}
       <video
         ref={videoRef}
@@ -110,8 +119,8 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       )}
 
       {/* Skip button overlay */}
-      {showSkip && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      {showSkip && !isExiting && (
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-fade-in">
           <button
             onClick={handleSkip}
             className="bg-yellow-400/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-yellow-400/30 transition-all duration-300 border border-yellow-400/30"
