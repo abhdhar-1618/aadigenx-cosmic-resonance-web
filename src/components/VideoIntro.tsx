@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 
 interface VideoIntroProps {
@@ -7,84 +6,60 @@ interface VideoIntroProps {
 
 export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
   const [showSkip, setShowSkip] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    let timeoutId: NodeJS.Timeout;
-    let skipTimerId: NodeJS.Timeout;
+    console.log('VideoIntro component mounted');
+    
+    // Show skip button after 2 seconds
+    const skipTimer = setTimeout(() => {
+      setShowSkip(true);
+    }, 2000);
 
-    // Auto-complete after 5 seconds regardless of video status
+    // Auto-complete after 4 seconds regardless of video status
     const autoCompleteTimer = setTimeout(() => {
-      console.log('Auto-completing intro after timeout');
+      console.log('Auto-completing intro after 4 seconds');
       onComplete();
-    }, 5000);
+    }, 4000);
 
+    const video = videoRef.current;
     if (video) {
-      console.log('Video element found, setting up event listeners');
+      console.log('Setting up video event listeners');
       
-      const handleLoadedData = () => {
-        console.log('Video loaded successfully');
-        setIsLoading(false);
-        clearTimeout(autoCompleteTimer);
-      };
-
       const handleCanPlay = () => {
-        console.log('Video can play');
-        setIsLoading(false);
-        clearTimeout(autoCompleteTimer);
-      };
-
-      const handleError = (e: Event) => {
-        console.error('Video failed to load:', e);
-        setHasError(true);
-        setIsLoading(false);
-        clearTimeout(autoCompleteTimer);
-        // Complete immediately if video fails
-        setTimeout(onComplete, 1000);
+        console.log('Video can play, starting playback');
       };
 
       const handleEnded = () => {
-        console.log('Video ended, completing intro');
-        clearTimeout(autoCompleteTimer);
-        setTimeout(onComplete, 500);
-      };
-
-      // Show skip button after 2 seconds
-      skipTimerId = setTimeout(() => {
-        setShowSkip(true);
-      }, 2000);
-      
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('error', handleError);
-      video.addEventListener('ended', handleEnded);
-
-      // Try to load the video
-      video.load();
-      
-      return () => {
-        video.removeEventListener('loadeddata', handleLoadedData);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('error', handleError);
-        video.removeEventListener('ended', handleEnded);
-        clearTimeout(autoCompleteTimer);
-        clearTimeout(skipTimerId);
-      };
-    } else {
-      // If no video element, complete after 2 seconds
-      timeoutId = setTimeout(() => {
-        console.log('No video element found, completing intro');
+        console.log('Video ended naturally');
         onComplete();
-      }, 2000);
+      };
+
+      const handleError = (e: Event) => {
+        console.log('Video error, will complete via timer:', e);
+      };
+
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('ended', handleEnded);
+      video.addEventListener('error', handleError);
+
+      // Try to play the video
+      video.play().catch((error) => {
+        console.log('Video play failed:', error);
+      });
+
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('ended', handleEnded);
+        video.removeEventListener('error', handleError);
+        clearTimeout(skipTimer);
+        clearTimeout(autoCompleteTimer);
+      };
     }
 
     return () => {
-      clearTimeout(timeoutId);
+      clearTimeout(skipTimer);
       clearTimeout(autoCompleteTimer);
-      clearTimeout(skipTimerId);
     };
   }, [onComplete]);
 
@@ -93,63 +68,33 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
     onComplete();
   };
 
-  if (hasError) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-        <div className="text-center text-white">
-          <h2 className="text-2xl mb-4">Welcome to AadiGenX</h2>
-          <p className="text-white/80 mb-4">Preparing your experience...</p>
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto"></div>
+  return (
+    <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+      <div className="text-center text-white">
+        <h2 className="text-3xl mb-6 font-bold">AadiGenX</h2>
+        <p className="text-white/80 mb-6">Welcome to the future</p>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-8"></div>
+        
+        {showSkip && (
           <button
             onClick={handleSkip}
-            className="mt-6 bg-white/20 backdrop-blur-md text-white px-6 py-2 rounded-lg hover:bg-white/30 transition-all duration-300"
+            className="bg-yellow-400/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-yellow-400/30 transition-all duration-300 border border-yellow-400/30"
           >
-            Continue to Site
+            Enter Site
           </button>
-        </div>
+        )}
       </div>
-    );
-  }
 
-  return (
-    <div className="fixed inset-0 z-50 bg-black">
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h2 className="text-2xl mb-4">Loading AadiGenX...</h2>
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto"></div>
-            {showSkip && (
-              <button
-                onClick={handleSkip}
-                className="mt-6 bg-white/20 backdrop-blur-md text-white px-6 py-2 rounded-lg hover:bg-white/30 transition-all duration-300"
-              >
-                Skip Intro
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-      
+      {/* Hidden video element - keep for potential future use */}
       <video
         ref={videoRef}
-        className={`w-full h-full object-contain ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}
-        autoPlay
+        className="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
         muted
         playsInline
-        preload="metadata"
+        preload="none"
       >
         <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx_intro_vid.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
-
-      {showSkip && !isLoading && (
-        <button
-          onClick={handleSkip}
-          className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300"
-        >
-          Skip Intro
-        </button>
-      )}
     </div>
   );
 };
