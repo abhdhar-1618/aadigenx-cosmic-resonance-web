@@ -109,7 +109,7 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
         <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.ogg" type="audio/ogg" />
         <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
-      </source>
+      </audio>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
