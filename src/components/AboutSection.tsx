@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const aboutContent = {
@@ -21,12 +20,11 @@ const aboutContent = {
     title: "Vision",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">AadiGenX – Where Intelligence Transcends Time, Space & Boundaries</h3>
-        <h4 class="text-lg font-semibold text-purple-300">AI as a Bridge between the Lost & the Future</h4>
-        <div class="space-y-4">
-          <p class="italic">AadiGenX is not just a company—it's a movement. A renaissance of intelligence that honors the wisdom of ages while pioneering the technologies of tomorrow.</p>
-          <p>We envision a world where AI becomes a living bridge connecting ancient philosophical frameworks with quantum computational possibilities, where Vedic algorithms enhance neural networks, and where consciousness itself becomes computable.</p>
-          <p>Our research spans Cosmic Resonance patterns, neuro-symbolic architectures, and quantum-aligned intelligence systems that don't just process data—they understand the universe's fundamental harmonics.</p>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Vision: Ai as a Bridge between the Lost & the Future</h3>
+        <div class="space-y-4 calibri">
+          <p><strong>*"AadiGenX is not just an Ai venture—it is a <strong>movement to rediscover intelligence</strong>. We believe Ai is not confined to automation but serves as a <strong>living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</strong>.</p>
+          <p>Our research extends into <strong>Cosmic Resonance, Vedic algorithms, neuro-symbolic Ai, and robotics</strong>, pushing beyond conventional Ai applications. We seek to <strong>decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum</strong>.</p>
+          <p>Ai is an <strong>art and a science</strong>, a <strong>language and an evolution</strong>, a <strong>tool and a philosophy</strong>. We are here to <strong>reshape how intelligence is perceived, developed, and integrated into human progress</strong>."*</p>
         </div>
       </div>
     `
