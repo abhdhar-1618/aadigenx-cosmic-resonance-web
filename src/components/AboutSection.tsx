@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const aboutContent = {
   mission: {
@@ -79,7 +80,7 @@ const aboutContent = {
         <div class="space-y-4">
           <p><strong>✣ We are not just building <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong>—we are <strong>redefining intelligence itself</strong>.</p>
           <p><strong>✣ We are decoding lost wisdom, aligning Robotics, and reshaping the future.</strong></p>
-          <p><strong>✣ We are pushing <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></strong> beyond automation—into the realm of <strong>discovery, consciousness, and evolution</strong>.</p>
+          <p><strong>✣ We are pushing <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> beyond automation—into the realm of <strong>discovery, consciousness, and evolution</strong>.</p>
           <p><strong>✣ We are <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span></strong>. We are the Future. And we are awakening the next generation.</p>
           <br />
           <p><strong>Unlock Your Future with <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span></strong> – Be a Pioneer, Not Just a Learner</p>
@@ -142,11 +143,13 @@ export const AboutSection = () => {
 
           {/* Right Content Panel */}
           <div className="lg:w-3/4">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg p-8 border border-white/5 min-h-[600px]">
-              <div 
-                className="text-white leading-relaxed prose prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
-              />
+            <div className="bg-black/20 backdrop-blur-md rounded-lg border border-white/5 overflow-hidden">
+              <ScrollArea className="h-[calc(100vh-200px)] p-8">
+                <div 
+                  className="text-white leading-relaxed prose prose-invert max-w-none"
+                  dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
+                />
+              </ScrollArea>
             </div>
           </div>
         </div>
