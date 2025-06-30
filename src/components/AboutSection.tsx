@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -7,15 +6,15 @@ const aboutContent = {
     title: "Mission",
     content: `
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6">
+        <h3 class="text-2xl font-bold text-amber-800 mb-6">
           <span class="samarkan">Mission</span><span class="calibri">: Expanding the Horizons of </span><span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>
         </h3>
-        <p class="text-lg mb-4 calibri text-center">At <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>, we are on a mission to:</p>
-        <div class="space-y-6 calibri">
-          <p class="text-center"><span class="text-yellow-400 text-xl">❋</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
-          <p class="text-center"><span class="text-yellow-400 text-xl">❋</span> <strong>Align <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> systems that enhance rather than replace human intelligence.</p>
-          <p class="text-center"><span class="text-yellow-400 text-xl">❋</span> <strong>Evolve <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & Neuro<span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong> pushes <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
-          <p class="text-center"><span class="text-yellow-400 text-xl">❋</span> <strong>Unify No-Code, Low-Code & Hardcore <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> Development</strong> – We cater to every level of <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> accessibility, from democratized <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> applications to advanced research in Quantum <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
+        <p class="text-lg mb-4 calibri text-center text-amber-900">At <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>, we are on a mission to:</p>
+        <div class="space-y-6 calibri text-amber-900">
+          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
+          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Align <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> systems that enhance rather than replace human intelligence.</p>
+          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Evolve <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & Neuro<span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong> pushes <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
+          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Unify No-Code, Low-Code & Hardcore <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> Development</strong> – We cater to every level of <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> accessibility, from democratized <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> applications to advanced research in Quantum <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
         </div>
       </div>
     `
@@ -144,10 +143,16 @@ export const AboutSection = () => {
 
           {/* Right Content Panel */}
           <div className="lg:w-2/3 flex-shrink-0">
-            <div className="bg-black/10 backdrop-blur-md rounded-lg border border-white/3 h-full overflow-hidden">
+            <div className="h-full overflow-hidden rounded-lg shadow-2xl"
+                 style={{
+                   background: 'linear-gradient(135deg, #f4e7d1 0%, #e8d5b7 25%, #dcc49c 50%, #d4b996 75%, #c9a96e 100%)',
+                   border: '3px solid #8b4513',
+                   boxShadow: 'inset 0 0 30px rgba(139, 69, 19, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4)'
+                 }}>
               <ScrollArea className="h-full p-8">
                 <div 
-                  className="text-white leading-relaxed prose prose-invert max-w-none"
+                  className="leading-relaxed prose prose-invert max-w-none"
+                  style={{ color: '#654321' }}
                   dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
                 />
               </ScrollArea>
