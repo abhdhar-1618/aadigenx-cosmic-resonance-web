@@ -25,7 +25,7 @@ export const CareersSection = () => {
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-purple-400 mx-auto rounded-full animate-pulse"></div>
           <p className="text-white/60 mt-6 text-lg">
-            Opportunities to join our mission of bridging ancient wisdom with future AI are coming soon.
+            Opportunities to join our mission of bridging ancient wisdom with future <span className="ai-brand">Ai</span> at <span className="aadigenx-brand">AadiGenX</span> are coming soon.
           </p>
         </div>
       </div>

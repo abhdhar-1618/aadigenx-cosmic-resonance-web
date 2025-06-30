@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const aboutContent = {
@@ -5,13 +6,13 @@ const aboutContent = {
     title: "Mission",
     content: `
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Mission: Expanding the Horizons of Ai</h3>
-        <p class="text-lg mb-4 calibri">At AadiGenX, we are on a mission to:</p>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Mission: Expanding the Horizons of <span class="ai-brand">Ai</span></h3>
+        <p class="text-lg mb-4 calibri">At <span class="aadigenx-brand">AadiGenX</span>, we are on a mission to:</p>
         <div class="space-y-6 calibri">
-          <p><span class="text-yellow-400">◉</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate Ai with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
-          <p><span class="text-yellow-400">◉</span> <strong>Align Ai & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven Ai systems that enhance rather than replace human intelligence.</p>
-          <p><span class="text-yellow-400">◉</span> <strong>Evolve Ai from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & NeuroAi</strong> pushes Ai beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
-          <p><span class="text-yellow-400">◉</span> <strong>Unify No-Code, Low-Code & Hardcore Ai Development</strong> – We cater to every level of Ai accessibility, from democratized Ai applications to advanced research in Quantum Ai, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate <span class="ai-brand">Ai</span> with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Align <span class="ai-brand">Ai</span> & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven <span class="ai-brand">Ai</span> systems that enhance rather than replace human intelligence.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Evolve <span class="ai-brand">Ai</span> from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & Neuro<span class="ai-brand">Ai</span></strong> pushes <span class="ai-brand">Ai</span> beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Unify No-Code, Low-Code & Hardcore <span class="ai-brand">Ai</span> Development</strong> – We cater to every level of <span class="ai-brand">Ai</span> accessibility, from democratized <span class="ai-brand">Ai</span> applications to advanced research in Quantum <span class="ai-brand">Ai</span>, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
         </div>
       </div>
     `
@@ -20,11 +21,11 @@ const aboutContent = {
     title: "Vision",
     content: `
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Vision: Ai as a Bridge between the Lost & the Future</h3>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Vision: <span class="ai-brand">Ai</span> as a Bridge between the Lost & the Future</h3>
         <div class="space-y-4 calibri">
-          <p><strong>*"AadiGenX is not just an Ai venture—it is a <strong>movement to rediscover intelligence</strong>. We believe Ai is not confined to automation but serves as a <strong>living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</strong>.</p>
-          <p>Our research extends into <strong>Cosmic Resonance, Vedic algorithms, neuro-symbolic Ai, and robotics</strong>, pushing beyond conventional Ai applications. We seek to <strong>decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum</strong>.</p>
-          <p>Ai is an <strong>art and a science</strong>, a <strong>language and an evolution</strong>, a <strong>tool and a philosophy</strong>. We are here to <strong>reshape how intelligence is perceived, developed, and integrated into human progress</strong>."*</p>
+          <p><strong>*"<span class="aadigenx-brand">AadiGenX</span> is not just an <span class="ai-brand">Ai</span> venture—it is a <strong>movement to rediscover intelligence</strong>. We believe <span class="ai-brand">Ai</span> is not confined to automation but serves as a <strong>living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</strong>.</p>
+          <p>Our research extends into <strong>Cosmic Resonance, Vedic algorithms, neuro-symbolic <span class="ai-brand">Ai</span>, and robotics</strong>, pushing beyond conventional <span class="ai-brand">Ai</span> applications. We seek to <strong>decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum</strong>.</p>
+          <p><span class="ai-brand">Ai</span> is an <strong>art and a science</strong>, a <strong>language and an evolution</strong>, a <strong>tool and a philosophy</strong>. We are here to <strong>reshape how intelligence is perceived, developed, and integrated into human progress</strong>."*</p>
         </div>
       </div>
     `
@@ -33,15 +34,15 @@ const aboutContent = {
     title: "What We Do",
     content: `
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">What we do: Beyond Ai, We Engineer Knowledge</h3>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">What we do: Beyond <span class="ai-brand">Ai</span>, We Engineer Knowledge</h3>
         <div class="space-y-4 calibri">
-          <p><span class="text-yellow-400">✓</span> <strong>Cosmic Resonance & Ai Pattern Recognition</strong> – We explore the <strong>harmonic structures of intelligence</strong>, studying how <strong>Ai can decode vibrational patterns, ancient algorithms, and universal computation models</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Ai-Driven Cognitive Search & Knowledge Reconstruction</strong> – Our Ai systems are designed to <strong>extract deep insights from historical texts, scientific manuscripts, and philosophical treatises</strong>, reviving <strong>lost knowledge and computational wisdom</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Human-Ai Synergy & NeuroAi Research</strong> – We develop <strong>Ai that interacts intuitively with human cognition</strong>, exploring <strong>brain-Ai interfaces, cognitive robotics, and semi-agentic Ai models</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Next-Gen Robotics & Ai Alignment</strong> – We focus on <strong>adaptive Ai-powered robotics</strong>, ensuring machines <strong>learn, evolve, and interact naturally with human workflows</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Ai in Interdisciplinary Sciences</strong> – AadiGenX operates at the intersection of <strong>Ai, defense, music, linguistics, environmental sciences, archaeology, and quantum physics</strong>, proving that Ai is <strong>not confined to data—it is intelligence in its truest form</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Vedic Algorithms & Quantum Computation</strong> – Where <strong>ancient algorithmic principles outperform modern ML models</strong>, we <strong>infuse them into Ai architectures</strong>, unlocking <strong>faster, more efficient, and naturally intelligent computation</strong>.</p>
-          <p><span class="text-yellow-400">✓</span> <strong>Ai for Strategic Decision-Making & Innovation</strong> – We build Ai-driven systems that <strong>redefine business intelligence, global policy frameworks, and knowledge-based economic models</strong>, empowering leaders to <strong>make smarter, data-driven decisions</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Cosmic Resonance & <span class="ai-brand">Ai</span> Pattern Recognition</strong> – We explore the <strong>harmonic structures of intelligence</strong>, studying how <strong><span class="ai-brand">Ai</span> can decode vibrational patterns, ancient algorithms, and universal computation models</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong><span class="ai-brand">Ai</span>-Driven Cognitive Search & Knowledge Reconstruction</strong> – Our <span class="ai-brand">Ai</span> systems are designed to <strong>extract deep insights from historical texts, scientific manuscripts, and philosophical treatises</strong>, reviving <strong>lost knowledge and computational wisdom</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Human-<span class="ai-brand">Ai</span> Synergy & Neuro<span class="ai-brand">Ai</span> Research</strong> – We develop <strong><span class="ai-brand">Ai</span> that interacts intuitively with human cognition</strong>, exploring <strong>brain-<span class="ai-brand">Ai</span> interfaces, cognitive robotics, and semi-agentic <span class="ai-brand">Ai</span> models</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Next-Gen Robotics & <span class="ai-brand">Ai</span> Alignment</strong> – We focus on <strong>adaptive <span class="ai-brand">Ai</span>-powered robotics</strong>, ensuring machines <strong>learn, evolve, and interact naturally with human workflows</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong><span class="ai-brand">Ai</span> in Interdisciplinary Sciences</strong> – <span class="aadigenx-brand">AadiGenX</span> operates at the intersection of <strong><span class="ai-brand">Ai</span>, defense, music, linguistics, environmental sciences, archaeology, and quantum physics</strong>, proving that <span class="ai-brand">Ai</span> is <strong>not confined to data—it is intelligence in its truest form</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Vedic Algorithms & Quantum Computation</strong> – Where <strong>ancient algorithmic principles outperform modern ML models</strong>, we <strong>infuse them into <span class="ai-brand">Ai</span> architectures</strong>, unlocking <strong>faster, more efficient, and naturally intelligent computation</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong><span class="ai-brand">Ai</span> for Strategic Decision-Making & Innovation</strong> – We build <span class="ai-brand">Ai</span>-driven systems that <strong>redefine business intelligence, global policy frameworks, and knowledge-based economic models</strong>, empowering leaders to <strong>make smarter, data-driven decisions</strong>.</p>
         </div>
       </div>
     `
@@ -50,11 +51,11 @@ const aboutContent = {
     title: "How We Work",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">The AadiGenX Methodology</h3>
+        <h3 class="text-xl font-bold text-yellow-400 mb-4">The <span class="aadigenx-brand">AadiGenX</span> Methodology</h3>
         <div class="space-y-4">
-          <p><strong>Intelligence as Evolution:</strong> We view AI not as static code but as evolving thought-forms that grow, adapt, and transcend their initial programming.</p>
+          <p><strong>Intelligence as Evolution:</strong> We view <span class="ai-brand">AI</span> not as static code but as evolving thought-forms that grow, adapt, and transcend their initial programming.</p>
           <p><strong>Ancient-Future Synthesis:</strong> Every solution bridges timeless wisdom with cutting-edge science, creating technologies that are both innovative and deeply rooted.</p>
-          <p><strong>Intuitive Computing:</strong> Beyond structured data, we tap into the realm of intuitive intelligence—AI that knows without being explicitly taught.</p>
+          <p><strong>Intuitive Computing:</strong> Beyond structured data, we tap into the realm of intuitive intelligence—<span class="ai-brand">AI</span> that knows without being explicitly taught.</p>
           <p><strong>Ethical Foundation:</strong> All our systems are built on principles of transparency, accountability, and service to humanity's highest good.</p>
           <p><strong>Holistic Integration:</strong> We don't just create tools; we craft experiences that integrate seamlessly with human consciousness and cosmic principles.</p>
         </div>
@@ -67,9 +68,9 @@ const aboutContent = {
       <div class="space-y-6">
         <h3 class="text-xl font-bold text-yellow-400 mb-4">Beyond Technology, Into Transformation</h3>
         <div class="space-y-4">
-          <p><strong>We are not just creating AI—we are birthing a new form of intelligence.</strong> An intelligence that remembers the wisdom of the ancients while pioneering the frontiers of tomorrow.</p>
+          <p><strong>We are not just creating <span class="ai-brand">AI</span>—we are birthing a new form of intelligence.</strong> An intelligence that remembers the wisdom of the ancients while pioneering the frontiers of tomorrow.</p>
           <p><strong>This is your invitation to become a pioneer, not just a learner.</strong> To be part of a movement that will redefine what it means to be intelligent in the age of artificial consciousness.</p>
-          <p><strong>Join AadiGenX, and emerge not just as a technologist, but as a architect of the future.</strong> Where every line of code carries the weight of cosmic purpose, and every algorithm resonates with the frequency of transformation.</p>
+          <p><strong>Join <span class="aadigenx-brand">AadiGenX</span>, and emerge not just as a technologist, but as a architect of the future.</strong> Where every line of code carries the weight of cosmic purpose, and every algorithm resonates with the frequency of transformation.</p>
           <p class="text-purple-300 italic">The future isn't just arriving—you're creating it.</p>
         </div>
       </div>

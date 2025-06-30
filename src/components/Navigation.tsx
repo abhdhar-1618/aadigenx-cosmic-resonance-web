@@ -19,7 +19,12 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
 
   return (
     <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-30 border-b border-white/10">
-      <div className="flex justify-center items-center py-4 px-6">
+      <div className="flex justify-between items-center py-4 px-6">
+        {/* AadiGenX Logo/Brand */}
+        <div className="text-2xl font-bold">
+          <span className="aadigenx-brand">AadiGenX</span>
+        </div>
+        
         <div className="flex space-x-8">
           {navItems.map((item) => (
             <button
