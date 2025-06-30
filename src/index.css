@@ -80,9 +80,8 @@
     font-family: 'Calibri', 'Arial', sans-serif;
   }
 
-  /* Brand styling for AadiGenX */
+  /* Brand styling for AadiGenX with mixed fonts */
   .aadigenx-brand {
-    font-family: 'Arial', sans-serif;
     font-weight: bold;
     color: #000000;
     background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
@@ -93,9 +92,18 @@
     letter-spacing: 0.5px;
   }
 
-  /* Brand styling for Ai */
+  .aadigenx-brand .letter-A1 { font-family: 'Samarkan', serif; }
+  .aadigenx-brand .letter-a1 { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-a2 { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-d1 { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-i { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-G { font-family: 'Samarkan', serif; }
+  .aadigenx-brand .letter-e { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-n { font-family: 'Calibri', 'Arial', sans-serif; }
+  .aadigenx-brand .letter-X { font-family: 'Samarkan', serif; }
+
+  /* Brand styling for Ai with mixed fonts */
   .ai-brand {
-    font-family: 'Arial', sans-serif;
     font-weight: bold;
     color: #000000;
     background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
@@ -106,6 +114,9 @@
     letter-spacing: 0.5px;
     font-style: italic;
   }
+
+  .ai-brand .letter-A-ai { font-family: 'Samarkan', serif; }
+  .ai-brand .letter-i-ai { font-family: 'Calibri', 'Arial', sans-serif; }
 
   /* Custom scrollbar */
   .custom-scrollbar::-webkit-scrollbar {

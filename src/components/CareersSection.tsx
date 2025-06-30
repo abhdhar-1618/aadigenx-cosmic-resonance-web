@@ -25,7 +25,7 @@ export const CareersSection = () => {
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-purple-400 mx-auto rounded-full animate-pulse"></div>
           <p className="text-white/60 mt-6 text-lg">
-            Opportunities to join our mission of bridging ancient wisdom with future <span className="ai-brand">Ai</span> at <span className="aadigenx-brand">AadiGenX</span> are coming soon.
+            Opportunities to join our mission of bridging ancient wisdom with future <span className="ai-brand"><span className="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> at <span className="aadigenx-brand"><span className="letter-A1">A</span><span className="letter-a1">a</span><span className="letter-a2">a</span><span className="letter-d1">d</span><span className="letter-i">i</span><span className="letter-G">G</span><span className="letter-e">e</span><span className="letter-n">n</span><span className="letter-X">X</span></span> are coming soon.
           </p>
         </div>
       </div>

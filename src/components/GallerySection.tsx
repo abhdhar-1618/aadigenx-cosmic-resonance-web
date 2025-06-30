@@ -25,7 +25,7 @@ export const GallerySection = () => {
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-purple-400 mx-auto rounded-full animate-pulse"></div>
           <p className="text-white/60 mt-6 text-lg">
-            Our visual journey through ancient wisdom and future technology powered by <span className="ai-brand">Ai</span> is being curated.
+            Our visual journey through ancient wisdom and future technology powered by <span className="ai-brand"><span className="letter-A-ai">A</span><span className="letter-i-ai">i</span></span> is being curated.
           </p>
         </div>
       </div>
