@@ -112,13 +112,13 @@ export const AboutSection = () => {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/40" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-1/4">
-            <div className="bg-black/40 backdrop-blur-md rounded-lg p-6 border border-white/10 sticky top-24">
+            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 border border-white/5 sticky top-24">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About AadiGenX</h2>
               <nav className="space-y-2">
                 {tabs.map((tab) => (
@@ -128,7 +128,7 @@ export const AboutSection = () => {
                     className={`
                       w-full text-left px-4 py-3 rounded-md transition-all duration-300
                       ${activeTab === tab.id 
-                        ? 'bg-yellow-400/20 text-yellow-400 border-l-4 border-yellow-400' 
+                        ? 'bg-yellow-400/10 text-yellow-400 border-l-4 border-yellow-400' 
                         : 'text-white/70 hover:text-white hover:bg-white/5'
                       }
                     `}
@@ -142,7 +142,7 @@ export const AboutSection = () => {
 
           {/* Right Content Panel */}
           <div className="lg:w-3/4">
-            <div className="bg-black/40 backdrop-blur-md rounded-lg p-8 border border-white/10 min-h-[600px]">
+            <div className="bg-black/20 backdrop-blur-md rounded-lg p-8 border border-white/5 min-h-[600px]">
               <div 
                 className="text-white leading-relaxed prose prose-invert max-w-none"
                 dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
