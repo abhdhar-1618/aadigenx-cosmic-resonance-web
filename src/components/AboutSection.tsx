@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const aboutContent = {
@@ -5,12 +6,13 @@ const aboutContent = {
     title: "Mission",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">Our Sacred Mission</h3>
-        <div class="space-y-4">
-          <p><strong>✤ Bridge Ancient Wisdom with Future Technology:</strong> Integrating timeless knowledge systems with cutting-edge AI to create solutions that honor both tradition and innovation.</p>
-          <p><strong>✤ Democratize Cosmic Intelligence:</strong> Making advanced AI accessible to everyone, transcending economic and geographical boundaries.</p>
-          <p><strong>✤ Pioneer Conscious Computing:</strong> Developing AI systems that operate with awareness, ethics, and spiritual alignment.</p>
-          <p><strong>✤ Foster Human-AI Synergy:</strong> Creating harmonious relationships between human consciousness and artificial intelligence.</p>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">Mission: Expanding the Horizons of Ai</h3>
+        <p class="text-lg mb-4 calibri">At AadiGenX, we are on a mission to:</p>
+        <div class="space-y-6 calibri">
+          <p><span class="text-yellow-400">◉</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate Ai with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Align Ai & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven Ai systems that enhance rather than replace human intelligence.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Evolve Ai from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & NeuroAi</strong> pushes Ai beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
+          <p><span class="text-yellow-400">◉</span> <strong>Unify No-Code, Low-Code & Hardcore Ai Development</strong> – We cater to every level of Ai accessibility, from democratized Ai applications to advanced research in Quantum Ai, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
         </div>
       </div>
     `

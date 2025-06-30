@@ -76,6 +76,10 @@
     font-family: 'Inter', sans-serif;
   }
 
+  .calibri {
+    font-family: 'Calibri', 'Arial', sans-serif;
+  }
+
   /* Custom scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
