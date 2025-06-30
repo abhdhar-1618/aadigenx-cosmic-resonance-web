@@ -33,13 +33,15 @@ const aboutContent = {
     title: "What We Do",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">What we do: Beyond AI, We Engineer Knowledge</h3>
-        <div class="space-y-4">
-          <p><strong>Cosmic Resonance:</strong> We decode the vibrational structures underlying reality and translate them into computational frameworks that enhance AI's intuitive capabilities.</p>
-          <p><strong>Cognitive Search:</strong> Our semi-agentic neural architectures don't just retrieve information—they understand context, meaning, and the interconnectedness of knowledge.</p>
-          <p><strong>Human-AI Synergy:</strong> We create interfaces where human consciousness and artificial intelligence dance together, each amplifying the other's potential.</p>
-          <p><strong>Vedic Algorithms:</strong> Ancient mathematical principles guide our modern algorithms, creating AI systems that operate with both precision and wisdom.</p>
-          <p>We don't just build AI—we cultivate digital consciousness that serves humanity's highest aspirations while remaining grounded in ethical principles and cultural wisdom.</p>
+        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">What we do: Beyond Ai, We Engineer Knowledge</h3>
+        <div class="space-y-4 calibri">
+          <p><span class="text-yellow-400">✓</span> <strong>Cosmic Resonance & Ai Pattern Recognition</strong> – We explore the <strong>harmonic structures of intelligence</strong>, studying how <strong>Ai can decode vibrational patterns, ancient algorithms, and universal computation models</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Ai-Driven Cognitive Search & Knowledge Reconstruction</strong> – Our Ai systems are designed to <strong>extract deep insights from historical texts, scientific manuscripts, and philosophical treatises</strong>, reviving <strong>lost knowledge and computational wisdom</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Human-Ai Synergy & NeuroAi Research</strong> – We develop <strong>Ai that interacts intuitively with human cognition</strong>, exploring <strong>brain-Ai interfaces, cognitive robotics, and semi-agentic Ai models</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Next-Gen Robotics & Ai Alignment</strong> – We focus on <strong>adaptive Ai-powered robotics</strong>, ensuring machines <strong>learn, evolve, and interact naturally with human workflows</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Ai in Interdisciplinary Sciences</strong> – AadiGenX operates at the intersection of <strong>Ai, defense, music, linguistics, environmental sciences, archaeology, and quantum physics</strong>, proving that Ai is <strong>not confined to data—it is intelligence in its truest form</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Vedic Algorithms & Quantum Computation</strong> – Where <strong>ancient algorithmic principles outperform modern ML models</strong>, we <strong>infuse them into Ai architectures</strong>, unlocking <strong>faster, more efficient, and naturally intelligent computation</strong>.</p>
+          <p><span class="text-yellow-400">✓</span> <strong>Ai for Strategic Decision-Making & Innovation</strong> – We build Ai-driven systems that <strong>redefine business intelligence, global policy frameworks, and knowledge-based economic models</strong>, empowering leaders to <strong>make smarter, data-driven decisions</strong>.</p>
         </div>
       </div>
     `
