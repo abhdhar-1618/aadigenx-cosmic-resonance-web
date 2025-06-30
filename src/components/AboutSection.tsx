@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -115,13 +116,13 @@ export const AboutSection = () => {
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40" />
       
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-6xl mx-auto relative z-10 px-4">
+        <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
-          <div className="lg:w-1/4">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 border border-white/5 sticky top-24">
+          <div className="lg:w-1/3 flex-shrink-0">
+            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 border border-white/5 h-full flex flex-col">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About AadiGenX</h2>
-              <nav className="space-y-2">
+              <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
@@ -142,9 +143,9 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Content Panel */}
-          <div className="lg:w-3/4">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg border border-white/5 overflow-hidden">
-              <ScrollArea className="h-[calc(100vh-200px)] p-8">
+          <div className="lg:w-2/3 flex-shrink-0">
+            <div className="bg-black/20 backdrop-blur-md rounded-lg border border-white/5 h-full overflow-hidden">
+              <ScrollArea className="h-full p-8">
                 <div 
                   className="text-white leading-relaxed prose prose-invert max-w-none"
                   dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
