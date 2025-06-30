@@ -116,11 +116,11 @@ export const AboutSection = () => {
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40" />
       
-      <div className="max-w-6xl mx-auto relative z-10 px-4">
+      <div className="max-w-5xl mx-auto relative z-10 px-8">
         <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-1/3 flex-shrink-0">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 border border-white/5 h-full flex flex-col">
+            <div className="bg-black/10 backdrop-blur-md rounded-lg p-6 border border-white/3 h-full flex flex-col">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About AadiGenX</h2>
               <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
@@ -144,7 +144,7 @@ export const AboutSection = () => {
 
           {/* Right Content Panel */}
           <div className="lg:w-2/3 flex-shrink-0">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg border border-white/5 h-full overflow-hidden">
+            <div className="bg-black/10 backdrop-blur-md rounded-lg border border-white/3 h-full overflow-hidden">
               <ScrollArea className="h-full p-8">
                 <div 
                   className="text-white leading-relaxed prose prose-invert max-w-none"
