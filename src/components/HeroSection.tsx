@@ -62,7 +62,7 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
   }, [triggerAudioSequence, audioSequenceStarted]);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-16 md:pt-20">
       {/* Background Video - shows after logo rotation */}
       {showBackgroundVideo && (
         <video
@@ -86,30 +86,30 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black/40 to-black/60 z-10" />
 
       {/* Welcome Text */}
-      <div className="relative z-20 text-center mb-8 px-4 animate-fade-in">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">
+      <div className="relative z-20 text-center mb-6 md:mb-8 px-4 animate-fade-in">
+        <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4 tracking-wide leading-tight">
           प्राचीनानां निनादः भविष्यस्य संरचना
         </h1>
-        <p className="text-lg md:text-xl text-white/80 font-light">
+        <p className="text-sm sm:text-lg md:text-xl text-white/80 font-light px-2">
           The Echo of the Ancient, The Architecture of the Future
         </p>
       </div>
 
       {/* Logo - rotates during audio sequence */}
-      <div className="relative z-20 mb-8 animate-fade-in">
+      <div className="relative z-20 mb-6 md:mb-8 animate-fade-in">
         <img
           ref={logoRef}
           src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx%20Logo_Clear_BG.png"
           alt="AadiGenX Logo"
-          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-om-sync-rotation' : ''}`}
+          className={`w-32 sm:w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-om-sync-rotation' : ''}`}
         />
       </div>
 
       {/* Scroll Indicator - only shown after the entire sequence completes */}
       {!logoSpinning && showBackgroundVideo && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+          <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-2 md:h-3 bg-white/50 rounded-full mt-1 md:mt-2 animate-pulse"></div>
           </div>
         </div>
       )}
