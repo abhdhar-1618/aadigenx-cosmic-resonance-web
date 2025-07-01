@@ -40,41 +40,6 @@ export const ClickOverlay = ({ onClick }: ClickOverlayProps) => {
           </p>
         </div>
 
-        {/* Ornate circular mandala design */}
-        <div className="relative mx-auto w-48 h-48 md:w-64 md:h-64 mb-8">
-          {/* Outer ring with decorative elements */}
-          <div className="absolute inset-0 border-2 border-yellow-400/40 rounded-full animate-pulse">
-            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-400/60 rounded-full"></div>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-400/60 rounded-full"></div>
-            <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-yellow-400/60 rounded-full"></div>
-            <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-yellow-400/60 rounded-full"></div>
-          </div>
-          
-          {/* Middle ring */}
-          <div className="absolute inset-4 border border-teal-400/30 rounded-full animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
-            {/* Decorative spokes */}
-            <div className="absolute inset-0">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-8 bg-teal-400/40"></div>
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-px h-8 bg-teal-400/40"></div>
-              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 h-px w-8 bg-teal-400/40"></div>
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 h-px w-8 bg-teal-400/40"></div>
-            </div>
-          </div>
-          
-          {/* Inner core */}
-          <div className="absolute inset-8 bg-gradient-to-br from-yellow-400/20 to-teal-400/20 rounded-full border border-yellow-400/30 flex items-center justify-center">
-            <div className="w-16 h-16 border-2 border-yellow-400/50 rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 bg-yellow-400/30 rounded-full animate-pulse"></div>
-            </div>
-          </div>
-          
-          {/* Rotating outer elements */}
-          <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s' }}>
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-2 h-8 bg-gradient-to-b from-yellow-400/60 to-transparent"></div>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-2 h-8 bg-gradient-to-t from-yellow-400/60 to-transparent"></div>
-          </div>
-        </div>
-
         {/* Click instruction */}
         <p className="text-white/60 text-lg animate-pulse">
           Click anywhere to continue
