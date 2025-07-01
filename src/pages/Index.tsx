@@ -83,7 +83,9 @@ const Index = () => {
         <>
           <Navigation 
             currentSection={currentSection} 
-            onNavigate={handleNavigation} 
+            onNavigate={handleNavigation}
+            onHome={handleHomeNavigation}
+            disabled={false}
           />
           
           {currentSection === 'home' && (
