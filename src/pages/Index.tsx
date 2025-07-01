@@ -14,6 +14,7 @@ const Index = () => {
   const [hasNavigated, setHasNavigated] = useState(false);
   const [triggerLogoSpin, setTriggerLogoSpin] = useState(false);
   const [navigationEnabled, setNavigationEnabled] = useState(false);
+  const [showHeroSection, setShowHeroSection] = useState(false);
 
   // Debug logging
   useEffect(() => {
@@ -22,9 +23,10 @@ const Index = () => {
       introComplete,
       hasNavigated,
       triggerLogoSpin,
-      navigationEnabled
+      navigationEnabled,
+      showHeroSection
     });
-  }, [currentSection, introComplete, hasNavigated, triggerLogoSpin, navigationEnabled]);
+  }, [currentSection, introComplete, hasNavigated, triggerLogoSpin, navigationEnabled, showHeroSection]);
 
   const handleIntroComplete = () => {
     console.log('Intro sequence completed - enabling navigation');
@@ -33,7 +35,8 @@ const Index = () => {
   };
 
   const handleAudioStart = () => {
-    console.log('Audio started, triggering logo spin');
+    console.log('Audio started, showing hero section and triggering logo spin');
+    setShowHeroSection(true);
     setTriggerLogoSpin(true);
   };
 
@@ -57,7 +60,8 @@ const Index = () => {
         />
       )}
       
-      {introComplete && (
+      {/* Show HeroSection as soon as audio starts, even before intro is complete */}
+      {showHeroSection && (
         <>
           <Navigation 
             currentSection={currentSection} 

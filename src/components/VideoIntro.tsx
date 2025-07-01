@@ -61,46 +61,41 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
   const startAudioSequence = () => {
     console.log('Starting audio sequence');
     
-    // Add hide-video class and start fade out
+    // Start fading out immediately after video ends
     setIsExiting(true);
     
-    // After 3 seconds (matching your code), start the main content sequence
-    setTimeout(() => {
-      console.log('Starting main content and audio playback');
-      
-      // Trigger logo rotation
-      if (onAudioStart) {
-        onAudioStart();
-      }
-      
-      const audio = audioRef.current;
-      if (audio) {
-        console.log('Playing audio for 11 seconds');
-        audio.currentTime = 0;
-        audio.play().then(() => {
-          // After 11 seconds, complete the intro sequence
-          setTimeout(() => {
-            console.log('Audio sequence complete');
-            onComplete();
-          }, 11000);
-        }).catch((error) => {
-          console.log('Audio play failed:', error);
-          // Still complete after 11 seconds even if audio fails
-          setTimeout(() => {
-            onComplete();
-          }, 11000);
-        });
-      } else {
-        // If no audio, still wait 11 seconds
+    // Trigger logo rotation and audio immediately
+    if (onAudioStart) {
+      onAudioStart();
+    }
+    
+    const audio = audioRef.current;
+    if (audio) {
+      console.log('Playing audio for 11 seconds');
+      audio.currentTime = 0;
+      audio.play().then(() => {
+        // After 11 seconds, complete the intro sequence
+        setTimeout(() => {
+          console.log('Audio sequence complete');
+          onComplete();
+        }, 11000);
+      }).catch((error) => {
+        console.log('Audio play failed:', error);
+        // Still complete after 11 seconds even if audio fails
         setTimeout(() => {
           onComplete();
         }, 11000);
-      }
-    }, 3000);
+      });
+    } else {
+      // If no audio, still wait 11 seconds
+      setTimeout(() => {
+        onComplete();
+      }, 11000);
+    }
   };
 
   return (
-    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[3000ms] ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[2000ms] ${isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {/* Video element */}
       <video
         ref={videoRef}
