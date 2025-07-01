@@ -37,6 +37,10 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
         console.log('Video ended, starting fade out and showing click overlay');
         setIsExiting(true);
         
+        // Call onComplete immediately when video ends to enable navigation
+        console.log('Calling onComplete to enable navigation');
+        onComplete();
+        
         // Show click overlay after 3 second fade
         setTimeout(() => {
           console.log('Video hidden, showing click overlay');
@@ -49,6 +53,8 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
       const handleError = (e: Event) => {
         console.log('Video error:', e);
         setVideoError(true);
+        // Also call onComplete on error to ensure navigation works
+        onComplete();
       };
 
       video.addEventListener('canplay', handleCanPlay);
@@ -63,7 +69,7 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
         video.removeEventListener('error', handleError);
       };
     }
-  }, [onShowClickOverlay]);
+  }, [onComplete, onShowClickOverlay]);
 
   return (
     <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[3000ms] ${isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
