@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { VideoIntro } from '@/components/VideoIntro';
+import { ClickOverlay } from '@/components/ClickOverlay';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { GallerySection } from '@/components/GallerySection';
@@ -13,9 +14,10 @@ const Index = () => {
   const [currentSection, setCurrentSection] = useState('home');
   const [introComplete, setIntroComplete] = useState(false);
   const [hasNavigated, setHasNavigated] = useState(false);
-  const [triggerLogoSpin, setTriggerLogoSpin] = useState(false);
+  const [showClickOverlay, setShowClickOverlay] = useState(false);
+  const [triggerAudioSequence, setTriggerAudioSequence] = useState(false);
   const [navigationEnabled, setNavigationEnabled] = useState(false);
-  const [showHeroSection, setShowHeroSection] = useState(false);
+  const [showMainContent, setShowMainContent] = useState(false);
 
   // Debug logging
   useEffect(() => {
@@ -23,11 +25,12 @@ const Index = () => {
       currentSection,
       introComplete,
       hasNavigated,
-      triggerLogoSpin,
+      showClickOverlay,
+      triggerAudioSequence,
       navigationEnabled,
-      showHeroSection
+      showMainContent
     });
-  }, [currentSection, introComplete, hasNavigated, triggerLogoSpin, navigationEnabled, showHeroSection]);
+  }, [currentSection, introComplete, hasNavigated, showClickOverlay, triggerAudioSequence, navigationEnabled, showMainContent]);
 
   const handleIntroComplete = () => {
     console.log('Intro sequence completed - enabling navigation');
@@ -35,10 +38,16 @@ const Index = () => {
     setNavigationEnabled(true);
   };
 
-  const handleAudioStart = () => {
-    console.log('Audio started, showing hero section and triggering logo spin');
-    setShowHeroSection(true);
-    setTriggerLogoSpin(true);
+  const handleShowClickOverlay = () => {
+    console.log('Showing click overlay and main content');
+    setShowClickOverlay(true);
+    setShowMainContent(true);
+  };
+
+  const handleClickOverlayStart = () => {
+    console.log('Click overlay clicked - starting audio sequence');
+    setShowClickOverlay(false);
+    setTriggerAudioSequence(true);
   };
 
   const handleNavigation = (section: string) => {
@@ -57,13 +66,18 @@ const Index = () => {
       {!introComplete && (
         <VideoIntro 
           onComplete={handleIntroComplete} 
-          onAudioStart={handleAudioStart}
+          onShowClickOverlay={handleShowClickOverlay}
         />
       )}
       
-      {/* Show HeroSection as soon as audio starts, even before intro is complete */}
-      {showHeroSection && (
-        <>
+      <ClickOverlay 
+        show={showClickOverlay} 
+        onStart={handleClickOverlayStart} 
+      />
+      
+      {/* Show main content after intro video ends */}
+      {showMainContent && (
+        <div className={`transition-opacity duration-200 ${showClickOverlay ? 'opacity-100' : 'opacity-100'}`}>
           <Navigation 
             currentSection={currentSection} 
             onNavigate={handleNavigation}
@@ -74,7 +88,7 @@ const Index = () => {
           {currentSection === 'home' && (
             <HeroSection 
               hasNavigated={hasNavigated} 
-              triggerLogoSpin={triggerLogoSpin}
+              triggerAudioSequence={triggerAudioSequence}
             />
           )}
           {currentSection === 'about' && <AboutSection />}
@@ -82,7 +96,7 @@ const Index = () => {
           {currentSection === 'blogs' && <BlogsSection />}
           {currentSection === 'careers' && <CareersSection />}
           {currentSection === 'contact' && <ContactSection />}
-        </>
+        </div>
       )}
     </div>
   );

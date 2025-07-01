@@ -3,12 +3,11 @@ import React, { useRef, useEffect, useState } from 'react';
 
 interface VideoIntroProps {
   onComplete: () => void;
-  onAudioStart?: () => void;
+  onShowClickOverlay?: () => void;
 }
 
-export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
+export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
@@ -35,8 +34,16 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
       };
 
       const handleEnded = () => {
-        console.log('Video ended, starting audio and logo rotation sequence');
-        startAudioSequence();
+        console.log('Video ended, starting fade out and showing click overlay');
+        setIsExiting(true);
+        
+        // Show click overlay after 3 second fade
+        setTimeout(() => {
+          console.log('Video hidden, showing click overlay');
+          if (onShowClickOverlay) {
+            onShowClickOverlay();
+          }
+        }, 3000);
       };
 
       const handleError = (e: Event) => {
@@ -56,46 +63,10 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
         video.removeEventListener('error', handleError);
       };
     }
-  }, []);
-
-  const startAudioSequence = () => {
-    console.log('Starting audio sequence');
-    
-    // Start fading out immediately after video ends
-    setIsExiting(true);
-    
-    // Trigger logo rotation and audio immediately
-    if (onAudioStart) {
-      onAudioStart();
-    }
-    
-    const audio = audioRef.current;
-    if (audio) {
-      console.log('Playing audio for 11 seconds');
-      audio.currentTime = 0;
-      audio.play().then(() => {
-        // After 11 seconds, complete the intro sequence
-        setTimeout(() => {
-          console.log('Audio sequence complete');
-          onComplete();
-        }, 11000);
-      }).catch((error) => {
-        console.log('Audio play failed:', error);
-        // Still complete after 11 seconds even if audio fails
-        setTimeout(() => {
-          onComplete();
-        }, 11000);
-      });
-    } else {
-      // If no audio, still wait 11 seconds
-      setTimeout(() => {
-        onComplete();
-      }, 11000);
-    }
-  };
+  }, [onShowClickOverlay]);
 
   return (
-    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[2000ms] ${isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[3000ms] ${isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {/* Video element */}
       <video
         ref={videoRef}
@@ -107,11 +78,6 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
       >
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Vedic_Temple_Splendor_remix_02.mp4" type="video/mp4" />
       </video>
-
-      {/* Audio element for the 11-second sequence */}
-      <audio ref={audioRef} preload="auto">
-        <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
-      </audio>
 
       {/* Fallback content shown when video fails to load or while loading */}
       {(!videoLoaded || videoError) && (

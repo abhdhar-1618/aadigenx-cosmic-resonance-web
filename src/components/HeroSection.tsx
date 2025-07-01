@@ -3,65 +3,67 @@ import React, { useRef, useEffect, useState } from 'react';
 
 interface HeroSectionProps {
   hasNavigated: boolean;
-  triggerLogoSpin?: boolean;
+  triggerAudioSequence?: boolean;
 }
 
-export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps) => {
+export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const [logoSpinning, setLogoSpinning] = useState(false);
   const [showBackgroundVideo, setShowBackgroundVideo] = useState(false);
-  const [hasSpun, setHasSpun] = useState(false);
+  const [audioSequenceStarted, setAudioSequenceStarted] = useState(false);
 
-  console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerLogoSpin:', triggerLogoSpin, 'hasSpun:', hasSpun);
+  console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerAudioSequence:', triggerAudioSequence);
 
-  // Handle logo spinning trigger from the intro sequence - only once
+  // Handle audio sequence trigger from click overlay
   useEffect(() => {
-    if (triggerLogoSpin && !hasSpun && !logoSpinning) {
-      console.log('Starting synchronized logo rotation with Om chanting - medium pace smooth blend');
+    if (triggerAudioSequence && !audioSequenceStarted) {
+      console.log('Starting audio and logo rotation sequence');
+      setAudioSequenceStarted(true);
       setLogoSpinning(true);
-      setHasSpun(true);
-      setShowBackgroundVideo(true);
       
-      // Start background video immediately with visible opacity
-      const video = videoRef.current;
-      if (video) {
-        console.log('Starting background video with immediate visibility');
-        video.currentTime = 0;
-        video.play().then(() => {
-          // Set initial visible opacity immediately after play starts
-          video.style.opacity = '0.4';
-          console.log('Background video playing with opacity 0.4');
-        }).catch(console.error);
+      // Start audio
+      const audio = audioRef.current;
+      if (audio) {
+        audio.muted = false;
+        audio.currentTime = 0;
+        audio.play().then(() => {
+          console.log('Audio playing with logo rotation');
+        }).catch(err => console.log("Audio blocked:", err));
       }
       
-      // After exactly 11 seconds, stop spinning and enhance background
-      const spinTimeout = setTimeout(() => {
-        console.log('Logo rotation complete after 11 seconds, enhancing background video');
+      // After 11 seconds, stop logo rotation and start background video sequence
+      setTimeout(() => {
+        console.log('Logo rotation complete, starting background video sequence');
         setLogoSpinning(false);
+        setShowBackgroundVideo(true);
         
+        const video = videoRef.current;
         if (video) {
-          // Make background video more prominent after logo rotation
-          video.style.opacity = '0.7';
-          console.log('Background video enhanced to opacity 0.7');
+          video.style.opacity = '1';
+          video.currentTime = 0;
           
-          // After 4 more seconds, fade to subtle background
-          const fadeTimeout = setTimeout(() => {
-            video.style.opacity = '0.3';
-            console.log('Background video faded to subtle background opacity 0.3');
-          }, 4000);
-          
-          return () => clearTimeout(fadeTimeout);
+          setTimeout(() => {
+            video.play().then(() => {
+              console.log('Background video playing');
+              
+              // Stop video after 4 seconds and fade out
+              setTimeout(() => {
+                video.pause();
+                video.style.opacity = '0';
+                console.log('Background video sequence complete');
+              }, 4000);
+            });
+          }, 300);
         }
       }, 11000);
-      
-      return () => clearTimeout(spinTimeout);
     }
-  }, [triggerLogoSpin, hasSpun, logoSpinning]);
+  }, [triggerAudioSequence, audioSequenceStarted]);
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
-      {/* Background Video - shows immediately when sequence starts */}
+      {/* Background Video - shows after logo rotation */}
       {showBackgroundVideo && (
         <video
           ref={videoRef}
@@ -70,11 +72,15 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
           muted
           playsInline
           preload="auto"
-          loop
         >
           <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Ancient%20Futuristic%20Fusion_simple_compose.mp4" type="video/mp4" />
         </video>
       )}
+
+      {/* Audio element for the 11-second Om chanting */}
+      <audio ref={audioRef} preload="auto" muted>
+        <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
+      </audio>
 
       {/* Cosmic Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black/40 to-black/60 z-10" />
@@ -89,7 +95,7 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         </p>
       </div>
 
-      {/* Logo - synchronized with Om chanting in medium pace smooth rotation */}
+      {/* Logo - rotates during audio sequence */}
       <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
@@ -99,7 +105,7 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         />
       </div>
 
-      {/* Scroll Indicator - only shown after the logo rotation completes */}
+      {/* Scroll Indicator - only shown after the entire sequence completes */}
       {!logoSpinning && showBackgroundVideo && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
