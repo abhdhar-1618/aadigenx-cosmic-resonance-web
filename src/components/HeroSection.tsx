@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 
 interface HeroSectionProps {
@@ -7,69 +8,53 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [logoSpinning, setLogoSpinning] = useState(false);
+  const [showBackgroundVideo, setShowBackgroundVideo] = useState(false);
 
   console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerLogoSpin:', triggerLogoSpin);
 
-  useEffect(() => {
-    const video = videoRef.current;
-
-    // Always play the background video
-    if (video) {
-      console.log('Starting background video playback');
-      video.currentTime = 0;
-      video.play().catch(console.error);
-    }
-
-    return () => {
-      if (video) video.pause();
-    };
-  }, [hasNavigated]);
-
-  // Handle logo spinning trigger
+  // Handle logo spinning trigger from the intro sequence
   useEffect(() => {
     if (triggerLogoSpin && !logoSpinning) {
-      console.log('Triggering logo spin animation');
-      handleLogoClick();
+      console.log('Starting logo rotation for 11 seconds');
+      setLogoSpinning(true);
+      
+      // After 11 seconds, stop spinning and start background video animation
+      setTimeout(() => {
+        console.log('Logo rotation complete, starting background video');
+        setLogoSpinning(false);
+        setShowBackgroundVideo(true);
+        
+        const video = videoRef.current;
+        if (video) {
+          video.style.opacity = '1';
+          video.currentTime = 0;
+          
+          setTimeout(() => {
+            video.play().then(() => {
+              // Play for 4 seconds then pause and fade out
+              setTimeout(() => {
+                video.pause();
+                video.style.opacity = '0';
+              }, 4000);
+            }).catch(console.error);
+          }, 300);
+        }
+      }, 11000);
     }
   }, [triggerLogoSpin, logoSpinning]);
 
-  const handleLogoClick = () => {
-    const audio = audioRef.current;
-    const logo = logoRef.current;
-    
-    if (audio && logo) {
-      console.log('Playing audio and starting logo animation');
-      setLogoSpinning(true);
-      audio.currentTime = 0;
-      audio.play().then(() => {
-        setIsPlaying(true);
-        
-        setTimeout(() => {
-          setLogoSpinning(false);
-          setIsPlaying(false);
-        }, 11000);
-      }).catch((error) => {
-        console.error('Audio play failed:', error);
-        setIsPlaying(false);
-        setLogoSpinning(false);
-      });
-    }
-  };
-
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Video - always visible */}
+      {/* Background Video - starts invisible, becomes visible during sequence */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000"
+        style={{ opacity: 0 }}
         muted
         playsInline
-        loop
-        autoPlay
+        preload="auto"
       >
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Ancient%20Futuristic%20Fusion_simple_compose.mp4" type="video/mp4" />
       </video>
@@ -87,33 +72,24 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         </p>
       </div>
 
-      {/* Logo - clickable to trigger audio, only spins on initial access */}
+      {/* Logo - spins during the 11-second audio sequence */}
       <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
           src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx%20Logo_Clear_BG.png"
           alt="AadiGenX Logo"
-          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 cursor-pointer hover:scale-105 ${logoSpinning ? 'animate-spin' : ''}`}
-          onClick={handleLogoClick}
+          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-spin' : ''}`}
         />
-        {!isPlaying && !logoSpinning && (
-          <p className="text-white/60 text-sm mt-4 animate-pulse">Click the logo to awaken</p>
-        )}
       </div>
 
-      {/* Audio - corrected file path */}
-      <audio ref={audioRef} preload="auto">
-        <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.ogg" type="audio/ogg" />
-        <source src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Om_Aum.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+      {/* Scroll Indicator - only shown after the sequence completes */}
+      {showBackgroundVideo && (
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

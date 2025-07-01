@@ -9,24 +9,12 @@ interface VideoIntroProps {
 export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [showSkip, setShowSkip] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     console.log('VideoIntro component mounted');
-    
-    // Show skip button after 2 seconds
-    const skipTimer = setTimeout(() => {
-      setShowSkip(true);
-    }, 2000);
-
-    // Auto-complete after 15 seconds to allow full video playback
-    const autoCompleteTimer = setTimeout(() => {
-      console.log('Auto-completing intro after 15 seconds');
-      handleComplete();
-    }, 15000);
 
     const video = videoRef.current;
     if (video) {
@@ -47,8 +35,8 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
       };
 
       const handleEnded = () => {
-        console.log('Video ended naturally, playing audio');
-        playAudioAndComplete();
+        console.log('Video ended, starting audio and logo rotation sequence');
+        startAudioSequence();
       };
 
       const handleError = (e: Event) => {
@@ -66,58 +54,54 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
         video.removeEventListener('loadeddata', handleLoadedData);
         video.removeEventListener('ended', handleEnded);
         video.removeEventListener('error', handleError);
-        clearTimeout(skipTimer);
-        clearTimeout(autoCompleteTimer);
       };
     }
-
-    return () => {
-      clearTimeout(skipTimer);
-      clearTimeout(autoCompleteTimer);
-    };
   }, []);
 
-  const playAudioAndComplete = () => {
-    console.log('Starting audio playback and logo rotation');
+  const startAudioSequence = () => {
+    console.log('Starting audio sequence');
     
-    // Trigger logo rotation
-    if (onAudioStart) {
-      onAudioStart();
-    }
-    
-    const audio = audioRef.current;
-    if (audio) {
-      console.log('Playing intro completion audio');
-      audio.play().then(() => {
-        // Wait for audio to finish, then complete intro
-        audio.addEventListener('ended', () => {
-          handleComplete();
-        });
-      }).catch((error) => {
-        console.log('Audio play failed:', error);
-        handleComplete();
-      });
-    } else {
-      handleComplete();
-    }
-  };
-
-  const handleComplete = () => {
-    console.log('Starting intro exit animation');
+    // Add hide-video class and start fade out
     setIsExiting(true);
+    
+    // After 3 seconds (matching your code), start the main content sequence
     setTimeout(() => {
-      onComplete();
-    }, 500); // Wait for fade out animation
-  };
-
-  const handleSkip = () => {
-    console.log('User skipped intro');
-    handleComplete();
+      console.log('Starting main content and audio playback');
+      
+      // Trigger logo rotation
+      if (onAudioStart) {
+        onAudioStart();
+      }
+      
+      const audio = audioRef.current;
+      if (audio) {
+        console.log('Playing audio for 11 seconds');
+        audio.currentTime = 0;
+        audio.play().then(() => {
+          // After 11 seconds, complete the intro sequence
+          setTimeout(() => {
+            console.log('Audio sequence complete');
+            onComplete();
+          }, 11000);
+        }).catch((error) => {
+          console.log('Audio play failed:', error);
+          // Still complete after 11 seconds even if audio fails
+          setTimeout(() => {
+            onComplete();
+          }, 11000);
+        });
+      } else {
+        // If no audio, still wait 11 seconds
+        setTimeout(() => {
+          onComplete();
+        }, 11000);
+      }
+    }, 3000);
   };
 
   return (
-    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-500 ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
-      {/* Video element - now visible and properly configured */}
+    <div className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[3000ms] ${isExiting ? 'opacity-0' : 'opacity-100'}`}>
+      {/* Video element */}
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
@@ -129,7 +113,7 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Vedic_Temple_Splendor_remix_02.mp4" type="video/mp4" />
       </video>
 
-      {/* Audio element for post-video playback */}
+      {/* Audio element for the 11-second sequence */}
       <audio ref={audioRef} preload="auto">
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
       </audio>
@@ -147,18 +131,6 @@ export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
               <p className="text-red-400 mb-6">Video loading failed, continuing...</p>
             )}
           </div>
-        </div>
-      )}
-
-      {/* Skip button overlay */}
-      {showSkip && !isExiting && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-fade-in">
-          <button
-            onClick={handleSkip}
-            className="bg-yellow-400/20 backdrop-blur-md text-white px-6 py-3 rounded-lg hover:bg-yellow-400/30 transition-all duration-300 border border-yellow-400/30"
-          >
-            Enter Site
-          </button>
         </div>
       )}
     </div>
