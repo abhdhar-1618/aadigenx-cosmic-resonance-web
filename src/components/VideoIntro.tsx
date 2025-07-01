@@ -7,6 +7,7 @@ interface VideoIntroProps {
 
 export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [showSkip, setShowSkip] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -45,8 +46,8 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       };
 
       const handleEnded = () => {
-        console.log('Video ended naturally');
-        handleComplete();
+        console.log('Video ended naturally, playing audio');
+        playAudioAndComplete();
       };
 
       const handleError = (e: Event) => {
@@ -75,6 +76,24 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
     };
   }, []);
 
+  const playAudioAndComplete = () => {
+    const audio = audioRef.current;
+    if (audio) {
+      console.log('Playing intro completion audio');
+      audio.play().then(() => {
+        // Wait for audio to finish, then complete intro
+        audio.addEventListener('ended', () => {
+          handleComplete();
+        });
+      }).catch((error) => {
+        console.log('Audio play failed:', error);
+        handleComplete();
+      });
+    } else {
+      handleComplete();
+    }
+  };
+
   const handleComplete = () => {
     console.log('Starting intro exit animation');
     setIsExiting(true);
@@ -101,6 +120,11 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       >
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Vedic_Temple_Splendor_remix_02.mp4" type="video/mp4" />
       </video>
+
+      {/* Audio element for post-video playback */}
+      <audio ref={audioRef} preload="auto">
+        <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
+      </audio>
 
       {/* Fallback content shown when video fails to load or while loading */}
       {(!videoLoaded || videoError) && (
