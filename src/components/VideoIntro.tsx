@@ -3,9 +3,10 @@ import React, { useRef, useEffect, useState } from 'react';
 
 interface VideoIntroProps {
   onComplete: () => void;
+  onAudioStart?: () => void;
 }
 
-export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
+export const VideoIntro = ({ onComplete, onAudioStart }: VideoIntroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showSkip, setShowSkip] = useState(false);
@@ -77,6 +78,13 @@ export const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   }, []);
 
   const playAudioAndComplete = () => {
+    console.log('Starting audio playback and logo rotation');
+    
+    // Trigger logo rotation
+    if (onAudioStart) {
+      onAudioStart();
+    }
+    
     const audio = audioRef.current;
     if (audio) {
       console.log('Playing intro completion audio');

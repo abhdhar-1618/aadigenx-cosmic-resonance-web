@@ -1,23 +1,21 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 
 interface HeroSectionProps {
   hasNavigated: boolean;
+  triggerLogoSpin?: boolean;
 }
 
-export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
+export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [logoSpinning, setLogoSpinning] = useState(false);
 
-  console.log('HeroSection rendered with hasNavigated:', hasNavigated);
+  console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerLogoSpin:', triggerLogoSpin);
 
   useEffect(() => {
     const video = videoRef.current;
-    const audio = audioRef.current;
-    const logo = logoRef.current;
 
     // Always play the background video
     if (video) {
@@ -26,19 +24,18 @@ export const HeroSection = ({ hasNavigated }: HeroSectionProps) => {
       video.play().catch(console.error);
     }
 
-    // Auto-trigger logo spinning only when first accessing the website (not on navigation back to home)
-    if (!hasNavigated && logo) {
-      setTimeout(() => {
-        console.log('Auto-triggering logo animation after intro');
-        handleLogoClick();
-      }, 1000);
-    }
-
     return () => {
       if (video) video.pause();
-      if (audio) audio.pause();
     };
   }, [hasNavigated]);
+
+  // Handle logo spinning trigger
+  useEffect(() => {
+    if (triggerLogoSpin && !logoSpinning) {
+      console.log('Triggering logo spin animation');
+      handleLogoClick();
+    }
+  }, [triggerLogoSpin, logoSpinning]);
 
   const handleLogoClick = () => {
     const audio = audioRef.current;
