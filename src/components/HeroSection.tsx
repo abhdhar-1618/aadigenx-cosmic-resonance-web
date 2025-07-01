@@ -18,7 +18,7 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
   // Handle logo spinning trigger from the intro sequence - only once
   useEffect(() => {
     if (triggerLogoSpin && !hasSpun && !logoSpinning) {
-      console.log('Starting logo rotation sequence - showing background and spinning logo for 11 seconds');
+      console.log('Starting synchronized logo rotation with Om chanting - medium pace smooth blend');
       setLogoSpinning(true);
       setHasSpun(true);
       setShowBackgroundVideo(true);
@@ -89,13 +89,13 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         </p>
       </div>
 
-      {/* Logo - spins for exactly 11 seconds to match audio */}
+      {/* Logo - synchronized with Om chanting in medium pace smooth rotation */}
       <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
           src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx%20Logo_Clear_BG.png"
           alt="AadiGenX Logo"
-          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-spin-11s' : ''}`}
+          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-om-sync-rotation' : ''}`}
         />
       </div>
 
