@@ -23,29 +23,32 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
       setHasSpun(true);
       setShowBackgroundVideo(true);
       
-      // Start background video immediately
+      // Start background video immediately with visible opacity
       const video = videoRef.current;
       if (video) {
-        console.log('Starting background video');
-        video.style.opacity = '0.3'; // Subtle background during logo rotation
+        console.log('Starting background video with immediate visibility');
         video.currentTime = 0;
-        video.play().catch(console.error);
+        video.play().then(() => {
+          // Set initial visible opacity immediately after play starts
+          video.style.opacity = '0.4';
+          console.log('Background video playing with opacity 0.4');
+        }).catch(console.error);
       }
       
-      // After exactly 11 seconds, stop spinning and make background more prominent
+      // After exactly 11 seconds, stop spinning and enhance background
       const spinTimeout = setTimeout(() => {
         console.log('Logo rotation complete after 11 seconds, enhancing background video');
         setLogoSpinning(false);
         
         if (video) {
           // Make background video more prominent after logo rotation
-          video.style.opacity = '0.6';
-          console.log('Background video enhanced, playing for 4 more seconds');
+          video.style.opacity = '0.7';
+          console.log('Background video enhanced to opacity 0.7');
           
-          // Play for 4 more seconds then fade out
+          // After 4 more seconds, fade to subtle background
           const fadeTimeout = setTimeout(() => {
-            video.style.opacity = '0.2';
-            console.log('Background video faded to subtle background');
+            video.style.opacity = '0.3';
+            console.log('Background video faded to subtle background opacity 0.3');
           }, 4000);
           
           return () => clearTimeout(fadeTimeout);
@@ -58,11 +61,11 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
-      {/* Background Video - starts as soon as the sequence begins */}
+      {/* Background Video - shows immediately when sequence starts */}
       {showBackgroundVideo && (
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000"
+          className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-500"
           style={{ opacity: 0 }}
           muted
           playsInline
@@ -86,7 +89,7 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         </p>
       </div>
 
-      {/* Logo - spins SLOWLY for exactly 11 seconds to match audio */}
+      {/* Logo - spins for exactly 11 seconds to match audio */}
       <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
