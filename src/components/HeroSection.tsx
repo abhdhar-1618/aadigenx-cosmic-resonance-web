@@ -11,18 +11,20 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
   const logoRef = useRef<HTMLImageElement>(null);
   const [logoSpinning, setLogoSpinning] = useState(false);
   const [showBackgroundVideo, setShowBackgroundVideo] = useState(false);
+  const [hasSpun, setHasSpun] = useState(false); // Track if logo has already spun
 
-  console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerLogoSpin:', triggerLogoSpin);
+  console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerLogoSpin:', triggerLogoSpin, 'hasSpun:', hasSpun);
 
-  // Handle logo spinning trigger from the intro sequence
+  // Handle logo spinning trigger from the intro sequence - only once
   useEffect(() => {
-    if (triggerLogoSpin && !logoSpinning) {
-      console.log('Starting logo rotation for 11 seconds');
+    if (triggerLogoSpin && !hasSpun && !logoSpinning) {
+      console.log('Starting single logo rotation for exactly 11 seconds');
       setLogoSpinning(true);
+      setHasSpun(true); // Mark that we've triggered the spin
       
-      // After 11 seconds, stop spinning and start background video animation
-      setTimeout(() => {
-        console.log('Logo rotation complete, starting background video');
+      // After exactly 11 seconds, stop spinning and start background video
+      const spinTimeout = setTimeout(() => {
+        console.log('Logo rotation complete after 11 seconds, starting background video');
         setLogoSpinning(false);
         setShowBackgroundVideo(true);
         
@@ -31,19 +33,28 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
           video.style.opacity = '1';
           video.currentTime = 0;
           
-          setTimeout(() => {
+          // Small delay to ensure smooth transition
+          const videoTimeout = setTimeout(() => {
             video.play().then(() => {
+              console.log('Background video playing for 4 seconds');
               // Play for 4 seconds then pause and fade out
-              setTimeout(() => {
+              const fadeTimeout = setTimeout(() => {
                 video.pause();
                 video.style.opacity = '0';
+                console.log('Background video faded out');
               }, 4000);
+              
+              return () => clearTimeout(fadeTimeout);
             }).catch(console.error);
           }, 300);
+          
+          return () => clearTimeout(videoTimeout);
         }
       }, 11000);
+      
+      return () => clearTimeout(spinTimeout);
     }
-  }, [triggerLogoSpin, logoSpinning]);
+  }, [triggerLogoSpin, hasSpun, logoSpinning]);
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -72,13 +83,13 @@ export const HeroSection = ({ hasNavigated, triggerLogoSpin }: HeroSectionProps)
         </p>
       </div>
 
-      {/* Logo - spins during the 11-second audio sequence */}
+      {/* Logo - spins ONCE during the 11-second audio sequence */}
       <div className="relative z-20 mb-8 animate-fade-in">
         <img
           ref={logoRef}
           src="https://github.com/abhdhar-1618/aadigenix-source-file/raw/main/Aadigenx%20Logo_Clear_BG.png"
           alt="AadiGenX Logo"
-          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-spin' : ''}`}
+          className={`w-48 md:w-64 lg:w-80 h-auto transition-all duration-1000 ${logoSpinning ? 'animate-[spin_11s_linear_1]' : ''}`}
         />
       </div>
 

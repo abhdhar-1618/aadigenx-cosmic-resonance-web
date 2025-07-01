@@ -84,11 +84,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'spin-once': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'spin-11s': 'spin-once 11s linear 1'
 			}
 		}
 	},
