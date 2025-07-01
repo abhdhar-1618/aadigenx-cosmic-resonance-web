@@ -13,6 +13,7 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
     { id: 'home', label: 'Home', onClick: onHome },
     { id: 'about', label: 'About', onClick: () => onNavigate('about') },
     { id: 'gallery', label: 'Gallery', onClick: () => onNavigate('gallery') },
+    { id: 'blogs', label: 'Blogs', onClick: () => onNavigate('blogs') },
     { id: 'careers', label: 'Careers', onClick: () => onNavigate('careers') },
     { id: 'contact', label: 'Contact', onClick: () => onNavigate('contact') },
   ];

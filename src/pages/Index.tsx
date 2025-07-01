@@ -5,6 +5,7 @@ import { VideoIntro } from '@/components/VideoIntro';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { GallerySection } from '@/components/GallerySection';
+import { BlogsSection } from '@/components/BlogsSection';
 import { CareersSection } from '@/components/CareersSection';
 import { ContactSection } from '@/components/ContactSection';
 
@@ -78,6 +79,7 @@ const Index = () => {
           )}
           {currentSection === 'about' && <AboutSection />}
           {currentSection === 'gallery' && <GallerySection />}
+          {currentSection === 'blogs' && <BlogsSection />}
           {currentSection === 'careers' && <CareersSection />}
           {currentSection === 'contact' && <ContactSection />}
         </>
