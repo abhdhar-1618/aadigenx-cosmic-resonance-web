@@ -12,6 +12,7 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
   const logoRef = useRef<HTMLImageElement>(null);
   const [logoSpinning, setLogoSpinning] = useState(false);
   const [showBackgroundVideo, setShowBackgroundVideo] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
   const [audioSequenceStarted, setAudioSequenceStarted] = useState(false);
 
   console.log('HeroSection rendered with hasNavigated:', hasNavigated, 'triggerAudioSequence:', triggerAudioSequence);
@@ -41,19 +42,25 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
         
         const video = videoRef.current;
         if (video) {
-          video.style.opacity = '1';
+          console.log('Preparing background video');
           video.currentTime = 0;
           
+          // Make video visible first
           setTimeout(() => {
+            setVideoVisible(true);
+            console.log('Video made visible, starting playback');
+            
             video.play().then(() => {
               console.log('Background video playing');
               
               // Stop video after 4 seconds and fade out
               setTimeout(() => {
                 video.pause();
-                video.style.opacity = '0';
+                setVideoVisible(false);
                 console.log('Background video sequence complete');
               }, 4000);
+            }).catch(err => {
+              console.log('Video play failed:', err);
             });
           }, 300);
         }
@@ -67,8 +74,7 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
       {showBackgroundVideo && (
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-500"
-          style={{ opacity: 0 }}
+          className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-500 ${videoVisible ? 'opacity-100' : 'opacity-0'}`}
           muted
           playsInline
           preload="auto"
