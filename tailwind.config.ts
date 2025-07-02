@@ -92,39 +92,23 @@ export default {
 				'om-sync-rotation': {
 					'0%': { 
 						transform: 'rotate(0deg) scale(1)',
-						filter: 'brightness(1)'
-					},
-					'12.5%': { 
-						transform: 'rotate(45deg) scale(1.05)',
-						filter: 'brightness(1.1)'
+						filter: 'brightness(1) drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))'
 					},
 					'25%': { 
-						transform: 'rotate(90deg) scale(1.1)',
-						filter: 'brightness(1.2)'
-					},
-					'37.5%': { 
-						transform: 'rotate(135deg) scale(1.05)',
-						filter: 'brightness(1.1)'
+						transform: 'rotate(90deg) scale(1.02)',
+						filter: 'brightness(1.1) drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))'
 					},
 					'50%': { 
-						transform: 'rotate(180deg) scale(1)',
-						filter: 'brightness(1)'
-					},
-					'62.5%': { 
-						transform: 'rotate(225deg) scale(1.05)',
-						filter: 'brightness(1.1)'
+						transform: 'rotate(180deg) scale(1.05)',
+						filter: 'brightness(1.2) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5))'
 					},
 					'75%': { 
-						transform: 'rotate(270deg) scale(1.1)',
-						filter: 'brightness(1.2)'
-					},
-					'87.5%': { 
-						transform: 'rotate(315deg) scale(1.05)',
-						filter: 'brightness(1.1)'
+						transform: 'rotate(270deg) scale(1.02)',
+						filter: 'brightness(1.1) drop-shadow(0 0 15px rgba(255, 215, 0, 0.4))'
 					},
 					'100%': { 
 						transform: 'rotate(360deg) scale(1)',
-						filter: 'brightness(1)'
+						filter: 'brightness(1) drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))'
 					}
 				}
 			},
@@ -132,7 +116,7 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'spin-11s': 'spin-once 11s linear 1',
-				'om-sync-rotation': 'om-sync-rotation 11s ease-in-out 1'
+				'om-sync-rotation': 'om-sync-rotation 11s linear 1'
 			}
 		}
 	},
