@@ -1,30 +1,26 @@
 
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface NavigationProps {
   currentSection: string;
-  onNavigate: (section: string) => void;
-  onHome: () => void;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
-export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: NavigationProps) => {
+export const Navigation = ({ currentSection, disabled = false }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home', isExternal: true, href: 'https://aadigenix.com/' },
-    { id: 'about', label: 'About', onClick: () => onNavigate('about') },
-    { id: 'gallery', label: 'Gallery', onClick: () => onNavigate('gallery') },
-    { id: 'blogs', label: 'Blogs', onClick: () => onNavigate('blogs') },
-    { id: 'careers', label: 'Careers', onClick: () => onNavigate('careers') },
-    { id: 'contact', label: 'Contact', onClick: () => onNavigate('contact') },
+    { id: 'about', label: 'About', to: '/about' },
+    { id: 'gallery', label: 'Gallery', to: '/gallery' },
+    { id: 'blogs', label: 'Blogs', to: '/blogs' },
+    { id: 'careers', label: 'Careers', to: '/careers' },
+    { id: 'contact', label: 'Contact', to: '/contact' },
   ];
 
-  const handleNavClick = (item: typeof navItems[0]) => {
-    if (!item.isExternal && item.onClick) {
-      item.onClick();
-    }
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
@@ -32,10 +28,8 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
     <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-30 border-b border-white/10">
       <div className="flex justify-between items-center py-3 px-4 md:py-4 md:px-6">
         {/* AadiGenX Logo/Brand with mixed fonts */}
-        <a 
-          href="https://aadigenix.com/" 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <Link 
+          to="/" 
           className="text-lg md:text-2xl font-bold hover:opacity-80 transition-opacity cursor-pointer"
         >
           <span className="aadigenx-brand">
@@ -49,7 +43,7 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
             <span className="letter-n">n</span>
             <span className="letter-X">X</span>
           </span>
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 lg:space-x-8">
@@ -71,21 +65,20 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
                 {item.label}
               </a>
             ) : (
-              <button
+              <Link
                 key={item.id}
-                onClick={item.onClick}
-                disabled={disabled}
+                to={item.to}
                 className={`
                   px-4 py-2 text-sm lg:text-lg font-semibold tracking-wide transition-all duration-300
                   ${disabled 
-                    ? 'text-white/50 cursor-not-allowed' 
+                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
                   }
                   ${currentSection === item.id ? 'text-yellow-400 bg-white/10 rounded-lg' : ''}
                 `}
               >
                 {item.label}
-              </button>
+              </Link>
             )
           ))}
         </div>
@@ -127,21 +120,21 @@ export const Navigation = ({ currentSection, onNavigate, onHome, disabled }: Nav
                   {item.label}
                 </a>
               ) : (
-                <button
+                <Link
                   key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  disabled={disabled}
+                  to={item.to}
+                  onClick={handleNavClick}
                   className={`
-                    w-full text-left px-4 py-3 text-lg font-semibold tracking-wide transition-all duration-300 rounded-lg
+                    w-full text-left px-4 py-3 text-lg font-semibold tracking-wide transition-all duration-300 rounded-lg block
                     ${disabled 
-                      ? 'text-white/50 cursor-not-allowed' 
+                      ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                       : 'text-white hover:text-yellow-400 hover:bg-white/10'
                     }
                     ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
                   `}
                 >
                   {item.label}
-                </button>
+                </Link>
               )
             ))}
           </div>

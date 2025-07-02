@@ -80,8 +80,6 @@ const Index = () => {
         <div className={`transition-opacity duration-200 ${showClickOverlay ? 'opacity-100' : 'opacity-100'}`}>
           <Navigation 
             currentSection={currentSection} 
-            onNavigate={handleNavigation}
-            onHome={handleHomeNavigation}
             disabled={!navigationEnabled}
           />
           
