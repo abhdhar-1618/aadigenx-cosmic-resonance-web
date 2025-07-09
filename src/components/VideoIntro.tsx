@@ -89,7 +89,7 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
       {(!videoLoaded || videoError) && (
         <div className="absolute inset-0 bg-black flex items-center justify-center z-10">
           <div className="text-center text-white">
-            <h2 className="text-3xl mb-6 font-bold">AadiGenX</h2>
+            <h2 className="text-3xl mb-6 font-bold"><span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
             <p className="text-white/80 mb-6">Welcome to the future</p>
             {!videoError && (
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-8"></div>

@@ -30,19 +30,9 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
         {/* AadiGenX Logo/Brand with mixed fonts */}
         <Link 
           to="/" 
-          className="text-lg md:text-2xl font-bold hover:opacity-80 transition-opacity cursor-pointer"
+          className="text-lg md:text-2xl font-bold hover:opacity-80 transition-opacity cursor-pointer text-white"
         >
-          <span className="aadigenx-brand">
-            <span className="letter-A1">A</span>
-            <span className="letter-a1">a</span>
-            <span className="letter-a2">a</span>
-            <span className="letter-d1">d</span>
-            <span className="letter-i">i</span>
-            <span className="letter-G">G</span>
-            <span className="letter-e">e</span>
-            <span className="letter-n">n</span>
-            <span className="letter-X">X</span>
-          </span>
+          <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
         </Link>
         
         {/* Desktop Navigation */}
