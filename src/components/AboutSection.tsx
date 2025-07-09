@@ -182,7 +182,7 @@ export const AboutSection = () => {
       <div className="max-w-4xl mx-auto relative z-10 px-4">
         <div className="flex flex-col lg:flex-row gap-[5%] h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
-          <div className="lg:w-[20%] flex-shrink-0 lg:-ml-[5%]">
+          <div className="lg:w-[20%] flex-shrink-0">
             <div className="bg-amber-900/[0.12] backdrop-blur-md rounded-lg p-6 border border-amber-700/[0.08] h-full flex flex-col">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
