@@ -5,17 +5,34 @@ const aboutContent = {
   mission: {
     title: "Mission",
     content: `
-      <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-amber-800 mb-6">
-          <span class="samarkan">Mission</span><span class="calibri">: Expanding the Horizons of </span><span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>
-        </h3>
-        <p class="text-lg mb-4 calibri text-center text-amber-900">At <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>, we are on a mission to:</p>
-        <div class="space-y-6 calibri text-amber-900">
-          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Reconstruct Intelligence from Lost Civilizations</strong> – We integrate <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> with ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures to extract scientific and computational insights lost in time.</p>
-          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Align <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> & Robotics for Next-Gen Automation</strong> – Our research is bridging the gap between machine learning and robotics, ensuring intelligent, adaptive, and ethically driven <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> systems that enhance rather than replace human intelligence.</p>
-          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Evolve <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> from Machine Learning to Conscious Learning</strong> – Our work in <strong>Cosmic Resonance & Neuro<span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong> pushes <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution.</p>
-          <p class="text-center"><span class="text-amber-800 text-xl">❋</span> <strong>Unify No-Code, Low-Code & Hardcore <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> Development</strong> – We cater to every level of <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> accessibility, from democratized <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> applications to advanced research in Quantum <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>, Agentic Systems, and <u>Neurosymbolic</u> Computing.</p>
+      <div id="mission" class="about-text" style="display: none;">
+        <div class="title">
+          <span class="calibri">M</span><span class="samarkan">ission</span>: Expanding the Horizons of A<span class="samarkan">I</span><span class="calibri"></span>
         </div>
+
+        <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we are on a mission to:</p>
+
+        <p><strong>✤ <span class="bold">Reconstruct Intelligence from Lost Civilizations</span> – We integrate A<span class="samarkan">I</span><span class="calibri"></span> with 
+            <span class="bold">ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures</span> to extract 
+            <span class="bold">scientific and computational insights lost in time</span>.
+        </p>
+
+        <p><strong>✤ <span class="bold">Align Aì & Robotics for Next-Gen Automation</span> – Our research is bridging the gap between 
+            <span class="bold">machine learning and robotics</span>, ensuring 
+            <span class="bold">intelligent, adaptive, and ethically driven Aì systems that enhance rather than replace human intelligence</span>.
+        </p>
+
+        <p><strong>✤ <span class="bold">Evolve Aì from Machine Learning to Conscious Learning</span> – Our work in 
+            <span class="bold">Cosmic Resonance & Neuro</span>A<span class="samarkan">I</span><span class="calibri"></span> 
+            pushes A<span class="samarkan">I</span><span class="calibri"></span> 
+            <span class="bold">beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution</span>.
+        </p>
+
+        <p><strong>✤ <span class="bold">Unify No-Code, Low-Code & Hardcore Aì Development</span> – We cater to 
+            <span class="bold">every level of Aì accessibility</span>, from 
+            <span class="bold">democratized Aì applications to advanced research in Quantum Aì, Agentic Systems, and Neuro</span><span class="samarkan">s</span><span class="calibri">ymbolic</span> 
+            <span class="bold">Computing</span>.
+        </p>
       </div>
     `
   },
