@@ -161,6 +161,10 @@ const aboutContent = {
 export const AboutSection = () => {
   const [activeTab, setActiveTab] = useState('mission');
 
+  // Panel width configuration - easily adjustable
+  const LEFT_PANEL_WIDTH = 28;  // Percentage width for left navigation panel
+  const RIGHT_PANEL_WIDTH = 60; // Percentage width for right content panel
+
   const tabs = [
     { id: 'mission', label: 'Mission' },
     { id: 'vision', label: 'Vision' },
@@ -182,7 +186,7 @@ export const AboutSection = () => {
       <div className="max-w-6xl mx-auto relative z-10 px-8">
         <div className="flex flex-col lg:flex-row justify-between h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
-          <div className="lg:w-[28%] flex-shrink-0">
+          <div className={`lg:w-[${LEFT_PANEL_WIDTH}%] flex-shrink-0`}>
             <div className="bg-amber-900/[0.12] backdrop-blur-md rounded-lg p-6 border border-amber-700/[0.08] h-full flex flex-col">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
@@ -206,7 +210,7 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Content Panel */}
-          <div className="lg:w-[60%] flex-shrink-0">
+          <div className={`lg:w-[${RIGHT_PANEL_WIDTH}%] flex-shrink-0`}>
             <div className="h-full overflow-hidden rounded-lg shadow-2xl backdrop-blur-sm"
                  style={{
                    background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.44) 0%, rgba(232, 213, 183, 0.44) 25%, rgba(220, 196, 156, 0.44) 50%, rgba(212, 185, 150, 0.44) 75%, rgba(201, 169, 110, 0.44) 100%)',
