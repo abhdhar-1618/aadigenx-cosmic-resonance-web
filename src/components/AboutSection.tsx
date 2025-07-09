@@ -177,13 +177,13 @@ export const AboutSection = () => {
       }}
     >
       {/* Subtle warm overlay for comfortable viewing */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-yellow-50/20 to-amber-100/25" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-50/20 via-yellow-50/15 to-amber-100/20" />
       
       <div className="max-w-5xl mx-auto relative z-10 px-8">
         <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-1/3 flex-shrink-0">
-            <div className="bg-amber-900/20 backdrop-blur-md rounded-lg p-6 border border-amber-700/15 h-full flex flex-col">
+            <div className="bg-amber-900/15 backdrop-blur-md rounded-lg p-6 border border-amber-700/10 h-full flex flex-col">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
@@ -209,9 +209,9 @@ export const AboutSection = () => {
           <div className="lg:w-2/3 flex-shrink-0">
             <div className="h-full overflow-hidden rounded-lg shadow-2xl backdrop-blur-sm"
                  style={{
-                   background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.65) 0%, rgba(232, 213, 183, 0.65) 25%, rgba(220, 196, 156, 0.65) 50%, rgba(212, 185, 150, 0.65) 75%, rgba(201, 169, 110, 0.65) 100%)',
-                   border: '1px solid rgba(139, 69, 19, 0.2)',
-                   boxShadow: 'inset 0 0 20px rgba(255, 215, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.1)'
+                   background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.55) 0%, rgba(232, 213, 183, 0.55) 25%, rgba(220, 196, 156, 0.55) 50%, rgba(212, 185, 150, 0.55) 75%, rgba(201, 169, 110, 0.55) 100%)',
+                   border: '1px solid rgba(139, 69, 19, 0.15)',
+                   boxShadow: 'inset 0 0 15px rgba(255, 215, 0, 0.08), 0 6px 20px rgba(0, 0, 0, 0.08)'
                  }}>
               <ScrollArea className="h-full p-8">
                 <div 
