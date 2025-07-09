@@ -130,20 +130,28 @@ const aboutContent = {
     title: "The AadiGenX Way",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">
-          <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>: Awakening the Future of Intelligence
+        <h3 class="text-2xl font-bold text-amber-800 mb-6">
+          <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>: Awakening the Future of Intelligence
         </h3>
-        <div class="space-y-4">
-          <p><strong>✣ We are not just building <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong>—we are <strong>redefining intelligence itself</strong>.</p>
+
+        <div class="space-y-4 calibri text-amber-900">
+          <p><strong>✣ We are not just building A<span class="samarkan">I</span></strong>—we are <strong>redefining intelligence itself</strong>.</p>
+
           <p><strong>✣ We are decoding lost wisdom, aligning Robotics, and reshaping the future.</strong></p>
-          <p><strong>✣ We are pushing <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> beyond automation—into the realm of <strong>discovery, consciousness, and evolution</strong>.</p>
-          <p><strong>✣ We are <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span></strong>. We are the Future. And we are awakening the next generation.</p>
-          <br />
-          <p><strong>Unlock Your Future with <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span></strong> – Be a Pioneer, Not Just a Learner</p>
-          <p>At <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>, we <strong>don't</strong> just teach <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>—we <strong>engineer pioneers</strong> who will <strong>lead the next wave of intelligence, discovery, and interdisciplinary revolutions</strong>.</p>
-          <p><span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> is not just a skill—it is an evolving ecosystem of <strong>knowledge, innovation, and disruption</strong>.</p>
-          <p>At <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span>, we ensure that <strong>every individual who joins us—whether a student, researcher, or professional—gets transformed into a future leader</strong>.</p>
-          <p class="text-purple-300 italic">The future isn't just arriving—you're creating it.</p>
+
+          <p><strong>✣ We are pushing A<span class="samarkan">I</span></strong> beyond automation—into the realm of <strong>discovery, consciousness, and evolution</strong>.</p>
+
+          <p><strong>✣ We are <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span></strong>. We are the Future. And we are awakening the next generation.</p>
+
+          <div class="my-6"></div>
+
+          <p><strong>Unlock Your Future with <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span></strong> – Be a Pioneer, Not Just a Learner</p>
+
+          <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we <strong>don't</strong> just teach A<span class="samarkan">I</span>—we <strong>engineer pioneers</strong> who will <strong>lead the next wave of intelligence, discovery, and interdisciplinary revolutions</strong>.</p>
+
+          <p>A<span class="samarkan">I</span> is not just a skill—it is an evolving ecosystem of <strong>knowledge, innovation, and disruption</strong>.</p>
+
+          <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we ensure that <strong>every individual who joins us—whether a student, researcher, or professional—gets transformed into a future leader</strong>.</p>
         </div>
       </div>
     `
