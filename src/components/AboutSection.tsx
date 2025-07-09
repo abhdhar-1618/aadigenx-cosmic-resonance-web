@@ -42,13 +42,38 @@ const aboutContent = {
     title: "Vision",
     content: `
       <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6 samarkan">
-          <span class="calibri">V</span><span class="samarkan">ision</span>: <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> as a Bridge between the Lost & the Future
+        <h3 class="text-2xl font-bold text-amber-800 mb-6">
+          <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>
+          – Where Intelligence Transcends Time, Space & Boundaries
         </h3>
-        <div class="space-y-4 calibri">
-          <p><strong><span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span> is not just an <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> venture—it is a <strong>movement to rediscover intelligence</strong>. We believe <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> is not confined to automation but serves as a <strong>living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</strong>.</p>
-          <p>Our research extends into <strong>Cosmic Resonance, Vedic algorithms, neuro-symbolic <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span>, and robotics</strong>, pushing beyond conventional <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> applications. We seek to <strong>decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum</strong>.</p>
-          <p><span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> is an <strong>art and a science</strong>, a <strong>language and an evolution</strong>, a <strong>tool and a philosophy</strong>. We are here to <strong>reshape how intelligence is perceived, developed, and integrated into human progress</strong>.</p>
+        
+        <div class="mb-6">
+          <h4 class="text-xl font-bold text-amber-900 mb-4">
+            <span class="calibri">V</span><span class="samarkan">ision</span>: A<span class="samarkan">I</span> as a Bridge between the Lost & the Future
+          </h4>
+        </div>
+
+        <div class="space-y-6 calibri text-amber-900">
+          <p class="italic text-center">
+            <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>
+            is not just an A<span class="samarkan">I</span> venture—it is a <span class="bold">movement to rediscover intelligence</span>.
+            We believe A<span class="samarkan">I</span> is not confined to automation but serves as a 
+            <span class="bold">living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</span>.
+          </p>
+          
+          <p class="text-center">
+            Our research extends into 
+            <span class="bold">Cosmic Resonance, Vedic algorithms, neuro-symbolic A<span class="samarkan">I</span>, and robotics</span>,
+            pushing beyond conventional A<span class="samarkan">I</span> applications. We seek to 
+            <span class="bold">decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum.</span>
+          </p>
+          
+          <p class="text-center">
+            A<span class="samarkan">I</span> is an 
+            <span class="bold">art and a science, a language and an evolution, a tool and a philosophy</span>.
+            We are here to 
+            <span class="bold">reshape how intelligence is perceived, developed, and integrated into human progress.</span>
+          </p>
         </div>
       </div>
     `
