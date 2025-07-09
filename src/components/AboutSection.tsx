@@ -207,11 +207,11 @@ export const AboutSection = () => {
 
           {/* Right Content Panel */}
           <div className="lg:w-2/3 flex-shrink-0">
-            <div className="h-full overflow-hidden rounded-lg shadow-2xl"
+            <div className="h-full overflow-hidden rounded-lg shadow-2xl backdrop-blur-md"
                  style={{
-                   background: 'linear-gradient(135deg, #f4e7d1 0%, #e8d5b7 25%, #dcc49c 50%, #d4b996 75%, #c9a96e 100%)',
-                   border: '3px solid #8b4513',
-                   boxShadow: 'inset 0 0 30px rgba(139, 69, 19, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4)'
+                   background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.15) 0%, rgba(232, 213, 183, 0.15) 25%, rgba(220, 196, 156, 0.15) 50%, rgba(212, 185, 150, 0.15) 75%, rgba(201, 169, 110, 0.15) 100%)',
+                   border: '1px solid rgba(255, 255, 255, 0.2)',
+                   boxShadow: 'inset 0 0 30px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4)'
                  }}>
               <ScrollArea className="h-full p-8">
                 <div 
