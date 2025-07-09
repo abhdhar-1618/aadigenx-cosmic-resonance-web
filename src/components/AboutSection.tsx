@@ -108,15 +108,20 @@ const aboutContent = {
     title: "How We Work",
     content: `
       <div class="space-y-6">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4">
-          <span class="calibri">H</span><span class="samarkan">ow</span> <span class="calibri">W</span><span class="samarkan">e</span> <span class="calibri">W</span><span class="samarkan">ork</span>: The <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span> Ethos
+        <h3 class="text-2xl font-bold text-amber-800 mb-6">
+          <span class="calibri">H</span><span class="samarkan">ow</span> <span class="calibri">W</span><span class="samarkan">e</span> <span class="calibri">W</span><span class="samarkan">ork</span>: The <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span> Ethos
         </h3>
-        <div class="space-y-4">
-          <p><strong>✤ Reimagining <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> as a Thought Process, Not Just a Codebase</strong> – Intelligence is <strong>not about repetition but evolution</strong>—we engineer <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> that <strong>adapts, learns, and expands human potential</strong>.</p>
-          <p><strong>✤ Building Bridges Between Ancient & Future Sciences</strong> – Our research in <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> + Ancient Wisdom ensures that intelligence <strong>transcends time, restoring lost knowledge while shaping new frontiers</strong>.</p>
-          <p><strong>✤ Breaking the Constraints of Traditional <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> Development</strong> – Our models operate <strong>beyond structured data</strong>, integrating <strong>multi-domain intelligence, abstract learning, and intuitive <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> processing</strong>.</p>
-          <p><strong>✤ Scalable, Ethical & Explainable <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span></strong> – Every solution we build is <strong>transparent, adaptable, and ethically responsible</strong>, ensuring <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> is a <strong>tool for empowerment, not control</strong>.</p>
-          <p><strong>✤ Pioneering the Next Scientific & Consciousness Renaissance</strong> – <span class="aadigenx-brand"><span class="letter-A1">A</span><span class="letter-a1">a</span><span class="letter-a2">a</span><span class="letter-d1">d</span><span class="letter-i">i</span><span class="letter-G">G</span><span class="letter-e">e</span><span class="letter-n">n</span><span class="letter-X">X</span></span> is not just an <span class="ai-brand"><span class="letter-A-ai">A</span><span class="letter-i-ai">i</span></span> research lab—it is a movement that seeks to <strong>reshape intelligence through holistic, interdisciplinary innovation</strong>.</p>
+
+        <div class="space-y-4 calibri text-amber-900">
+          <p><strong>✤ Reimagining A<span class="samarkan">I</span> as a Thought Process, Not Just a Codebase</strong> – Intelligence is <strong>not about repetition but evolution</strong>—we engineer A<span class="samarkan">I</span> that <strong>adapts, learns, and expands human potential</strong>.</p>
+
+          <p><strong>✤ Building Bridges Between Ancient & Future Sciences</strong> – Our research in A<span class="samarkan">I</span> + Ancient Wisdom ensures that intelligence <strong>transcends time, restoring lost knowledge while shaping new frontiers</strong>.</p>
+
+          <p><strong>✤ Breaking the Constraints of Traditional A<span class="samarkan">I</span> Development</strong> – Our models operate <strong>beyond structured data</strong>, integrating <strong>multi-domain intelligence, abstract learning, and intuitive A<span class="samarkan">I</span> processing</strong>.</p>
+
+          <p><strong>✤ Scalable, Ethical & Explainable A<span class="samarkan">I</span></strong> – Every solution we build is <strong>transparent, adaptable, and ethically responsible</strong>, ensuring A<span class="samarkan">I</span> is a <strong>tool for empowerment, not control</strong>.</p>
+
+          <p><strong>✤ Pioneering the Next Scientific & Consciousness Renaissance</strong> – <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span> is not just an A<span class="samarkan">I</span> research lab—it is a movement that seeks to <strong>reshape intelligence through holistic, interdisciplinary innovation</strong>.</p>
         </div>
       </div>
     `
