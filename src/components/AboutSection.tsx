@@ -180,18 +180,11 @@ export const AboutSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50/[0.16] via-yellow-50/[0.12] to-amber-100/[0.16]" />
       
       <div className="max-w-6xl mx-auto relative z-10 px-8">
-        {/* Centered AadiGenX Title */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-amber-900 mb-2">
-            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-          </h1>
-          <h2 className="text-2xl font-bold text-amber-800">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
-        </div>
-        
         <div className="flex flex-col lg:flex-row justify-between h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-[28%] flex-shrink-0">
             <div className="bg-amber-900/30 backdrop-blur-md rounded-lg p-6 border border-amber-700/20 shadow-lg h-full flex flex-col">
+              <h2 className="text-2xl font-bold text-amber-900 mb-6 text-center drop-shadow-md">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
                   <button
