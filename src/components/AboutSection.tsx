@@ -184,7 +184,7 @@ export const AboutSection = () => {
           {/* Left Sidebar Navigation */}
           <div className="lg:w-[28%] flex-shrink-0">
             <div className="bg-amber-900/30 backdrop-blur-md rounded-lg p-6 border border-amber-700/20 shadow-lg h-full flex flex-col">
-              <h2 className="text-2xl font-bold text-amber-100 mb-6 text-center drop-shadow-md">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
+              <h2 className="text-2xl font-bold text-amber-900 mb-6 text-center drop-shadow-md">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
                   <button
@@ -193,8 +193,8 @@ export const AboutSection = () => {
                     className={`
                       w-full text-left px-4 py-3 rounded-md transition-all duration-300 font-medium
                       ${activeTab === tab.id 
-                        ? 'bg-yellow-400/20 text-yellow-300 border-l-4 border-yellow-400 shadow-md backdrop-blur-sm' 
-                        : 'text-amber-100/90 hover:text-amber-50 hover:bg-amber-800/20 hover:shadow-sm'
+                        ? 'bg-yellow-400/20 text-amber-900 border-l-4 border-yellow-400 shadow-md backdrop-blur-sm' 
+                        : 'text-amber-800 hover:text-amber-900 hover:bg-amber-800/20 hover:shadow-sm'
                       }
                     `}
                   >
