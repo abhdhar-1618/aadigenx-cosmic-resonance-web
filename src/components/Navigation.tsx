@@ -26,14 +26,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   return (
     <nav className="fixed top-0 w-full bg-black/[0.02] backdrop-blur-sm z-30 border-b border-white/[0.02]">
-      <div className="flex justify-between items-center py-3 px-4 md:py-4 md:px-6">
-        {/* AadiGenX Logo/Brand with mixed fonts */}
-        <Link 
-          to="/" 
-          className="text-lg md:text-2xl font-bold hover:opacity-80 transition-opacity cursor-pointer text-white"
-        >
-          <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-        </Link>
+      <div className="flex justify-end items-center py-3 px-4 md:py-4 md:px-6">
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 lg:space-x-8">
