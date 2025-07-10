@@ -39,8 +39,15 @@ export const BlogsSection = () => {
     if (!blog) return null;
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-black via-purple-900/20 to-black text-white pt-20">
-        <div className="container mx-auto px-6 py-12 max-w-4xl">
+      <div 
+        className="min-h-screen pt-20 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10">
           <Button 
             onClick={handleBackClick}
             variant="ghost"
@@ -83,8 +90,16 @@ export const BlogsSection = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-purple-900/20 to-black text-white pt-20">
-      <div className="container mx-auto px-6 py-12">
+    <div 
+      className="min-h-screen pt-20 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60" />
+      
+      <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
             Blogs
