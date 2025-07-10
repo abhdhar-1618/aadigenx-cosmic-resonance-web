@@ -183,18 +183,18 @@ export const AboutSection = () => {
         <div className="flex flex-col lg:flex-row justify-between h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-[28%] flex-shrink-0">
-            <div className="bg-amber-900/[0.12] backdrop-blur-md rounded-lg p-6 border border-amber-700/[0.08] h-full flex flex-col">
-              <h2 className="text-2xl font-bold text-white mb-6 text-center">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
+            <div className="bg-amber-900/30 backdrop-blur-md rounded-lg p-6 border border-amber-700/20 shadow-lg h-full flex flex-col">
+              <h2 className="text-2xl font-bold text-amber-100 mb-6 text-center drop-shadow-md">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
               <nav className="space-y-2 flex-1">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={`
-                      w-full text-left px-4 py-3 rounded-md transition-all duration-300
+                      w-full text-left px-4 py-3 rounded-md transition-all duration-300 font-medium
                       ${activeTab === tab.id 
-                        ? 'bg-yellow-400/10 text-yellow-400 border-l-4 border-yellow-400' 
-                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                        ? 'bg-yellow-400/20 text-yellow-300 border-l-4 border-yellow-400 shadow-md backdrop-blur-sm' 
+                        : 'text-amber-100/90 hover:text-amber-50 hover:bg-amber-800/20 hover:shadow-sm'
                       }
                     `}
                   >
