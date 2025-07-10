@@ -25,7 +25,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-black/5 backdrop-blur-sm z-30 border-b border-white/5">
+    <nav className="fixed top-0 w-full bg-black/[0.02] backdrop-blur-sm z-30 border-b border-white/[0.02]">
       <div className="flex justify-between items-center py-3 px-4 md:py-4 md:px-6">
         {/* AadiGenX Logo/Brand with mixed fonts */}
         <Link 
