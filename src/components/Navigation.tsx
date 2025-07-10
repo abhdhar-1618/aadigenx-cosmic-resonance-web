@@ -25,7 +25,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-30 border-b border-white/10">
+    <nav className="fixed top-0 w-full bg-black/10 backdrop-blur-md z-30 border-b border-white/10">
       <div className="flex justify-between items-center py-3 px-4 md:py-4 md:px-6">
         {/* AadiGenX Logo/Brand with mixed fonts */}
         <Link 
@@ -89,7 +89,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10">
+        <div className="md:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
           <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => (
               item.isExternal ? (
