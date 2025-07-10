@@ -10,10 +10,10 @@ export const GallerySection = () => {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/10" />
       
       <div className="text-center px-4 relative z-10">
-        <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 md:p-12 border border-white/10 max-w-2xl mx-auto">
+        <div className="bg-black/5 backdrop-blur-md rounded-lg p-6 md:p-12 border border-white/10 max-w-2xl mx-auto">
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 md:mb-8">
             <span className="text-yellow-400">G</span>allery
           </h1>
