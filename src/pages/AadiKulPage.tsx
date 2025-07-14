@@ -223,11 +223,11 @@ const AadiKulPage = () => {
       
       <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 pt-20">
         {/* Header */}
-        <div className="relative pb-8 px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <div className="relative pb-4 px-4 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-2">
+          <p className="text-lg md:text-xl text-muted-foreground mb-1">
             Learning Management System
           </p>
         </div>
