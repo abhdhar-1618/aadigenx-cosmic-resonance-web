@@ -6,13 +6,7 @@ const BlogsPage = () => {
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="blogs" />
-      
-      {/* Main Content Area - constrained between top and bottom bars */}
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto custom-scrollbar">
-          <BlogsSection />
-        </div>
-      </div>
+      <BlogsSection />
       
       {/* Bottom Roll Bar Text */}
       <div className="fixed bottom-0 w-full bg-black/[0.02] backdrop-blur-sm z-10 border-t border-white/[0.02]">
