@@ -123,56 +123,59 @@ export default function SrijanPeethPage() {
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="srijan" />
       
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 pb-16">
-        {/* Hero Section */}
-        <div className="relative pt-20 pb-16 px-4 text-center">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10" />
-          <div className="relative max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Student Data Science & Analytics Showcase
-            </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover innovative data science projects created by our talented students, showcasing their analytical skills and creative problem-solving abilities.
-            </p>
-          </div>
-        </div>
+      {/* Main Content Area - constrained between top and bottom bars */}
+      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+        <div className="h-full overflow-y-auto custom-scrollbar">
+          <div className="min-h-full bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+            {/* Hero Section */}
+            <div className="relative pt-4 pb-16 px-4 text-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10" />
+              <div className="relative max-w-4xl mx-auto">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                  Student Data Science & Analytics Showcase
+                </p>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Discover innovative data science projects created by our talented students, showcasing their analytical skills and creative problem-solving abilities.
+                </p>
+              </div>
+            </div>
 
-        {/* Category Filter */}
-        <div className="max-w-7xl mx-auto px-4 mb-8">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="transition-all duration-200"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
+            {/* Category Filter */}
+            <div className="max-w-7xl mx-auto px-4 mb-8">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setSelectedCategory(category)}
+                    className="transition-all duration-200"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
+            </div>
 
-        {/* Projects Grid */}
-        <div className="max-w-7xl mx-auto px-4 pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
-              <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/50 backdrop-blur-sm">
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 right-3">
-                    <Badge variant="secondary" className="bg-white/90 text-primary">
-                      {project.category}
-                    </Badge>
-                  </div>
+            {/* Projects Grid */}
+            <div className="max-w-7xl mx-auto px-4 pb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProjects.map((project) => (
+                  <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/50 backdrop-blur-sm">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-3 right-3">
+                        <Badge variant="secondary" className="bg-white/90 text-primary">
+                          {project.category}
+                        </Badge>
+                      </div>
                   <div className="absolute bottom-3 left-3 flex gap-2">
                     {project.achievements.slice(0, 1).map((achievement, index) => (
                       <Badge key={index} variant="default" className="bg-primary/90 text-white text-xs">
@@ -247,28 +250,30 @@ export default function SrijanPeethPage() {
               </Card>
             ))}
           </div>
-        </div>
+            </div>
 
-        {/* Stats Section */}
-        <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">156</div>
-                <div className="text-sm text-muted-foreground">Total Projects</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">89</div>
-                <div className="text-sm text-muted-foreground">Active Students</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">12</div>
-                <div className="text-sm text-muted-foreground">Subject Areas</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">45</div>
-                <div className="text-sm text-muted-foreground">Awards Won</div>
+            {/* Stats Section */}
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+              <div className="max-w-4xl mx-auto px-4 text-center">
+                <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="space-y-2">
+                    <div className="text-3xl font-bold text-primary">156</div>
+                    <div className="text-sm text-muted-foreground">Total Projects</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-bold text-primary">89</div>
+                    <div className="text-sm text-muted-foreground">Active Students</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-bold text-primary">12</div>
+                    <div className="text-sm text-muted-foreground">Subject Areas</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-bold text-primary">45</div>
+                    <div className="text-sm text-muted-foreground">Awards Won</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
