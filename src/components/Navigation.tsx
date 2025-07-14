@@ -29,9 +29,9 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   return (
     <nav className="fixed top-0 w-full bg-black/[0.02] backdrop-blur-sm z-30 border-b border-white/[0.02]">
-      <div className="flex justify-end items-center py-3 px-4 md:py-4 md:px-6">
+      <div className="flex justify-end items-center py-2 px-2 md:py-3 md:px-4">
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6 lg:space-x-8">
+        <div className="hidden lg:flex flex-wrap gap-2 xl:gap-4 max-w-full">
           {navItems.map((item) => (
             item.isExternal ? (
               <a
@@ -40,7 +40,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`
-                  px-4 py-2 text-sm lg:text-lg font-semibold tracking-wide transition-all duration-300
+                  px-2 py-1 text-xs xl:text-sm font-semibold tracking-wide transition-all duration-300
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
@@ -60,7 +60,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 key={item.id}
                 to={item.to}
                 className={`
-                  px-4 py-2 text-sm lg:text-lg font-semibold tracking-wide transition-all duration-300
+                  px-2 py-1 text-xs xl:text-sm font-semibold tracking-wide transition-all duration-300
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
@@ -112,7 +112,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           disabled={disabled}
-          className={`md:hidden p-2 rounded-lg transition-colors ${
+          className={`lg:hidden p-2 rounded-lg transition-colors ${
             disabled 
               ? 'text-white/50 cursor-not-allowed' 
               : 'text-white hover:bg-white/10'
@@ -124,7 +124,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
+        <div className="lg:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
           <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => (
               item.isExternal ? (
