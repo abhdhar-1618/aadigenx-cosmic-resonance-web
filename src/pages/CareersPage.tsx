@@ -4,16 +4,12 @@ import { CareersSection } from '@/components/CareersSection';
 
 const CareersPage = () => {
   return (
-    <div className="min-h-screen scroll-background relative">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="careers" />
       
-      {/* Main Content Area - constrained between top and bottom bars */}
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full">
-            <CareersSection />
-          </div>
-        </div>
+      {/* Content with proper spacing */}
+      <div className="pt-20 pb-20">
+        <CareersSection />
       </div>
       
       {/* Bottom Roll Bar Text */}

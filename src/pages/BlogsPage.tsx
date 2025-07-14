@@ -4,16 +4,12 @@ import { BlogsSection } from '@/components/BlogsSection';
 
 const BlogsPage = () => {
   return (
-    <div className="min-h-screen scroll-background relative">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="blogs" />
       
-      {/* Main Content Area - constrained between top and bottom bars */}
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full">
-            <BlogsSection />
-          </div>
-        </div>
+      {/* Content with proper spacing */}
+      <div className="pt-20 pb-20">
+        <BlogsSection />
       </div>
       
       {/* Bottom Roll Bar Text */}

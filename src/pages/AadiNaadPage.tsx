@@ -3,20 +3,16 @@ import { Navigation } from '@/components/Navigation';
 
 const AadiNaadPage = () => {
   return (
-    <div className="min-h-screen scroll-background relative">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
       
-      {/* Main Content Area - constrained between top and bottom bars */}
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full pt-16 flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">N</span><span className="samarkan">aad</span>
-              </h1>
-              <p className="text-xl text-muted-foreground">Coming Soon</p>
-            </div>
-          </div>
+      {/* Content with proper spacing */}
+      <div className="pt-32 pb-20 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">N</span><span className="samarkan">aad</span>
+          </h1>
+          <p className="text-xl text-muted-foreground">Coming Soon</p>
         </div>
       </div>
       

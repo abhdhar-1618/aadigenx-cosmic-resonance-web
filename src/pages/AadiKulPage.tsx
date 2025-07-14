@@ -218,14 +218,12 @@ const AadiKulPage = () => {
   };
 
   return (
-    <div className="min-h-screen scroll-background relative">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="kul" />
       
-      {/* Main Content Area - constrained between top and bottom bars */}
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full py-8 px-4">
-            <div className="max-w-3xl mx-auto">
+      {/* Content with proper spacing */}
+      <div className="py-24 px-4 pb-20">
+        <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -609,8 +607,6 @@ const AadiKulPage = () => {
           
           {/* Bottom padding to ensure content doesn't touch scroll bar */}
           <div className="h-8"></div>
-            </div>
-          </div>
         </div>
       </div>
       
