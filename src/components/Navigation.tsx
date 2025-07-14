@@ -31,7 +31,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     <nav className="fixed top-0 w-full bg-black/[0.02] backdrop-blur-sm z-30 border-b border-white/[0.02]">
       <div className="flex justify-end items-center py-2 px-2 md:py-3 md:px-4">
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex flex-wrap gap-2 xl:gap-4 max-w-full">
+        <div className="hidden lg:flex flex-wrap gap-1 xl:gap-2 max-w-full">
           {navItems.map((item) => (
             item.isExternal ? (
               <a
@@ -40,7 +40,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`
-                  px-2 py-1 text-xs xl:text-sm font-semibold tracking-wide transition-all duration-300
+                  px-2 py-1 text-sm lg:text-lg font-semibold tracking-wide transition-all duration-300
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
@@ -60,7 +60,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 key={item.id}
                 to={item.to}
                 className={`
-                  px-2 py-1 text-xs xl:text-sm font-semibold tracking-wide transition-all duration-300
+                  px-2 py-1 text-sm lg:text-lg font-semibold tracking-wide transition-all duration-300
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
