@@ -221,12 +221,12 @@ const AadiKulPage = () => {
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="kul" />
       
-      {/* Scroll Canvas - Content area within parchment boundaries */}
-      <div className="scroll-canvas">
-        <div className="scroll-content">
+      {/* Content container with scroll canvas boundaries */}
+      <div className="min-h-screen py-24 px-4">
+        <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <div className="text-center mb-6">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
             </h1>
             <p className="text-md md:text-lg text-muted-foreground">
@@ -604,6 +604,9 @@ const AadiKulPage = () => {
               </div>
             </TabsContent>
           </Tabs>
+          
+          {/* Bottom padding to ensure content doesn't touch scroll bar */}
+          <div className="h-8"></div>
         </div>
       </div>
     </div>

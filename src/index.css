@@ -174,60 +174,13 @@
   }
 }
 
-/* Scroll background styling with canvas boundaries */
+/* Scroll background styling */
 .scroll-background {
   background-image: url('/lovable-uploads/9ea17526-85b4-4730-be58-efcdadf5f381.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  position: relative;
-}
-
-/* Canvas area within scroll boundaries */
-.scroll-canvas {
-  /* Define the parchment area between wooden bars */
-  margin-top: 80px; /* Top wooden bar clearance */
-  margin-bottom: 80px; /* Bottom wooden bar clearance */
-  padding: 40px 60px; /* Inner canvas padding */
-  min-height: calc(100vh - 160px); /* Full height minus top/bottom bars */
-  max-width: 85%; /* Respect scroll width */
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  
-  /* Smooth scroll animations */
-  scroll-behavior: smooth;
-  animation: fade-in 0.8s ease-out;
-}
-
-/* Content within canvas should have smooth movement */
-.scroll-content {
-  animation: slide-in-canvas 0.6s ease-out;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-/* Canvas scroll animation */
-@keyframes slide-in-canvas {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive canvas adjustments */
-@media (max-width: 768px) {
-  .scroll-canvas {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    padding: 20px 30px;
-    max-width: 90%;
-  }
 }
 
 /* Animation keyframes */
