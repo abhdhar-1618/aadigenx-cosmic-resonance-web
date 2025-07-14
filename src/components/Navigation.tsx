@@ -12,7 +12,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', isExternal: true, href: 'https://aadigenix.com/' },
+    { id: 'home', label: 'Aadian', isExternal: true, href: 'https://aadigenix.com/' },
     { id: 'about', label: 'About', to: '/about' },
     { id: 'gallery', label: 'Gallery', to: '/gallery' },
     { id: 'blogs', label: 'Blogs', to: '/blogs' },
@@ -43,9 +43,15 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                     : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
                   }
                 `}
-              >
-                {item.label}
-              </a>
+                >
+                  {item.id === 'home' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">A</span><span className="samarkan">n</span>
+                    </>
+                  ) : (
+                    item.label
+                  )}
+                </a>
             ) : (
               <Link
                 key={item.id}
@@ -99,7 +105,13 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                     }
                   `}
                 >
-                  {item.label}
+                  {item.id === 'home' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">A</span><span className="samarkan">n</span>
+                    </>
+                  ) : (
+                    item.label
+                  )}
                 </a>
               ) : (
                 <Link
