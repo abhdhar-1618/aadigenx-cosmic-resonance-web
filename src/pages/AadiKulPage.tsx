@@ -218,11 +218,18 @@ const AadiKulPage = () => {
   };
 
   return (
-    <div className="min-h-screen scroll-background">
+    <div className="min-h-screen scroll-background relative">
       <Navigation currentSection="kul" />
       
+      {/* Bottom Roll Bar Text */}
+      <div className="fixed bottom-4 left-0 right-0 z-10 flex justify-center">
+        <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
+          प्राचीनानां निनादः भविष्यस्य संरचना
+        </div>
+      </div>
+      
       {/* Content container with scroll canvas boundaries */}
-      <div className="min-h-screen py-24 px-4">
+      <div className="min-h-screen py-24 px-4 pb-16">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="text-center mb-6">
