@@ -221,18 +221,18 @@ const AadiKulPage = () => {
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="kul" />
       
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 pt-20">
-        {/* Header */}
-        <div className="relative pb-4 px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-1">
-            Learning Management System
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-8 pb-12">
+      {/* Content container with scroll canvas boundaries */}
+      <div className="min-h-screen py-24 px-4">
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-6">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
+            </h1>
+            <p className="text-md md:text-lg text-muted-foreground">
+              Learning Management System
+            </p>
+          </div>
           {/* Student Dashboard Header */}
           <Card className="mb-8 bg-white/50 backdrop-blur-sm">
             <CardHeader>
@@ -604,6 +604,9 @@ const AadiKulPage = () => {
               </div>
             </TabsContent>
           </Tabs>
+          
+          {/* Bottom padding to ensure content doesn't touch scroll bar */}
+          <div className="h-8"></div>
         </div>
       </div>
     </div>
