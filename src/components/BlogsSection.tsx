@@ -39,12 +39,7 @@ export const BlogsSection = () => {
     if (!blog) return null;
 
     return (
-      <div 
-        className="min-h-screen pt-20 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-        }}
-      >
+      <div className="min-h-screen pt-20">
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30" />
         <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10">
@@ -90,12 +85,7 @@ export const BlogsSection = () => {
   }
 
   return (
-    <div 
-      className="min-h-screen pt-20 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-      }}
-    >
+    <div className="min-h-screen pt-20">
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30" />
       
