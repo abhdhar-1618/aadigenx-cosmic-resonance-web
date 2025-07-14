@@ -73,6 +73,18 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                    <>
                      <span className="calibri">D</span><span className="samarkan">ris</span><span className="calibri">H</span><span className="samarkan">yam</span>
                    </>
+                 ) : item.id === 'blogs' ? (
+                   <>
+                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">P</span><span className="samarkan">ath</span>
+                   </>
+                 ) : item.id === 'careers' ? (
+                   <>
+                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">Y</span><span className="samarkan">atra</span>
+                   </>
+                 ) : item.id === 'contact' ? (
+                   <>
+                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">S</span><span className="samarkan">etu</span>
+                   </>
                  ) : (
                    item.label
                  )}
@@ -144,6 +156,18 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                   ) : item.id === 'gallery' ? (
                     <>
                       <span className="calibri">D</span><span className="samarkan">ris</span><span className="calibri">H</span><span className="samarkan">yam</span>
+                    </>
+                  ) : item.id === 'blogs' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">P</span><span className="samarkan">ath</span>
+                    </>
+                  ) : item.id === 'careers' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">Y</span><span className="samarkan">atra</span>
+                    </>
+                  ) : item.id === 'contact' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">S</span><span className="samarkan">etu</span>
                     </>
                   ) : (
                     item.label
