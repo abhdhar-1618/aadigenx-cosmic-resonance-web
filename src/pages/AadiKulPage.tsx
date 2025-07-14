@@ -232,7 +232,7 @@ const AadiKulPage = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto px-6 pb-24">
+        <div className="max-w-3xl mx-auto px-6 py-8 pb-40">
           {/* Large Text Box with LMS Content */}
           <Card className="bg-amber-50/90 backdrop-blur-sm border-amber-200 shadow-lg">
             <CardContent className="p-8 space-y-6">
