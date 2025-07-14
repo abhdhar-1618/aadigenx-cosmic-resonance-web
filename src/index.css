@@ -172,6 +172,16 @@
     line-height: 1.7;
     color: #654321;
   }
+  }
+}
+
+/* Scroll background styling */
+.scroll-background {
+  background-image: url('/lovable-uploads/9ea17526-85b4-4730-be58-efcdadf5f381.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Animation keyframes */

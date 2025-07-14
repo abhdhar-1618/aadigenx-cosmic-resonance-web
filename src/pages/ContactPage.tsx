@@ -4,7 +4,7 @@ import { ContactSection } from '@/components/ContactSection';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="contact" />
       <ContactSection />
     </div>

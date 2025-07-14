@@ -4,7 +4,7 @@ import { GallerySection } from '@/components/GallerySection';
 
 const GalleryPage = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="gallery" />
       <GallerySection />
     </div>

@@ -4,7 +4,7 @@ import { CareersSection } from '@/components/CareersSection';
 
 const CareersPage = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="careers" />
       <CareersSection />
     </div>
