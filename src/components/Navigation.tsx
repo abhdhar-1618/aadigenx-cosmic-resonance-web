@@ -13,7 +13,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   const navItems = [
     { id: 'home', label: 'Aadian', isExternal: true, href: 'https://aadigenix.com/' },
-    { id: 'about', label: 'About', to: '/about' },
+    { id: 'about', label: 'AdiTatva', to: '/about' },
     { id: 'gallery', label: 'Gallery', to: '/gallery' },
     { id: 'blogs', label: 'Blogs', to: '/blogs' },
     { id: 'careers', label: 'Careers', to: '/careers' },
@@ -64,9 +64,15 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                   }
                   ${currentSection === item.id ? 'text-yellow-400 bg-white/10 rounded-lg' : ''}
                 `}
-              >
-                {item.label}
-              </Link>
+               >
+                 {item.id === 'about' ? (
+                   <>
+                     <span className="calibri">A</span><span className="samarkan">di</span><span className="calibri">T</span><span className="samarkan">atva</span>
+                   </>
+                 ) : (
+                   item.label
+                 )}
+               </Link>
             )
           ))}
         </div>
@@ -127,7 +133,13 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                     ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
                   `}
                 >
-                  {item.label}
+                  {item.id === 'about' ? (
+                    <>
+                      <span className="calibri">A</span><span className="samarkan">di</span><span className="calibri">T</span><span className="samarkan">atva</span>
+                    </>
+                  ) : (
+                    item.label
+                  )}
                 </Link>
               )
             ))}
