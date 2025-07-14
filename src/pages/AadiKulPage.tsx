@@ -232,7 +232,7 @@ const AadiKulPage = () => {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 pb-16">
+        <div className="max-w-5xl mx-auto px-6 pb-16">
           {/* Student Dashboard Header */}
           <Card className="mb-8 bg-white/50 backdrop-blur-sm">
             <CardHeader>
