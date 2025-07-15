@@ -134,10 +134,10 @@ export default function SrijanPeethPage() {
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
                   Student Data Science & Analytics Showcase
                 </p>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-white max-w-2xl mx-auto">
                   Discover innovative data science projects created by our talented students, showcasing their analytical skills and creative problem-solving abilities.
                 </p>
               </div>
