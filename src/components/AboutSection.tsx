@@ -206,7 +206,7 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Content Panel */}
-          <div className="lg:w-[60%] flex-shrink-0">
+          <div className="lg:w-[66%] flex-shrink-0">
             <div className="h-full overflow-hidden rounded-lg shadow-2xl backdrop-blur-sm"
                  style={{
                    background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.44) 0%, rgba(232, 213, 183, 0.44) 25%, rgba(220, 196, 156, 0.44) 50%, rgba(212, 185, 150, 0.44) 75%, rgba(201, 169, 110, 0.44) 100%)',
