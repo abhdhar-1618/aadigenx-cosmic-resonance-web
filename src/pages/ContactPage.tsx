@@ -4,15 +4,13 @@ import { ContactSection } from '@/components/ContactSection';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen relative" style={{ backgroundColor: '#D2B48C' }}>
+    <div className="min-h-screen scroll-background relative">
       <Navigation currentSection="contact" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
       <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
         <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full" style={{ backgroundColor: '#D2B48C' }}>
-            <ContactSection />
-          </div>
+          <ContactSection />
         </div>
       </div>
       

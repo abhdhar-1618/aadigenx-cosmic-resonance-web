@@ -72,22 +72,20 @@ export const ContactSection = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4">
-      
-      
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            <span className="samarkan text-yellow-400">C</span><span className="calibri">ontact </span><span className="samarkan text-yellow-400">U</span><span className="calibri">s</span>
+    <div className="min-h-screen pt-32 pb-24 px-4 flex items-center justify-center">
+      <div className="max-w-2xl mx-auto relative z-10">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="samarkan text-amber-700">C</span><span className="calibri text-amber-800">ontact </span><span className="samarkan text-amber-700">U</span><span className="calibri text-amber-800">s</span>
           </h1>
-          <p className="text-xl text-white max-w-2xl mx-auto">
+          <p className="text-lg text-amber-700 max-w-xl mx-auto">
             Ready to bridge ancient wisdom with future technology? Let's start a conversation.
           </p>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-md rounded-lg p-8 border border-amber-200/30 shadow-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-amber-50/95 backdrop-blur-md rounded-lg p-6 border border-amber-200/50 shadow-xl">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-amber-900 font-medium mb-2">
                   Name *
@@ -100,7 +98,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your full name"
-                  className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
+                  className="w-full px-3 py-2 bg-white/90 backdrop-blur-md border border-amber-300/50 rounded-md text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
                 />
               </div>
 
@@ -116,7 +114,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
+                  className="w-full px-3 py-2 bg-white/90 backdrop-blur-md border border-amber-300/50 rounded-md text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
                 />
               </div>
             </div>
@@ -133,7 +131,7 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 required
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
+                className="w-full px-3 py-2 bg-white/90 backdrop-blur-md border border-amber-300/50 rounded-md text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
               />
             </div>
 
@@ -147,9 +145,9 @@ export const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={6}
+                rows={4}
                 placeholder="Tell us about your project, questions, or how you'd like to collaborate..."
-                className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300 resize-vertical"
+                className="w-full px-3 py-2 bg-white/90 backdrop-blur-md border border-amber-300/50 rounded-md text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300 resize-vertical"
               />
             </div>
 
@@ -157,7 +155,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-lg hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="px-6 py-2 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold rounded-md hover:from-amber-700 hover:to-amber-800 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -165,10 +163,10 @@ export const ContactSection = () => {
           </form>
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="bg-white/90 backdrop-blur-md rounded-lg p-6 border border-amber-200/30 shadow-2xl">
-            <h3 className="text-xl font-bold text-amber-900 mb-4">Connect With Us</h3>
-            <p className="text-amber-800">
+        <div className="mt-6 text-center">
+          <div className="bg-amber-50/95 backdrop-blur-md rounded-lg p-4 border border-amber-200/50 shadow-xl">
+            <h3 className="text-lg font-bold text-amber-900 mb-2">Connect With Us</h3>
+            <p className="text-amber-800 text-sm">
               Join us on this journey where ancient wisdom meets artificial intelligence.
             </p>
           </div>
