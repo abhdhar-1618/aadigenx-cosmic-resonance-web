@@ -162,7 +162,7 @@ export default function SrijanPeethPage() {
 
             {/* Projects Grid */}
             <div className="max-w-7xl mx-auto px-4 pb-16">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 justify-items-center">
                 {filteredProjects.map((project) => (
                   <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/50 backdrop-blur-sm w-3/4 max-w-sm">
                     <div className="relative overflow-hidden rounded-t-lg">
