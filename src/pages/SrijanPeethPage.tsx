@@ -130,7 +130,7 @@ export default function SrijanPeethPage() {
             {/* Hero Section */}
             <div className="relative pt-4 pb-16 px-4 text-center">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10" />
-              <div className="relative max-w-4xl mx-auto">
+              <div className="relative max-w-3xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
                 </h1>
@@ -144,7 +144,7 @@ export default function SrijanPeethPage() {
             </div>
 
             {/* Category Filter */}
-            <div className="max-w-7xl mx-auto px-4 mb-8">
+            <div className="max-w-5xl mx-auto px-4 mb-8">
               <div className="flex flex-wrap gap-2 justify-center">
                 {categories.map((category) => (
                   <Button
@@ -161,7 +161,7 @@ export default function SrijanPeethPage() {
             </div>
 
             {/* Projects Grid */}
-            <div className="max-w-7xl mx-auto px-4 pb-16">
+            <div className="max-w-5xl mx-auto px-4 pb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 justify-items-center">
                 {filteredProjects.map((project) => (
                   <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/50 backdrop-blur-sm w-3/4 max-w-sm">
@@ -254,7 +254,7 @@ export default function SrijanPeethPage() {
 
             {/* Stats Section */}
             <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
-              <div className="max-w-4xl mx-auto px-4 text-center">
+              <div className="max-w-3xl mx-auto px-4 text-center">
                 <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   <div className="space-y-2">
