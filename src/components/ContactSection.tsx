@@ -168,7 +168,7 @@ export const ContactSection = () => {
         <div className="mt-12 text-center">
           <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 shadow-lg">
             <h3 className="text-xl font-bold text-foreground mb-4">Connect With Us</h3>
-            <p className="text-muted-foreground">
+            <p className="text-white">
               Join us on this journey where ancient wisdom meets artificial intelligence.
             </p>
           </div>
