@@ -100,7 +100,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your full name"
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
                 />
               </div>
 
@@ -116,7 +116,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
                 />
               </div>
             </div>
@@ -133,7 +133,7 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 required
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
               />
             </div>
 
@@ -149,7 +149,7 @@ export const ContactSection = () => {
                 required
                 rows={6}
                 placeholder="Tell us about your project, questions, or how you'd like to collaborate..."
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 resize-vertical"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300 resize-vertical"
               />
             </div>
 
