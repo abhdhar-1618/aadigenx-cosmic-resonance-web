@@ -231,7 +231,7 @@ const AadiKulPage = () => {
             <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
             </h1>
-            <p className="text-md md:text-lg text-muted-foreground">
+            <p className="text-md md:text-lg text-white">
               Learning Management System
             </p>
           </div>
