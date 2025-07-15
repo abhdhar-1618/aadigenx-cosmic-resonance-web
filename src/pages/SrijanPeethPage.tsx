@@ -120,16 +120,16 @@ export default function SrijanPeethPage() {
   };
 
   return (
-    <div className="min-h-screen scroll-background" style={{ backgroundColor: '#D2B48C' }}>
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="srijan" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
       <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
         <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full" style={{ backgroundColor: '#D2B48C' }}>
+          <div className="min-h-full bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
             {/* Hero Section */}
             <div className="relative pt-4 pb-16 px-4 text-center">
-              <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10" />
               <div className="relative max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
@@ -164,7 +164,7 @@ export default function SrijanPeethPage() {
             <div className="max-w-7xl mx-auto px-4 pb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
-                  <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                  <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/50 backdrop-blur-sm">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img 
                         src={project.image} 
@@ -253,7 +253,7 @@ export default function SrijanPeethPage() {
             </div>
 
             {/* Stats Section */}
-            <div className="bg-gradient-to-r from-black/10 to-black/20 py-16">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
               <div className="max-w-4xl mx-auto px-4 text-center">
                 <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -281,8 +281,8 @@ export default function SrijanPeethPage() {
       </div>
       
       {/* Bottom Roll Bar Text */}
-      <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10">
-        <div className="flex justify-center items-center py-1 px-2 md:py-2 md:px-4 max-w-6xl mx-auto">
+      <div className="fixed bottom-0 w-full bg-black/[0.02] backdrop-blur-sm z-10 border-t border-white/[0.02]">
+        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
           <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
           </div>
