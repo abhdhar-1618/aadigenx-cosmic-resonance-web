@@ -72,30 +72,24 @@ export const ContactSection = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen pt-20 pb-12 px-4 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-      }}
-    >
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/60" />
+    <div className="min-h-screen pt-20 pb-12 px-4">
+      
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             <span className="text-yellow-400">C</span>ontact <span className="text-yellow-400">U</span>s
           </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to bridge ancient wisdom with future technology? Let's start a conversation.
           </p>
         </div>
 
-        <div className="bg-white/40 backdrop-blur-md rounded-lg p-8 border border-white/10">
+        <div className="bg-card rounded-lg p-8 border border-border shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-black font-medium mb-2">
+                <label htmlFor="name" className="block text-foreground font-medium mb-2">
                   Name *
                 </label>
                 <input
@@ -106,12 +100,12 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your full name"
-                  className="w-full px-4 py-3 bg-white/20 border border-black/20 rounded-lg text-black placeholder-black/50 focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-black font-medium mb-2">
+                <label htmlFor="email" className="block text-foreground font-medium mb-2">
                   Email *
                 </label>
                 <input
@@ -122,13 +116,13 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/20 border border-black/20 rounded-lg text-black placeholder-black/50 focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-black font-medium mb-2">
+              <label htmlFor="phone" className="block text-foreground font-medium mb-2">
                 Phone Number *
               </label>
               <input
@@ -139,12 +133,12 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 required
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-4 py-3 bg-white/20 border border-black/20 rounded-lg text-black placeholder-black/50 focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-black font-medium mb-2">
+              <label htmlFor="message" className="block text-foreground font-medium mb-2">
                 Message *
               </label>
               <textarea
@@ -155,7 +149,7 @@ export const ContactSection = () => {
                 required
                 rows={6}
                 placeholder="Tell us about your project, questions, or how you'd like to collaborate..."
-                className="w-full px-4 py-3 bg-white/20 border border-black/20 rounded-lg text-black placeholder-black/50 focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300 resize-vertical"
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:border-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600/20 transition-all duration-300 resize-vertical"
               />
             </div>
 
@@ -172,9 +166,9 @@ export const ContactSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-white/40 backdrop-blur-md rounded-lg p-6 border border-white/10">
-            <h3 className="text-xl font-bold text-black mb-4">Connect With Us</h3>
-            <p className="text-black/70">
+          <div className="bg-card rounded-lg p-6 border border-border shadow-lg">
+            <h3 className="text-xl font-bold text-foreground mb-4">Connect With Us</h3>
+            <p className="text-muted-foreground">
               Join us on this journey where ancient wisdom meets artificial intelligence.
             </p>
           </div>
