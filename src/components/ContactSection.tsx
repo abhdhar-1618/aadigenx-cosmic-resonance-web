@@ -80,7 +80,7 @@ export const ContactSection = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             <span className="text-yellow-400">C</span>ontact <span className="text-yellow-400">U</span>s
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white max-w-2xl mx-auto">
             Ready to bridge ancient wisdom with future technology? Let's start a conversation.
           </p>
         </div>
