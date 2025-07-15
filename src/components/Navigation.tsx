@@ -96,11 +96,11 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                    <>
                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">Y</span><span className="samarkan">atra</span>
                    </>
-                 ) : item.id === 'contact' ? (
-                   <>
-                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">S</span><span className="samarkan">etu</span>
-                   </>
-                 ) : (
+                  ) : item.id === 'contact' ? (
+                    <>
+                      <span className="calibri">Tat</span><span className="samarkan">Sutra</span>
+                    </>
+                  ) : (
                    item.label
                  )}
                </Link>
@@ -194,7 +194,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                     </>
                   ) : item.id === 'contact' ? (
                     <>
-                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">S</span><span className="samarkan">etu</span>
+                      <span className="calibri">Tat</span><span className="samarkan">Sutra</span>
                     </>
                   ) : (
                     item.label
