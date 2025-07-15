@@ -72,14 +72,8 @@ export const ContactSection = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen pt-20 pb-12 px-4 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-      }}
-    >
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/60" />
+    <div className="min-h-screen pt-20 pb-12 px-4 bg-background">
+      {/* Remove dark overlay as no background image */}
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
