@@ -213,7 +213,7 @@ export const AboutSection = () => {
                    border: '1px solid rgba(139, 69, 19, 0.12)',
                    boxShadow: 'inset 0 0 12px rgba(255, 215, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06)'
                  }}>
-              <ScrollArea className="h-full p-8 [&>[data-radix-scroll-area-scrollbar]>div]:!bg-white/30">
+              <ScrollArea className="h-full p-8 [&_[data-radix-scroll-area-thumb]]:bg-white/40 [&_[data-radix-scroll-area-thumb]]:border-white/20">
                 <div 
                   className="leading-relaxed prose prose-invert max-w-none"
                   style={{ color: '#654321' }}
