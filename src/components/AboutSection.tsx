@@ -179,7 +179,7 @@ export const AboutSection = () => {
       {/* Subtle warm overlay for comfortable viewing */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50/[0.16] via-yellow-50/[0.12] to-amber-100/[0.16]" />
       
-      <div className="max-w-6xl mx-auto relative z-10 px-8">
+      <div className="max-w-6xl mx-auto relative z-10 px-8 ml-[15px]">
         <div className="flex flex-col lg:flex-row gap-[10px] h-[calc(100vh-160px)]">
           {/* Left Sidebar Navigation */}
           <div className="lg:w-[28%] flex-shrink-0">
