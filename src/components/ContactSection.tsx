@@ -85,11 +85,11 @@ export const ContactSection = () => {
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20 shadow-lg">
+        <div className="bg-white/90 backdrop-blur-md rounded-lg p-8 border border-amber-200/30 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-foreground font-medium mb-2">
+                <label htmlFor="name" className="block text-amber-900 font-medium mb-2">
                   Name *
                 </label>
                 <input
@@ -100,12 +100,12 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your full name"
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-foreground font-medium mb-2">
+                <label htmlFor="email" className="block text-amber-900 font-medium mb-2">
                   Email *
                 </label>
                 <input
@@ -116,13 +116,13 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-foreground font-medium mb-2">
+              <label htmlFor="phone" className="block text-amber-900 font-medium mb-2">
                 Phone Number *
               </label>
               <input
@@ -133,12 +133,12 @@ export const ContactSection = () => {
                 onChange={handleChange}
                 required
                 placeholder="+1 (555) 123-4567"
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-foreground font-medium mb-2">
+              <label htmlFor="message" className="block text-amber-900 font-medium mb-2">
                 Message *
               </label>
               <textarea
@@ -149,7 +149,7 @@ export const ContactSection = () => {
                 required
                 rows={6}
                 placeholder="Tell us about your project, questions, or how you'd like to collaborate..."
-                className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 resize-vertical"
+                className="w-full px-4 py-3 bg-white/80 backdrop-blur-md border border-amber-300/50 rounded-lg text-amber-900 placeholder-amber-700/70 focus:border-amber-500/70 focus:outline-none focus:ring-2 focus:ring-amber-400/30 transition-all duration-300 resize-vertical"
               />
             </div>
 
@@ -166,9 +166,9 @@ export const ContactSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 shadow-lg">
-            <h3 className="text-xl font-bold text-foreground mb-4">Connect With Us</h3>
-            <p className="text-white">
+          <div className="bg-white/90 backdrop-blur-md rounded-lg p-6 border border-amber-200/30 shadow-2xl">
+            <h3 className="text-xl font-bold text-amber-900 mb-4">Connect With Us</h3>
+            <p className="text-amber-800">
               Join us on this journey where ancient wisdom meets artificial intelligence.
             </p>
           </div>
