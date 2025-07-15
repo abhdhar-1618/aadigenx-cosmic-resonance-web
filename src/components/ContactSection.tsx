@@ -78,7 +78,7 @@ export const ContactSection = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            <span className="text-yellow-400">C</span>ontact <span className="text-yellow-400">U</span>s
+            <span className="samarkan text-yellow-400">C</span><span className="calibri">ontact </span><span className="samarkan text-yellow-400">U</span><span className="calibri">s</span>
           </h1>
           <p className="text-xl text-white max-w-2xl mx-auto">
             Ready to bridge ancient wisdom with future technology? Let's start a conversation.
