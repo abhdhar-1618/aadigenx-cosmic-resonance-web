@@ -85,7 +85,7 @@ export const ContactSection = () => {
           </p>
         </div>
 
-        <div className="bg-card rounded-lg p-8 border border-border shadow-lg">
+        <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20 shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -166,7 +166,7 @@ export const ContactSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-card rounded-lg p-6 border border-border shadow-lg">
+          <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 shadow-lg">
             <h3 className="text-xl font-bold text-foreground mb-4">Connect With Us</h3>
             <p className="text-muted-foreground">
               Join us on this journey where ancient wisdom meets artificial intelligence.
