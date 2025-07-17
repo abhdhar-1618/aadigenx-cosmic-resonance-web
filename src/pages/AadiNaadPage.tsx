@@ -13,12 +13,20 @@ const AadiNaadPage = () => {
             {/* Founder 1 */}
             <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
-                <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
-                <p className="text-amber-800 font-merriweather text-sm mb-3">Title/Position</p>
-                <p className="text-amber-700/80 text-sm leading-relaxed">
-                  Brief description about the founder and their role in the organization.
-                </p>
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
+                    alt="Dipanwita DasChakrabarty" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
+                  <p className="text-amber-800 text-sm mb-1 italic">IIM Indore Alumna | Vision Architect</p>
+                  <p className="text-amber-800 text-sm font-bold mb-3">
+                    |<span className="font-samarkan">A</span>i & Vedic Researcher
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
