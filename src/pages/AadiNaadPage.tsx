@@ -46,7 +46,6 @@ const AadiNaadPage = () => {
                   <span className="aadigenx-brand">
                     <span className="letter-A1">A</span>
                     <span className="letter-a1">a</span>
-                    <span className="letter-a2">a</span>
                     <span className="letter-d1">d</span>
                     <span className="letter-i">i</span>
                     <span className="letter-G">G</span>
@@ -72,7 +71,6 @@ const AadiNaadPage = () => {
                   With Dipanwita at the helm, <span className="aadigenx-brand">
                     <span className="letter-A1">A</span>
                     <span className="letter-a1">a</span>
-                    <span className="letter-a2">a</span>
                     <span className="letter-d1">d</span>
                     <span className="letter-i">i</span>
                     <span className="letter-G">G</span>
