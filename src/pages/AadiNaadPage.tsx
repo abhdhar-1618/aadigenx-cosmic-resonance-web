@@ -51,7 +51,7 @@ const AadiNaadPage = () => {
                 </p>
                 
                 <p>
-                  Rooted in a rich musical legacy—granddaughter of Pandit Subodh Nandy and niece of Prof. Subir Nandy—Dipanwita merges rhythm, tradition, and A<span className="samarkan">I</span> in groundbreaking ways. She has led musical folklore workshops across India with her father, Late Sri <strong>Pulok Kumar Das</strong>, and continues to foster cross-cultural dialogue through sound and cognition.
+                  Rooted in a rich musical legacy—granddaughter of <strong>Pandit Subodh Nandy</strong> and niece of <strong>Prof. Subir Nandy</strong> and late <strong>Prof. Sudip Nandy</strong> — Dipanwita merges rhythm, tradition, and A<span className="samarkan">I</span> in groundbreaking ways. She has led musical folklore workshops across India with her father, Late Sri <strong>Pulok Kumar Das</strong>, and continues to foster cross-cultural dialogue through sound and cognition.
                 </p>
                 
                 <p>
@@ -59,7 +59,7 @@ const AadiNaadPage = () => {
                 </p>
                 
                 <p>
-                  With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab—it is a movement <u>where</u> ancient resonance shapes future intelligence.
+                  With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab—it is a movement where ancient resonance shapes future intelligence.
                 </p>
               </div>
             </div>
