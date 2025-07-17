@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				'cinzel': ['Cinzel', 'serif'],
 				'crimson': ['Crimson Text', 'serif'],
+				'samarkan': ['Samarkan', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

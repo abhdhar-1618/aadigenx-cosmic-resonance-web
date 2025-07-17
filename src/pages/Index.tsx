@@ -1,9 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
-import { VideoIntro } from '@/components/VideoIntro';
-import { ClickOverlay } from '@/components/ClickOverlay';
-import { HeroSection } from '@/components/HeroSection';
+import { DivineTemple } from '@/components/DivineTemple';
 import { AboutSection } from '@/components/AboutSection';
 import { GallerySection } from '@/components/GallerySection';
 import { BlogsSection } from '@/components/BlogsSection';
@@ -12,83 +10,42 @@ import { ContactSection } from '@/components/ContactSection';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState('home');
-  const [introComplete, setIntroComplete] = useState(false);
-  const [hasNavigated, setHasNavigated] = useState(false);
-  const [showClickOverlay, setShowClickOverlay] = useState(false);
-  const [triggerAudioSequence, setTriggerAudioSequence] = useState(false);
-  const [navigationEnabled, setNavigationEnabled] = useState(false);
-  const [showMainContent, setShowMainContent] = useState(false);
+  const [navigationReady, setNavigationReady] = useState(false);
+  const [showSections, setShowSections] = useState(false);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('Index component state:', {
-      currentSection,
-      introComplete,
-      hasNavigated,
-      showClickOverlay,
-      triggerAudioSequence,
-      navigationEnabled,
-      showMainContent
-    });
-  }, [currentSection, introComplete, hasNavigated, showClickOverlay, triggerAudioSequence, navigationEnabled, showMainContent]);
-
-  const handleIntroComplete = () => {
-    console.log('Intro sequence completed - enabling navigation');
-    setIntroComplete(true);
-    setNavigationEnabled(true);
-  };
-
-  const handleShowClickOverlay = () => {
-    console.log('Showing click overlay and main content');
-    setShowClickOverlay(true);
-    setShowMainContent(true);
-  };
-
-  const handleClickOverlayStart = () => {
-    console.log('Click overlay clicked - starting audio sequence');
-    setShowClickOverlay(false);
-    setTriggerAudioSequence(true);
+  const handleNavigationReady = () => {
+    console.log('Divine temple navigation ready');
+    setNavigationReady(true);
+    
+    // Show sections after a brief delay
+    setTimeout(() => {
+      setShowSections(true);
+    }, 1000);
   };
 
   const handleNavigation = (section: string) => {
     console.log('Navigating to section:', section);
     setCurrentSection(section);
-    setHasNavigated(true);
-  };
-
-  const handleHomeNavigation = () => {
-    console.log('Navigating to home');
-    setCurrentSection('home');
   };
 
   return (
     <div className="min-h-screen bg-black">
-      {!introComplete && (
-        <VideoIntro 
-          onComplete={handleIntroComplete} 
-          onShowClickOverlay={handleShowClickOverlay}
-        />
-      )}
+      {/* Divine Temple Landing Experience */}
+      <DivineTemple onNavigationReady={handleNavigationReady} />
       
-      <ClickOverlay 
-        show={showClickOverlay} 
-        onStart={handleClickOverlayStart} 
-      />
-      
-      {/* Show main content after intro video ends */}
-      {showMainContent && (
-        <div className={`transition-opacity duration-200 ${showClickOverlay ? 'opacity-100' : 'opacity-100'}`}>
+      {/* Traditional Navigation (hidden initially) */}
+      {navigationReady && (
+        <div className="fixed top-4 right-4 z-50 opacity-30 hover:opacity-100 transition-opacity duration-300">
           <Navigation 
             currentSection={currentSection} 
-            disabled={!navigationEnabled}
+            disabled={false}
           />
-          
-          {currentSection === 'home' && (
-            <HeroSection 
-              hasNavigated={hasNavigated} 
-              triggerAudioSequence={triggerAudioSequence}
-            />
-          )}
+        </div>
+      )}
+      
+      {/* Content Sections - appear after temple sequence */}
+      {showSections && (
+        <div id="content-section" className="relative z-10">
           {currentSection === 'about' && <AboutSection />}
           {currentSection === 'gallery' && <GallerySection />}
           {currentSection === 'blogs' && <BlogsSection />}
