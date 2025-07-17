@@ -35,7 +35,7 @@ const AadiNaadPage = () => {
                   <h1 className="text-3xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h1>
                   <p className="text-amber-800 text-lg mb-1 italic">IIM Indore Alumna | Vision Architect</p>
                    <p className="text-amber-800 text-lg font-bold">
-                     |A<span className="samarkan">I</span> & Vedic Researcher
+                     A<span className="samarkan">I</span> & Vedic Researcher
                    </p>
                 </div>
               </div>
