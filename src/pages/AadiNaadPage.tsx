@@ -59,7 +59,7 @@ const AadiNaadPage = () => {
                 </p>
                 
                 <p>
-                  With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab—it is a movement where ancient resonance shapes future intelligence.
+                  With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab... it is a movement where ancient resonance shapes future intelligence.
                 </p>
               </div>
             </div>
