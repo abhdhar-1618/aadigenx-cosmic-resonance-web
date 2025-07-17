@@ -11,7 +11,7 @@ const AadiNaadPage = () => {
           {/* Founder Profile Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             {/* Founder 1 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl transition-shadow duration-300 backdrop-blur-sm">
+            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
@@ -23,7 +23,7 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Founder 2 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl transition-shadow duration-300 backdrop-blur-sm">
+            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
@@ -35,7 +35,7 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Founder 3 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl transition-shadow duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1">
+            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
