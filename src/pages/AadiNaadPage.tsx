@@ -41,62 +41,7 @@ const AadiNaadPage = () => {
               
               {/* Content */}
               <div className="px-16 py-8 relative z-10">
-                {/* Header */}
-                <div className="text-center mb-6">
-                  <h2 className="text-xl md:text-2xl font-bold text-amber-900 font-cinzel">
-                    Founder & Research Lead, AadiGenX
-                  </h2>
-                </div>
-                
-                {/* Profile Content */}
-                <div className="flex flex-col lg:flex-row gap-6 items-start">
-                  {/* Left side - Text */}
-                  <div className="lg:w-2/3">
-                    <h3 className="text-xl font-bold text-amber-900 mb-3 font-cinzel">
-                      Dipanwita DasChakrabarty
-                    </h3>
-                    
-                    <div className="space-y-3 text-amber-900 font-crimson text-sm">
-                      <p className="font-semibold">
-                        IIM Indore Alumna | Vision Architect
-                      </p>
-                      <p className="font-semibold">
-                        |AI & Vedic Researcher
-                      </p>
-                      
-                      <p className="leading-relaxed">
-                        The pioneering force in conscious education and applied AI. As Founder & Research Lead of AadiGenx, she bridges ancient wisdom, modern science, and soulful innovation—reviving India's heritage through next-gen technologies.
-                      </p>
-                      
-                      <p className="leading-relaxed">
-                        Her expertise spans neural networks, NLP, LLMs, transformer architectures, and agentic AI. With leadership roles at <span className="font-semibold">Toyota, Honda, PwC, IDFC and Bajaj Finance, and Space Masterminds</span>, she's known for integrating ethics, technology, and human potential into transformative solutions.
-                      </p>
-                      
-                      <p className="leading-relaxed">
-                        Rooted in a rich musical legacy—granddaughter of <span className="font-semibold">Pandit Subodh Nandy</span> and niece of <span className="font-semibold">Prof. Sujitra Nandy</span>—Dipanwita merges rhythm, tradition, and AI in groundbreaking ways. She has led musical folklore workshops across India with her father, <span className="font-semibold">Late Sri Pulak Kumar Das</span>, and continues to foster cross-cultural dialogue across East vs. West through sound and art.
-                      </p>
-                      
-                      <p className="leading-relaxed">
-                        As the visionary behind <span className="font-semibold italic">Cosmic Resonance</span>, her work fuses Vedic science, classical music, and AI to decode and preserve timeless knowledge. Her mission is to build scalable, soul-aligned learning systems that empower creators with both <span className="font-semibold">roots and wings</span>.
-                      </p>
-                      
-                      <p className="leading-relaxed font-semibold">
-                        With Dipanwita at the helm, AadiGenx is more than a research lab—it is a movement where ancient resonance shapes future intelligence.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Right side - Image */}
-                  <div className="lg:w-1/3 flex justify-center lg:justify-end">
-                    <div className="relative">
-                      <img 
-                        src="/lovable-uploads/4ade9b95-1ac8-4103-bf42-320859e56f7c.png"
-                        alt="Dipanwita DasChakrabarty"
-                        className="w-32 h-40 lg:w-40 lg:h-48 object-cover rounded-lg shadow-lg border-3 border-amber-800"
-                      />
-                    </div>
-                  </div>
-                </div>
+                {/* Empty scroll content */}
               </div>
               
               {/* Bottom Scroll Detail */}
