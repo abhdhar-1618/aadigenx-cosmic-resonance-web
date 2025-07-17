@@ -43,16 +43,7 @@ const AadiNaadPage = () => {
               <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
                 <p>
                   The pioneering force in conscious education and applied <span className="samarkan">A</span>i. As Founder & Research Lead of 
-                  <span className="aadigenx-brand">
-                    <span className="letter-A1">A</span>
-                    <span className="letter-a1">a</span>
-                    <span className="letter-d1">d</span>
-                    <span className="letter-i">i</span>
-                    <span className="letter-G">G</span>
-                    <span className="letter-e">e</span>
-                    <span className="letter-n">n</span>
-                    <span className="letter-X">X</span>
-                  </span>, she bridges ancient wisdom, modern science, and soulful innovation—reviving India's heritage through next-gen technologies.
+                  <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, she bridges ancient wisdom, modern science, and soulful innovation—reviving India's heritage through next-gen technologies.
                 </p>
                 
                 <p>
@@ -68,16 +59,7 @@ const AadiNaadPage = () => {
                 </p>
                 
                 <p>
-                  With Dipanwita at the helm, <span className="aadigenx-brand">
-                    <span className="letter-A1">A</span>
-                    <span className="letter-a1">a</span>
-                    <span className="letter-d1">d</span>
-                    <span className="letter-i">i</span>
-                    <span className="letter-G">G</span>
-                    <span className="letter-e">e</span>
-                    <span className="letter-n">n</span>
-                    <span className="letter-X">X</span>
-                  </span> is more than a research lab—it is a movement <u>where</u> ancient resonance shapes future intelligence.
+                  With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab—it is a movement <u>where</u> ancient resonance shapes future intelligence.
                 </p>
               </div>
             </div>
