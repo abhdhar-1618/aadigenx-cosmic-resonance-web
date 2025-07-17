@@ -34,28 +34,28 @@ const AadiNaadPage = () => {
                 <div className="font-calibri">
                   <h1 className="text-3xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h1>
                   <p className="text-amber-800 text-lg mb-1 italic">IIM Indore Alumna | Vision Architect</p>
-                  <p className="text-amber-800 text-lg font-bold">
-                    |<span className="samarkan">A</span>i & Vedic Researcher
-                  </p>
+                   <p className="text-amber-800 text-lg font-bold">
+                     |A<span className="samarkan">I</span> & Vedic Researcher
+                   </p>
                 </div>
               </div>
               
               <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
                 <p>
-                  The pioneering force in conscious education and applied <span className="samarkan">A</span>i. As Founder & Research Lead of 
+                  The pioneering force in conscious education and applied A<span className="samarkan">I</span>. As Founder & Research Lead of 
                   <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, she bridges ancient wisdom, modern science, and soulful innovation—reviving India's heritage through next-gen technologies.
                 </p>
                 
                 <p>
-                  Her expertise spans neural networks, NLP, LLMs, transformer architectures, and agentic <span className="samarkan">A</span>i. With leadership roles at Toyota, Honda, PwC, IDFC, and Data Science Masterminds, <em>she's known for integrating ethics, technology, and human potential into transformative solutions.</em>
+                  Her expertise spans neural networks, NLP, LLMs, transformer architectures, and agentic A<span className="samarkan">I</span>. With leadership roles at Toyota, Honda, PwC, IDFC, and Data Science Masterminds, <em>she's known for integrating ethics, technology, and human potential into transformative solutions.</em>
                 </p>
                 
                 <p>
-                  Rooted in a rich musical legacy—granddaughter of Pandit Subodh Nandy and niece of Prof. Subir Nandy—Dipanwita merges rhythm, tradition, and <span className="samarkan">A</span>i in groundbreaking ways. She has led musical folklore workshops across India with her father, Late Sri <strong>Pulok Kumar Das</strong>, and continues to foster cross-cultural dialogue through sound and cognition.
+                  Rooted in a rich musical legacy—granddaughter of Pandit Subodh Nandy and niece of Prof. Subir Nandy—Dipanwita merges rhythm, tradition, and A<span className="samarkan">I</span> in groundbreaking ways. She has led musical folklore workshops across India with her father, Late Sri <strong>Pulok Kumar Das</strong>, and continues to foster cross-cultural dialogue through sound and cognition.
                 </p>
                 
                 <p>
-                  As the visionary behind <em><strong>Cosmic Resonance</strong></em>, her work fuses Vedic science, classical music, and <span className="samarkan">A</span>i to decode and preserve timeless knowledge. Her mission is to build scalable, soul-aligned learning systems that empower creators with both roots and wings.
+                  As the visionary behind <em><strong>Cosmic Resonance</strong></em>, her work fuses Vedic science, classical music, and A<span className="samarkan">I</span> to decode and preserve timeless knowledge. Her mission is to build scalable, soul-aligned learning systems that empower creators with both roots and wings.
                 </p>
                 
                 <p>
@@ -92,9 +92,9 @@ const AadiNaadPage = () => {
                 <div className="font-calibri">
                   <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
                   <p className="text-amber-800 text-sm mb-1 italic">IIM Indore Alumna | Vision Architect</p>
-                  <p className="text-amber-800 text-sm font-bold mb-3">
-                    |<span className="samarkan">A</span>i & Vedic Researcher
-                  </p>
+                   <p className="text-amber-800 text-sm font-bold mb-3">
+                     |A<span className="samarkan">I</span> & Vedic Researcher
+                   </p>
                 </div>
               </CardContent>
             </Card>
