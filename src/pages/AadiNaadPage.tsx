@@ -42,7 +42,7 @@ const AadiNaadPage = () => {
               
               <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
                 <p>
-                  The pioneering force in conscious education and applied A<span className="samarkan">I</span>. As Founder & Research Lead of 
+                  The pioneering force in conscious education and applied A<span className="samarkan">I</span>. As Founder & Research Lead of  
                   <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, she bridges ancient wisdom, modern science, and soulful innovation—reviving India's heritage through next-gen technologies.
                 </p>
                 
