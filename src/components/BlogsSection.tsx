@@ -39,7 +39,7 @@ export const BlogsSection = () => {
 
     return (
       <div
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-transparent !bg-none"
         style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
       >
         <div className="absolute inset-0 bg-white/30 -z-10" />
@@ -89,7 +89,7 @@ export const BlogsSection = () => {
 
   return (
     <div
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-transparent !bg-none"
       style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
     >
       <div className="absolute inset-0 bg-white/30 -z-10" />
