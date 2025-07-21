@@ -274,12 +274,12 @@ const AadiKulPage = () => {
           </Card>
 
           <Tabs defaultValue="dashboard" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-5 bg-white/10 border border-white/20">
-              <TabsTrigger value="dashboard" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Dashboard</TabsTrigger>
-              <TabsTrigger value="courses" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Courses</TabsTrigger>
-              <TabsTrigger value="assignments" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Assignments</TabsTrigger>
-              <TabsTrigger value="grades" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Grades</TabsTrigger>
-              <TabsTrigger value="calendar" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Calendar</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-5">
+              <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+              <TabsTrigger value="courses">Courses</TabsTrigger>
+              <TabsTrigger value="assignments">Assignments</TabsTrigger>
+              <TabsTrigger value="grades">Grades</TabsTrigger>
+              <TabsTrigger value="calendar">Calendar</TabsTrigger>
             </TabsList>
 
             {/* Dashboard Tab */}
@@ -436,7 +436,7 @@ const AadiKulPage = () => {
                         <div className="text-sm text-muted-foreground">
                           Next: {new Date(course.nextClass).toLocaleDateString()}
                         </div>
-                        <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                        <Button size="sm" variant="outline">
                           Enter Course
                         </Button>
                       </div>
@@ -505,7 +505,7 @@ const AadiKulPage = () => {
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-medium text-green-600">{assignment.grade}</span>
-                            <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">View</Button>
+                            <Button size="sm" variant="outline">View</Button>
                           </div>
                         </div>
                       </div>
@@ -589,15 +589,15 @@ const AadiKulPage = () => {
                       <FileText className="h-4 w-4 mr-2" />
                       Submit Assignment
                     </Button>
-                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
+                    <Button variant="outline" className="w-full justify-start">
                       <MessageSquare className="h-4 w-4 mr-2" />
                       Message Instructor
                     </Button>
-                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
+                    <Button variant="outline" className="w-full justify-start">
                       <Download className="h-4 w-4 mr-2" />
                       Download Resources
                     </Button>
-                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
+                    <Button variant="outline" className="w-full justify-start">
                       <Video className="h-4 w-4 mr-2" />
                       Join Virtual Class
                     </Button>
@@ -615,7 +615,7 @@ const AadiKulPage = () => {
       </div>
       
       {/* Bottom Roll Bar Text */}
-      <div className="fixed bottom-0 w-full bg-black/[0.02] backdrop-blur-sm z-10 border-t border-white/[0.02]">
+      <div className="fixed bottom-0 w-full bg-white/10 backdrop-blur-md z-10 border-t border-white/10">
         <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
           <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
