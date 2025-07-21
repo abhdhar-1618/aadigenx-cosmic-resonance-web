@@ -178,7 +178,11 @@ export default function SrijanPeethPage() {
                       </div>
                   <div className="absolute bottom-3 left-3 flex gap-2">
                     {project.achievements.slice(0, 1).map((achievement, index) => (
-                      <Badge key={index} variant="default" className="bg-primary/90 text-white text-xs">
+                      <Badge 
+                        key={index} 
+                        variant="ghost"
+                        className="bg-gray-200/50 text-gray-800 border border-gray-300 text-xs hover:bg-gray-300/60"
+                        >
                         <Award className="h-3 w-3 mr-1" />
                         {achievement}
                       </Badge>
