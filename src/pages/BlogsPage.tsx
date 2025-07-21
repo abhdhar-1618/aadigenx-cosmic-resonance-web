@@ -4,7 +4,7 @@ import { BlogsSection } from '@/components/BlogsSection';
 
 const BlogsPage = () => {
   return (
-    <div className="min-h-screen scroll-background">
+    <div className="min-h-screen">
       <Navigation currentSection="blogs" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
