@@ -615,7 +615,7 @@ const AadiKulPage = () => {
       </div>
       
       {/* Bottom Roll Bar Text */}
-      <div className="fixed bottom-0 w-full bg-black/[0.001] backdrop-blur-sm z-10 border-t border-white/[0.001]">
+      <div className="fixed bottom-0 w-full bg-transparent z-10">
         <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
           <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
