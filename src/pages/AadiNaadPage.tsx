@@ -4,16 +4,16 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 
 const AadiNaadPage = () => {
-  const [showDetailedProfile, setShowDetailedProfile] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
   
-  if (showDetailedProfile) {
+  if (selectedProfile === 'dipanwita') {
     return (
       <div className="min-h-screen scroll-background">
         <Navigation currentSection="naad" />
         <div className="pt-24 pb-12 px-4">
           <div className="max-w-4xl mx-auto">
             <button 
-              onClick={() => setShowDetailedProfile(false)}
+              onClick={() => setSelectedProfile(null)}
               className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
             >
               <ArrowLeft size={20} />
@@ -69,6 +69,68 @@ const AadiNaadPage = () => {
     );
   }
 
+  if (selectedProfile === 'subir') {
+    return (
+      <div className="min-h-screen scroll-background">
+        <Navigation currentSection="naad" />
+        <div className="pt-24 pb-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setSelectedProfile(null)}
+              className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+            >
+              <ArrowLeft size={20} />
+              Back to Profiles
+            </button>
+            
+            <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+              <div className="flex flex-col md:flex-row gap-8 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
+                      alt="Prof. Subir Nandy" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="font-calibri">
+                  <h1 className="text-3xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h1>
+                  <p className="text-amber-800 text-lg mb-1 italic">Visionary Maestro, Educator, Institution-Builder</p>
+                   <p className="text-amber-800 text-lg font-bold">
+                     Director & Head of Music
+                   </p>
+                </div>
+              </div>
+              
+              <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
+                <p>
+                  A visionary maestro, educator, and institution-builder leading the musical frontier at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. As Director & Head of Music, he fuses India's classical traditions with conscious, future-ready pedagogy.
+                </p>
+                
+                <p>
+                  Trained under musical legends—his father <strong>Pt. Subodh Nandy</strong>, <strong>Ustad Rahim Fahimuddin Dagar</strong>, <strong>Smt. Kaberi Kar</strong>, and others—Prof. Nandy is a rare dual master of rhythm (Tabla, Pakhawaj, Andhya Badya) and melody (Dhrupad, Rabindric vocal).
+                </p>
+                
+                <p>
+                  He has performed across India's top platforms—All India Radio, Doordarshan, Tansen Festival, and leading channels like Zee Bangla and Tara Muzic. His depth as a performer is matched by his impact as an educator—founding <strong>Neelava</strong>, mentoring at <strong>Gitabitan School</strong>, and teaching at <strong>Rabindra Bharati University</strong> and through the <strong>British Council</strong>. His international experience, including training students at <strong>Japan's Soka University</strong>, embodies <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>'s commitment to making Indian knowledge global and accessible.
+                </p>
+                
+                <p>
+                  As editor of <em><strong>Bharatiya Sangeet Tal-O-Chhanda</strong></em> and a global mentor, he bridges tradition with innovation. At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, he leads the <strong>Rhythm Intelligence vertical</strong>, shaping a new wave of learners through curricula that blend ancient rhythm theory, classical voice training, and digital tools.
+                </p>
+                
+                <p>
+                  With Prof. Nandy at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> becomes a confluence of rigor, creativity, and cultural evolution—where tradition empowers technology and every rhythm shapes tomorrow's change.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
@@ -79,7 +141,7 @@ const AadiNaadPage = () => {
             {/* Card 1 */}
             <Card 
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setShowDetailedProfile(true)}
+              onClick={() => setSelectedProfile('dipanwita')}
             >
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
@@ -99,7 +161,10 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Card 2 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              onClick={() => setSelectedProfile('subir')}
+            >
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
