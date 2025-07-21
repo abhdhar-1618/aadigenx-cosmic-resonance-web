@@ -65,6 +65,15 @@ const AadiNaadPage = () => {
             </div>
           </div>
         </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -127,6 +136,15 @@ const AadiNaadPage = () => {
             </div>
           </div>
         </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -186,6 +204,15 @@ const AadiNaadPage = () => {
                   With Abhik Dhar in operations, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> stands on a platform of integrity, clarity, and sustained impact—moving forward with confidence, every step of the way.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
             </div>
           </div>
         </div>
@@ -265,6 +292,15 @@ const AadiNaadPage = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </div>
+      
+      {/* Bottom Roll Bar Text */}
+      <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+            प्राचीनानां निनादः भविष्यस्य संरचना
           </div>
         </div>
       </div>
