@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -33,107 +34,116 @@ export const BlogsSection = () => {
     setSelectedBlog(null);
   };
 
-  const Background = () => (
-    <img
-      src="/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png"
-      alt="scroll"
-      className="w-screen h-screen object-cover block"
-    />
-  );
+  if (selectedBlog) {
+    const blog = blogPosts.find(post => post.id === selectedBlog);
+    if (!blog) return null;
 
-  const ContentWrapper = ({ children }: { children: React.ReactNode }) => (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center overflow-y-auto">
-      <div className="w-full max-w-4xl text-white px-4">
-        {children}
-      </div>
-    </div>
-  );
+    return (
+      <div 
+        className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 -z-10" />
+        <div className="container mx-auto px-6 py-12 max-w-4xl relative">
+          <Button 
+            onClick={handleBackClick}
+            variant="ghost"
+            className="mb-8 text-white hover:text-yellow-400 hover:bg-white/10"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Blogs
+          </Button>
 
-  return (
-    <div className="relative w-screen h-screen overflow-hidden !p-0 !m-0">
-      <Background />
-      <ContentWrapper>
-        {selectedBlog ? (
-          <>
-            <Button
-              onClick={handleBackClick}
-              variant="ghost"
-              className="text-white hover:text-yellow-400 hover:bg-white/10 self-start"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blogs
-            </Button>
-            <article className="prose prose-invert prose-lg max-w-none mt-6">
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
-                {blogPosts[0].title}
+          <article className="prose prose-invert prose-lg max-w-none">
+            <header className="mb-8">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+                {blog.title}
               </h1>
-              <div className="flex flex-wrap items-center justify-center gap-4 text-white/70 mb-4">
+              
+              <div className="flex flex-wrap items-center gap-4 text-white/70 mb-6">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
-                  <span>{blogPosts[0].date}</span>
+                  <span>{blog.date}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4" />
-                  <span>{blogPosts[0].author}</span>
+                  <span>{blog.author}</span>
                 </div>
-                <span>{blogPosts[0].readTime}</span>
+                <span>{blog.readTime}</span>
               </div>
-              <div className="space-y-6 text-white/90">
-                {blogPosts[0].content.map((p, index) => (
-                  <p
-                    key={index}
-                    dangerouslySetInnerHTML={{ __html: p }}
-                    className="text-lg leading-relaxed"
-                  />
-                ))}
-              </div>
-            </article>
-          </>
-        ) : (
-          <>
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
-              Blogs
-            </h1>
-            <p className="text-xl text-white/80 mt-4 mb-10">
-              Insights on the intersection of ancient wisdom and modern technology
-            </p>
-            <div className="grid gap-8">
-              {blogPosts.map((post) => (
-                <Card
-                  key={post.id}
-                  className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
-                  onClick={() => handleBlogClick(post.id)}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 text-sm text-white/60 mb-2">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{post.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <User className="h-4 w-4" />
-                        <span>{post.author}</span>
-                      </div>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <CardTitle className="text-2xl text-white hover:text-yellow-400 transition-colors">
-                      {post.title}
-                    </CardTitle>
-                    <CardDescription className="text-white/70 text-base">
-                      {post.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-white/10 p-0">
-                      Read More →
-                    </Button>
-                  </CardContent>
-                </Card>
+            </header>
+
+            <div className="space-y-6">
+              {blog.content.map((paragraph, index) => (
+                <p key={index} className="text-lg leading-relaxed text-white/90">
+                  {paragraph}
+                </p>
               ))}
             </div>
-          </>
-        )}
-      </ContentWrapper>
+          </article>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div 
+      className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30 -z-10" />
+      
+      <div className="container mx-auto px-6 py-12 relative">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+            Blogs
+          </h1>
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            Insights on the intersection of ancient wisdom and modern technology
+          </p>
+        </div>
+
+        <div className="grid gap-8 max-w-4xl mx-auto">
+          {blogPosts.map((post) => (
+            <Card 
+              key={post.id} 
+              className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
+              onClick={() => handleBlogClick(post.id)}
+            >
+              <CardHeader>
+                <div className="flex items-center gap-4 text-sm text-white/60 mb-2">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <User className="h-4 w-4" />
+                    <span>{post.author}</span>
+                  </div>
+                  <span>{post.readTime}</span>
+                </div>
+                <CardTitle className="text-2xl text-white hover:text-yellow-400 transition-colors">
+                  {post.title}
+                </CardTitle>
+                <CardDescription className="text-white/70 text-base">
+                  {post.excerpt}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-white/10 p-0">
+                  Read More →
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

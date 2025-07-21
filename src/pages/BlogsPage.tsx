@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Navigation } from '@/components/Navigation';
 import { BlogsSection } from '@/components/BlogsSection';
 
 const BlogsPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-background">
       <Navigation currentSection="blogs" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
@@ -15,19 +14,11 @@ const BlogsPage = () => {
         </div>
       </div>
       
-      {/* Bottom Roll Bar Text - with parchment background */}
-      <div className="fixed bottom-0 w-full z-10">
-        <div 
-          className="bg-cover bg-center bg-no-repeat py-4 min-h-[60px] flex items-center"
-          style={{ 
-            backgroundImage: `url(/lovable-uploads/a3729427-c1b4-4a89-a741-afba6861c50b.png)`,
-            backgroundSize: 'cover'
-          }}
-        >
-          <div className="flex justify-center items-center max-w-6xl mx-auto w-full">
-            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
+      {/* Bottom Roll Bar Text */}
+      <div className="fixed bottom-0 w-full bg-black/[0.02] backdrop-blur-sm z-10 border-t border-white/[0.02]">
+        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+            प्राचीनानां निनादः भविष्यस्य संरचना
           </div>
         </div>
       </div>

@@ -28,15 +28,8 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="fixed top-0 w-full z-30">
-      <div 
-        className="bg-cover bg-center bg-no-repeat py-4 min-h-[60px] flex items-center"
-        style={{ 
-          backgroundImage: `url(/lovable-uploads/a3729427-c1b4-4a89-a741-afba6861c50b.png)`,
-          backgroundSize: 'cover'
-        }}
-      >
-        <div className="flex justify-center items-center max-w-6xl mx-auto w-full">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="flex justify-center items-center py-1 px-2 md:py-2 md:px-4 max-w-6xl mx-auto">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-wrap gap-1 justify-center items-center max-w-full overflow-hidden">
           {navItems.map((item) => (
@@ -127,7 +120,6 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
