@@ -152,7 +152,11 @@ export default function SrijanPeethPage() {
                     variant={selectedCategory === category ? "default" : "outline"}
                     size="sm"
                     onClick={() => setSelectedCategory(category)}
-                    className="transition-all duration-200"
+                    className={`transition-all duration-200 ${
+                      selectedCategory === category 
+                        ? "" 
+                        : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    }`}
                   >
                     {category}
                   </Button>
@@ -180,7 +184,7 @@ export default function SrijanPeethPage() {
                     {project.achievements.slice(0, 1).map((achievement, index) => (
                       <Badge 
                         key={index} 
-                        variant="ghost"
+                        variant="secondary"
                         className="bg-gray-200/50 text-gray-800 border border-gray-300 text-xs hover:bg-gray-300/60"
                         >
                         <Award className="h-3 w-3 mr-1" />
