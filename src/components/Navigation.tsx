@@ -29,7 +29,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   return (
     <nav className="fixed top-0 w-full bg-transparent z-30">
-      <div className="flex justify-center items-center py-1 px-2 md:py-2 md:px-4 max-w-6xl mx-auto">
+      <div className="flex justify-center items-center max-w-6xl mx-auto">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-wrap gap-1 justify-center items-center max-w-full overflow-hidden">
           {navItems.map((item) => (
