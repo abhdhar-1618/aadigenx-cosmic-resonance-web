@@ -185,12 +185,19 @@ const AadiNaadPage = () => {
             {/* Card 3 */}
             <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1">
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
-                <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
-                <p className="text-amber-800 font-merriweather text-sm mb-3">Title/Position</p>
-                <p className="text-amber-700/80 text-sm leading-relaxed">
-                  Brief description about the founder and their role in the organization.
-                </p>
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
+                    alt="Head of Operations" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Head of Operations</h3>
+                  <p className="text-amber-800 text-base font-bold">
+                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
