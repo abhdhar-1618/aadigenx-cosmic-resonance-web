@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -39,16 +38,13 @@ export const BlogsSection = () => {
     if (!blog) return null;
 
     return (
-      <div 
-        className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-        }}
+      <div
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
       >
-        {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-white/30 -z-10" />
-        <div className="container mx-auto px-6 py-12 max-w-4xl relative">
-          <Button 
+        <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10">
+          <Button
             onClick={handleBackClick}
             variant="ghost"
             className="mb-8 text-white hover:text-yellow-400 hover:bg-white/10"
@@ -62,7 +58,7 @@ export const BlogsSection = () => {
               <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
                 {blog.title}
               </h1>
-              
+
               <div className="flex flex-wrap items-center gap-4 text-white/70 mb-6">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
@@ -78,9 +74,11 @@ export const BlogsSection = () => {
 
             <div className="space-y-6">
               {blog.content.map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
-                  {paragraph}
-                </p>
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-white/90"
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
               ))}
             </div>
           </article>
@@ -90,16 +88,13 @@ export const BlogsSection = () => {
   }
 
   return (
-    <div 
-      className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
-      }}
+    <div
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
     >
-      {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-white/30 -z-10" />
-      
-      <div className="container mx-auto px-6 py-12 relative">
+
+      <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
             Blogs
@@ -111,8 +106,8 @@ export const BlogsSection = () => {
 
         <div className="grid gap-8 max-w-4xl mx-auto">
           {blogPosts.map((post) => (
-            <Card 
-              key={post.id} 
+            <Card
+              key={post.id}
               className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
               onClick={() => handleBlogClick(post.id)}
             >
