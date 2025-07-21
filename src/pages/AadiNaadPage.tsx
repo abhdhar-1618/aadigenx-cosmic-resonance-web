@@ -131,6 +131,68 @@ const AadiNaadPage = () => {
     );
   }
 
+  if (selectedProfile === 'abhik') {
+    return (
+      <div className="min-h-screen scroll-background">
+        <Navigation currentSection="naad" />
+        <div className="pt-24 pb-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setSelectedProfile(null)}
+              className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+            >
+              <ArrowLeft size={20} />
+              Back to Profiles
+            </button>
+            
+            <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+              <div className="flex flex-col md:flex-row gap-8 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
+                      alt="Abhik Dhar" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="font-calibri">
+                  <h1 className="text-3xl font-bold text-amber-900 mb-2">Abhik Dhar</h1>
+                  <p className="text-amber-800 text-lg mb-1 italic">Data Strategist | Risk Architect | Process Designer</p>
+                   <p className="text-amber-800 text-lg font-bold">
+                     IIM Indore Alumnus
+                   </p>
+                </div>
+              </div>
+              
+              <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
+                <p>
+                  The operational backbone of <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, driving precision, compliance, and scale. With a decade of cross-industry experience—including key roles at <strong>Capgemini</strong> and <strong>Flipkart</strong>—he brings a rare blend of strategic insight and real-world execution.
+                </p>
+                
+                <p>
+                  He takes pride in designing processes—across everything from operations to grant management—that are transparent, efficient, and built for real-world results. His approach is direct: ensure compliance, minimize risk, and always keep the organization's mission at the forefront.
+                </p>
+                
+                <p>
+                  Abhik's experience in <strong>e-commerce</strong>, <strong>finance</strong>, and <strong>edtech</strong> gives him a strong foundation to anticipate challenges and turn them into strengths. At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, he focuses on making sure every resource—be it time, talent, or funding—is put to its best use. When it comes to grant-funded projects, he ensures all reporting and tracking are clear and reliable, fostering trust without unnecessary complexity.
+                </p>
+                
+                <p>
+                  In line with the <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> vision, Abhik believes that real progress comes from discipline, accountability, and empowering teams to do their best work. He's not just a process expert; he's a builder of strong foundations that let big ideas become lasting realities.
+                </p>
+                
+                <p>
+                  With Abhik Dhar in operations, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> stands on a platform of integrity, clarity, and sustained impact—moving forward with confidence, every step of the way.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
@@ -183,7 +245,10 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Card 3 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1">
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1 cursor-pointer"
+              onClick={() => setSelectedProfile('abhik')}
+            >
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
