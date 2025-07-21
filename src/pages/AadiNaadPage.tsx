@@ -10,7 +10,7 @@ const AadiNaadPage = () => {
     return (
       <div className="min-h-screen scroll-background">
         <Navigation currentSection="naad" />
-        <div className="pt-24 px-4" style={{ height: 'calc(100vh - 6rem - 2rem)', overflowY: 'auto' }}>
+        <div className="pt-24 px-4" style={{ height: 'calc(100vh - 6rem - 1rem)', overflowY: 'auto' }}>
           <div className="max-w-4xl mx-auto">
             <button 
               onClick={() => setSelectedProfile(null)}
