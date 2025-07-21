@@ -274,12 +274,12 @@ const AadiKulPage = () => {
           </Card>
 
           <Tabs defaultValue="dashboard" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-              <TabsTrigger value="courses">Courses</TabsTrigger>
-              <TabsTrigger value="assignments">Assignments</TabsTrigger>
-              <TabsTrigger value="grades">Grades</TabsTrigger>
-              <TabsTrigger value="calendar">Calendar</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-5 bg-white/10 border border-white/20">
+              <TabsTrigger value="dashboard" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Dashboard</TabsTrigger>
+              <TabsTrigger value="courses" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Courses</TabsTrigger>
+              <TabsTrigger value="assignments" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Assignments</TabsTrigger>
+              <TabsTrigger value="grades" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Grades</TabsTrigger>
+              <TabsTrigger value="calendar" className="data-[state=inactive]:bg-transparent data-[state=inactive]:text-white data-[state=inactive]:hover:bg-white/20 data-[state=active]:bg-white data-[state=active]:text-black">Calendar</TabsTrigger>
             </TabsList>
 
             {/* Dashboard Tab */}
