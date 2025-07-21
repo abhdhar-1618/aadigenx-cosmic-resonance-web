@@ -436,7 +436,7 @@ const AadiKulPage = () => {
                         <div className="text-sm text-muted-foreground">
                           Next: {new Date(course.nextClass).toLocaleDateString()}
                         </div>
-                        <Button size="sm" variant="outline">
+                        <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
                           Enter Course
                         </Button>
                       </div>
@@ -505,7 +505,7 @@ const AadiKulPage = () => {
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-medium text-green-600">{assignment.grade}</span>
-                            <Button size="sm" variant="outline">View</Button>
+                            <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">View</Button>
                           </div>
                         </div>
                       </div>
@@ -589,15 +589,15 @@ const AadiKulPage = () => {
                       <FileText className="h-4 w-4 mr-2" />
                       Submit Assignment
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
                       <MessageSquare className="h-4 w-4 mr-2" />
                       Message Instructor
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
                       <Download className="h-4 w-4 mr-2" />
                       Download Resources
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start bg-white/10 border-white/20 text-white hover:bg-white/20">
                       <Video className="h-4 w-4 mr-2" />
                       Join Virtual Class
                     </Button>
