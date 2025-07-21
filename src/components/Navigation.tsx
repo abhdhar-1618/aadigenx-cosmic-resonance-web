@@ -33,8 +33,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
         className="bg-cover bg-center bg-no-repeat py-2"
         style={{ backgroundImage: `url(/lovable-uploads/a3729427-c1b4-4a89-a741-afba6861c50b.png)` }}
       >
-        <div className="bg-white/20 backdrop-blur-sm">
-          <div className="flex justify-center items-center max-w-6xl mx-auto">
+        <div className="flex justify-center items-center max-w-6xl mx-auto">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-wrap gap-1 justify-center items-center max-w-full overflow-hidden">
           {navItems.map((item) => (
@@ -125,7 +124,6 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-          </div>
         </div>
       </div>
 
