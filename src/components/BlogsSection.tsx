@@ -43,7 +43,7 @@ export const BlogsSection = () => {
         style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
       >
         <div className="absolute inset-0 bg-white/30 -z-10" />
-        <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10">
+        <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10 bg-transparent">
           <Button
             onClick={handleBackClick}
             variant="ghost"
@@ -94,7 +94,7 @@ export const BlogsSection = () => {
     >
       <div className="absolute inset-0 bg-white/30 -z-10" />
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
+      <div className="container mx-auto px-6 py-12 relative z-10 bg-transparent">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
             Blogs
