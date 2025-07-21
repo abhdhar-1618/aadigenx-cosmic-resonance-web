@@ -10,7 +10,7 @@ const AadiNaadPage = () => {
     return (
       <div className="min-h-screen scroll-background">
         <Navigation currentSection="naad" />
-        <div className="pt-24 pb-20 px-4">
+        <div className="pt-24 pb-20 px-4 max-h-screen overflow-y-auto">
           <div className="max-w-4xl mx-auto">
             <button 
               onClick={() => setSelectedProfile(null)}
@@ -82,7 +82,7 @@ const AadiNaadPage = () => {
     return (
       <div className="min-h-screen scroll-background">
         <Navigation currentSection="naad" />
-        <div className="pt-24 pb-20 px-4">
+        <div className="pt-24 pb-20 px-4 max-h-screen overflow-y-auto">
           <div className="max-w-4xl mx-auto">
             <button 
               onClick={() => setSelectedProfile(null)}
@@ -153,7 +153,7 @@ const AadiNaadPage = () => {
     return (
       <div className="min-h-screen scroll-background">
         <Navigation currentSection="naad" />
-        <div className="pt-24 pb-20 px-4">
+        <div className="pt-24 pb-20 px-4 max-h-screen overflow-y-auto">
           <div className="max-w-4xl mx-auto">
             <button 
               onClick={() => setSelectedProfile(null)}
