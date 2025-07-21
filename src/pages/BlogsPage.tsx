@@ -15,11 +15,18 @@ const BlogsPage = () => {
         </div>
       </div>
       
-      {/* Bottom Roll Bar Text - padding removed */}
-      <div className="fixed bottom-0 w-full bg-transparent z-10">
-        <div className="flex justify-center items-center max-w-6xl mx-auto">
-          <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
-            प्राचीनानां निनादः भविष्यस्य संरचना
+      {/* Bottom Roll Bar Text - with parchment background */}
+      <div className="fixed bottom-0 w-full z-10">
+        <div 
+          className="bg-cover bg-center bg-no-repeat py-2"
+          style={{ backgroundImage: `url(/lovable-uploads/a3729427-c1b4-4a89-a741-afba6861c50b.png)` }}
+        >
+          <div className="bg-white/20 backdrop-blur-sm">
+            <div className="flex justify-center items-center max-w-6xl mx-auto">
+              <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+                प्राचीनानां निनादः भविष्यस्य संरचना
+              </div>
+            </div>
           </div>
         </div>
       </div>
