@@ -33,33 +33,38 @@ export const BlogsSection = () => {
     setSelectedBlog(null);
   };
 
+  const Background = () => (
+    <img
+      src="/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png"
+      alt="scroll"
+      className="w-screen h-screen object-contain block"
+    />
+  );
+
   if (selectedBlog) {
     const blog = blogPosts.find(post => post.id === selectedBlog);
     if (!blog) return null;
 
     return (
-      <div
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-transparent !bg-none"
-        style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
-      >
-        <div className="absolute inset-0 bg-white/30 -z-10" />
-        <div className="container mx-auto px-6 py-12 max-w-4xl relative z-10 bg-transparent">
-          <Button
-            onClick={handleBackClick}
-            variant="ghost"
-            className="mb-8 text-white hover:text-yellow-400 hover:bg-white/10"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Blogs
-          </Button>
+      <div className="relative w-screen h-screen overflow-hidden !p-0 !m-0">
+        <Background />
+        <div className="absolute inset-0 z-10 flex flex-col items-center text-center overflow-y-auto">
+          <div className="w-full max-w-4xl text-white">
+            <Button
+              onClick={handleBackClick}
+              variant="ghost"
+              className="text-white hover:text-yellow-400 hover:bg-white/10 mt-4"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Blogs
+            </Button>
 
-          <article className="prose prose-invert prose-lg max-w-none">
-            <header className="mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+            <article className="prose prose-invert prose-lg max-w-none px-4">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
                 {blog.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4 text-white/70 mb-6">
+              <div className="flex flex-wrap items-center justify-center gap-4 text-white/70">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   <span>{blog.date}</span>
@@ -70,73 +75,69 @@ export const BlogsSection = () => {
                 </div>
                 <span>{blog.readTime}</span>
               </div>
-            </header>
 
-            <div className="space-y-6">
-              {blog.content.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-lg leading-relaxed text-white/90"
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
-                />
-              ))}
-            </div>
-          </article>
+              <div className="space-y-6 text-white/90">
+                {blog.content.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="text-lg leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: paragraph }}
+                  />
+                ))}
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-transparent !bg-none"
-      style={{ backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)` }}
-    >
-      <div className="absolute inset-0 bg-white/30 -z-10" />
-
-      <div className="container mx-auto px-6 py-12 relative z-10 bg-transparent">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+    <div className="relative w-screen h-screen overflow-hidden !p-0 !m-0">
+      <Background />
+      <div className="absolute inset-0 z-10 flex flex-col items-center text-center overflow-y-auto">
+        <div className="w-full max-w-4xl px-4 text-white">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent mt-6">
             Blogs
           </h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mt-4 mb-10">
             Insights on the intersection of ancient wisdom and modern technology
           </p>
-        </div>
 
-        <div className="grid gap-8 max-w-4xl mx-auto">
-          {blogPosts.map((post) => (
-            <Card
-              key={post.id}
-              className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
-              onClick={() => handleBlogClick(post.id)}
-            >
-              <CardHeader>
-                <div className="flex items-center gap-4 text-sm text-white/60 mb-2">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    <span>{post.date}</span>
+          <div className="grid gap-8">
+            {blogPosts.map((post) => (
+              <Card
+                key={post.id}
+                className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
+                onClick={() => handleBlogClick(post.id)}
+              >
+                <CardHeader>
+                  <div className="flex items-center gap-4 text-sm text-white/60 mb-2">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      <span>{post.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <User className="h-4 w-4" />
+                      <span>{post.author}</span>
+                    </div>
+                    <span>{post.readTime}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <User className="h-4 w-4" />
-                    <span>{post.author}</span>
-                  </div>
-                  <span>{post.readTime}</span>
-                </div>
-                <CardTitle className="text-2xl text-white hover:text-yellow-400 transition-colors">
-                  {post.title}
-                </CardTitle>
-                <CardDescription className="text-white/70 text-base">
-                  {post.excerpt}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-white/10 p-0">
-                  Read More →
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                  <CardTitle className="text-2xl text-white hover:text-yellow-400 transition-colors">
+                    {post.title}
+                  </CardTitle>
+                  <CardDescription className="text-white/70 text-base">
+                    {post.excerpt}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-white/10 p-0">
+                    Read More →
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
