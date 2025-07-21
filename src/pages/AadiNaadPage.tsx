@@ -78,10 +78,9 @@ const AadiNaadPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             {/* Card 1 */}
             <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer relative"
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setShowDetailedProfile(true)}
             >
-              <div className="absolute top-2 left-2 w-6 h-6 bg-amber-800 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
@@ -100,8 +99,7 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Card 2 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm relative">
-              <div className="absolute top-2 left-2 w-6 h-6 bg-amber-800 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
@@ -120,8 +118,7 @@ const AadiNaadPage = () => {
             </Card>
 
             {/* Card 3 */}
-            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1 relative">
-              <div className="absolute top-2 left-2 w-6 h-6 bg-amber-800 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+            <Card className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 bg-amber-200 rounded-full mx-auto mb-4 border-2 border-amber-800/40"></div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2 font-samarkan">Founder Name</h3>
