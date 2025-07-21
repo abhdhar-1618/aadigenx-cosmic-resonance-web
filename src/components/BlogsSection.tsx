@@ -46,7 +46,7 @@ export const BlogsSection = () => {
         }}
       >
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-transparent/30 -z-10" />
+        <div className="absolute inset-0 bg-white/30 -z-10" />
         <div className="container mx-auto px-6 py-12 max-w-4xl relative">
           <Button 
             onClick={handleBackClick}
@@ -97,7 +97,7 @@ export const BlogsSection = () => {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-transparent/30 -z-10" />
+      <div className="absolute inset-0 bg-white/30 -z-10" />
       
       <div className="container mx-auto px-6 py-12 relative">
         <div className="text-center mb-16">
