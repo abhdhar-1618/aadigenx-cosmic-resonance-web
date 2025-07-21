@@ -614,32 +614,11 @@ const AadiKulPage = () => {
         </div>
       </div>
       
-      {/* Bottom Roll Bar with Wooden Design */}
-      <div className="fixed bottom-0 w-full z-10" style={{
-        background: 'linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #DEB887 75%, #F4A460 100%)',
-        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(255,255,255,0.2)'
-      }}>
-        <div className="flex justify-between items-center py-3 px-6 max-w-full mx-auto relative">
-          <div className="flex-1"></div>
-          <div className="text-white font-bold text-lg md:text-xl text-center" style={{ 
-            fontSize: '1.25rem',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
-            fontFamily: 'serif'
-          }}>
+      {/* Bottom Roll Bar Text */}
+      <div className="fixed bottom-0 w-full bg-transparent z-10">
+        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
-          </div>
-          <div className="flex-1 flex justify-end">
-            <div className="w-10 h-10 rounded-full border-2 border-amber-200" style={{
-              background: 'radial-gradient(circle, #DAA520 0%, #B8860B 50%, #8B6914 100%)',
-              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2)'
-            }}>
-              <div className="w-full h-full rounded-full flex items-center justify-center">
-                <div className="w-6 h-6 rounded-full" style={{
-                  background: 'conic-gradient(from 0deg, #FFD700, #FFA500, #FF8C00, #FFD700)',
-                  border: '1px solid #8B6914'
-                }}></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

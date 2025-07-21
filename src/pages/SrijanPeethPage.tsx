@@ -120,7 +120,7 @@ export default function SrijanPeethPage() {
   };
 
   return (
-    <div className="min-h-screen scroll-background">
+    <div className="min-h-screen">
       <Navigation currentSection="srijan" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
