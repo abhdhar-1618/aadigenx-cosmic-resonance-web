@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Navigation } from '@/components/Navigation';
 import { BlogsSection } from '@/components/BlogsSection';
-import { ScrollBar } from '@/components/ScrollBar';
 
 const BlogsPage = () => {
   return (
@@ -16,14 +14,14 @@ const BlogsPage = () => {
         </div>
       </div>
       
-      {/* Bottom Scroll Bar */}
-      <ScrollBar position="bottom">
+      {/* Bottom Roll Bar Text */}
+      <div className="fixed bottom-0 w-full bg-transparent z-10">
         <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-          <div className="text-amber-800 font-bold text-2xl samarkan" style={{ fontSize: '1.5625rem' }}>
+          <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
           </div>
         </div>
-      </ScrollBar>
+      </div>
     </div>
   );
 };
