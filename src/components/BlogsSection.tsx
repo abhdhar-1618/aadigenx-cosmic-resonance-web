@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -41,9 +40,9 @@ export const BlogsSection = () => {
 
     return (
       <div 
-        className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
+        className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(/lovable-uploads/793ae2f5-814b-4a97-b8f0-bf10049318d3.png)`
+          backgroundImage: `url(/lovable-uploads/246bcb45-9fc8-42c8-94d7-82aca5cfe418.png)`
         }}
       >
         {/* Dark overlay for better text readability */}
@@ -92,9 +91,9 @@ export const BlogsSection = () => {
 
   return (
     <div 
-      className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
+      className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(/lovable-uploads/793ae2f5-814b-4a97-b8f0-bf10049318d3.png)`
+        backgroundImage: `url(/lovable-uploads/246bcb45-9fc8-42c8-94d7-82aca5cfe418.png)`
       }}
     >
       {/* Dark overlay for better text readability */}
@@ -148,4 +147,3 @@ export const BlogsSection = () => {
     </div>
   );
 };
-
