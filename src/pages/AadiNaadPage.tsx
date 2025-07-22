@@ -113,7 +113,7 @@ const AadiNaadPage = () => {
                       <h1 className="text-3xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h1>
                       <p className="text-amber-800 text-lg mb-1 italic">Visionary Maestro, Educator, Institution-Builder</p>
                        <p className="text-amber-800 text-lg font-bold">
-                         Director & Head of Music
+                         Co-Founder & Head of Music
                        </p>
                     </div>
                   </div>
@@ -277,7 +277,7 @@ const AadiNaadPage = () => {
                 <div className="font-calibri">
                   <h3 className="text-xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
                   <p className="text-amber-800 text-base font-bold">
-                    Director & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                    Co-Founder & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
                 </div>
               </CardContent>
@@ -298,7 +298,7 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Co- Founder & Head of Operations</h3>
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Co-Founder & Head of Operations</h3>
                   <p className="text-amber-800 text-base font-bold">
                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
