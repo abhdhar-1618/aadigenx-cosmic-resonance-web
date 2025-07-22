@@ -185,7 +185,7 @@ const AadiNaadPage = () => {
                       </div>
                     </div>
                     <div className="font-calibri">
-                      <h1 className="text-3xl font-bold text-amber-800 mb-2">Abhik Dhar</h1>
+                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Abhik Dhar</h1>
                       <p className="text-amber-800 text-lg mb-1 italic">Data Strategist | Risk Architect | Process Designer</p>
                        <p className="text-amber-800 text-lg font-bold">
                          IIM Indore Alumnus
