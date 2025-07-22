@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -42,7 +43,7 @@ export const BlogsSection = () => {
       <div 
         className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+          backgroundImage: `url(/lovable-uploads/e0c099b6-7011-49cc-a3d2-3a03a2ae6c55.png)`
         }}
       >
         {/* Dark overlay for better text readability */}
@@ -93,7 +94,7 @@ export const BlogsSection = () => {
     <div 
       className="min-h-full pt-4 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+        backgroundImage: `url(/lovable-uploads/e0c099b6-7011-49cc-a3d2-3a03a2ae6c55.png)`
       }}
     >
       {/* Dark overlay for better text readability */}
@@ -147,3 +148,4 @@ export const BlogsSection = () => {
     </div>
   );
 };
+
