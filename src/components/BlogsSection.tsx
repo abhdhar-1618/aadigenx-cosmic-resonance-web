@@ -42,7 +42,7 @@ export const BlogsSection = () => {
       <div 
         className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(/lovable-uploads/246bcb45-9fc8-42c8-94d7-82aca5cfe418.png)`
+          backgroundImage: `url(/lovable-uploads/d75a8292-8c32-4208-b81f-0d58aaf62d83.png)`
         }}
       >
         {/* Dark overlay for better text readability */}
@@ -93,7 +93,7 @@ export const BlogsSection = () => {
     <div 
       className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(/lovable-uploads/246bcb45-9fc8-42c8-94d7-82aca5cfe418.png)`
+        backgroundImage: `url(/lovable-uploads/d75a8292-8c32-4208-b81f-0d58aaf62d83.png)`
       }}
     >
       {/* Dark overlay for better text readability */}
