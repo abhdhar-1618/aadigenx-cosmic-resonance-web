@@ -39,31 +39,24 @@ export const BlogsSection = () => {
     if (!blog) return null;
 
     return (
-      <div 
-        className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(/lovable-uploads/d75a8292-8c32-4208-b81f-0d58aaf62d83.png)`
-        }}
-      >
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30 -z-10" />
-        <div className="container mx-auto px-6 py-12 max-w-4xl relative">
+      <div className="min-h-full py-8 px-4">
+        <div className="max-w-3xl mx-auto">
           <Button 
             onClick={handleBackClick}
             variant="ghost"
-            className="mb-8 text-white hover:text-yellow-400 hover:bg-white/10"
+            className="mb-8 bg-white/50 hover:bg-white/70 text-foreground backdrop-blur-sm"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Blogs
           </Button>
 
-          <article className="prose prose-invert prose-lg max-w-none">
+          <article className="bg-white/50 backdrop-blur-sm rounded-lg p-8">
             <header className="mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 {blog.title}
               </h1>
               
-              <div className="flex flex-wrap items-center gap-4 text-white/70 mb-6">
+              <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   <span>{blog.date}</span>
@@ -78,7 +71,7 @@ export const BlogsSection = () => {
 
             <div className="space-y-6">
               {blog.content.map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
+                <p key={index} className="text-lg leading-relaxed text-foreground">
                   {paragraph}
                 </p>
               ))}
@@ -90,34 +83,26 @@ export const BlogsSection = () => {
   }
 
   return (
-    <div 
-      className="min-h-full pt-4 bg-contain bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(/lovable-uploads/d75a8292-8c32-4208-b81f-0d58aaf62d83.png)`
-      }}
-    >
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30 -z-10" />
-      
-      <div className="container mx-auto px-6 py-12 relative">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
-            Blogs
+    <div className="min-h-full py-8 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">enX</span> Blogs
           </h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-md md:text-lg text-muted-foreground">
             Insights on the intersection of ancient wisdom and modern technology
           </p>
         </div>
 
-        <div className="grid gap-8 max-w-4xl mx-auto">
+        <div className="grid gap-8">
           {blogPosts.map((post) => (
             <Card 
               key={post.id} 
-              className="bg-white/10 border-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]"
+              className="bg-white/50 backdrop-blur-sm cursor-pointer hover:bg-white/70 transition-all duration-300"
               onClick={() => handleBlogClick(post.id)}
             >
               <CardHeader>
-                <div className="flex items-center gap-4 text-sm text-white/60 mb-2">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                   <div className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
                     <span>{post.date}</span>
@@ -128,15 +113,15 @@ export const BlogsSection = () => {
                   </div>
                   <span>{post.readTime}</span>
                 </div>
-                <CardTitle className="text-2xl text-white hover:text-yellow-400 transition-colors">
+                <CardTitle className="text-2xl text-foreground hover:text-primary transition-colors">
                   {post.title}
                 </CardTitle>
-                <CardDescription className="text-white/70 text-base">
+                <CardDescription className="text-muted-foreground text-base">
                   {post.excerpt}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-white/10 p-0">
+                <Button variant="ghost" className="text-primary hover:text-primary/80 hover:bg-white/20 p-0">
                   Read More →
                 </Button>
               </CardContent>
