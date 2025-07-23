@@ -120,16 +120,15 @@ export default function SrijanPeethPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-background relative">
       <Navigation currentSection="srijan" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
       <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
         <div className="h-full overflow-y-auto custom-scrollbar">
-          <div className="min-h-full bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+          <div className="min-h-full py-8 px-4">
             {/* Hero Section */}
             <div className="relative pt-4 pb-16 px-4 text-center">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10" />
               <div className="relative max-w-3xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
@@ -261,7 +260,7 @@ export default function SrijanPeethPage() {
             </div>
 
             {/* Stats Section */}
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+            <div className="py-16">
               <div className="max-w-3xl mx-auto px-4 text-center">
                 <h3 className="text-2xl font-bold mb-8">Platform Statistics</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
