@@ -89,7 +89,7 @@ export const BlogsSection = () => {
           <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             BLOGS
           </h1>
-          <p className="text-md md:text-lg text-muted-foreground">
+          <p className="text-md md:text-lg text-white">
             Insights on the intersection of ancient wisdom and modern technology
           </p>
         </div>
