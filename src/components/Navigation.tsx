@@ -13,7 +13,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   const navItems = [
     { id: 'home', label: 'Aadian', isExternal: true, href: 'https://aadigenix.com/' },
-    { id: 'about', label: 'AdiTatva', to: '/about' },
+    { id: 'about', label: 'AadiTatva', to: '/about' },
     { id: 'naad', label: 'AadiNaad', to: '/naad' },
     { id: 'srijan', label: 'SrijanPeeth', to: '/srijan' },
     { id: 'kul', label: 'AadiKul', to: '/kul' },
@@ -70,7 +70,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                >
                  {item.id === 'about' ? (
                    <>
-                     <span className="calibri">A</span><span className="samarkan">di</span><span className="calibri">T</span><span className="samarkan">atva</span>
+                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">T</span><span className="samarkan">atva</span>
                    </>
                  ) : item.id === 'naad' ? (
                    <>
@@ -166,7 +166,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 >
                   {item.id === 'about' ? (
                     <>
-                      <span className="calibri">A</span><span className="samarkan">di</span><span className="calibri">T</span><span className="samarkan">atva</span>
+                      <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">T</span><span className="samarkan">atva</span>
                     </>
                   ) : item.id === 'naad' ? (
                     <>
