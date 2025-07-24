@@ -285,7 +285,7 @@ const AadiNaadPage = () => {
 
             {/* Card 3 */}
             <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1 cursor-pointer"
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('abhik')}
             >
               <CardContent className="p-6 text-center">
