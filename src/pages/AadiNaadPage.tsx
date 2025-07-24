@@ -72,7 +72,7 @@ const AadiNaadPage = () => {
         
         {/* Bottom Roll Bar Text */}
         <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
             <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
               प्राचीनानां निनादः भविष्यस्य संरचना
             </div>
@@ -147,7 +147,7 @@ const AadiNaadPage = () => {
         
         {/* Bottom Roll Bar Text */}
         <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
             <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
               प्राचीनानां निनादः भविष्यस्य संरचना
             </div>
@@ -222,7 +222,7 @@ const AadiNaadPage = () => {
         
         {/* Bottom Roll Bar Text */}
         <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
             <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
               प्राचीनानां निनादः भविष्यस्य संरचना
             </div>
@@ -236,7 +236,7 @@ const AadiNaadPage = () => {
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
       <div className="pt-24 pb-12 px-4 flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-4xl">
           {/* Founder Profile Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             {/* Card 1 */}
@@ -311,7 +311,7 @@ const AadiNaadPage = () => {
       
       {/* Bottom Roll Bar Text */}
       <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
+        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
           <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
             प्राचीनानां निनादः भविष्यस्य संरचना
           </div>
