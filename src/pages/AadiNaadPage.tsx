@@ -473,9 +473,6 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-lg font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Senior Research Fellow
-                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -495,9 +492,6 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-lg font-bold text-amber-900 mb-2">Priya Sharma</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Head of Learning Sciences
-                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -517,9 +511,6 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-lg font-bold text-amber-900 mb-2">Arun Mehta</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Chief Strategy Officer
-                  </p>
                 </div>
               </CardContent>
             </Card>
