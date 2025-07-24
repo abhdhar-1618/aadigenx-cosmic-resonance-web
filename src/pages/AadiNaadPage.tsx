@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
+import rajeshKumarImage from '@/assets/rajesh-kumar.jpg';
+import priyaSharmaImage from '@/assets/priya-sharma.jpg';
+import arunMehtaImage from '@/assets/arun-mehta.jpg';
 
 const AadiNaadPage = () => {
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
@@ -232,20 +235,233 @@ const AadiNaadPage = () => {
     );
   }
 
+  if (selectedProfile === 'rajesh') {
+    return (
+      <div className="min-h-screen scroll-background">
+        <Navigation currentSection="naad" />
+        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+          <div className="h-full overflow-y-auto custom-scrollbar">
+            <div className="pt-8 px-4">
+              <div className="max-w-4xl mx-auto">
+                <button 
+                  onClick={() => setSelectedProfile(null)}
+                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+                >
+                  <ArrowLeft size={20} />
+                  Back to Profiles
+                </button>
+                
+                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+                  <div className="flex flex-col md:flex-row gap-8 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src={rajeshKumarImage} 
+                          alt="Dr. Rajesh Kumar" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="font-calibri">
+                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h1>
+                      <p className="text-amber-800 text-lg mb-1 italic">Technology Innovator | Research Scientist</p>
+                       <p className="text-amber-800 text-lg font-bold">
+                         Senior Research Fellow
+                       </p>
+                    </div>
+                  </div>
+                  
+                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
+                    <p>
+                      A pioneering researcher in the field of artificial intelligence and machine learning at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Dr. Kumar brings over 15 years of experience in developing cutting-edge AI solutions that bridge the gap between theoretical research and practical applications.
+                    </p>
+                    
+                    <p>
+                      His expertise spans deep learning architectures, computer vision, and natural language processing. With a Ph.D. in Computer Science from IIT Delhi and postdoctoral research at Stanford University, he has published over 50 research papers in top-tier conferences and journals.
+                    </p>
+                    
+                    <p>
+                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Dr. Kumar leads the <strong>Advanced AI Research vertical</strong>, focusing on developing ethical AI systems that honor ancient wisdom while solving modern challenges. His work on neural-symbolic integration has received international recognition.
+                    </p>
+                    
+                    <p>
+                      Dr. Kumar's vision aligns perfectly with <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>'s mission to create technology that serves humanity while preserving cultural heritage and traditional knowledge systems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (selectedProfile === 'priya') {
+    return (
+      <div className="min-h-screen scroll-background">
+        <Navigation currentSection="naad" />
+        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+          <div className="h-full overflow-y-auto custom-scrollbar">
+            <div className="pt-8 px-4">
+              <div className="max-w-4xl mx-auto">
+                <button 
+                  onClick={() => setSelectedProfile(null)}
+                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+                >
+                  <ArrowLeft size={20} />
+                  Back to Profiles
+                </button>
+                
+                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+                  <div className="flex flex-col md:flex-row gap-8 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src={priyaSharmaImage} 
+                          alt="Priya Sharma" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="font-calibri">
+                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Priya Sharma</h1>
+                      <p className="text-amber-800 text-lg mb-1 italic">Educational Technologist | Curriculum Designer</p>
+                       <p className="text-amber-800 text-lg font-bold">
+                         Head of Learning Sciences
+                       </p>
+                    </div>
+                  </div>
+                  
+                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
+                    <p>
+                      A visionary educator and learning sciences expert at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Priya specializes in designing transformative educational experiences that blend traditional pedagogical wisdom with cutting-edge technology.
+                    </p>
+                    
+                    <p>
+                      With a Master's in Educational Technology from TISS Mumbai and extensive experience in curriculum development, she has pioneered innovative learning methodologies that have been adopted by educational institutions across India.
+                    </p>
+                    
+                    <p>
+                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Priya leads the <strong>Conscious Learning vertical</strong>, developing curricula that integrate ancient Indian knowledge systems with modern educational practices. Her work focuses on creating holistic learning experiences that nurture both intellect and consciousness.
+                    </p>
+                    
+                    <p>
+                      Priya's approach to education embodies <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>'s core philosophy of empowering learners with both deep roots in tradition and wings for innovation, preparing them for a future that honors the past.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (selectedProfile === 'arun') {
+    return (
+      <div className="min-h-screen scroll-background">
+        <Navigation currentSection="naad" />
+        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+          <div className="h-full overflow-y-auto custom-scrollbar">
+            <div className="pt-8 px-4">
+              <div className="max-w-4xl mx-auto">
+                <button 
+                  onClick={() => setSelectedProfile(null)}
+                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+                >
+                  <ArrowLeft size={20} />
+                  Back to Profiles
+                </button>
+                
+                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+                  <div className="flex flex-col md:flex-row gap-8 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src={arunMehtaImage} 
+                          alt="Arun Mehta" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="font-calibri">
+                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Arun Mehta</h1>
+                      <p className="text-amber-800 text-lg mb-1 italic">Strategic Leader | Business Development</p>
+                       <p className="text-amber-800 text-lg font-bold">
+                         Chief Strategy Officer
+                       </p>
+                    </div>
+                  </div>
+                  
+                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
+                    <p>
+                      A seasoned strategic leader and business development expert at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Arun brings over 20 years of experience in scaling innovative ventures and building strategic partnerships across diverse industries.
+                    </p>
+                    
+                    <p>
+                      With an MBA from IIM Bangalore and extensive experience in corporate strategy, he has successfully led business transformation initiatives for Fortune 500 companies and emerging startups alike.
+                    </p>
+                    
+                    <p>
+                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Arun oversees the <strong>Strategic Partnerships vertical</strong>, fostering collaborations with academic institutions, technology companies, and cultural organizations worldwide. His vision is to create a global ecosystem that supports conscious innovation.
+                    </p>
+                    
+                    <p>
+                      Arun's strategic acumen ensures that <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> maintains its mission-driven approach while achieving sustainable growth and meaningful impact in the evolving landscape of education and technology.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Roll Bar Text */}
+        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
+          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
+            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
+              प्राचीनानां निनादः भविष्यस्य संरचना
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
       <div className="pt-24 pb-12 px-4 flex items-center justify-center min-h-screen">
         <div className="w-full max-w-4xl">
-          {/* Founder Profile Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+          {/* Team Profile Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4">
             {/* Card 1 */}
             <Card 
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('dipanwita')}
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
                     alt="Dipanwita DasChakrabarty" 
@@ -253,9 +469,9 @@ const AadiNaadPage = () => {
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Founder & Research Lead
                   </p>
                 </div>
               </CardContent>
@@ -266,8 +482,8 @@ const AadiNaadPage = () => {
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('subir')}
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
                     alt="Prof. Subir Nandy" 
@@ -275,9 +491,9 @@ const AadiNaadPage = () => {
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    Co-Founder & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Co-Founder & Head of Music
                   </p>
                 </div>
               </CardContent>
@@ -285,22 +501,87 @@ const AadiNaadPage = () => {
 
             {/* Card 3 */}
             <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1 cursor-pointer"
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('abhik')}
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
-                    alt="Head of Operations" 
+                    alt="Abhik Dhar" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
-                  <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Abhik Dhar</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Co-Founder & Head of Operations
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 4 - Dr. Rajesh Kumar */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              onClick={() => setSelectedProfile('rajesh')}
+            >
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  <img 
+                    src={rajeshKumarImage} 
+                    alt="Dr. Rajesh Kumar" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Senior Research Fellow
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 5 - Priya Sharma */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              onClick={() => setSelectedProfile('priya')}
+            >
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  <img 
+                    src={priyaSharmaImage} 
+                    alt="Priya Sharma" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Priya Sharma</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Head of Learning Sciences
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 6 - Arun Mehta */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              onClick={() => setSelectedProfile('arun')}
+            >
+              <CardContent className="p-4 text-center">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  <img 
+                    src={arunMehtaImage} 
+                    alt="Arun Mehta" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Arun Mehta</h3>
+                  <p className="text-amber-800 text-sm font-bold">
+                    Chief Strategy Officer
                   </p>
                 </div>
               </CardContent>
