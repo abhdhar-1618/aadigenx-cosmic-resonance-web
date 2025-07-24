@@ -298,8 +298,9 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
+                  <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
                   <p className="text-amber-800 text-base font-bold">
-                  Co-Founder & Head of Operations <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
                 </div>
               </CardContent>
@@ -310,15 +311,16 @@ const AadiNaadPage = () => {
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
             >
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                  {/* Placeholder for future image */}
+                  <div className="w-full h-full bg-amber-100"></div>
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
-                  <p className="text-amber-800 text-base font-bold">
-                  </p>
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">&nbsp;</h3>
+                  <p className="text-amber-800 text-base font-bold">&nbsp;</p>
                 </div>
-              </CardContent>
-            </Card>
+               </CardContent>
+             </Card>
 
             {/* Card 5 */}
             <Card 
