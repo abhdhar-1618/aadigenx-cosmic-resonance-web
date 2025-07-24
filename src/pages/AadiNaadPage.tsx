@@ -308,16 +308,19 @@ const AadiNaadPage = () => {
 
             {/* Card 4 */}
             <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm"
             >
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  {/* Placeholder for future image */}
-                  <div className="w-full h-full bg-amber-100"></div>
+                  <img 
+                    src="/placeholder.svg" 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">&nbsp;</h3>
-                  <p className="text-amber-800 text-base font-bold">&nbsp;</p>
+                  <h3 className="text-xl font-bold text-amber-900 mb-2 invisible">&nbsp;</h3>
+                  <p className="text-amber-800 text-base font-bold invisible">&nbsp;</p>
                 </div>
                </CardContent>
              </Card>
