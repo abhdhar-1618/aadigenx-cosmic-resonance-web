@@ -298,9 +298,8 @@ const AadiNaadPage = () => {
                 </div>
                 <div className="font-calibri">
                   <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
-                  <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
                   <p className="text-amber-800 text-base font-bold">
-                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                  Co-Founder & Head of Operations <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
                 </div>
               </CardContent>
