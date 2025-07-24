@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
-import rajeshKumarImage from '@/assets/rajesh-kumar.jpg';
-import priyaSharmaImage from '@/assets/priya-sharma.jpg';
-import arunMehtaImage from '@/assets/arun-mehta.jpg';
 
 const AadiNaadPage = () => {
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
@@ -235,170 +232,20 @@ const AadiNaadPage = () => {
     );
   }
 
-  if (selectedProfile === 'rajesh') {
-    return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-8 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
-                  <div className="flex flex-col md:flex-row gap-8 mb-8">
-                    <div className="flex-shrink-0">
-                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src={rajeshKumarImage} 
-                          alt="Dr. Rajesh Kumar" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="font-calibri">
-                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
-            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (selectedProfile === 'priya') {
-    return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-8 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
-                  <div className="flex flex-col md:flex-row gap-8 mb-8">
-                    <div className="flex-shrink-0">
-                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src={priyaSharmaImage} 
-                          alt="Priya Sharma" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="font-calibri">
-                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Priya Sharma</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
-            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (selectedProfile === 'arun') {
-    return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-8 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
-                  <div className="flex flex-col md:flex-row gap-8 mb-8">
-                    <div className="flex-shrink-0">
-                      <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src={arunMehtaImage} 
-                          alt="Arun Mehta" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="font-calibri">
-                      <h1 className="text-3xl font-bold text-amber-900 mb-2">Arun Mehta</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent backdrop-blur-none z-10 border-t border-white/[0.01]">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-4xl mx-auto">
-            <div className="text-white font-bold text-2xl" style={{ fontSize: '1.5625rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
       <div className="pt-24 pb-12 px-4 flex items-center justify-center min-h-screen">
         <div className="w-full max-w-4xl">
-          {/* Team Profile Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4">
+          {/* Founder Profile Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             {/* Card 1 */}
             <Card 
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('dipanwita')}
             >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
                     alt="Dipanwita DasChakrabarty" 
@@ -406,9 +253,9 @@ const AadiNaadPage = () => {
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Founder & Research Lead
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
+                  <p className="text-amber-800 text-base font-bold">
+                    Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
                 </div>
               </CardContent>
@@ -419,8 +266,8 @@ const AadiNaadPage = () => {
               className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
               onClick={() => setSelectedProfile('subir')}
             >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
                     alt="Prof. Subir Nandy" 
@@ -428,9 +275,9 @@ const AadiNaadPage = () => {
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Co-Founder & Head of Music
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
+                  <p className="text-amber-800 text-base font-bold">
+                    Co-Founder & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
                 </div>
               </CardContent>
@@ -438,79 +285,23 @@ const AadiNaadPage = () => {
 
             {/* Card 3 */}
             <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm md:col-span-2 lg:col-span-1 cursor-pointer"
               onClick={() => setSelectedProfile('abhik')}
             >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
                   <img 
                     src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
-                    alt="Abhik Dhar" 
+                    alt="Head of Operations" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Abhik Dhar</h3>
-                  <p className="text-amber-800 text-sm font-bold">
-                    Co-Founder & Head of Operations
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
+                  <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
+                  <p className="text-amber-800 text-base font-bold">
+                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                   </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Card 4 - Dr. Rajesh Kumar */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('rajesh')}
-            >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src={rajeshKumarImage} 
-                    alt="Dr. Rajesh Kumar" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h3>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Card 5 - Priya Sharma */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('priya')}
-            >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src={priyaSharmaImage} 
-                    alt="Priya Sharma" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Priya Sharma</h3>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Card 6 - Arun Mehta */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('arun')}
-            >
-              <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src={arunMehtaImage} 
-                    alt="Arun Mehta" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Arun Mehta</h3>
                 </div>
               </CardContent>
             </Card>
