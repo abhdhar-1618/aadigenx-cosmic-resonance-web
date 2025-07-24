@@ -264,29 +264,8 @@ const AadiNaadPage = () => {
                     </div>
                     <div className="font-calibri">
                       <h1 className="text-3xl font-bold text-amber-900 mb-2">Dr. Rajesh Kumar</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Technology Innovator | Research Scientist</p>
-                       <p className="text-amber-800 text-lg font-bold">
-                         Senior Research Fellow
-                       </p>
+                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
                     </div>
-                  </div>
-                  
-                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
-                    <p>
-                      A pioneering researcher in the field of artificial intelligence and machine learning at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Dr. Kumar brings over 15 years of experience in developing cutting-edge AI solutions that bridge the gap between theoretical research and practical applications.
-                    </p>
-                    
-                    <p>
-                      His expertise spans deep learning architectures, computer vision, and natural language processing. With a Ph.D. in Computer Science from IIT Delhi and postdoctoral research at Stanford University, he has published over 50 research papers in top-tier conferences and journals.
-                    </p>
-                    
-                    <p>
-                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Dr. Kumar leads the <strong>Advanced AI Research vertical</strong>, focusing on developing ethical AI systems that honor ancient wisdom while solving modern challenges. His work on neural-symbolic integration has received international recognition.
-                    </p>
-                    
-                    <p>
-                      Dr. Kumar's vision aligns perfectly with <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>'s mission to create technology that serves humanity while preserving cultural heritage and traditional knowledge systems.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -335,29 +314,8 @@ const AadiNaadPage = () => {
                     </div>
                     <div className="font-calibri">
                       <h1 className="text-3xl font-bold text-amber-900 mb-2">Priya Sharma</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Educational Technologist | Curriculum Designer</p>
-                       <p className="text-amber-800 text-lg font-bold">
-                         Head of Learning Sciences
-                       </p>
+                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
                     </div>
-                  </div>
-                  
-                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
-                    <p>
-                      A visionary educator and learning sciences expert at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Priya specializes in designing transformative educational experiences that blend traditional pedagogical wisdom with cutting-edge technology.
-                    </p>
-                    
-                    <p>
-                      With a Master's in Educational Technology from TISS Mumbai and extensive experience in curriculum development, she has pioneered innovative learning methodologies that have been adopted by educational institutions across India.
-                    </p>
-                    
-                    <p>
-                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Priya leads the <strong>Conscious Learning vertical</strong>, developing curricula that integrate ancient Indian knowledge systems with modern educational practices. Her work focuses on creating holistic learning experiences that nurture both intellect and consciousness.
-                    </p>
-                    
-                    <p>
-                      Priya's approach to education embodies <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>'s core philosophy of empowering learners with both deep roots in tradition and wings for innovation, preparing them for a future that honors the past.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -406,29 +364,8 @@ const AadiNaadPage = () => {
                     </div>
                     <div className="font-calibri">
                       <h1 className="text-3xl font-bold text-amber-900 mb-2">Arun Mehta</h1>
-                      <p className="text-amber-800 text-lg mb-1 italic">Strategic Leader | Business Development</p>
-                       <p className="text-amber-800 text-lg font-bold">
-                         Chief Strategy Officer
-                       </p>
+                      <p className="text-amber-800 text-lg mb-1 italic">Coming Soon</p>
                     </div>
-                  </div>
-                  
-                  <div className="font-calibri text-amber-800 leading-relaxed space-y-4">
-                    <p>
-                      A seasoned strategic leader and business development expert at <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>. Arun brings over 20 years of experience in scaling innovative ventures and building strategic partnerships across diverse industries.
-                    </p>
-                    
-                    <p>
-                      With an MBA from IIM Bangalore and extensive experience in corporate strategy, he has successfully led business transformation initiatives for Fortune 500 companies and emerging startups alike.
-                    </p>
-                    
-                    <p>
-                      At <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>, Arun oversees the <strong>Strategic Partnerships vertical</strong>, fostering collaborations with academic institutions, technology companies, and cultural organizations worldwide. His vision is to create a global ecosystem that supports conscious innovation.
-                    </p>
-                    
-                    <p>
-                      Arun's strategic acumen ensures that <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> maintains its mission-driven approach while achieving sustainable growth and meaningful impact in the evolving landscape of education and technology.
-                    </p>
                   </div>
                 </div>
               </div>
