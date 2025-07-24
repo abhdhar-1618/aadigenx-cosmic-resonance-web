@@ -305,6 +305,51 @@ const AadiNaadPage = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Card 4 */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+            >
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
+                  <p className="text-amber-800 text-base font-bold">
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 5 */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+            >
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
+                  <p className="text-amber-800 text-base font-bold">
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 6 */}
+            <Card 
+              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+            >
+              <CardContent className="p-6 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                </div>
+                <div className="font-calibri">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
+                  <p className="text-amber-800 text-base font-bold">
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
