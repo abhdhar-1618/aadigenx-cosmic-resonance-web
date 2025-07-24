@@ -235,125 +235,136 @@ const AadiNaadPage = () => {
   return (
     <div className="min-h-screen scroll-background">
       <Navigation currentSection="naad" />
-      <div className="pt-24 pb-12 px-4 flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-4xl">
-          {/* Founder Profile Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-            {/* Card 1 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('dipanwita')}
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
-                    alt="Dipanwita DasChakrabarty" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+        <div className="h-full overflow-y-auto scroll-smooth custom-scrollbar">
+          <div className="pt-8 pb-8 px-4">
+            <div className="w-full max-w-4xl mx-auto">
+              {/* Founder Profile Cards */}
+              <div className="h-screen flex items-center justify-center px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                  {/* Card 1 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                    onClick={() => setSelectedProfile('dipanwita')}
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
+                          alt="Dipanwita DasChakrabarty" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">Dipanwita DasChakrabarty</h3>
+                        <p className="text-amber-800 text-base font-bold">
+                          Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-            {/* Card 2 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('subir')}
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
-                    alt="Prof. Subir Nandy" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    Co-Founder & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                  {/* Card 2 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                    onClick={() => setSelectedProfile('subir')}
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
+                          alt="Prof. Subir Nandy" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">Prof. Subir Nandy</h3>
+                        <p className="text-amber-800 text-base font-bold">
+                          Co-Founder & Head of Music, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-            {/* Card 3 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-              onClick={() => setSelectedProfile('abhik')}
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
-                    alt="Head of Operations" 
-                    className="w-full h-full object-cover"
-                  />
+                  {/* Card 3 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                    onClick={() => setSelectedProfile('abhik')}
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
+                          alt="Head of Operations" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
+                        <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
+                        <p className="text-amber-800 text-base font-bold">
+                          <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">Abhik Dhar</h3>
-                  <h3 className="text-xl font-bold text-amber-800 mb-2">Co-Founder & Head of Operations</h3>
-                  <p className="text-amber-800 text-base font-bold">
-                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* Card 4 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2 invisible">&nbsp;</h3>
-                  <p className="text-amber-800 text-base font-bold invisible">&nbsp;</p>
-                </div>
-               </CardContent>
-             </Card>
+              {/* Second Row */}
+              <div className="h-screen flex items-center justify-center px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                  {/* Card 4 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm"
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                        <img 
+                          src="/placeholder.svg" 
+                          alt="" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2 invisible">&nbsp;</h3>
+                        <p className="text-amber-800 text-base font-bold invisible">&nbsp;</p>
+                      </div>
+                     </CardContent>
+                   </Card>
 
-            {/* Card 5 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
-                  <p className="text-amber-800 text-base font-bold">
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                  {/* Card 5 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
+                        <p className="text-amber-800 text-base font-bold">
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
 
-            {/* Card 6 */}
-            <Card 
-              className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                  {/* Card 6 */}
+                  <Card 
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
+                      </div>
+                      <div className="font-calibri">
+                        <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
+                        <p className="text-amber-800 text-base font-bold">
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="font-calibri">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2"></h3>
-                  <p className="text-amber-800 text-base font-bold">
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>
