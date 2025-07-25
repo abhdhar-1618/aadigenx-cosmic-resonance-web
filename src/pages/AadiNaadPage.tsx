@@ -279,7 +279,7 @@ const AadiNaadPage = () => {
                       </div>
                       <div className="font-calibri">
                         <h3 className="text-lg font-bold text-amber-900 mb-1">Prof. Subir Nandy</h3>
-                        <p className="text-amber-800 text-sm italic">Director & Head of Music,</p>
+                        <p className="text-amber-800 text-sm">Co-Founder & Head of Music,</p>
                         <p className="text-amber-800 text-sm">
                           <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
                         </p>
