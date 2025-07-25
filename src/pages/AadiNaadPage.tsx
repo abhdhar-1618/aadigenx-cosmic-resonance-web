@@ -257,7 +257,7 @@ const AadiNaadPage = () => {
                       </div>
                       <div className="font-calibri">
                         <h3 className="text-lg font-bold text-amber-900 mb-1">Dipanwita DasChakrabarty</h3>
-                        <p className="text-amber-800 text-sm italic">Founder & Research Lead, AadiGenix</p>
+                        <p className="text-amber-800 text-sm">Founder & Research Lead, AadiGenix</p>
                       </div>
                     </CardContent>
                   </Card>
