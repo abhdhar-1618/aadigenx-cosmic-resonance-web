@@ -14,7 +14,7 @@ const projectsData = [
     subject: "Environmental Science",
     description: "A comprehensive study analyzing local weather patterns over the past 5 years using temperature and rainfall data from meteorological stations.",
     tools: ["Python", "Pandas", "Matplotlib"],
-    category: "Climate Science",
+    category: "Triveni Shastra",
     date: "December 2024",
     views: 234,
     rating: 4.8,
@@ -98,7 +98,7 @@ const projectsData = [
   }
 ];
 
-const categories = ["All", "Climate Science", "Music Analytics", "Sports Analytics", "Health & Nutrition", "Botanical Science", "Behavioral Science"];
+const categories = ["All", "Triveni Shastra", "Music Analytics", "Robotics", "Vimaana Shastra", "Botanical Science", "Behavioral Science"];
 
 export default function SrijanPeethPage() {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
@@ -109,10 +109,10 @@ export default function SrijanPeethPage() {
 
   const getIconForCategory = (category: string) => {
     switch (category) {
-      case "Climate Science": return <TrendingUp className="h-5 w-5" />;
+      case "Triveni Shastra": return <TrendingUp className="h-5 w-5" />;
       case "Music Analytics": return <PieChart className="h-5 w-5" />;
-      case "Sports Analytics": return <BarChart3 className="h-5 w-5" />;
-      case "Health & Nutrition": return <LineChart className="h-5 w-5" />;
+      case "Robotics": return <BarChart3 className="h-5 w-5" />;
+      case "Vimaana Shastra": return <LineChart className="h-5 w-5" />;
       case "Botanical Science": return <TrendingUp className="h-5 w-5" />;
       case "Behavioral Science": return <PieChart className="h-5 w-5" />;
       default: return <BarChart3 className="h-5 w-5" />;
