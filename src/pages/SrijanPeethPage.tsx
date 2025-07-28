@@ -33,7 +33,7 @@ const projectsData = [
     date: "November 2024",
     views: 187,
     rating: 4.6,
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+    image: "/lovable-uploads/YantraShastra.png?w=400&h=300&fit=crop",
     achievements: ["Most Practical Application"]
   },
   {
