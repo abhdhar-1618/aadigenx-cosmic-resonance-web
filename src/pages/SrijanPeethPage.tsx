@@ -173,6 +173,8 @@ export default function SrijanPeethPage() {
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => console.log('Image failed to load:', project.image)}
+                        onLoad={() => console.log('Image loaded successfully:', project.image)}
                       />
                       <div className="absolute top-3 right-3">
                         <Badge variant="secondary" className="bg-white/90 text-primary">
