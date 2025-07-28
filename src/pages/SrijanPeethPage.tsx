@@ -199,7 +199,7 @@ export default function SrijanPeethPage() {
                       <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
                         {project.title}
                       </CardTitle>
-                      <CardDescription className="mt-2 flex items-center gap-4 text-sm">
+                      <div className="mt-2 flex items-center gap-4 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <User className="h-4 w-4" />
                           {project.student}
@@ -207,7 +207,7 @@ export default function SrijanPeethPage() {
                         <Badge variant="outline" className="text-xs">
                           {project.grade}
                         </Badge>
-                      </CardDescription>
+                      </div>
                     </div>
                     <div className="ml-2">
                       {getIconForCategory(project.category)}
