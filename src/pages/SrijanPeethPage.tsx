@@ -14,11 +14,11 @@ const projectsData = [
     subject: "Environmental Science",
     description: "A comprehensive study analyzing local weather patterns over the past 5 years using temperature and rainfall data from meteorological stations.",
     tools: ["Python", "Pandas", "Matplotlib"],
-    category: "Triveni Shastra",
+    category: "Climate Science",
     date: "December 2024",
     views: 234,
     rating: 4.8,
-    image: "/lovable-uploads/638e2c68-6cc4-498b-82fd-12113a49ff67.png",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
     achievements: ["Best Environmental Project", "Data Visualization Excellence"]
   },
   {
@@ -29,7 +29,7 @@ const projectsData = [
     subject: "Mathematics",
     description: "Statistical analysis of book borrowing patterns in our school library to understand reading preferences across different grades and subjects.",
     tools: ["Excel", "Google Sheets", "Chart.js"],
-    category: "Music Analytics",
+    category: "Social Analytics",
     date: "November 2024",
     views: 187,
     rating: 4.6,
@@ -98,7 +98,7 @@ const projectsData = [
   }
 ];
 
-const categories = ["All", "Triveni Shastra", "Music Analytics", "Robotics", "Vimaana Shastra", "Botanical Science", "Behavioral Science"];
+const categories = ["All", "Climate Science", "Social Analytics", "Sports Analytics", "Health & Nutrition", "Botanical Science", "Behavioral Science"];
 
 export default function SrijanPeethPage() {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
@@ -109,10 +109,10 @@ export default function SrijanPeethPage() {
 
   const getIconForCategory = (category: string) => {
     switch (category) {
-      case "Triveni Shastra": return <TrendingUp className="h-5 w-5" />;
-      case "Music Analytics": return <PieChart className="h-5 w-5" />;
-      case "Robotics": return <BarChart3 className="h-5 w-5" />;
-      case "Vimaana Shastra": return <LineChart className="h-5 w-5" />;
+      case "Climate Science": return <TrendingUp className="h-5 w-5" />;
+      case "Social Analytics": return <PieChart className="h-5 w-5" />;
+      case "Sports Analytics": return <BarChart3 className="h-5 w-5" />;
+      case "Health & Nutrition": return <LineChart className="h-5 w-5" />;
       case "Botanical Science": return <TrendingUp className="h-5 w-5" />;
       case "Behavioral Science": return <PieChart className="h-5 w-5" />;
       default: return <BarChart3 className="h-5 w-5" />;
@@ -173,8 +173,6 @@ export default function SrijanPeethPage() {
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => console.log('Image failed to load:', project.image)}
-                        onLoad={() => console.log('Image loaded successfully:', project.image)}
                       />
                       <div className="absolute top-3 right-3">
                         <Badge variant="secondary" className="bg-white/90 text-primary">
@@ -201,7 +199,7 @@ export default function SrijanPeethPage() {
                       <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
                         {project.title}
                       </CardTitle>
-                      <div className="mt-2 flex items-center gap-4 text-sm text-muted-foreground">
+                      <CardDescription className="mt-2 flex items-center gap-4 text-sm">
                         <span className="flex items-center gap-1">
                           <User className="h-4 w-4" />
                           {project.student}
@@ -209,7 +207,7 @@ export default function SrijanPeethPage() {
                         <Badge variant="outline" className="text-xs">
                           {project.grade}
                         </Badge>
-                      </div>
+                      </CardDescription>
                     </div>
                     <div className="ml-2">
                       {getIconForCategory(project.category)}
