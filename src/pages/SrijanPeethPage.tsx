@@ -18,7 +18,7 @@ const projectsData = [
     date: "December 2024",
     views: 234,
     rating: 4.8,
-    image: "https://raw.githubusercontent.com/abhdhar-1618/aadigenx-cosmic-resonance-web/main/src/images/triveni%20shastra%20image%20card.png",
+    image: "https://raw.githubusercontent.com/abhdhar-1618/aadigenx-cosmic-resonance-web/d0d70cdfdd4583d7c0de10d750423a66c821fdeb/src/images/triveni%20shastra%20image%20card.png",
     achievements: ["Best Environmental Project", "Data Visualization Excellence"]
   },
   {
