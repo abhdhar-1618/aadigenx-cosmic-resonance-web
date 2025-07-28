@@ -18,7 +18,7 @@ const projectsData = [
     date: "December 2024",
     views: 234,
     rating: 4.8,
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+    image: "/lovable-uploads/f82dbbca-1147-4005-b982-646d4d8a3a6c.png",
     achievements: ["Best Environmental Project", "Data Visualization Excellence"]
   },
   {
