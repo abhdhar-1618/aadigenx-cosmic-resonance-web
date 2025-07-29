@@ -18,7 +18,75 @@ import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 export const BlogsSection = () => {
-  // ...[states and hooks remain unchanged]
+  const { user, profile, loading: authLoading, signOut } = useAuth();
+  const { toast } = useToast();
+  
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [sortBy, setSortBy] = useState('newest');
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [viewBlog, setViewBlog] = useState(null);
+  const [editingBlog, setEditingBlog] = useState(null);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    setLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('blogs')
+        .select(`
+          *,
+          profiles (
+            name,
+            avatar_url
+          )
+        `)
+        .eq('status', 'published')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setBlogs(data || []);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+      toast({
+        title: "Error",
+        description: "Failed to fetch blogs",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCreateBlog = () => {
+    setEditingBlog(null);
+    setEditorOpen(true);
+  };
+
+  const filteredBlogs = blogs.filter(blog => {
+    const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || blog.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  }).sort((a, b) => {
+    switch (sortBy) {
+      case 'oldest':
+        return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+      case 'popular':
+        return (b.likes || 0) - (a.likes || 0);
+      case 'views':
+        return (b.views || 0) - (a.views || 0);
+      default:
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    }
+  });
 
   if (authLoading || loading) {
     return <div className="min-h-full flex items-center justify-center text-white text-lg">Loading...</div>;
@@ -84,6 +152,53 @@ export const BlogsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Modals */}
+      <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
+      
+      <BlogEditor 
+        open={editorOpen} 
+        onOpenChange={setEditorOpen}
+        blog={editingBlog}
+        onSave={fetchBlogs}
+      />
+
+      {viewBlog && (
+        <BlogView 
+          open={!!viewBlog} 
+          onOpenChange={() => setViewBlog(null)}
+          blog={viewBlog}
+        />
+      )}
+
+      {/* Profile Modal */}
+      <Dialog open={profileModalOpen} onOpenChange={setProfileModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Profile Settings</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="name">Name</Label>
+              <Input 
+                id="name" 
+                value={profile?.name || ''} 
+                placeholder="Your name"
+                disabled
+              />
+            </div>
+            <div>
+              <Label htmlFor="bio">Bio</Label>
+              <Textarea 
+                id="bio" 
+                value={profile?.bio || ''} 
+                placeholder="Tell us about yourself"
+                disabled
+              />
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
