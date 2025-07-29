@@ -79,8 +79,8 @@ export function BlogCard({ blog, onEdit, onDelete, onView }: BlogCardProps) {
         backgroundPosition: 'center',
       }}
     >
-      {/* Semi-transparent overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      {/* Light overlay for text readability while showing background */}
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
       
       {/* Content wrapper with relative positioning */}
       <div className="relative z-10">
