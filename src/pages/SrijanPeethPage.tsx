@@ -82,7 +82,7 @@ const projectsData = [
     date: "September 2024",
     views: 156,
     rating: 4.4,
-    image: "/images/vanaveda aaharbot image card.png",
+    image: "/lovable-uploads/23c1832f-cbd2-42f1-bbe0-6b476b34c0d9.png",
     achievements: ["Best Experimental Design", "Green Innovation Award"]
   },
   {
