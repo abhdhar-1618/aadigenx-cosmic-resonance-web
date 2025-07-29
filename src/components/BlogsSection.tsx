@@ -26,7 +26,7 @@ export const BlogsSection = () => {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const [editorModalOpen, setEditorModalOpen] = useState(false);
@@ -153,7 +153,7 @@ export const BlogsSection = () => {
   const filteredBlogs = blogs.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          blog.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !selectedCategory || blog.category_id === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || blog.category_id === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -214,7 +214,7 @@ export const BlogsSection = () => {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 <SelectItem value="tech">Technology</SelectItem>
                 <SelectItem value="lifestyle">Lifestyle</SelectItem>
                 <SelectItem value="business">Business</SelectItem>
