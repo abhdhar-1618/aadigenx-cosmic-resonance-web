@@ -52,7 +52,7 @@ const projectsData = [
     date: "October 2024",
     views: 312,
     rating: 4.9,
-    image: "/lovable-uploads/59dc3c31-c3b0-4aae-a982-31bd7e61f22d.png",
+    image: "/lovable-uploads/9239fa1e-c79c-49c5-89a1-5cc9d736c0c1.png",
     achievements: ["Outstanding Innovation", "Coach's Choice Award"]
   },
   {
