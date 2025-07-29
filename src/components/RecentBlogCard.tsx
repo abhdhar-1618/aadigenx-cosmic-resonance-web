@@ -108,78 +108,76 @@ export function RecentBlogCard() {
 
   return (
     <Card 
-      className="group relative w-full max-w-sm h-[500px] overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md"
     >
-      {/* Soft glass backdrop overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[1px]"></div>
-      
-      {/* Additional glass effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-amber-900/20"></div>
-      
-      {/* Content wrapper */}
-      <div className="relative z-10 h-full flex flex-col p-6">
-        {/* Top section with badge and read time */}
-        <div className="flex items-center justify-between mb-4">
+      {/* Top Image Section */}
+      <div 
+        className="relative h-64 overflow-hidden"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Soft glass overlay on image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        
+        {/* Badge positioned on image */}
+        <div className="absolute top-4 left-4">
           <Badge 
             variant="secondary" 
             className="bg-amber-500/20 text-amber-100 border-amber-400/30 backdrop-blur-sm px-3 py-1 text-xs font-medium"
           >
-            {recentPost.blog_categories?.name || 'Reflection'}
+            {recentPost.blog_categories?.name || 'LinkedIn'}
           </Badge>
-          <div className="text-amber-200/80 text-xs font-medium">
-            {recentPost.read_time} min read
+        </div>
+
+        {/* Read time on image */}
+        <div className="absolute top-4 right-4 text-amber-200/80 text-xs font-medium bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
+          {recentPost.read_time} min read
+        </div>
+      </div>
+
+      {/* Bottom Black Section */}
+      <div className="bg-black/90 backdrop-blur-sm p-6 space-y-4">
+        {/* Generated Title with gradient effect */}
+        <h2 className="text-xl font-bold leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent">
+          {generateTitle(recentPost.title, recentPost.content)}
+        </h2>
+        
+        {/* Excerpt */}
+        <p className="text-amber-100/90 text-sm leading-relaxed line-clamp-2">
+          {extractExcerpt(recentPost.content, recentPost.excerpt)}
+        </p>
+
+        {/* Author section */}
+        <div className="flex items-center gap-3 pt-2">
+          <Avatar className="h-10 w-10 ring-2 ring-amber-400/30">
+            <AvatarImage src="/lovable-uploads/author-profile.jpg" alt="Dipanwita DasChakrabarty" />
+            <AvatarFallback className="bg-gradient-to-br from-amber-600 to-amber-800 text-white font-semibold">
+              D
+            </AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <div className="text-white font-medium text-sm">
+              Dipanwita DasChakrabarty
+            </div>
+            <div className="flex items-center gap-1 text-amber-200/70 text-xs">
+              <Calendar className="h-3 w-3" />
+              {formatDate(recentPost.created_at)}
+            </div>
           </div>
         </div>
 
-        {/* Spacer to push content to bottom */}
-        <div className="flex-1"></div>
-
-        {/* Main content area */}
-        <div className="space-y-4">
-          {/* Title with gradient effect */}
-          <h2 className="text-2xl font-bold leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent">
-            {generateTitle(recentPost.title, recentPost.content)}
-          </h2>
-          
-          {/* Excerpt */}
-          <p className="text-amber-100/90 text-sm leading-relaxed line-clamp-2">
-            {extractExcerpt(recentPost.content, recentPost.excerpt)}
-          </p>
-
-          {/* Author section */}
-          <div className="flex items-center gap-3 pt-2">
-            <Avatar className="h-10 w-10 ring-2 ring-amber-400/30">
-              <AvatarImage src="/lovable-uploads/author-profile.jpg" alt="Dipanwita DasChakrabarty" />
-              <AvatarFallback className="bg-gradient-to-br from-amber-600 to-amber-800 text-white font-semibold">
-                D
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex-1">
-              <div className="text-white font-medium text-sm">
-                Dipanwita DasChakrabarty
-              </div>
-              <div className="flex items-center gap-1 text-amber-200/70 text-xs">
-                <Calendar className="h-3 w-3" />
-                {formatDate(recentPost.created_at)}
-              </div>
-            </div>
+        {/* Engagement metrics */}
+        <div className="flex items-center gap-4 pt-2">
+          <div className="flex items-center gap-1 text-amber-200/80">
+            <Heart className="h-4 w-4" />
+            <span className="text-xs">{recentPost.likes || 0}</span>
           </div>
-
-          {/* Engagement metrics */}
-          <div className="flex items-center gap-4 pt-2">
-            <div className="flex items-center gap-1 text-amber-200/80">
-              <Heart className="h-4 w-4" />
-              <span className="text-xs">{recentPost.likes || 0}</span>
-            </div>
-            <div className="flex items-center gap-1 text-amber-200/80">
-              <Eye className="h-4 w-4" />
-              <span className="text-xs">{recentPost.views || 0}</span>
-            </div>
+          <div className="flex items-center gap-1 text-amber-200/80">
+            <Eye className="h-4 w-4" />
+            <span className="text-xs">{recentPost.views || 0}</span>
           </div>
         </div>
       </div>
