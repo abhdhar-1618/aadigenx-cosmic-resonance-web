@@ -96,7 +96,7 @@ const projectsData = [
     date: "July 2025",
     views: 120,
     rating: 4.6,
-    image: "/images/aryogya shastra image card.png",
+    image: "/lovable-uploads/d264ed0d-66fb-4d40-9ef0-6eb82ca06fd8.png",
     student: "",
     achievements: ["AI + Ayurveda Integration", "Student Innovation Finalist"] 
   },
@@ -112,7 +112,7 @@ const projectsData = [
     date: "August 2024",
     views: 312,
     rating: 4.9,
-    image: "/images/aryogya shastra image card.png",
+    image: "/lovable-uploads/d264ed0d-66fb-4d40-9ef0-6eb82ca06fd8.png",
     achievements: ["Most Innovative AI-Health Integration"]
   },
 ];
