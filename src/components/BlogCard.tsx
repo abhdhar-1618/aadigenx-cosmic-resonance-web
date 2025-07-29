@@ -72,106 +72,106 @@ export function BlogCard({ blog, onEdit, onDelete, onView }: BlogCardProps) {
 
   return (
     <Card 
-      className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-white/20 text-white relative overflow-hidden"
+      className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-white/20 text-white relative overflow-hidden h-[400px]"
       style={{
         backgroundImage: 'url(/lovable-uploads/vimaana shastra image card.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      {/* Light overlay for text readability while showing background */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+      {/* Gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
       
-      {/* Content wrapper with relative positioning */}
-      <div className="relative z-10">
-        <div onClick={() => onView?.(blog)}>
-          {blog.featured_image && (
-            <div className="aspect-video overflow-hidden rounded-t-lg">
-              <img
-                src={blog.featured_image}
-                alt={blog.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          )}
-          
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 mb-3">
-              {blog.blog_categories && (
-                <Badge 
-                  variant="secondary" 
-                  style={{ backgroundColor: `${blog.blog_categories.color}20`, color: blog.blog_categories.color }}
-                >
-                  {blog.blog_categories.name}
-                </Badge>
-              )}
-              <span className="text-sm text-muted-foreground">
-                {blog.read_time} min read
-              </span>
-            </div>
+      {/* Content wrapper with absolute positioning */}
+      <div className="relative z-10 h-full flex flex-col">
+        <div onClick={() => onView?.(blog)} className="flex-1 p-6">
+          {/* Category and read time at top */}
+          <div className="flex items-center gap-2 mb-4">
+            {blog.blog_categories && (
+              <Badge 
+                variant="secondary" 
+                className="bg-white/20 text-white border-white/30"
+              >
+                {blog.blog_categories.name}
+              </Badge>
+            )}
+            <span className="text-sm text-white/80">
+              {blog.read_time} min read
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom content area */}
+        <div className="p-6 pt-0">
+          <div onClick={() => onView?.(blog)} className="mb-4">
+            {/* Title - prominent and clean */}
+            <h3 className="text-xl font-bold mb-3 line-clamp-2 text-white">
+              {blog.title}
+            </h3>
             
-            <h3 className="text-xl font-semibold mb-2 line-clamp-2">{blog.title}</h3>
-            
+            {/* Excerpt */}
             {blog.excerpt && (
-              <p className="text-muted-foreground mb-4 line-clamp-3">{blog.excerpt}</p>
+              <p className="text-white/80 text-sm mb-3 line-clamp-2">
+                {blog.excerpt}
+              </p>
             )}
             
+            {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
               <div className="flex flex-wrap gap-1 mb-4">
-                {blog.tags.slice(0, 3).map((tag: string) => (
-                  <Badge key={tag} variant="outline" className="text-xs">
+                {blog.tags.slice(0, 2).map((tag: string) => (
+                  <Badge key={tag} variant="outline" className="text-xs bg-white/10 text-white border-white/30">
                     {tag}
                   </Badge>
                 ))}
-                {blog.tags.length > 3 && (
-                  <Badge variant="outline" className="text-xs">
-                    +{blog.tags.length - 3} more
+                {blog.tags.length > 2 && (
+                  <Badge variant="outline" className="text-xs bg-white/10 text-white border-white/30">
+                    +{blog.tags.length - 2}
                   </Badge>
                 )}
               </div>
             )}
-          </CardContent>
-        </div>
-        
-        <CardFooter className="px-6 pb-6 pt-0">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <Avatar className="h-8 w-8">
-                  <AvatarFallback>
-                    {blog.profiles?.name?.charAt(0) || 'A'}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium">{blog.profiles?.name || 'Anonymous'}</span>
-                  <span className="text-xs text-muted-foreground">
-                    {formatDate(blog.created_at)}
-                  </span>
-                </div>
+          </div>
+
+          {/* Footer with author and actions */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Avatar className="h-8 w-8">
+                <AvatarFallback className="bg-white/20 text-white">
+                  {blog.profiles?.name?.charAt(0) || 'A'}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-white">
+                  {blog.profiles?.name || 'Anonymous'}
+                </span>
+                <span className="text-xs text-white/60">
+                  {formatDate(blog.created_at)}
+                </span>
               </div>
             </div>
             
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={handleLike}>
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="sm" onClick={handleLike} className="text-white hover:bg-white/20">
                 <Heart className="h-4 w-4 mr-1" />
-                {blog.likes || 0}
+                <span className="text-xs">{blog.likes || 0}</span>
               </Button>
               
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
                 <Eye className="h-4 w-4 mr-1" />
-                {blog.views || 0}
+                <span className="text-xs">{blog.views || 0}</span>
               </Button>
               
               {isAuthor && (
                 <>
-                  <Button variant="ghost" size="sm" onClick={() => onEdit?.(blog)}>
+                  <Button variant="ghost" size="sm" onClick={() => onEdit?.(blog)} className="text-white hover:bg-white/20">
                     <Edit className="h-4 w-4" />
                   </Button>
                   <Button 
                     variant="ghost" 
                     size="sm" 
                     onClick={() => onDelete?.(blog.id)}
-                    className="text-destructive hover:text-destructive"
+                    className="text-red-400 hover:bg-red-400/20"
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -179,7 +179,7 @@ export function BlogCard({ blog, onEdit, onDelete, onView }: BlogCardProps) {
               )}
             </div>
           </div>
-        </CardFooter>
+        </div>
       </div>
     </Card>
   );
