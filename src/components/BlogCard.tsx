@@ -71,7 +71,7 @@ export function BlogCard({ blog, onEdit, onDelete, onView }: BlogCardProps) {
   const isAuthor = profile && blog.profiles && profile.id === blog.profiles.id;
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
+    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/10 backdrop-blur-md border-white/20 text-white">
       <div onClick={() => onView?.(blog)}>
         {blog.featured_image && (
           <div className="aspect-video overflow-hidden rounded-t-lg">
