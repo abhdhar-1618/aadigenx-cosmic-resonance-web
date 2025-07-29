@@ -102,18 +102,18 @@ const projectsData = [
   },
   {
     id: 7,
-    title: "Manas-Mitra Sutra - AI for Mental Well-being in Arogya Shastra",
+    title: "Pashu-Vaani – AI-Enabled Animal Communication Interface",
     student: "",
     grade: "",
-    subject: "Aryogya Shastra",
-    description: "A prototype combining AI-driven sentiment tracking with yogic breath analytics to support holistic mental health.",
-    tools: ["TensorFlow", "Python", "Power BI"],
-    category: "Aryogya Shastra",
+    subject: "Pashu Vritti Shastra",
+    description: "An AI-powered interface that decodes animal gestures, sounds, and emotional states using computer vision and sound analysis to promote interspecies empathy.",
+    tools: ["Python", "OpenCV", "TensorFlow"],
+    category: "Pashu Vritti Shastra",
     date: "August 2024",
-    views: 312,
-    rating: 4.9,
-    image: "/lovable-uploads/d264ed0d-66fb-4d40-9ef0-6eb82ca06fd8.png",
-    achievements: ["Most Innovative AI-Health Integration"]
+    views: 289,
+    rating: 4.8,
+    image: "/images/pashu vritti shastra image card.png",
+    achievements: ["Interspecies Empathy Award", "Best Use of AI in Ethology"]
   },
 ];
 
