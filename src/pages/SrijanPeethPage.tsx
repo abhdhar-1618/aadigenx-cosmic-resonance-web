@@ -67,7 +67,7 @@ const projectsData = [
     date: "December 2024",
     views: 234,
     rating: 4.8,
-    image: "/images/vimaana shastra image card.png",
+    image: "/lovable-uploads/9353f2e2-3bd7-48de-8066-c51004a57798.png",
     achievements: ["Community Impact Award"]
   },
   {
