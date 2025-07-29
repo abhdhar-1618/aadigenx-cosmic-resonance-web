@@ -1,14 +1,14 @@
-eact from 'react';
-import { Navigation } from '../../components/Navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Button } from '../../components/ui/button';
+import React from 'react';
+import { Navigation } from '../components/Navigation';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
+import { Button } from '../components/ui/button';
 import { 
   BarChart3, TrendingUp, PieChart, LineChart, 
   Award, Calendar, User, Eye, Settings, 
   Leaf, Smile, Music2 
 } from 'lucide-react';
-import { ScrollArea } from '../../components/ui/scroll-area';
+import { ScrollArea } from '../components/ui/scroll-area';
 const projectsData = [
   {
     id: 1,
@@ -118,23 +118,7 @@ const projectsData = [
 ];
 
 
-const categories = [""Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra"
-  {
-    id: 7,
-    title: "Holistic Health Mapping with AI",
-    grade: "Class 12",
-    subject: "Aryogya Shastra",
-    description: "An AI-powered project to map Ayurvedic body types (Prakriti) and suggest lifestyle recommendations.",
-    tools: ["Python", "TensorFlow", "Ayurvedic APIs"],
-    category: "Aryogya Shastra",
-    date: "July 2025",
-    views: 120,
-    rating: 4.6,
-    image: ""/images/aryogya shastra image card.png",
-    student: "",
-    achievements: ["AI + Ayurveda Integration", "Student Innovation Finalist"]
-  },
-];
+const categories = ["Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"];
 
 export default function SrijanPeethPage() {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
@@ -162,7 +146,6 @@ export default function SrijanPeethPage() {
         return <BarChart3 className="h-5 w-5" />;
     }
   };
-}
 
   return (
   <div className="min-h-screen scroll-background relative">
@@ -190,7 +173,7 @@ export default function SrijanPeethPage() {
           {/* Category Filter */}
           <div className="max-w-5xl mx-auto px-4 mb-8">
             <div className="flex flex-wrap gap-2 justify-center">
-              {["All", "Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra"].map((category) => (
+              {["All", "Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"].map((category) => (
                 <Button
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
@@ -345,3 +328,4 @@ export default function SrijanPeethPage() {
     </div>
   </div>
 );
+}
