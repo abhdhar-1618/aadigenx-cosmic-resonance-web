@@ -22,7 +22,7 @@ const projectsData = [
     date: "",
     views: 187,
     rating: 4.6,
-    image: "/images/triveni shastra image card.png",
+    image: "/lovable-uploads/c8af4849-15ae-458e-ba29-3e1d7c09e3b9.png",
     achievements: ["Best Mathametics Analysis Project", "Data Visualization Excellence"]
   },
   {
