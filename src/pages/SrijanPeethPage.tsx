@@ -52,7 +52,7 @@ const projectsData = [
     date: "October 2024",
     views: 312,
     rating: 4.9,
-    image: "/images/yantra shastra image card.png",
+    image: "/lovable-uploads/59dc3c31-c3b0-4aae-a982-31bd7e61f22d.png",
     achievements: ["Outstanding Innovation", "Coach's Choice Award"]
   },
   {
