@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -22,6 +23,7 @@ interface BlogPost {
 }
 
 export function RecentBlogCard() {
+  const navigate = useNavigate();
   const [recentPost, setRecentPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -109,6 +111,7 @@ export function RecentBlogCard() {
   return (
     <Card 
       className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md"
+      onClick={() => navigate('/blog-article')}
     >
       {/* Top Image Section */}
       <div 
