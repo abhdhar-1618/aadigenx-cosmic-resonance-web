@@ -11,8 +11,11 @@ const BlogsPage = () => {
         
         {/* Main Content Area - constrained between top and bottom bars */}
         <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <BlogsSection />
+          <div className="h-full overflow-y-auto custom-scrollbar p-4 md:p-8">
+            {/* Large transparent container for all content */}
+            <div className="min-h-full bg-amber-800/20 backdrop-blur-sm rounded-2xl border border-amber-600/30 p-6 md:p-8 shadow-2xl">
+              <BlogsSection />
+            </div>
           </div>
         </div>
         
