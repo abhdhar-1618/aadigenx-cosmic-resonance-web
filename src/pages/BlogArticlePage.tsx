@@ -77,12 +77,12 @@ As we continue to build the future, let us remember that the greatest innovation
         <Navigation currentSection="blogs" />
         
         {/* Main Content Area */}
-        <div className="container mx-auto px-4 mt-16 mb-16 max-w-7xl">
-          <div className="bg-gradient-to-br from-amber-900/30 to-amber-700/20 backdrop-blur-md border border-amber-500/30 rounded-xl overflow-hidden shadow-2xl">
+        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
+          <div className="h-full overflow-y-auto custom-scrollbar">
             
             {/* Hero Image Section */}
             <div 
-              className="relative h-[60vh] md:h-[70vh] w-full"
+              className="relative h-[50vh] md:h-[60vh] w-full"
               style={{
                 backgroundImage: `url(${blogData.featured_image})`,
                 backgroundSize: 'cover',
