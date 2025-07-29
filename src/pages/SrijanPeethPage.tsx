@@ -37,7 +37,7 @@ const projectsData = [
     date: "",
     views: 275,
     rating: 4.9,
-    image: "/images/naad shastra image card.png",
+    image: "/lovable-uploads/65ad884e-e886-466e-8c1b-7388ef69dfb1.png",
     achievements: ["Most Practical Application"]
   },
   {
