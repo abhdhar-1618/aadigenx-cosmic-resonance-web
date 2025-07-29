@@ -229,24 +229,6 @@ export const BlogsSection = () => {
           <RecentBlogCard />
         </div>
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredBlogs.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              blog={blog}
-              onEdit={handleEditBlog}
-              onDelete={handleDeleteBlog}
-              onView={handleViewBlog}
-            />
-          ))}
-        </div>
-
-        {filteredBlogs.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-white/60 text-lg">No blogs found matching your criteria.</p>
-          </div>
-        )}
       </div>
 
       {/* Modals */}

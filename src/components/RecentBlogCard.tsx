@@ -2,8 +2,11 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heart, Eye, Calendar } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function RecentBlogCard() {
+  const navigate = useNavigate();
+  
   // Static content from the provided image
   const blogContent = {
     title: "Awakening the Divine Code: When Robotics Meets Ancient Wisdom",
@@ -21,9 +24,14 @@ export function RecentBlogCard() {
     return dateString;
   };
 
+  const handleCardClick = () => {
+    navigate('/blog/article');
+  };
+
   return (
     <Card 
-      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md"
+      onClick={handleCardClick}
+      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md hover:scale-105 hover:border-amber-400/40"
     >
       {/* Top Image Section */}
       <div 
