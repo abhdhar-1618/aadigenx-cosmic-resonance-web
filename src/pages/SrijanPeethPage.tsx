@@ -112,7 +112,7 @@ const projectsData = [
     date: "August 2024",
     views: 289,
     rating: 4.8,
-    image: "/images/pashu vritti shastra image card.png",
+    image: "/lovable-uploads/307167fa-78f9-4220-90b2-6dbdd64bd045.png",
     achievements: ["Interspecies Empathy Award", "Best Use of AI in Ethology"]
   },
 ];
