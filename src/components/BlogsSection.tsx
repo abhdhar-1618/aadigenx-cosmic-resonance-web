@@ -357,16 +357,18 @@ export const BlogsSection = () => {
 
           <TabsContent value={activeTab} className="mt-6">
             {/* Blog Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredBlogs.map((blog) => (
-                <BlogCard
-                  key={blog.id}
-                  blog={blog}
-                  onEdit={handleEditBlog}
-                  onDelete={handleDeleteBlog}
-                  onView={handleViewBlog}
-                />
-              ))}
+            <div className="bg-amber-800/30 backdrop-blur-sm rounded-lg p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredBlogs.map((blog) => (
+                  <BlogCard
+                    key={blog.id}
+                    blog={blog}
+                    onEdit={handleEditBlog}
+                    onDelete={handleDeleteBlog}
+                    onView={handleViewBlog}
+                  />
+                ))}
+              </div>
             </div>
 
             {filteredBlogs.length === 0 && (
