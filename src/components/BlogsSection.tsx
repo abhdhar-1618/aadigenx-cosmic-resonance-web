@@ -14,6 +14,7 @@ import { AuthModal } from '@/components/AuthModal';
 import { BlogEditor } from '@/components/BlogEditor';
 import { BlogView } from '@/components/BlogView';
 import { BlogCard } from '@/components/BlogCard';
+import { RecentBlogCard } from '@/components/RecentBlogCard';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -221,6 +222,11 @@ export const BlogsSection = () => {
               </SelectContent>
             </Select>
           </div>
+        </div>
+
+        {/* Featured Recent Post */}
+        <div className="mb-12 flex justify-center">
+          <RecentBlogCard />
         </div>
 
         {/* Blog Grid */}
