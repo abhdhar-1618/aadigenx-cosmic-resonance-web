@@ -15,6 +15,7 @@ import CareersPage from "./pages/CareersPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import BlogArticlePage from "./pages/BlogArticlePage";
+import AadianPage from "./pages/AadianPage";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/aadian" element={<AadianPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/naad" element={<AadiNaadPage />} />
           <Route path="/srijan" element={<SrijanPeethPage />} />
