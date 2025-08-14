@@ -48,10 +48,10 @@ The challenge before us is not to replace human wisdom with artificial intellige
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black animate-fade-in">
       <Navigation currentSection="blogs" />
       
-      <article className="relative">
+      <article className="relative animate-scale-in">
         {/* Full-width hero image */}
         <div 
           className="relative h-[70vh] w-full overflow-hidden"
@@ -70,7 +70,7 @@ The challenge before us is not to replace human wisdom with artificial intellige
               onClick={handleBack}
               variant="outline" 
               size="sm"
-              className="bg-black/30 backdrop-blur-sm border-white/20 text-white hover:bg-black/50 transition-all duration-300"
+              className="bg-black/30 backdrop-blur-sm border-white/20 text-white hover:bg-black/50 transition-all duration-300 hover:scale-105 animate-fade-in"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blogs
@@ -105,7 +105,7 @@ The challenge before us is not to replace human wisdom with artificial intellige
         </div>
 
         {/* Content section with black background */}
-        <div className="bg-black/90 backdrop-blur-sm relative">
+        <div className="bg-black/90 backdrop-blur-sm relative animate-fade-in">
           <div className="max-w-4xl mx-auto px-8 py-16">
             {/* Author section */}
             <div className="flex items-center justify-between mb-12 pb-8 border-b border-amber-400/20">

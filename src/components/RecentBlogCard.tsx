@@ -31,7 +31,7 @@ export function RecentBlogCard() {
   return (
     <Card 
       onClick={handleCardClick}
-      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md hover:scale-105 hover:border-amber-400/40"
+      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md hover:scale-105 hover:border-amber-400/40 animate-fade-in"
     >
       {/* Top Image Section */}
       <div 
