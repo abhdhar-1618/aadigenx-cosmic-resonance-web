@@ -224,11 +224,6 @@ export const BlogsSection = () => {
           </div>
         </div>
 
-        {/* Featured Recent Post */}
-        <div className="mb-12 flex justify-center">
-          <RecentBlogCard />
-        </div>
-
       </div>
 
       {/* Modals */}
