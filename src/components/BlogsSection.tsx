@@ -163,55 +163,56 @@ export const BlogsSection = () => {
   }
 
   return (
-    <div className="min-h-full py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent drop-shadow-lg">
+    <div className="min-h-full">
+      {/* Banner Section with Brown Background */}
+      <div className="bg-gradient-to-br from-amber-600 via-amber-700 to-amber-800 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
             AadiBlogg – Voice of Visionaries at AadiGenix
           </h1>
-          <p className="text-lg text-white/80 italic tracking-wide">
+          <p className="text-lg text-white/90 italic tracking-wide mb-8">
             Echoes of Thought | Insights with Soul | Where Dharma Meets Data
           </p>
 
           <div className="flex items-center justify-center gap-4 mb-8">
             {user ? (
               <>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
                   <Avatar className="h-8 w-8">
                     <AvatarFallback>{profile?.name?.charAt(0) || 'U'}</AvatarFallback>
                   </Avatar>
                   <span className="text-white font-medium">{profile?.name || 'User'}</span>
                 </div>
-                <Button onClick={handleCreateBlog} className="bg-primary hover:bg-primary/90">
+                <Button onClick={handleCreateBlog} className="bg-white/20 hover:bg-white/30 text-white border border-white/30">
                   <Plus className="h-4 w-4 mr-2" /> Create Blog
                 </Button>
-                <Button variant="outline" onClick={() => setProfileModalOpen(true)} className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                <Button variant="outline" onClick={() => setProfileModalOpen(true)} className="bg-white/10 border-white/30 text-white hover:bg-white/20">
                   <Settings className="h-4 w-4 mr-2" /> Profile
                 </Button>
-                <Button variant="outline" onClick={signOut} className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                <Button variant="outline" onClick={signOut} className="bg-white/10 border-white/30 text-white hover:bg-white/20">
                   <LogOut className="h-4 w-4 mr-2" /> Sign Out
                 </Button>
               </>
             ) : (
-              <Button onClick={() => setAuthModalOpen(true)} className="bg-primary hover:bg-primary/90">
+              <Button onClick={() => setAuthModalOpen(true)} className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg font-medium">
                 <User className="h-4 w-4 mr-2" /> Sign In to Create Blogs
               </Button>
             )}
           </div>
 
           {/* Search and Filter */}
-          <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 h-4 w-4" />
               <Input
                 placeholder="Search blogs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                className="pl-10 bg-white/20 border-white/30 text-white placeholder:text-white/60 backdrop-blur-sm"
               />
             </div>
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="bg-white/20 border-white/30 text-white backdrop-blur-sm">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
@@ -223,7 +224,13 @@ export const BlogsSection = () => {
             </Select>
           </div>
         </div>
+      </div>
 
+      {/* Content Section with White Background */}
+      <div className="bg-white py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Content can go here if needed */}
+        </div>
       </div>
 
       {/* Modals */}
