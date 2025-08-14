@@ -30,7 +30,7 @@ export function UnifiedBlogCard({ blog, onView }: UnifiedBlogCardProps) {
       {/* Top Image Section - Full height with contain fit, no text */}
       <div className="relative h-80 w-full overflow-hidden bg-black/20">
         <img 
-          src={blog.featured_image || `/lovable-uploads/baa7114e-362a-4b74-abf4-0d52aab77334.png`}
+          src={blog.featured_image || `/lovable-uploads/65d62aa9-8a7a-4b54-9351-b17a50df0c2b.png`}
           alt={blog.title}
           className="w-full h-full object-contain"
         />
