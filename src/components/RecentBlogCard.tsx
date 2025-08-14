@@ -31,9 +31,9 @@ export function RecentBlogCard() {
   return (
     <Card 
       onClick={handleCardClick}
-      className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer bg-black/80 backdrop-blur-md hover:scale-105 hover:border-amber-400/40 animate-fade-in"
+      className="group relative w-full max-w-md overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 hover:shadow-amber-500/30 transition-all duration-500 cursor-pointer bg-black/90 backdrop-blur-md hover:scale-[1.02] hover:border-amber-400/50 animate-fade-in"
     >
-      {/* Top Image Section */}
+      {/* Top Image Section - No text overlays */}
       <div 
         className="relative h-64 overflow-hidden"
         style={{
@@ -42,58 +42,51 @@ export function RecentBlogCard() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Soft glass overlay on image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        
-        {/* Badge positioned on image */}
-        <div className="absolute top-4 left-4">
+        {/* Black transparent overlay for clean separation */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+      </div>
+
+      {/* Bottom Black Section - Clean content area */}
+      <div className="bg-black p-6 space-y-4">
+        {/* Source badge and read time */}
+        <div className="flex items-center justify-between mb-3">
           <Badge 
             variant="secondary" 
-            className="bg-amber-500/20 text-amber-100 border-amber-400/30 backdrop-blur-sm px-3 py-1 text-xs font-medium"
+            className="bg-blue-600/20 text-blue-200 border-blue-400/30 backdrop-blur-sm px-3 py-1 text-xs font-medium"
           >
             {blogContent.category}
           </Badge>
+          <div className="text-amber-200/80 text-xs font-medium">
+            {blogContent.readTime} min read
+          </div>
         </div>
 
-        {/* Read time on image */}
-        <div className="absolute top-4 right-4 text-amber-200/80 text-xs font-medium bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
-          {blogContent.readTime} min read
-        </div>
-      </div>
-
-      {/* Bottom Black Section */}
-      <div className="bg-black/90 backdrop-blur-sm p-6 space-y-4">
-        {/* Generated Title with gradient effect */}
-        <h2 className="text-xl font-bold leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent">
+        {/* Blog Title with gradient effect */}
+        <h2 className="text-xl font-bold leading-tight bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent mb-4">
           {blogContent.title}
         </h2>
-        
-        {/* Excerpt */}
-        <p className="text-amber-100/90 text-sm leading-relaxed line-clamp-2">
-          {blogContent.excerpt}
-        </p>
 
-        {/* Author section */}
+        {/* Author section with timestamp */}
         <div className="flex items-center gap-3 pt-2">
-          <Avatar className="h-10 w-10 ring-2 ring-amber-400/30">
+          <Avatar className="h-12 w-12 ring-2 ring-amber-400/30">
             <AvatarImage src="/lovable-uploads/author-profile.jpg" alt="Dipanwita DasChakrabarty" />
             <AvatarFallback className="bg-gradient-to-br from-amber-600 to-amber-800 text-white font-semibold">
               D
             </AvatarFallback>
           </Avatar>
           <div className="flex-1">
-            <div className="text-white font-medium text-sm">
+            <div className="text-white font-medium text-sm mb-1">
               {blogContent.author}
             </div>
             <div className="flex items-center gap-1 text-amber-200/70 text-xs">
               <Calendar className="h-3 w-3" />
-              {formatDate(blogContent.date)}
+              <span>{formatDate(blogContent.date)}</span>
             </div>
           </div>
         </div>
 
         {/* Engagement metrics */}
-        <div className="flex items-center gap-4 pt-2">
+        <div className="flex items-center gap-4 pt-3 border-t border-amber-400/10">
           <div className="flex items-center gap-1 text-amber-200/80">
             <Heart className="h-4 w-4" />
             <span className="text-xs">{blogContent.likes}</span>
@@ -105,8 +98,8 @@ export function RecentBlogCard() {
         </div>
       </div>
 
-      {/* Subtle border glow effect */}
-      <div className="absolute inset-0 rounded-2xl border border-amber-400/20 pointer-events-none group-hover:border-amber-400/40 transition-colors duration-500"></div>
+      {/* Enhanced border glow effect */}
+      <div className="absolute inset-0 rounded-2xl border border-amber-400/20 pointer-events-none group-hover:border-amber-400/50 group-hover:shadow-2xl group-hover:shadow-amber-500/20 transition-all duration-500"></div>
     </Card>
   );
 }
