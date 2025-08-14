@@ -10,7 +10,6 @@ export function RecentBlogCard() {
   // Static content from the provided image
   const blogContent = {
     title: "Awakening the Divine Code: When Robotics Meets Ancient Wisdom",
-    excerpt: "Awakening the Divine Code: When Robotics Meets Ancient Wisdom",
     author: "Dipanwita DasChakrabarty",
     date: "Jul 29, 2025",
     likes: 0,
