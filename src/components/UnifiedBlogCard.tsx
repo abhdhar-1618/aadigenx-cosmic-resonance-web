@@ -27,17 +27,13 @@ export function UnifiedBlogCard({ blog, onView }: UnifiedBlogCardProps) {
       onClick={handleCardClick}
       className="group relative w-full max-w-md overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/20 hover:shadow-black/40 transition-all duration-500 cursor-pointer bg-black/95 backdrop-blur-md hover:scale-[1.02] hover:border-white/30 animate-fade-in"
     >
-      {/* Top Image Section - Full width with overlay, no text */}
-      <div 
-        className="relative h-64 w-full overflow-hidden"
-        style={{
-          backgroundImage: blog.featured_image 
-            ? `url(${blog.featured_image})` 
-            : `url(/lovable-uploads/baa7114e-362a-4b74-abf4-0d52aab77334.png)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* Top Image Section - Full height with contain fit, no text */}
+      <div className="relative h-80 w-full overflow-hidden bg-black/20">
+        <img 
+          src={blog.featured_image || `/lovable-uploads/baa7114e-362a-4b74-abf4-0d52aab77334.png`}
+          alt={blog.title}
+          className="w-full h-full object-contain"
+        />
         {/* Black transparent overlay for clean separation */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
       </div>
