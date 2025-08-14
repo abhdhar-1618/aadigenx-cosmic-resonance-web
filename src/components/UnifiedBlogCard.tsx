@@ -33,7 +33,7 @@ export function UnifiedBlogCard({ blog, onView }: UnifiedBlogCardProps) {
         style={{
           backgroundImage: blog.featured_image 
             ? `url(${blog.featured_image})` 
-            : `url(/lovable-uploads/vimaana shastra image card.png)`,
+            : `url(/lovable-uploads/baa7114e-362a-4b74-abf4-0d52aab77334.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
