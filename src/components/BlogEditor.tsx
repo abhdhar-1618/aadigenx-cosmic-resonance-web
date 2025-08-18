@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,10 +6,12 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { X, Plus } from 'lucide-react';
+import { X, Plus, ImageIcon, Upload } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 interface BlogEditorProps {
   open: boolean;
@@ -96,6 +98,59 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
       tags: formData.tags.filter(tag => tag !== tagToRemove)
     });
   };
+
+  // Rich text editor modules with image support
+  const modules = useMemo(() => ({
+    toolbar: {
+      container: [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'indent': '-1'}, { 'indent': '+1' }],
+        ['link', 'image', 'video'],
+        ['blockquote', 'code-block'],
+        [{ 'align': [] }],
+        ['clean']
+      ],
+      handlers: {
+        image: () => {
+          const input = document.createElement('input');
+          input.setAttribute('type', 'file');
+          input.setAttribute('accept', 'image/*');
+          input.click();
+          
+          input.onchange = () => {
+            const file = input.files?.[0];
+            if (file) {
+              // For now, we'll use a simple URL prompt
+              // In a real app, you'd upload to your storage service
+              const url = prompt('Please enter the image URL:');
+              if (url) {
+                const quill = (window as any).quill;
+                if (quill) {
+                  const range = quill.getSelection();
+                  quill.insertEmbed(range.index, 'image', url);
+                }
+              }
+            }
+          };
+        }
+      }
+    },
+    clipboard: {
+      matchVisual: false,
+    }
+  }), []);
+
+  const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video',
+    'color', 'background',
+    'align', 'code-block'
+  ];
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -269,14 +324,24 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
 
           <div className="space-y-2">
             <Label htmlFor="content">Content</Label>
-            <Textarea
-              id="content"
-              value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              placeholder="Write your blog content here..."
-              rows={15}
-              required
-            />
+            <div className="border border-input rounded-md">
+              <ReactQuill
+                theme="snow"
+                value={formData.content}
+                onChange={(content) => setFormData({ ...formData, content })}
+                placeholder="Write your blog content here... Use the toolbar to format text and insert images."
+                modules={modules}
+                formats={formats}
+                style={{ 
+                  minHeight: '300px',
+                  backgroundColor: 'white'
+                }}
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              <ImageIcon className="inline h-4 w-4 mr-1" />
+              To add images: Click the image icon in the toolbar, then enter the image URL when prompted.
+            </p>
           </div>
 
           <div className="flex justify-end gap-2">

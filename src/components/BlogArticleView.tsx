@@ -63,9 +63,10 @@ export function BlogArticleView({ blog, onBack }: BlogArticleViewProps) {
         {/* Article Content */}
         {blog.content && (
           <div className="prose prose-amber max-w-none mt-6">
-            <div className="text-amber-900/90 text-base leading-relaxed whitespace-pre-wrap">
-              {blog.content}
-            </div>
+            <div 
+              className="text-amber-900/90 text-base leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
           </div>
         )}
 

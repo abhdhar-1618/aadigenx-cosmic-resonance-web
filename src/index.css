@@ -219,6 +219,108 @@
   object-fit: cover;
 }
 
+/* Quill editor styles */
+.ql-editor {
+  font-family: inherit;
+  color: inherit;
+}
+
+.ql-toolbar.ql-snow {
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  background: hsl(var(--background));
+}
+
+.ql-container.ql-snow {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+}
+
+.ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+}
+
+/* Rich text content styling in article view */
+.prose-amber {
+  color: rgb(146 64 14 / 0.9);
+}
+
+.prose-amber h1, .prose-amber h2, .prose-amber h3, .prose-amber h4, .prose-amber h5, .prose-amber h6 {
+  color: rgb(146 64 14);
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-amber h1 { font-size: 1.875rem; }
+.prose-amber h2 { font-size: 1.5rem; }
+.prose-amber h3 { font-size: 1.25rem; }
+
+.prose-amber p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+}
+
+.prose-amber img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5em 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.prose-amber blockquote {
+  border-left: 4px solid rgb(146 64 14);
+  padding-left: 1rem;
+  margin: 1.5em 0;
+  font-style: italic;
+  background: rgba(252 211 77 / 0.1);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.prose-amber ul, .prose-amber ol {
+  padding-left: 1.5rem;
+  margin: 1em 0;
+}
+
+.prose-amber li {
+  margin: 0.25em 0;
+}
+
+.prose-amber a {
+  color: rgb(146 64 14);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose-amber a:hover {
+  color: rgb(120 53 15);
+}
+
+.prose-amber code {
+  background: rgba(252 211 77 / 0.2);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, 'Cascadia Code', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+.prose-amber pre {
+  background: rgba(252 211 77 / 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border: 1px solid rgba(146 64 14 / 0.2);
+}
+
+.prose-amber pre code {
+  background: transparent;
+  padding: 0;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .prose-invert p {
@@ -228,4 +330,8 @@
   .prose-invert h3 {
     font-size: 1.25rem;
   }
+
+  .prose-amber h1 { font-size: 1.5rem; }
+  .prose-amber h2 { font-size: 1.25rem; }
+  .prose-amber h3 { font-size: 1.125rem; }
 }

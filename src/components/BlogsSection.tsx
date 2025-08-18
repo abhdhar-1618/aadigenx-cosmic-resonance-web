@@ -55,7 +55,7 @@ export const BlogsSection = () => {
 
   const fetchBlogs = async () => {
     try {
-      const { data, error } = await supabase
+      let query = supabase
         .from('blogs')
         .select(`
           *,
@@ -68,9 +68,17 @@ export const BlogsSection = () => {
             name,
             color
           )
-        `)
-        .eq('status', 'published')
-        .order('created_at', { ascending: false });
+        `);
+
+      // If user is authenticated, show all their blogs plus published blogs from others
+      // If not authenticated, show only published blogs
+      if (user && profile) {
+        query = query.or(`status.eq.published,and(author_id.eq.${profile.id})`);
+      } else {
+        query = query.eq('status', 'published');
+      }
+
+      const { data, error } = await query.order('created_at', { ascending: false });
 
       if (error) throw error;
       setBlogs(data || []);
