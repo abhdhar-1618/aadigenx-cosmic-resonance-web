@@ -14,7 +14,7 @@ import { AuthModal } from '@/components/AuthModal';
 import { BlogEditor } from '@/components/BlogEditor';
 import { BlogView } from '@/components/BlogView';
 import { BlogCard } from '@/components/BlogCard';
-import { UnifiedBlogCard } from '@/components/UnifiedBlogCard';
+import { RecentBlogCard } from '@/components/RecentBlogCard';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -224,16 +224,6 @@ export const BlogsSection = () => {
           </div>
         </div>
 
-        {/* Blog Cards Display */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-          {filteredBlogs.map((blog) => (
-            <UnifiedBlogCard
-              key={blog.id}
-              blog={blog}
-              onView={handleViewBlog}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Modals */}
