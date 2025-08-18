@@ -177,133 +177,174 @@ export function BlogView({ open, onOpenChange, blog }: BlogViewProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[900px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="space-y-4">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0 bg-black/95 backdrop-blur-xl border border-white/20 shadow-2xl animate-scale-in">
+        <div className="relative h-full overflow-y-auto custom-scrollbar">
+          {/* Featured Image with Gradient Overlay */}
           {blog.featured_image && (
-            <div className="aspect-video overflow-hidden rounded-lg">
-              <img
-                src={blog.featured_image}
-                alt={blog.title}
-                className="w-full h-full object-cover"
-              />
+            <div 
+              className="relative h-64 w-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${blog.featured_image})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             </div>
           )}
-          
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              {blog.blog_categories && (
-                <Badge 
-                  variant="secondary" 
-                  style={{ backgroundColor: `${blog.blog_categories.color}20`, color: blog.blog_categories.color }}
-                >
-                  {blog.blog_categories.name}
-                </Badge>
-              )}
-              <span className="text-sm text-muted-foreground">
-                {blog.read_time} min read
-              </span>
-            </div>
-            
-            <h1 className="text-3xl font-bold">{blog.title}</h1>
-            
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Avatar>
-                  <AvatarFallback>
+
+          {/* Soft Glass Content Container */}
+          <div className="relative p-8 bg-gradient-to-br from-black/90 via-black/95 to-black/90 backdrop-blur-md">
+            {/* Category Badge */}
+            {blog.blog_categories && (
+              <Badge 
+                className="mb-4 bg-primary/20 text-primary border-primary/30 backdrop-blur-sm px-4 py-2"
+                style={{ 
+                  backgroundColor: `${blog.blog_categories.color}20`,
+                  borderColor: `${blog.blog_categories.color}50`,
+                  color: blog.blog_categories.color 
+                }}
+              >
+                {blog.blog_categories.name}
+              </Badge>
+            )}
+
+            {/* Gradient Title */}
+            <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-primary bg-clip-text text-transparent leading-tight drop-shadow-lg">
+              {blog.title}
+            </h1>
+
+            {/* Author and Meta Information with Soft Shadows */}
+            <div className="flex items-center justify-between mb-8 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg">
+              <div className="flex items-center gap-4">
+                <Avatar className="h-14 w-14 ring-2 ring-primary/40 shadow-lg">
+                  <AvatarFallback className="bg-gradient-to-br from-primary/60 to-primary/80 text-black font-bold text-lg">
                     {blog.profiles?.name?.charAt(0) || 'A'}
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-medium">{blog.profiles?.name || 'Anonymous'}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {formatDate(blog.created_at)}
+                  <p className="font-semibold text-white text-lg">
+                    {blog.profiles?.name || 'Anonymous'}
+                  </p>
+                  <p className="text-primary/80 text-sm">
+                    {formatDate(blog.created_at)} • {blog.read_time || 5} min read
                   </p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-2">
-                <Button variant="ghost" size="sm" onClick={handleLike}>
-                  <Heart className={`h-4 w-4 mr-1 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
+              {/* Action Buttons with Glass Effect */}
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleLike}
+                  className="text-white hover:bg-white/10 backdrop-blur-sm border border-white/10 shadow-md"
+                >
+                  <Heart className={`h-5 w-5 mr-2 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
                   {blog.likes || 0}
                 </Button>
                 
-                <Button variant="ghost" size="sm">
-                  <Eye className="h-4 w-4 mr-1" />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:bg-white/10 backdrop-blur-sm border border-white/10 shadow-md"
+                >
+                  <Eye className="h-5 w-5 mr-2" />
                   {blog.views || 0}
                 </Button>
                 
-                <Button variant="ghost" size="sm" onClick={handleShare}>
-                  <Share2 className="h-4 w-4" />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleShare}
+                  className="text-white hover:bg-white/10 backdrop-blur-sm border border-white/10 shadow-md"
+                >
+                  <Share2 className="h-5 w-5" />
                 </Button>
               </div>
             </div>
-            
+
+            {/* Blog Content with Enhanced Typography */}
+            <div className="prose prose-lg prose-invert max-w-none mb-8">
+              {blog.content.split('\n').map((paragraph: string, index: number) => (
+                paragraph.trim() && (
+                  <p key={index} className="mb-6 leading-relaxed text-gray-200 text-lg">
+                    {paragraph}
+                  </p>
+                )
+              ))}
+            </div>
+
+            {/* Tags with Glass Effect */}
             {blog.tags && blog.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-8">
                 {blog.tags.map((tag: string) => (
-                  <Badge key={tag} variant="outline">
+                  <Badge 
+                    key={tag} 
+                    variant="outline" 
+                    className="bg-white/10 text-white border-white/20 backdrop-blur-sm shadow-md hover:bg-white/20 transition-all duration-200"
+                  >
                     {tag}
                   </Badge>
                 ))}
               </div>
             )}
-          </div>
-        </DialogHeader>
-        
-        <div className="space-y-6">
-          <div className="prose max-w-none">
-            {blog.content.split('\n').map((paragraph: string, index: number) => (
-              paragraph.trim() && (
-                <p key={index} className="mb-4 leading-relaxed">
-                  {paragraph}
-                </p>
-              )
-            ))}
-          </div>
-          
-          <div className="border-t pt-6 space-y-4">
-            <h3 className="text-lg font-semibold flex items-center gap-2">
-              <MessageCircle className="h-5 w-5" />
-              Comments ({comments.length})
-            </h3>
-            
-            {profile && (
-              <div className="space-y-2">
-                <Textarea
-                  placeholder="Write a comment..."
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                  rows={3}
-                />
-                <Button 
-                  onClick={handleComment} 
-                  disabled={isSubmittingComment || !newComment.trim()}
-                  size="sm"
-                >
-                  {isSubmittingComment ? 'Posting...' : 'Post Comment'}
-                </Button>
-              </div>
-            )}
-            
-            <div className="space-y-4">
-              {comments.map((comment) => (
-                <div key={comment.id} className="flex gap-3 p-4 bg-muted/50 rounded-lg">
-                  <Avatar className="h-8 w-8">
-                    <AvatarFallback>
-                      {comment.profiles?.name?.charAt(0) || 'A'}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-medium text-sm">{comment.profiles?.name || 'Anonymous'}</span>
-                      <span className="text-xs text-muted-foreground">
-                        {formatDate(comment.created_at)}
-                      </span>
-                    </div>
-                    <p className="text-sm">{comment.content}</p>
-                  </div>
+
+            {/* Comments Section with Glass Container */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 shadow-lg">
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-white to-primary bg-clip-text text-transparent flex items-center gap-2">
+                <MessageCircle className="h-6 w-6 text-primary" />
+                Comments ({comments.length})
+              </h3>
+              
+              {profile && (
+                <div className="mb-6 space-y-3">
+                  <Textarea
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    placeholder="Share your thoughts..."
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60 backdrop-blur-sm resize-none"
+                    rows={3}
+                  />
+                  <Button 
+                    onClick={handleComment} 
+                    disabled={isSubmittingComment || !newComment.trim()}
+                    className="bg-primary hover:bg-primary/90 text-black font-semibold shadow-lg"
+                  >
+                    {isSubmittingComment ? 'Posting...' : 'Post Comment'}
+                  </Button>
                 </div>
-              ))}
+              )}
+
+              {/* Comments List */}
+              <div className="space-y-4">
+                {comments.map((comment) => (
+                  <div key={comment.id} className="bg-white/5 rounded-lg p-4 border border-white/10 backdrop-blur-sm shadow-md">
+                    <div className="flex items-start gap-3">
+                      <Avatar className="h-10 w-10 ring-1 ring-white/20">
+                        <AvatarFallback className="bg-gradient-to-br from-primary/40 to-primary/60 text-black text-sm">
+                          {comment.profiles?.name?.charAt(0) || 'A'}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-semibold text-white text-sm">
+                            {comment.profiles?.name || 'Anonymous'}
+                          </span>
+                          <span className="text-primary/70 text-xs">
+                            {formatDate(comment.created_at)}
+                          </span>
+                        </div>
+                        <p className="text-gray-200 text-sm leading-relaxed">
+                          {comment.content}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {!profile && (
+                <p className="text-primary/80 text-sm mt-4 text-center">
+                  Sign in to leave a comment
+                </p>
+              )}
             </div>
           </div>
         </div>
