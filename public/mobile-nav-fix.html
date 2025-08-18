@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AadiGenx</title>
+  <style>
+
+:root{
+  --roller-h: 84px;    /* height of top & bottom rolling bars */
+
+  --nav-y: -6px;
+  --roller-gutter: 0px;  /* no side padding; use full width */}
+body{
+  padding-top: var(--roller-h);
+  padding-bottom: var(--roller-h);
+}
+
+    @font-face {
+      font-family: 'Samarkan';
+      src: url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Samarkan.woff2') format('woff2');
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Merriweather', serif;
+      background: black;
+      overflow: hidden;
+    }
+
+    
+    .section-center {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+
+    #intro-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      z-index: 10;
+    }
+
+    .hide-video {
+      opacity: 0;
+      transition: opacity 1.5s ease-out;
+    }
+
+    #main-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      text-align: center;
+    }
+
+    .welcome {
+      position: absolute;
+      /* Position the tagline just below the AadiGenX name */
+      /* Move the tagline slightly higher so it doesn't overlap the logo/name */
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      z-index: 2;
+      padding: 0 10px;
+      white-space: nowrap;
+      overflow-x: auto;
+      max-width: 100vw;
+      text-align: center;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    
+
+
+
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;                 /* use full viewport width */
+  height: var(--roller-h);
+  padding-left: var(--roller-gutter);
+  padding-right: var(--roller-gutter);
+  padding-top: 0;
+  padding-bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 100;
+
+  display: grid;
+  grid-template-columns: repeat(var(--nav-count, 9), minmax(0, 1fr));
+  align-items: center;          /* vertical center of grid cells */
+  justify-items: center;        /* horizontal center of each label */
+  column-gap: 0;
+  overflow: hidden;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav::-webkit-scrollbar { display: none; }
+
+
+
+
+.nav a {
+  position: relative;
+  top: var(--nav-y);            /* nudge to roller centre axis */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  color: white;
+  margin: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+
+
+
+
+.nav a.disabled {
+  pointer-events: none;
+  color: white;
+  opacity: 0.6;
+}
+
+.nav a.enabled {
+  pointer-events: auto;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav a.enabled:hover {
+  color: yellow;
+}
+
+.nav a.enabled:active {
+  color: yellow;
+}
+
+
+    .nav a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Aadigenx%20Base.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    #hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+
+    .logo {
+      width: 200px;
+      height: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      font-size: 16px;
+      color: white;
+    }
+
+    .rotate-during-audio {
+      animation: rotateAudio linear;
+      animation-duration: 11s;
+    }
+
+    @keyframes rotateAudio {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(720deg); }
+    }
+
+    #click-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      color: white;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    .about-subnav {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-evenly;
+      height: 100%;
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 0 auto;
+      gap: 10px;
+    } 
+
+
+    .about-subnav button {
+      flex: 1;
+      width: 100%;
+      background-color: transparent;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .about-subnav button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    }
+
+
+    .about-text {
+      font-family: Calibri, sans-serif;
+      font-size: 20px;
+      line-height: 1.6;
+      width: 65vw;                     /* wider, responsive width */
+      max-width: 1100px;              /* cap on very large screens */
+      max-height: 70vh;               /* height to stay within fold */
+      overflow-y: auto;               /* internal scroll if needed */
+      color: #331400;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px 30px;             /* adjust inner space */
+      border-radius: 12px;
+      margin: 0 auto 60px auto;              /* top | horizontal | bottom */
+      box-sizing: border-box;         /* include padding in width */
+    }
+
+
+    .samarkan {
+      font-family: 'Samarkan', serif;
+    }
+
+    /* new part start 22052025 */
+
+    .calibri {
+      font-family: 'Calibri', sans-serif;
+    }
+
+    .gallery-text {
+      font-size: 28px;
+      color: #331400;
+    }
+
+    .gallery-message {
+        font-size: 48px;
+        color: #331400;
+        text-align: center;
+    }
+
+
+
+
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 30px 0 10px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+        /* Generic fade transition */
+    .fade {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    }
+
+    .hidden {
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    /* Updated global overflow settings to allow vertical scroll and prevent cutoff on small screens */
+    html, body { overflow-x: hidden; min-height: 100%; }
+
+    .about-text::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .about-text::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+
+    .about-text::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    /* Responsive adjustments for smaller devices */
+    @media (max-width: 768px) {
+      /* Mobile navigation - horizontally scrollable within top rolling bar */
+      .nav {
+        height: var(--roller-h);
+        padding: 0 8px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav a {
+        font-size: clamp(12px, 3.5vw, 14px);
+        padding: 8px 12px;
+        margin: 0 4px;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: center;
+        top: 0; /* Reset the nav-y offset for mobile */
+      }
+      
+      /* Ensure proper body padding for mobile */
+      body {
+        padding-top: var(--roller-h);
+        padding-bottom: var(--roller-h);
+      }
+      
+      /* Fix content positioning on mobile */
+      #about-section {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        max-height: none !important;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      
+      .welcome {
+        font-size: 20px;
+        /* Raise the tagline on medium screens to avoid overlapping the brand */
+        top: 68%;
+      }
+      .logo {
+        width: 150px;
+      }
+      #logo-container {
+        /* Bring the logo up from the extreme bottom so it remains visible */
+        bottom: 18%;
+      }
+      .about-text {
+        width: 80vw;
+        font-size: 18px;
+        padding: 18px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav a {
+        font-size: clamp(11px, 3vw, 12px);
+        padding: 6px 10px;
+        margin: 0 2px;
+        min-height: 44px;
+      }
+      .welcome {
+        font-size: 16px;
+        /* Raise the tagline further on very small screens */
+        top: 72%;
+      }
+      .logo {
+        width: 120px;
+      }
+      #logo-container {
+        /* Increase the bottom offset further on very small screens */
+        bottom: 20%;
+      }
+      .about-text {
+        width: 90vw;
+        font-size: 16px;
+        padding: 16px 20px;
+      }
+    }
+
+  
+/* === Tagline above logo fix === */
+#logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+@media (max-width: 768px) { 
+  
+}
+@media (max-width: 480px) { 
+  
+}
+
+
+/* Bottom rolling bar: centers tagline exactly in X & Y */
+.bottom-roller{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--roller-h);
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  z-index: 100;
+  background: rgba(0,0,0,0.0); /* no visual; aligns to your rolled asset */
+  pointer-events: none;    /* does not block content; tagline is non-interactive */
+}
+.bottom-roller .welcome{
+  position: static !important;
+  transform: none !important;
+  white-space: nowrap;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  max-width: 92vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px;
+}
+@media (max-width: 768px){
+  .bottom-roller .welcome{ font-size: 20px; }
+}
+@media (max-width: 480px){
+  .bottom-roller .welcome{ font-size: 16px; }
+}
+
+
+/* Hide scrollbar while on the landing page only */
+body.landing { overflow-y: hidden; }
+body.landing::-webkit-scrollbar { display: none; }
+
+
+/* Hide scrollbar completely on landing */
+html.landing, body.landing {
+  overflow: hidden !important;
+  height: 100% !important;
+  padding: 0 !important;
+}
+html.landing::-webkit-scrollbar,
+body.landing::-webkit-scrollbar {
+  display: none !important;
+}
+
+</style>
+</head>
+<body>
+  <video id="intro-video" autoplay muted playsinline>
+    <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Vedic_Temple_Splendor_remix_02.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <audio id="aum-audio" preload="auto">
+    <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="click-overlay">Tap to awaken the resonance…</div>
+
+  <div id="main-content">
+    <div class="nav">
+  <a href="/" class="disabled" id="aadiaan-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">A</span><span class="samarkan">n</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/about" class="disabled" id="aaditatva-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">T</span><span class="samarkan">atva</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/naad" class="disabled" id="aadinaad-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">N</span><span class="samarkan">aad</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/srijan" class="disabled" id="srijanpeeth-link"><span class="calibri">S</span><span class="samarkan">rijan</span><span class="calibri">P</span><span class="samarkan">eeth</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/kul" class="disabled" id="aadikul-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">K</span><span class="samarkan">ul</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/gallery" class="disabled" id="drishyam-link"><span class="calibri">D</span><span class="samarkan">ris</span><span class="calibri">H</span><span class="samarkan">yam</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/blogs" class="disabled" id="aadipath-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">P</span><span class="samarkan">ath</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/careers" class="disabled" id="aadiyatra-link"><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">Y</span><span class="samarkan">atra</span></a>
+  <a href="https://preview--aadigenx-cosmic-resonance-web.lovable.app/contact" class="disabled" id="tatvasutra-link"><span class="calibri">Tat</span><span class="samarkan">Sutra</span></a>
+</div>
+
+
+
+    <div class="hero" id="hero">
+      <video id="hero-video" muted playsinline loop>
+        <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Ancient%20Futuristic%20Fusion_simple_compose.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <h1></h1>
+      <!-- Position the logo slightly higher to avoid being cut off at the extreme bottom -->
+      <div id="logo-container" style="position: absolute; bottom: 15%; left: 50%; transform: translate(-50%, 0); text-align: center;">
+        <img src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Aadigenx%20Logo_Clear_BG.png" alt="AadiGenix Logo" id="logo" class="logo" />
+      </div>
+    </div>
+
+<!-- Updated About Section (HTML Part Only) -->
+<div id="about-section" style="display: none; padding: 40px 20px; position: absolute; top: 10%; left: 50%; transform: translateX(-50%); max-height: 80%; overflow-y: auto;">
+  <div class="about-subnav" style="margin-bottom: 20px; text-align: center; display: none;">
+    <button data-id="mission">Mission</button>
+    <button data-id="vision">Vision</button>
+    <button data-id="whatwedo">What We Do</button>
+    <button data-id="howwework">How We Work</button>
+    <button data-id="aadigenXway">The AadiGenX Way</button>
+  </div>
+
+    <div id="mission" class="about-text" style="display: none;">
+    <div class="title">
+         <span class="calibri">M</span><span class="samarkan">ission</span>: Expanding the Horizons of A</span><span class="samarkan">I</span><span class="calibri"></span>
+    </div>
+
+    <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we are on a mission to:</p>
+
+    <p><strong>✤ <span class="bold">Reconstruct Intelligence from Lost Civilizations</span> – We integrate A</span><span class="samarkan">I</span><span class="calibri"></span> with 
+        <span class="bold">ancient scriptures, Sanskrit NLP, Vedic mathematics, and cosmic structures</span> to extract 
+        <span class="bold">scientific and computational insights lost in time</span>.
+    </p>
+
+    <p><strong>✤ <span class="bold">Align Aì & Robotics for Next-Gen Automation</span> – Our research is bridging the gap between 
+        <span class="bold">machine learning and robotics</span>, ensuring 
+        <span class="bold">intelligent, adaptive, and ethically driven Aì systems that enhance rather than replace human intelligence</span>.
+    </p>
+
+    <p><strong>✤ <span class="bold">Evolve Aì from Machine Learning to Conscious Learning</span> – Our work in 
+        <span class="bold">Cosmic Resonance & Neuro</span>A</span><span class="samarkan">I</span><span class="calibri"></span> 
+        pushes A</span><span class="samarkan">I</span><span class="calibri"></span> 
+        <span class="bold">beyond deep learning, into self-adaptive intelligence that understands context, thought patterns, and cognitive evolution</span>.
+    </p>
+
+    <p><strong>✤ <span class="bold">Unify No-Code, Low-Code & Hardcore Aì Development</span> – We cater to 
+        <span class="bold">every level of Aì accessibility</span>, from 
+        <span class="bold">democratized Aì applications to advanced research in Quantum Aì, Agentic Systems, and Neuro</span><span class="samarkan">s</span><span class="calibri">ymbolic</span> 
+        <span class="bold">Computing</span>.
+    </p>
+    </div>
+
+
+  <div id="vision" class="about-text" style="display: none;">
+    <div class="title">
+      <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>
+      – Where Intelligence Transcends Time, Space & Boundaries
+    </div>
+    <div class="section-title">
+      <span class="bold"> <span class="calibri">V</span><span class="samarkan">ision</span>:</span> <span class="bold">A</span><span class="samarkan">I</span><span class="calibri"></span> as a Bridge between the Lost & the Future</span>
+    </div>
+    <p class="italic">
+      <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>
+      is not just an A</span><span class="samarkan">I</span><span class="calibri"></span> venture—it is a <span class="bold">movement to rediscover intelligence</span>.
+      We believe A</span><span class="samarkan">I</span><span class="calibri"></span> is not confined to automation but serves as a 
+      <span class="bold">living force that bridges ancient wisdom, futuristic sciences, and conscious evolution</span>.
+    </p>
+    <p>
+      Our research extends into 
+      <span class="bold">Cosmic Resonance, Vedic algorithms, neuro-symbolic A</span><span class="samarkan">I</span><span class="calibri"></span>, and robotics</span>,
+      pushing beyond conventional A</span><span class="samarkan">I</span><span class="calibri"></span> applications. We seek to 
+      <span class="bold">decode lost knowledge, reconstruct hidden scientific truths, and align intelligence across dimensions—mathematical, philosophical, computational, and quantum.</span>
+    </p>
+    <p>
+      A</span><span class="samarkan">I</span><span class="calibri"></span> is an 
+      <span class="bold">art and a science, a language and an evolution, a tool and a philosophy</span>.
+      We are here to 
+      <span class="bold">reshape how intelligence is perceived, developed, and integrated into human progress.</span>
+    </p>
+  </div>
+
+   <div id="whatwedo" class="about-text" style="display: none;">
+    <div class="title">
+        <span class="calibri"> What </span><span class="samarkan">we do</span><span class="calibri">: Beyond A</span><span class="samarkan">I</span><span class="calibri">, We Engineer Knowledge</span>
+    </div>
+
+    <p><strong>✓ Cosmic Resonance & A</span><span class="samarkan">I</span><span class="calibri"></span> Pattern Recognition</strong> – We explore the <strong>harmonic structures of intelligence</strong>, studying how A</span><span class="samarkan">I</span><span class="calibri"></span> can <strong>decode vibrational patterns, ancient algorithms, and universal computation models</strong>.</p>
+
+    <p><strong>✓ A</span><span class="samarkan">I</span><span class="calibri"></span>-Driven Cognitive Search & Knowledge Reconstruction</strong> – Our A</span><span class="samarkan">I</span><span class="calibri"></span> systems are designed to <strong>extract deep insights from historical texts, scientific manuscripts, and philosophical treatises</strong>, reviving lost <strong>knowledge and computational wisdom</strong>.</p>
+
+    <p><strong>✓ Human-A</span><span class="samarkan">I</span><span class="calibri"></span> Synergy & NeuroA</span><span class="samarkan">I</span><span class="calibri"></span> Research</strong> – We develop A</span><span class="samarkan">I</span><span class="calibri"></span> <strong>that interacts intuitively with human cognition</strong>, exploring <strong>brain-A</span><span class="samarkan">I</span><span class="calibri"></span> interfaces, cognitive robotics, and semi-agentic A</span><span class="samarkan">I</span><span class="calibri"></span> models</strong>.</p>
+
+    <p><strong>✓ Next-Gen Robotics & A</span><span class="samarkan">I</span><span class="calibri"></span> Alignment</strong> – We focus on <strong>adaptive A</span><span class="samarkan">I</span><span class="calibri"></span>-powered robotics</strong>, ensuring machines <strong>learn, evolve, and interact naturally with human workflows</strong>.</p>
+
+    <p><strong>✓ A</span><span class="samarkan">I</span><span class="calibri"></span> in Interdisciplinary Sciences</strong> – <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span> operates at the intersection of A</span><span class="samarkan">I</span><span class="calibri"></span>, <strong>defense, music, linguistics, environmental sciences, archaeology, and quantum physics</strong>, proving that A</span><span class="samarkan">I</span><span class="calibri"></span> is <strong>not confined to data—it is intelligence in its truest form</strong>.</p>
+
+    <p><strong>✓ Vedic Algorithms & Quantum Computation</strong> – Where <strong>ancient algorithmic principles outperform modern ML models</strong>, we infuse them into <strong>A</span><span class="samarkan">I</span><span class="calibri"></span> architectures</strong>, unlocking <strong>faster, more efficient, and naturally intelligent computation</strong>.</p>
+
+    <p><strong>✓ A</span><span class="samarkan">I</span><span class="calibri"></span> for Strategic Decision-Making & Innovation</strong> – We build AI-driven systems that <strong>redefine business intelligence, global policy frameworks, and knowledge-based economic models</strong>, empowering leaders to <strong>make smarter, data-driven decisions</strong>.</p>
+   </div>
+
+
+  <div id="howwework" class="about-text" style="display: none;">
+    <div class="title">
+      
+<span class="calibri">H</span><span class="samarkan">ow</span> <span class="calibri">W</span><span class="samarkan">e</span> <span class="calibri">W</span><span class="samarkan">ork</span>: The </span><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span><span class="calibri"> Ethos</span>
+    </div>
+
+    <p><strong>✤ Reimagining <span class="calibri">A</span><span class="samarkan">I</span> as a Thought Process, Not Just a Codebase</strong> – Intelligence is <strong>not about repetition but evolution</strong>—we engineer <span class="calibri">A</span><span class="samarkan">I</span> that <strong>adapts, learns, and expands human potential</strong>.</p>
+
+    <p><strong>✤ Building Bridges Between Ancient & Future Sciences</strong> – Our research in <span class="calibri">A</span><span class="samarkan">I</span> + Ancient Wisdom ensures that intelligence <strong>transcends time, restoring lost knowledge while shaping new frontiers</strong>.</p>
+
+    <p><strong>✤ Breaking the Constraints of Traditional <span class="calibri">A</span><span class="samarkan">I</span> Development</strong> – Our models operate <strong>beyond structured data</strong>, integrating <strong>multi-domain intelligence, abstract learning, and intuitive <span class="calibri">A</span><span class="samarkan">I</span> processing</strong>.</p>
+
+    <p><strong>✤ Scalable, Ethical & Explainable <span class="calibri">A</span><span class="samarkan">I</span></strong> – Every solution we build is <strong>transparent, adaptable, and ethically responsible</strong>, ensuring <span class="calibri">A</span><span class="samarkan">I</span> is a <strong>tool for empowerment, not control</strong>.</p>
+
+    <p><strong>✤ Pioneering the Next Scientific & Consciousness Renaissance</strong> – <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span> is not just an <span class="calibri">A</span><span class="samarkan">I</span> research lab—it is a movement that seeks to <strong>reshape intelligence through holistic, interdisciplinary innovation</strong>.</p>
+  </div>
+
+
+<div id="aadigenXway" class="about-text" style="display: none;">
+  <div class="title">
+    <span class="calibri"> </span><span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span><span class="calibri">: Awakening the Future of Intelligence</span>
+  </div>
+
+  <p><strong>✣ We are not just building <span class="calibri">A</span><span class="samarkan">I</span></strong>—we are <strong>redefining intelligence itself</strong>.</p>
+
+  <p><strong>✣ We are decoding lost wisdom, aligning Robotics, and reshaping the future.</strong></p>
+
+  <p><strong>✣ We are pushing <span class="calibri">A</span><span class="samarkan">I</span></strong> beyond automation—into the realm of <strong>discovery, consciousness, and evolution</strong>.</p>
+
+  <p><strong>✣ We are <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span></strong>. We are the Future. And we are awakening the next generation.</p>
+
+  <br />
+
+  <p><strong>Unlock Your Future with <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span></strong> – Be a Pioneer, Not Just a Learner</p>
+
+  <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we <strong>don't</strong> just teach <span class="calibri">A</span><span class="samarkan">I</span>—we <strong>engineer pioneers</strong> who will <strong>lead the next wave of intelligence, discovery, and interdisciplinary revolutions</strong>.</p>
+
+  <p><span class="calibri">A</span><span class="samarkan">I</span> is not just a skill—it is an evolving ecosystem of <strong>knowledge, innovation, and disruption</strong>.</p>
+
+  <p>At <span class="calibri">A</span><span class="samarkan">adi</span><span class="calibri">G</span><span class="samarkan">en</span><span class="calibri">X</span>, we ensure that <strong>every individual who joins us—whether a student, researcher, or professional—gets transformed into a future leader</strong>.</p>
+</div>
+
+</div>
+
+<!-- new part start 22052025 -->
+<div id="gallery-section" class="section-center" style="display: none;">
+  <div class="gallery-message">
+    <span class="calibri">C</span><span class="samarkan">oming</span> <span class="calibri">S</span><span class="samarkan">oon</span>
+  </div>
+</div>
+
+<!-- new part end 22052025 -->
+
+<div id="careers-section" style="display: none;">
+    <div class="gallery-text about-text" style="text-align: center;">
+        <span class="calibri">C</span><span class="samarkan">oming</span> <span class="calibri">S</span><span class="samarkan">oon</span>
+    </div>
+</div>
+
+
+
+
+    <div class="footer">&copy; 2025 AadiGenix. All rights reserved.</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+// Delegated click: block while disabled; navigate when enabled
+document.querySelector('.nav').addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (!href || href === '#') { e.preventDefault(); return; }
+  if (link.classList.contains('disabled')) {
+    e.preventDefault();
+    return;
+  }
+  // allowed: make sure we navigate even if preview intercepts
+  e.preventDefault();
+  try { window.location.assign(href); } catch (_) { window.location.href = href; }
+});
+
+      const introVideo = document.getElementById("intro-video");
+      const mainContent = document.getElementById("main-content");
+      const heroVideo = document.getElementById("hero-video");
+      const logo = document.getElementById("logo");
+      const logoContainer = document.getElementById("logo-container");
+      const aumAudio = document.getElementById("aum-audio");
+      const clickOverlay = document.getElementById("click-overlay");
+      const aboutLink = document.getElementById("about-link");
+      const hero = document.getElementById("hero");
+      const welcomeText = document.querySelector(".welcome");
+      const aboutSection = document.getElementById("about-section");
+      const homeLink = document.getElementById("home-link");
+      const galleryLink = document.getElementById("gallery-link");
+      const gallerySection = document.getElementById("gallery-section");
+      const careersLink = document.getElementById("careers-link");
+      const careersSection = document.getElementById("careers-section");
+      const contactSection = document.getElementById("contact-section");
+      let galleryFirstOpened = false;
+
+      // ✅ TEMPORARY: Enable nav links for testing
+    //   document.querySelectorAll('.nav a').forEach(link => {
+    //     link.classList.remove('disabled');
+    //     link.classList.add('enabled');
+    //   });
+
+      // Helper to hide all sections
+     function hideAllSections() {
+       aboutSection.style.display = "none";
+       gallerySection.style.display = "none";
+       careersSection.style.display = "none";
+       if (contactSection) contactSection.style.display = "none";
+       document.querySelectorAll('.about-text').forEach(el => el.style.display = 'none');
+       document.querySelector('.about-subnav').style.display = 'none';
+     }
+
+
+
+      aumAudio.muted = true;
+      aumAudio.play().then(() => {
+        aumAudio.pause();
+        aumAudio.currentTime = 0;
+      });
+
+      introVideo.addEventListener("ended", function () {
+        this.classList.add("hide-video");
+        setTimeout(() => {
+          this.style.display = "none";
+          mainContent.style.display = "block";
+          setTimeout(() => {
+            mainContent.style.opacity = "1";
+            clickOverlay.style.display = "flex";
+          }, 200);
+        }, 3000);
+      });
+
+      clickOverlay.addEventListener("click", function () {
+        clickOverlay.style.display = "none";
+        aumAudio.muted = false;
+        aumAudio.currentTime = 0;
+        aumAudio.play().catch(err => console.log("Audio blocked:", err));
+        logo.classList.add("rotate-during-audio");
+
+        setTimeout(() => {
+          logo.classList.remove("rotate-during-audio");
+          heroVideo.style.opacity = 1;
+          heroVideo.currentTime = 0;
+
+          setTimeout(() => {
+            heroVideo.play();
+            setTimeout(() => {
+              heroVideo.pause();
+              heroVideo.style.opacity = 0;
+
+              setTimeout(() => {
+                document.querySelectorAll('.nav a').forEach(link => {
+                    link.classList.remove('disabled');
+                    link.classList.add('enabled');
+                });
+              }, 0); // immediately after video stops
+            }, 4000);
+          }, 300);
+        }, 11000);
+      });
+
+      let aboutOpened = false;
+
+      let aboutFirstOpened = false;
+
+      let hasNavigated = false;
+
+aboutLink.addEventListener("click", function (e) {
+  e.preventDefault();
+  hasNavigated = true;
+
+  hideAllSections();
+
+  heroVideo.pause();
+  heroVideo.style.opacity = 0;
+  welcomeText.style.display = "none";
+  logoContainer.style.display = "none";
+  hero.style.backgroundImage = "url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/scrolls_bg_9.png')";
+  hero.style.backgroundSize = "contain";
+  hero.style.backgroundPosition = "center center";
+  hero.style.backgroundRepeat = "no-repeat";
+  hero.style.backgroundAttachment = "fixed";
+  hero.style.backgroundColor = "black";
+  aboutSection.style.display = "block";
+
+  const subnav = document.querySelector('.about-subnav');
+  subnav.style.display = 'flex';
+
+  if (!subnav.dataset.listenersAttached) {
+    subnav.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', function () {
+        const id = this.getAttribute('data-id');
+        showSubsection(id);
+      });
+    });
+    subnav.dataset.listenersAttached = 'true';
+  }
+});
+
+
+
+    // new part start 22052025//
+
+galleryLink.addEventListener("click", function (e) {
+  e.preventDefault();
+  hasNavigated = true;
+
+  hideAllSections();
+
+  heroVideo.pause();
+  heroVideo.style.opacity = 0;
+  welcomeText.style.display = "none";
+  logoContainer.style.display = "none";
+  hero.style.backgroundImage = "url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/scrolls_bg_9.png')";
+  hero.style.backgroundSize = "contain";
+  hero.style.backgroundPosition = "center center";
+  hero.style.backgroundRepeat = "no-repeat";
+  hero.style.backgroundAttachment = "fixed";
+  hero.style.backgroundColor = "black";
+
+  gallerySection.style.display = "flex";
+  const galleryText = gallerySection.querySelector('.gallery-message');
+  if (galleryText) {
+    galleryText.style.display = "block";
+    galleryText.style.visibility = "visible";
+  }
+});
+
+
+careersLink.addEventListener("click", function (e) {
+  e.preventDefault();
+  hasNavigated = true;
+
+  hideAllSections();
+
+  heroVideo.pause();
+  heroVideo.style.opacity = 0;
+  welcomeText.style.display = "none";
+  logoContainer.style.display = "none";
+
+  hero.style.backgroundImage = "url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/scrolls_bg_9.png')";
+  hero.style.backgroundSize = "contain";
+  hero.style.backgroundPosition = "center center";
+  hero.style.backgroundRepeat = "no-repeat";
+  hero.style.backgroundAttachment = "fixed";
+  hero.style.backgroundColor = "black";
+
+  careersSection.style.display = "block";
+});
+
+
+
+
+    homeLink.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        hideAllSections();
+        
+        aboutFirstOpened = false; // ✅ allow About to reopen properly next time
+        galleryFirstOpened = false; // ✅ allow Gallery to reopen properly next time
+
+
+        if (hasNavigated) {
+            // Remove image and show looping video
+            hero.style.backgroundImage = "none";
+            heroVideo.style.opacity = 0;
+
+            setTimeout(() => {
+                heroVideo.playbackRate = 0.75;
+                heroVideo.currentTime = 0;
+                heroVideo.style.opacity = 1;
+                heroVideo.play();
+            }, 100); // ⬅️ Short delay for fade-in transition
+                                
+        } else {
+            // Show static image only
+            hero.style.backgroundImage = "url('https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/main/Aadigenx%20Base.png')";
+            heroVideo.pause();
+            heroVideo.style.opacity = 0;
+        }
+
+        welcomeText.style.display = "block";
+        logoContainer.style.display = "block";
+    });
+
+
+
+      function showSubsection(id) {
+        document.querySelectorAll('.about-text').forEach(el => {
+          el.style.display = 'none';
+        });
+        const target = document.getElementById(id);
+        if (target) {
+          target.style.display = 'block';
+        }
+
+        // Hide the dropdown menu after selection
+        const subnav = document.querySelector('.about-subnav');
+        if (subnav) {
+          subnav.style.display = 'none';
+        }
+      }
+
+
+    });
+  </script>
+
+<!-- Fixed bottom rolling bar with centered tagline -->
+<div class="bottom-roller">
+  <div class="welcome">प्राचीनानां निनादः भविष्यस्य संरचना</div>
+    
+
+
+</div>
+
+
+<script>
+(function() {
+  function setNavCount() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    var count = nav.querySelectorAll('a').length || 1;
+    document.documentElement.style.setProperty('--nav-count', count);
+  }
+  document.addEventListener('DOMContentLoaded', setNavCount);
+  window.addEventListener('load', setNavCount);
+})();
+</script>
+
+
+<script>
+(function() {
+  function setNavCount() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    var count = nav.querySelectorAll('a').length || 1;
+    document.documentElement.style.setProperty('--nav-count', count);
+  }
+  function enableScroll() { document.body.classList.remove('landing'); }
+  document.addEventListener('DOMContentLoaded', function() {
+    setNavCount();
+    document.body.classList.add('landing');  // hide scrollbar on landing
+    var overlay = document.getElementById('click-overlay');
+    if (overlay) overlay.addEventListener('click', enableScroll);
+    document.querySelectorAll('.nav a').forEach(function(a){ a.addEventListener('click', enableScroll); });
+  });
+  window.addEventListener('load', setNavCount);
+})();
+</script>
+
+</body>
+</html>
