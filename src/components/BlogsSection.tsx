@@ -15,6 +15,7 @@ import { BlogEditor } from '@/components/BlogEditor';
 import { BlogView } from '@/components/BlogView';
 import { BlogCard } from '@/components/BlogCard';
 import { UnifiedBlogCard } from '@/components/UnifiedBlogCard';
+import { BlogArticleView } from '@/components/BlogArticleView';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -33,6 +34,7 @@ export const BlogsSection = () => {
   const [editorModalOpen, setEditorModalOpen] = useState(false);
   const [viewModalOpen, setViewModalOpen] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState<any>(null);
+  const [showArticleView, setShowArticleView] = useState(false);
   const [profileData, setProfileData] = useState({
     name: profile?.name || '',
     bio: profile?.bio || '',
@@ -122,7 +124,12 @@ export const BlogsSection = () => {
 
   const handleViewBlog = (blog: any) => {
     setSelectedBlog(blog);
-    setViewModalOpen(true);
+    setShowArticleView(true);
+  };
+
+  const handleBackToBlogGrid = () => {
+    setShowArticleView(false);
+    setSelectedBlog(null);
   };
 
   const handleSaveProfile = async () => {
@@ -165,75 +172,86 @@ export const BlogsSection = () => {
   return (
     <div className="min-h-full py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-black drop-shadow-md">
-            AadiBlogg – Voice of Visionaries at AadiGenix
-          </h1>
-          <p className="text-lg text-black/90 italic tracking-wide font-medium">
-            Echoes of Thought | Insights with Soul | Where Dharma Meets Data
-          </p>
+        {showArticleView && selectedBlog ? (
+          <BlogArticleView 
+            blog={selectedBlog} 
+            onBack={handleBackToBlogGrid}
+          />
+        ) : (
+          <>
+            <div className="text-center mb-8">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-amber-900 drop-shadow-md">
+                AadiBlogg – Voice of Visionaries at AadiGenix
+              </h1>
+              <p className="text-lg text-amber-800/90 italic tracking-wide font-medium">
+                Echoes of Thought | Insights with Soul | Where Dharma Meets Data
+              </p>
 
-          <div className="flex items-center justify-center gap-4 mb-8">
-            {user ? (
-              <>
-                <div className="flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-black/30">
-                  <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-black text-white">{profile?.name?.charAt(0) || 'U'}</AvatarFallback>
-                  </Avatar>
-                  <span className="text-black font-medium">{profile?.name || 'User'}</span>
+              <div className="flex items-center justify-center gap-4 mb-8">
+                {user ? (
+                  <>
+                    <div className="flex items-center gap-2 bg-amber-900/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-amber-600/30">
+                      <Avatar className="h-8 w-8">
+                        <AvatarFallback className="bg-amber-800 text-white">{profile?.name?.charAt(0) || 'U'}</AvatarFallback>
+                      </Avatar>
+                      <span className="text-amber-900 font-medium">{profile?.name || 'User'}</span>
+                    </div>
+                    <Button onClick={handleCreateBlog} className="bg-amber-800 hover:bg-amber-900 text-white">
+                      <Plus className="h-4 w-4 mr-2" /> Create Blog
+                    </Button>
+                    <Button variant="outline" onClick={() => setProfileModalOpen(true)} className="bg-amber-50/20 border-amber-600/30 text-amber-900 hover:bg-amber-100/40">
+                      <Settings className="h-4 w-4 mr-2" /> Profile
+                    </Button>
+                    <Button variant="outline" onClick={signOut} className="bg-amber-50/20 border-amber-600/30 text-amber-900 hover:bg-amber-100/40">
+                      <LogOut className="h-4 w-4 mr-2" /> Sign Out
+                    </Button>
+                  </>
+                ) : (
+                    <Button onClick={() => setAuthModalOpen(true)} className="bg-amber-800 hover:bg-amber-900 text-white">
+                      <User className="h-4 w-4 mr-2" /> Sign In to Create Blogs
+                    </Button>
+                )}
+              </div>
+
+              {/* Search and Filter */}
+              <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-2xl mx-auto">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-800/60 h-4 w-4" />
+                  <Input
+                    placeholder="Search blogs..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10 bg-amber-50/30 border-amber-600/30 text-amber-900 placeholder:text-amber-800/60"
+                  />
                 </div>
-                <Button onClick={handleCreateBlog} className="bg-black hover:bg-black/90 text-white">
-                  <Plus className="h-4 w-4 mr-2" /> Create Blog
-                </Button>
-                <Button variant="outline" onClick={() => setProfileModalOpen(true)} className="bg-white/20 border-black/30 text-black hover:bg-white/40">
-                  <Settings className="h-4 w-4 mr-2" /> Profile
-                </Button>
-                <Button variant="outline" onClick={signOut} className="bg-white/20 border-black/30 text-black hover:bg-white/40">
-                  <LogOut className="h-4 w-4 mr-2" /> Sign Out
-                </Button>
-              </>
-            ) : (
-                <Button onClick={() => setAuthModalOpen(true)} className="bg-black hover:bg-black/90 text-white">
-                  <User className="h-4 w-4 mr-2" /> Sign In to Create Blogs
-                </Button>
-            )}
-          </div>
-
-          {/* Search and Filter */}
-          <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-2xl mx-auto">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black/60 h-4 w-4" />
-              <Input
-                placeholder="Search blogs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white/30 border-black/30 text-black placeholder:text-black/60"
-              />
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger className="bg-amber-50/30 border-amber-600/30 text-amber-900">
+                    <SelectValue placeholder="All Categories" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Categories</SelectItem>
+                    <SelectItem value="tech">Technology</SelectItem>
+                    <SelectItem value="lifestyle">Lifestyle</SelectItem>
+                    <SelectItem value="business">Business</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="bg-white/30 border-black/30 text-black">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                <SelectItem value="tech">Technology</SelectItem>
-                <SelectItem value="lifestyle">Lifestyle</SelectItem>
-                <SelectItem value="business">Business</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
 
-        {/* Blog Cards Display */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-          {filteredBlogs.map((blog) => (
-            <UnifiedBlogCard
-              key={blog.id}
-              blog={blog}
-              onView={handleViewBlog}
-            />
-          ))}
-        </div>
+            {/* Centered Blog Cards Display */}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl">
+                {filteredBlogs.map((blog) => (
+                  <UnifiedBlogCard
+                    key={blog.id}
+                    blog={blog}
+                    onView={handleViewBlog}
+                  />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Modals */}
