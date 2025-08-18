@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigation } from '@/components/Navigation';
+import { AppLayout } from '@/components/AppLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
 
@@ -8,21 +8,18 @@ const AadiNaadPage = () => {
   
   if (selectedProfile === 'dipanwita') {
     return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-12 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+      <AppLayout currentSection="naad">
+        <div className="pt-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setSelectedProfile(null)}
+              className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+            >
+              <ArrowLeft size={20} />
+              Back to Profiles
+            </button>
+            
+            <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
                   <div className="flex flex-col md:flex-row gap-8 mb-8">
                     <div className="flex-shrink-0">
                       <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
@@ -64,41 +61,27 @@ const AadiNaadPage = () => {
                       With Dipanwita at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> is more than a research lab... it is a movement where ancient resonance shapes future intelligence.
                     </p>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent z-10">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-            <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
+      </AppLayout>
     );
   }
 
   if (selectedProfile === 'subir') {
     return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-8 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+      <AppLayout currentSection="naad">
+        <div className="pt-8 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setSelectedProfile(null)}
+              className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+            >
+              <ArrowLeft size={20} />
+              Back to Profiles
+            </button>
+            
+            <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
                   <div className="flex flex-col md:flex-row gap-8 mb-8">
                     <div className="flex-shrink-0">
                       <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
@@ -139,41 +122,27 @@ const AadiNaadPage = () => {
                       With Prof. Nandy at the helm, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> becomes a confluence of rigor, creativity, and cultural evolution—where tradition empowers technology and every rhythm shapes tomorrow's change.
                     </p>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent z-10">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-            <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
+      </AppLayout>
     );
   }
 
   if (selectedProfile === 'abhik') {
     return (
-      <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
-        <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-          <div className="h-full overflow-y-auto custom-scrollbar">
-            <div className="pt-8 px-4">
-              <div className="max-w-4xl mx-auto">
-                <button 
-                  onClick={() => setSelectedProfile(null)}
-                  className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Profiles
-                </button>
-                
-                <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
+      <AppLayout currentSection="naad">
+        <div className="pt-8 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setSelectedProfile(null)}
+              className="flex items-center gap-2 mb-8 text-amber-800 hover:text-amber-900 transition-colors font-calibri"
+            >
+              <ArrowLeft size={20} />
+              Back to Profiles
+            </button>
+            
+            <div className="bg-amber-50/90 border-2 border-amber-800/60 rounded-lg p-8 backdrop-blur-sm shadow-lg">
                   <div className="flex flex-col md:flex-row gap-8 mb-8">
                     <div className="flex-shrink-0">
                       <div className="w-32 h-32 border-2 border-amber-800/40 rounded-full overflow-hidden">
@@ -214,31 +183,17 @@ const AadiNaadPage = () => {
                       With Abhik Dhar in operations, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span> stands on a platform of integrity, clarity, and sustained impact—moving forward with confidence, every step of the way.
                     </p>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        
-        {/* Bottom Roll Bar Text */}
-        <div className="fixed bottom-0 w-full bg-transparent z-10">
-          <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-            <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
-              प्राचीनानां निनादः भविष्यस्य संरचना
-            </div>
-          </div>
-        </div>
-      </div>
+      </AppLayout>
     );
   }
 
   return (
-    <div className="min-h-screen scroll-background">
-      <Navigation currentSection="naad" />
-      <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-        <div className="h-full overflow-y-auto scroll-smooth custom-scrollbar">
-          <div className="pt-8 pb-8 px-4">
-            <div className="w-full max-w-4xl mx-auto">
+    <AppLayout currentSection="naad">
+      <div className="pt-8 pb-8 px-4">
+        <div className="w-full max-w-4xl mx-auto">
               {/* First Row */}
               <div className="h-[50vh] flex items-center justify-center px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
@@ -417,20 +372,9 @@ const AadiNaadPage = () => {
                   </Card>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>
-      
-      {/* Bottom Roll Bar Text */}
-      <div className="fixed bottom-0 w-full bg-transparent z-10">
-        <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-          <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
-            प्राचीनानां निनादः भविष्यस्य संरचना
-          </div>
-        </div>
-      </div>
-    </div>
+    </AppLayout>
   );
 };
 

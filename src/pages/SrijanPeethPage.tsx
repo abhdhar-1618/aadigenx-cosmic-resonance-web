@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation } from '../components/Navigation';
+import { AppLayout } from '@/components/AppLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -148,15 +148,10 @@ export default function SrijanPeethPage() {
   };
 
   return (
-  <div className="min-h-screen scroll-background relative">
-    <Navigation currentSection="srijan" />
-
-    {/* Main Content Area - constrained between top and bottom bars */}
-    <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
-      <div className="h-full overflow-y-auto custom-scrollbar">
-        <div className="min-h-full py-8 px-4">
-          {/* Hero Section */}
-          <div className="relative pt-4 pb-16 px-4 text-center">
+    <AppLayout currentSection="srijan">
+      <div className="min-h-full py-8 px-4">
+        {/* Hero Section */}
+        <div className="relative pt-4 pb-16 px-4 text-center">
             <div className="relative max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
@@ -315,17 +310,6 @@ export default function SrijanPeethPage() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    {/* Bottom Roll Bar Text */}
-    <div className="fixed bottom-0 w-full bg-transparent z-10">
-      <div className="flex justify-center items-center py-2 px-2 md:py-3 md:px-4 max-w-6xl mx-auto">
-        <div className="text-white font-bold text-xl" style={{ fontSize: '1.25rem' }}>
-          प्राचीनानां निनादः भविष्यस्य संरचना
-        </div>
-      </div>
-    </div>
-  </div>
-);
-}
+    </AppLayout>
+  );
+};
