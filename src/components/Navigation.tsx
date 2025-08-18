@@ -28,21 +28,21 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="w-full bg-black/40 backdrop-blur-md border-b border-white/10">
-      <div className="flex justify-center items-center py-3 px-4 max-w-7xl mx-auto">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="flex justify-center items-center py-1 px-2 md:py-2 md:px-4 max-w-6xl mx-auto">
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex gap-2 justify-center items-center flex-wrap max-w-full">
+        <div className="hidden lg:flex flex-wrap gap-1 justify-center items-center max-w-full overflow-hidden">
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.to}
               className={`
-                px-3 py-2 text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 whitespace-nowrap rounded-lg
+                px-1 py-1 text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 whitespace-nowrap
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/20'
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
                 }
-                ${currentSection === item.id ? 'text-yellow-400 bg-white/20' : ''}
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10 rounded-lg' : ''}
               `}
              >
                {item.id === 'home' ? (
@@ -104,20 +104,20 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-black/80 backdrop-blur-md border-t border-white/20">
-          <div className="px-4 py-3 space-y-2 max-h-[60vh] overflow-y-auto">
+        <div className="lg:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
+          <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.to}
                 onClick={handleNavClick}
                 className={`
-                  w-full text-left px-4 py-3 text-base font-semibold tracking-wide transition-all duration-300 rounded-lg block
+                  w-full text-left px-4 py-3 text-lg font-semibold tracking-wide transition-all duration-300 rounded-lg block
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                    : 'text-white hover:text-yellow-400 hover:bg-white/20'
+                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
                   }
-                  ${currentSection === item.id ? 'text-yellow-400 bg-white/20' : ''}
+                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
                 `}
               >
                 {item.id === 'home' ? (

@@ -1,12 +1,13 @@
 import React from 'react';
-import { AppLayout } from '@/components/AppLayout';
+import { Navigation } from '@/components/Navigation';
 import { CareersSection } from '@/components/CareersSection';
 
 const CareersPage = () => {
   return (
-    <AppLayout currentSection="careers">
+    <div className="min-h-screen scroll-background">
+      <Navigation currentSection="careers" />
       <CareersSection />
-    </AppLayout>
+    </div>
   );
 };
 

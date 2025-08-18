@@ -1,12 +1,13 @@
 import React from 'react';
-import { AppLayout } from '@/components/AppLayout';
+import { Navigation } from '@/components/Navigation';
 import { GallerySection } from '@/components/GallerySection';
 
 const GalleryPage = () => {
   return (
-    <AppLayout currentSection="gallery">
+    <div className="min-h-screen scroll-background">
+      <Navigation currentSection="gallery" />
       <GallerySection />
-    </AppLayout>
+    </div>
   );
 };
 
