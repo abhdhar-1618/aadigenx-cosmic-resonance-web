@@ -9,6 +9,8 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ currentSection, disabled = false }: NavigationProps) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navItems = [
     { id: 'home', label: 'Aadian', to: '/aadian' },
     { id: 'about', label: 'AadiTatva', to: '/about' },
@@ -21,23 +23,28 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     { id: 'contact', label: 'Contact', to: '/contact' },
   ];
 
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full h-[84px] bg-black/10 z-30">
-      {/* Desktop Navigation */}
-      <div className="hidden lg:grid grid-cols-9 h-full items-center justify-items-center">
-        {navItems.map((item) => (
-          <Link
-            key={item.id}
-            to={item.to}
-            className={`
-              w-full h-full flex items-center justify-center text-lg font-bold tracking-wide transition-all duration-300 whitespace-nowrap
-              ${disabled 
-                ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                : 'text-white hover:text-yellow-400'
-              }
-              ${currentSection === item.id ? 'text-yellow-400' : ''}
-            `}
-           >
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="flex justify-center items-center py-1 px-2 md:py-2 md:px-4 max-w-6xl mx-auto">
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex flex-wrap gap-1 justify-center items-center max-w-full overflow-hidden">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                px-1 py-1 text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 whitespace-nowrap
+                ${disabled 
+                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
+                }
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10 rounded-lg' : ''}
+              `}
+             >
                {item.id === 'home' ? (
                  <>
                    <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">A</span><span className="samarkan">n</span>
@@ -81,23 +88,38 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
           ))}
         </div>
 
-      {/* Mobile Navigation - Horizontally Scrollable */}
-      <div className="lg:hidden flex h-full items-center px-2 overflow-x-auto overflow-y-hidden scrollbar-hide">
-        <div className="flex items-center space-x-1 min-w-max">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              className={`
-                flex-shrink-0 px-3 py-2 min-h-[44px] flex items-center justify-center font-bold tracking-wide transition-all duration-300 whitespace-nowrap rounded
-                ${disabled 
-                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                }
-                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-              `}
-              style={{ fontSize: 'clamp(12px, 3.5vw, 14px)' }}
-            >
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          disabled={disabled}
+          className={`lg:hidden p-2 rounded-lg transition-colors ${
+            disabled 
+              ? 'text-white/50 cursor-not-allowed' 
+              : 'text-white hover:bg-white/10'
+          }`}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
+          <div className="px-4 py-2 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                onClick={handleNavClick}
+                className={`
+                  w-full text-left px-4 py-3 text-lg font-semibold tracking-wide transition-all duration-300 rounded-lg block
+                  ${disabled 
+                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                  }
+                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+                `}
+              >
                 {item.id === 'home' ? (
                   <>
                     <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">A</span><span className="samarkan">n</span>
@@ -134,13 +156,14 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                   <>
                     <span className="calibri">Tat</span><span className="samarkan">Sutra</span>
                   </>
-                 ) : (
+                ) : (
                   item.label
                 )}
               </Link>
             ))}
           </div>
         </div>
-      </nav>
-    );
-   };
+      )}
+    </nav>
+  );
+};

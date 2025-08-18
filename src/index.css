@@ -219,34 +219,13 @@
   object-fit: cover;
 }
 
-  /* Hide scrollbar utility */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Mobile optimizations */
-  @media (max-width: 768px) {
-    body {
-      padding-top: 84px;
-      padding-bottom: 84px;
-    }
-    
-    .prose-invert p {
-      font-size: 0.95rem;
-    }
-    
-    .prose-invert h3 {
-      font-size: 1.25rem;
-    }
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .prose-invert p {
+    font-size: 0.95rem;
   }
   
-  @media (max-width: 480px) {
-    body {
-      padding-top: 84px; 
-      padding-bottom: 84px;
-    }
+  .prose-invert h3 {
+    font-size: 1.25rem;
   }
+}
