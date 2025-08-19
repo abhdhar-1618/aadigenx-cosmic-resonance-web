@@ -73,7 +73,7 @@ export const BlogsSection = () => {
       // If user is authenticated, show all their blogs plus published blogs from others
       // If not authenticated, show only published blogs
       if (user && profile) {
-        query = query.or(`status.eq.published,and(author_id.eq.${profile.id})`);
+        query = query.or(`status.eq.published,author_id.eq.${profile.id}`);
       } else {
         query = query.eq('status', 'published');
       }
