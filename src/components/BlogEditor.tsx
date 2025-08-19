@@ -55,7 +55,7 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
         excerpt: '',
         category_id: '',
         featured_image: '',
-        status: 'draft',
+        status: 'published',
         tags: [],
       });
     }
