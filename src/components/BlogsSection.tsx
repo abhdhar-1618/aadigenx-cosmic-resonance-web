@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -55,6 +54,10 @@ export const BlogsSection = () => {
 
   const fetchBlogs = async () => {
     try {
+      console.log('Fetching blogs...');
+      console.log('User:', user);
+      console.log('Profile:', profile);
+
       let query = supabase
         .from('blogs')
         .select(`
@@ -73,16 +76,33 @@ export const BlogsSection = () => {
       // If user is authenticated, show all their blogs plus published blogs from others
       // If not authenticated, show only published blogs
       if (user && profile) {
+        console.log('User authenticated, fetching all their blogs plus published ones');
         query = query.or(`status.eq.published,author_id.eq.${profile.id}`);
       } else {
+        console.log('User not authenticated, fetching only published blogs');
         query = query.eq('status', 'published');
       }
 
       const { data, error } = await query.order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching blogs:', error);
+        throw error;
+      }
+      
+      console.log('Fetched blogs:', data);
+      console.log('Number of blogs fetched:', data?.length || 0);
+      
+      // Log each blog title for debugging
+      if (data) {
+        data.forEach((blog, index) => {
+          console.log(`Blog ${index + 1}: "${blog.title}" - Status: ${blog.status} - Author ID: ${blog.author_id}`);
+        });
+      }
+      
       setBlogs(data || []);
     } catch (error) {
+      console.error('Fetch blogs error:', error);
       toast({
         title: 'Error fetching blogs',
         description: 'Could not load blogs. Please try again.',
@@ -244,6 +264,23 @@ export const BlogsSection = () => {
                   </SelectContent>
                 </Select>
               </div>
+            </div>
+
+            {/* Debug Information */}
+            <div className="mb-4 p-4 bg-amber-100/50 rounded-lg text-amber-900 text-sm">
+              <p>Total blogs found: {blogs.length}</p>
+              <p>Filtered blogs: {filteredBlogs.length}</p>
+              <p>Current user: {user ? profile?.name || 'Logged in' : 'Not logged in'}</p>
+              {blogs.length > 0 && (
+                <div className="mt-2">
+                  <p>Blog titles:</p>
+                  <ul className="list-disc list-inside">
+                    {blogs.map((blog, index) => (
+                      <li key={blog.id}>{blog.title} (Status: {blog.status})</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Centered Blog Cards Display */}
