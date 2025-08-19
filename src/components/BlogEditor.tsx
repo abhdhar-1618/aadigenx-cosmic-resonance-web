@@ -114,24 +114,53 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
         ['clean']
       ],
       handlers: {
-        image: () => {
+        image: async () => {
           const input = document.createElement('input');
           input.setAttribute('type', 'file');
           input.setAttribute('accept', 'image/*');
           input.click();
           
-          input.onchange = () => {
+          input.onchange = async () => {
             const file = input.files?.[0];
             if (file) {
-              // For now, we'll use a simple URL prompt
-              // In a real app, you'd upload to your storage service
-              const url = prompt('Please enter the image URL:');
-              if (url) {
+              try {
+                // Upload to Supabase storage
+                const fileExt = file.name.split('.').pop();
+                const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+                const filePath = `blog-images/${fileName}`;
+
+                const { data, error } = await supabase.storage
+                  .from('blog-images')
+                  .upload(filePath, file);
+
+                if (error) {
+                  console.error('Error uploading image:', error);
+                  toast({
+                    title: 'Upload Error',
+                    description: 'Failed to upload image. Please try again.',
+                    variant: 'destructive',
+                  });
+                  return;
+                }
+
+                // Get public URL
+                const { data: { publicUrl } } = supabase.storage
+                  .from('blog-images')
+                  .getPublicUrl(filePath);
+
+                // Insert image into editor
                 const quill = (window as any).quill;
                 if (quill) {
                   const range = quill.getSelection();
-                  quill.insertEmbed(range.index, 'image', url);
+                  quill.insertEmbed(range.index, 'image', publicUrl);
                 }
+              } catch (error) {
+                console.error('Error uploading image:', error);
+                toast({
+                  title: 'Upload Error',
+                  description: 'Failed to upload image. Please try again.',
+                  variant: 'destructive',
+                });
               }
             }
           };
@@ -172,6 +201,7 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
         ...formData,
         slug,
         author_id: profile.id,
+        category_id: formData.category_id || null, // Convert empty string to null
         published_at: formData.status === 'published' ? new Date().toISOString() : null,
       };
 
@@ -286,14 +316,73 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="featured_image">Featured Image URL</Label>
-            <Input
-              id="featured_image"
-              type="url"
-              value={formData.featured_image}
-              onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
-              placeholder="https://example.com/image.jpg"
-            />
+            <Label htmlFor="featured_image">Featured Image</Label>
+            <div className="space-y-2">
+              <Input
+                id="featured_image"
+                type="url"
+                value={formData.featured_image}
+                onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
+                placeholder="https://example.com/image.jpg or upload below"
+              />
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Or</span>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={async () => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    input.onchange = async (e) => {
+                      const file = (e.target as HTMLInputElement).files?.[0];
+                      if (file) {
+                        try {
+                          const fileExt = file.name.split('.').pop();
+                          const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+                          const filePath = `blog-images/${fileName}`;
+
+                          const { error } = await supabase.storage
+                            .from('blog-images')
+                            .upload(filePath, file);
+
+                          if (error) {
+                            toast({
+                              title: 'Upload Error',
+                              description: 'Failed to upload image. Please try again.',
+                              variant: 'destructive',
+                            });
+                            return;
+                          }
+
+                          const { data: { publicUrl } } = supabase.storage
+                            .from('blog-images')
+                            .getPublicUrl(filePath);
+
+                          setFormData({ ...formData, featured_image: publicUrl });
+                          
+                          toast({
+                            title: 'Success',
+                            description: 'Image uploaded successfully!',
+                          });
+                        } catch (error) {
+                          toast({
+                            title: 'Upload Error',
+                            description: 'Failed to upload image. Please try again.',
+                            variant: 'destructive',
+                          });
+                        }
+                      }
+                    };
+                    input.click();
+                  }}
+                >
+                  <Upload className="h-4 w-4 mr-2" />
+                  Upload Image
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-2">
@@ -340,7 +429,7 @@ export function BlogEditor({ open, onOpenChange, blog, onSave }: BlogEditorProps
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               <ImageIcon className="inline h-4 w-4 mr-1" />
-              To add images: Click the image icon in the toolbar, then enter the image URL when prompted.
+              To add images: Click the image icon in the toolbar to upload and insert images directly.
             </p>
           </div>
 
