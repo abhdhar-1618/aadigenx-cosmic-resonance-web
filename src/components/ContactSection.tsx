@@ -47,11 +47,21 @@ export const ContactSection = () => {
     }
 
     try {
-      // Log the form data (since no backend is specified)
-      console.log('Form Submission:', formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Submit to Google Sheets via Supabase Edge Function
+      const response = await fetch(`https://zbclxvzakxvwljgqhmxv.supabase.co/functions/v1/submit-contact-form`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiY2x4dnpha3h2d2xqZ3FobXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3ODQ4NzUsImV4cCI6MjA2OTM2MDg3NX0.FPLIdy9XGCezLPX5s-kjk_Ipygznuswe-yUC8v803Is`
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form');
+      }
       
       toast({
         title: "Message Sent!",
@@ -60,10 +70,11 @@ export const ContactSection = () => {
       
       // Reset form
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Contact form submission error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error.message || "Failed to send message. Please try again.",
         variant: "destructive"
       });
     } finally {
