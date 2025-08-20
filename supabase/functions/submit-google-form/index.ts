@@ -32,11 +32,6 @@ serve(async (req) => {
     // 3. Look for input elements with name="entry.XXXXXXXXX"
     // 4. Replace the placeholder IDs below with the actual entry IDs
     
-    const formData = new FormData();
-    
-    // IMPORTANT: Replace these placeholder entry IDs with actual ones from your Google Form
-    // To find these, inspect your Google Form's HTML source code
-    
     // Updated with actual entry IDs from your Google Form
     const entryMappings = [
       { field: 'name', entry: 'entry.1620032198' },      // NAME field
@@ -45,29 +40,30 @@ serve(async (req) => {
       { field: 'message', entry: 'entry.700432327' }     // Message field
     ];
 
-    // Map form data to Google Form entries
+    // Map form data to Google Form entries using URLSearchParams for proper encoding
     const dataMap = { name, email, phone, message };
+    const formParams = new URLSearchParams();
     
     entryMappings.forEach(({ field, entry }) => {
       if (dataMap[field as keyof typeof dataMap]) {
-        formData.append(entry, dataMap[field as keyof typeof dataMap]);
+        formParams.append(entry, dataMap[field as keyof typeof dataMap]);
         console.log(`Mapping ${field} -> ${entry}: ${dataMap[field as keyof typeof dataMap]}`);
       }
     });
 
     // Add additional required fields for Google Forms
-    formData.append('draftResponse', '[null,null,"0"]');
-    formData.append('pageHistory', '0');
-    formData.append('fvv', '1');
-    formData.append('partialResponse', '[null,null,"0"]');
-    formData.append('submitType', 'SUBMIT');
+    formParams.append('draftResponse', '[null,null,"0"]');
+    formParams.append('pageHistory', '0');
+    formParams.append('fvv', '1');
+    formParams.append('partialResponse', '[null,null,"0"]');
+    formParams.append('submitType', 'SUBMIT');
 
-    console.log('Submitting to Google Form with FormData:', Array.from(formData.entries()));
+    console.log('Submitting to Google Form with params:', formParams.toString());
 
     // Submit to Google Form with proper headers
     const response = await fetch(googleFormUrl, {
       method: 'POST',
-      body: formData,
+      body: formParams,
       headers: {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
