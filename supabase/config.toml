@@ -1,1 +1,4 @@
 project_id = "zbclxvzakxvwljgqhmxv"
+
+[functions.submit-google-form]
+verify_jwt = false

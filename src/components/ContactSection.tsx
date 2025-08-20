@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -47,20 +47,31 @@ export const ContactSection = () => {
     }
 
     try {
-      // Log the form data (since no backend is specified)
-      console.log('Form Submission:', formData);
+      console.log('Submitting form data:', formData);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon.",
+      // Call Supabase Edge Function to submit to Google Form
+      const { data, error } = await supabase.functions.invoke('submit-google-form', {
+        body: formData,
       });
-      
-      // Reset form
-      setFormData({ name: '', email: '', phone: '', message: '' });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message);
+      }
+
+      if (data && data.success) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. We'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        throw new Error(data?.error || 'Failed to submit form');
+      }
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
