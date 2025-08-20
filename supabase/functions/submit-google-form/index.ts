@@ -37,13 +37,12 @@ serve(async (req) => {
     // IMPORTANT: Replace these placeholder entry IDs with actual ones from your Google Form
     // To find these, inspect your Google Form's HTML source code
     
-    // Try common Google Form entry patterns - you need to replace these with actual IDs
+    // Updated with actual entry IDs from your Google Form
     const entryMappings = [
-      // Common entry ID patterns - replace with actual IDs from your form inspection
-      { field: 'name', entry: 'entry.2005620554' },      // Example - replace with actual
-      { field: 'email', entry: 'entry.1045781291' },     // Example - replace with actual
-      { field: 'phone', entry: 'entry.1166974658' },     // Example - replace with actual  
-      { field: 'message', entry: 'entry.839337160' }     // Example - replace with actual
+      { field: 'name', entry: 'entry.1620032198' },      // NAME field
+      { field: 'email', entry: 'entry.1131266361' },     // email id field
+      { field: 'phone', entry: 'entry.1317813284' },     // Phone Number field
+      { field: 'message', entry: 'entry.700432327' }     // Message field
     ];
 
     // Map form data to Google Form entries
