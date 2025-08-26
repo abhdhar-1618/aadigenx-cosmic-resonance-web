@@ -283,9 +283,9 @@ export const BlogsSection = () => {
               )}
             </div>
 
-            {/* Centered Blog Cards Display */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl">
+            {/* Responsive Blog Cards Display */}
+            <div className="w-full max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredBlogs.map((blog) => (
                   <UnifiedBlogCard
                     key={blog.id}
