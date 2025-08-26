@@ -18,6 +18,11 @@ const Index = () => {
   const [triggerAudioSequence, setTriggerAudioSequence] = useState(false);
   const [navigationEnabled, setNavigationEnabled] = useState(false);
   const [showMainContent, setShowMainContent] = useState(false);
+  const [isMuted, setIsMuted] = useState(() => {
+    // Get volume preference from localStorage, default to false (unmuted)
+    const saved = localStorage.getItem('aadigenx-volume-muted');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   // Debug logging
   useEffect(() => {
@@ -61,6 +66,13 @@ const Index = () => {
     setCurrentSection('home');
   };
 
+  const handleToggleVolume = () => {
+    const newMutedState = !isMuted;
+    setIsMuted(newMutedState);
+    localStorage.setItem('aadigenx-volume-muted', JSON.stringify(newMutedState));
+    console.log('Volume toggled:', newMutedState ? 'muted' : 'unmuted');
+  };
+
   return (
     <div className="min-h-screen bg-black">
       {!introComplete && (
@@ -72,7 +84,9 @@ const Index = () => {
       
       <ClickOverlay 
         show={showClickOverlay} 
-        onStart={handleClickOverlayStart} 
+        onStart={handleClickOverlayStart}
+        isMuted={isMuted}
+        onToggleVolume={handleToggleVolume}
       />
       
       {/* Show main content after intro video ends */}
@@ -87,6 +101,7 @@ const Index = () => {
             <HeroSection 
               hasNavigated={hasNavigated} 
               triggerAudioSequence={triggerAudioSequence}
+              isMuted={isMuted}
             />
           )}
           {currentSection === 'about' && <AboutSection />}

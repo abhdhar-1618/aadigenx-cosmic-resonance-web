@@ -335,3 +335,13 @@
   .prose-amber h2 { font-size: 1.25rem; }
   .prose-amber h3 { font-size: 1.125rem; }
 }
+
+/* Hide scrollbar for navigation scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
+}

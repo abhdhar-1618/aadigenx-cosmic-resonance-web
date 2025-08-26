@@ -4,9 +4,10 @@ import React, { useRef, useEffect, useState } from 'react';
 interface HeroSectionProps {
   hasNavigated: boolean;
   triggerAudioSequence?: boolean;
+  isMuted?: boolean;
 }
 
-export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionProps) => {
+export const HeroSection = ({ hasNavigated, triggerAudioSequence, isMuted = false }: HeroSectionProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
@@ -24,14 +25,18 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
       setAudioSequenceStarted(true);
       setLogoSpinning(true);
       
-      // Start audio
+      // Start audio (respect mute setting)
       const audio = audioRef.current;
       if (audio) {
-        audio.muted = false;
+        audio.muted = isMuted;
         audio.currentTime = 0;
-        audio.play().then(() => {
-          console.log('Audio playing with logo rotation');
-        }).catch(err => console.log("Audio blocked:", err));
+        if (!isMuted) {
+          audio.play().then(() => {
+            console.log('Audio playing with logo rotation');
+          }).catch(err => console.log("Audio blocked:", err));
+        } else {
+          console.log('Audio is muted - skipping playback');
+        }
       }
       
       // After 11 seconds, stop logo rotation and start background video sequence
@@ -84,7 +89,7 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence }: HeroSectionP
       )}
 
       {/* Audio element for the 11-second Om chanting */}
-      <audio ref={audioRef} preload="auto" muted>
+      <audio ref={audioRef} preload="auto" muted={isMuted}>
         <source src="https://raw.githubusercontent.com/abhdhar-1618/aadigenix-source-file/82e7377fadf5b621d8e9bf406221bdf4d1eb4efe/synced_aum_futuristic.ogg" type="audio/ogg" />
       </audio>
 
