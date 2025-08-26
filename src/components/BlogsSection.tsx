@@ -266,34 +266,28 @@ export const BlogsSection = () => {
               </div>
             </div>
 
-            {/* Debug Information */}
-            <div className="mb-4 p-4 bg-amber-100/50 rounded-lg text-amber-900 text-sm">
-              <p>Total blogs found: {blogs.length}</p>
-              <p>Filtered blogs: {filteredBlogs.length}</p>
-              <p>Current user: {user ? profile?.name || 'Logged in' : 'Not logged in'}</p>
-              {blogs.length > 0 && (
-                <div className="mt-2">
-                  <p>Blog titles:</p>
-                  <ul className="list-disc list-inside">
-                    {blogs.map((blog, index) => (
-                      <li key={blog.id}>{blog.title} (Status: {blog.status})</li>
-                    ))}
-                  </ul>
+            {/* Responsive Blog Cards Display */}
+            <div className="w-full max-w-7xl mx-auto px-4">
+              {filteredBlogs.length === 0 ? (
+                <div className="text-center py-16">
+                  <p className="text-amber-800 text-lg">
+                    {searchTerm || selectedCategory !== 'all' 
+                      ? 'No blogs match your search criteria.' 
+                      : 'No blogs available yet. Be the first to create one!'
+                    }
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                  {filteredBlogs.map((blog) => (
+                    <UnifiedBlogCard
+                      key={blog.id}
+                      blog={blog}
+                      onView={handleViewBlog}
+                    />
+                  ))}
                 </div>
               )}
-            </div>
-
-            {/* Responsive Blog Cards Display */}
-            <div className="w-full max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredBlogs.map((blog) => (
-                  <UnifiedBlogCard
-                    key={blog.id}
-                    blog={blog}
-                    onView={handleViewBlog}
-                  />
-                ))}
-              </div>
             </div>
           </>
         )}

@@ -96,9 +96,10 @@ export const ContactSection = () => {
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20 shadow-lg">
+        <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 sm:p-8 border border-white/20 shadow-lg max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Responsive grid: 2 columns on screens >= 900px, 1 column on smaller screens */}
+            <div className="grid grid-cols-1 custom-900:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-foreground font-medium mb-2">
                   Name *
@@ -168,7 +169,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-lg hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-lg hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
