@@ -19,6 +19,10 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
     if (video) {
       console.log('Setting up video event listeners');
       
+      // Set muted state from localStorage
+      const savedMuted = localStorage.getItem('aadi_mute');
+      video.muted = savedMuted === '1';
+      
       const handleCanPlay = () => {
         console.log('Video can play, starting playback');
         setVideoLoaded(true);
@@ -77,7 +81,6 @@ export const VideoIntro = ({ onComplete, onShowClickOverlay }: VideoIntroProps) 
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        muted
         playsInline
         preload="auto"
         autoPlay

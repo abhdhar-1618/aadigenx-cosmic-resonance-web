@@ -82,42 +82,21 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   return (
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
-      <div className="w-full max-w-6xl mx-auto px-2 md:px-4">
-        {/* Desktop Navigation - 768px and above */}
-        <div className="hidden md:flex justify-evenly items-center py-2 h-12 w-full">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              className={`
-                px-3 py-1 text-xs lg:text-sm xl:text-base font-semibold tracking-wide transition-all duration-300 
-                text-center whitespace-nowrap rounded-lg flex-shrink-0 flex-grow-0
-                ${disabled 
-                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                }
-                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-              `}
-            >
-              {renderNavText(item)}
-            </Link>
-          ))}
-        </div>
-
-        {/* Mobile Navigation - Below 768px with horizontal scroll */}
-        <div className="md:hidden relative">
-          {/* Left gradient fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
+      <div className="w-full max-w-6xl mx-auto px-2">
+        {/* Single Navigation Container - All Screen Sizes */}
+        <div className="relative">
+          {/* Left gradient fade for mobile */}
+          <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none md:hidden" />
           
-          {/* Scrollable navigation container */}
-          <div className="flex gap-3 px-6 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
+          {/* Navigation container with horizontal scroll */}
+          <div className="flex justify-evenly gap-2 md:gap-4 px-6 md:px-4 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.to}
                 className={`
-                  flex-shrink-0 px-3 py-1 text-xs font-semibold tracking-wide transition-all duration-300 
-                  whitespace-nowrap rounded-lg
+                  flex-shrink-0 px-2 md:px-3 py-1 text-xs md:text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 
+                  whitespace-nowrap rounded-lg text-center
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -130,8 +109,8 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
             ))}
           </div>
           
-          {/* Right gradient fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none" />
+          {/* Right gradient fade for mobile */}
+          <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none md:hidden" />
         </div>
       </div>
     </nav>

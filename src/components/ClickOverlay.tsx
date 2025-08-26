@@ -47,12 +47,11 @@ export const ClickOverlay = ({ onStart, show }: ClickOverlayProps) => {
     >
       {/* Volume toggle button with mini logo */}
       <button
-        className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60"
+        className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 transition-all duration-200 border border-white/20"
         onClick={toggleMute}
         aria-label={muted ? 'Unmute' : 'Mute'}
       >
-        {/* Use your mini logo here. Adjust the path if needed. */}
-        <img src="/logo.svg" alt="Volume Toggle" className="w-6 h-6" />
+        <img src="/logo.svg" alt="Volume Toggle" className="w-6 h-6 opacity-80" />
       </button>
 
       <div className="text-center text-white animate-pulse px-4">
