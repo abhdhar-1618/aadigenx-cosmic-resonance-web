@@ -14,9 +14,9 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     { id: 'srijan', label: 'SrijanPeeth', to: '/srijan' },
     { id: 'kul', label: 'AadiKul', to: '/kul' },
     { id: 'gallery', label: 'DrisHyam', to: '/gallery' },
-    { id: 'blogs', label: 'AadiPath', to: '/blogs' },
-    { id: 'careers', label: 'AadiYatra', to: '/careers' },
-    { id: 'contact', label: 'TatSutra', to: '/contact' },
+    { id: 'blogs', label: 'Blogs', to: '/blogs' },
+    { id: 'careers', label: 'Careers', to: '/careers' },
+    { id: 'contact', label: 'Contact', to: '/contact' },
   ];
 
   const renderNavText = (item: typeof navItems[0]) => {
@@ -81,19 +81,43 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="fixed top-0 w-full z-30">
-      {/* Top scroll bar background */}
-      <div className="w-full h-16 bg-gradient-to-r from-amber-900/40 via-amber-800/60 to-amber-900/40 backdrop-blur-sm border-b border-amber-600/30">
-        <div className="w-full max-w-6xl mx-auto px-4 h-full">
-          {/* Desktop Navigation - 768px and above */}
-          <div className="hidden md:flex justify-evenly items-center h-full">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="w-full max-w-6xl mx-auto px-2 md:px-4">
+        {/* Desktop Navigation - 768px and above */}
+        <div className="hidden md:flex justify-evenly items-center py-2 h-12">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                px-2 py-1 text-xs lg:text-sm xl:text-base font-semibold tracking-wide transition-all duration-300 
+                text-center whitespace-nowrap rounded-lg flex-shrink-0
+                ${disabled 
+                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                }
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+              `}
+            >
+              {renderNavText(item)}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Navigation - Below 768px with horizontal scroll */}
+        <div className="md:hidden relative">
+          {/* Left gradient fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
+          
+          {/* Scrollable navigation container */}
+          <div className="flex gap-1 px-2 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.to}
                 className={`
-                  px-3 py-2 text-xs lg:text-sm xl:text-base font-semibold tracking-wide transition-all duration-300 
-                  text-center whitespace-nowrap rounded-lg flex-shrink-0
+                  flex-shrink-0 px-2 py-1 text-xs font-semibold tracking-wide transition-all duration-300 
+                  whitespace-nowrap rounded-lg
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                     : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -105,36 +129,9 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
               </Link>
             ))}
           </div>
-
-          {/* Mobile Navigation - Below 768px with horizontal scroll */}
-          <div className="md:hidden relative h-full">
-            {/* Left gradient fade */}
-            <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-amber-900/60 to-transparent z-10 pointer-events-none" />
-            
-            {/* Scrollable navigation container */}
-            <div className="flex gap-2 px-6 py-2 overflow-x-auto scrollbar-hide h-full items-center">
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  className={`
-                    flex-shrink-0 px-3 py-2 text-xs font-semibold tracking-wide transition-all duration-300 
-                    whitespace-nowrap rounded-lg
-                    ${disabled 
-                      ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                      : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                    }
-                    ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                  `}
-                >
-                  {renderNavText(item)}
-                </Link>
-              ))}
-            </div>
-            
-            {/* Right gradient fade */}
-            <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-amber-900/60 to-transparent z-10 pointer-events-none" />
-          </div>
+          
+          {/* Right gradient fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none" />
         </div>
       </div>
     </nav>
