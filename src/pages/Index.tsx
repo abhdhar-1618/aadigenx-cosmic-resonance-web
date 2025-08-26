@@ -85,8 +85,6 @@ const Index = () => {
       <ClickOverlay 
         show={showClickOverlay} 
         onStart={handleClickOverlayStart}
-        isMuted={isMuted}
-        onToggleVolume={handleToggleVolume}
       />
       
       {/* Show main content after intro video ends */}

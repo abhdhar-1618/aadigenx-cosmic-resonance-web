@@ -24,24 +24,19 @@ export const ClickOverlay = ({ onStart, show }: ClickOverlayProps) => {
     });
   }, [muted]);
 
-  //co// Toggle mute when the button is clicked
-const toggleMute = (e: React.MouseEvent) => {
-  e.stopPropagation();
-  const newMuted = !muted;
-  setMuted(newMuted);
-  try {
-    localStorage.setItem('aadi_mute', newMuted ? '1' : '0');
-  } catch (err) {}
-  // Update all videos on the page with the new muted state
-  const videos = document.querySelectorAll('video');
-  videos.forEach((video) => {
-    (video as HTMLVideoElement).muted = newMuted;
-  });
-};
-
-  };
-
-
+  // Toggle mute when the button is clicked
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newMuted = !muted;
+    setMuted(newMuted);
+    try {
+      localStorage.setItem('aadi_mute', newMuted ? '1' : '0');
+    } catch (err) {}
+    // Update all videos on the page with the new muted state
+    const videos = document.querySelectorAll('video');
+    videos.forEach((video) => {
+      (video as HTMLVideoElement).muted = newMuted;
+    });
   };
 
 
