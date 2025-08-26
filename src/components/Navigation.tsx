@@ -84,14 +84,14 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
       <div className="w-full max-w-6xl mx-auto px-2 md:px-4">
         {/* Desktop Navigation - 768px and above */}
-        <div className="hidden md:flex justify-evenly items-center py-2 h-12">
+        <div className="hidden md:flex justify-evenly items-center py-2 h-12 w-full">
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.to}
               className={`
-                px-2 py-1 text-xs lg:text-sm xl:text-base font-semibold tracking-wide transition-all duration-300 
-                text-center whitespace-nowrap rounded-lg flex-shrink-0
+                px-3 py-1 text-xs lg:text-sm xl:text-base font-semibold tracking-wide transition-all duration-300 
+                text-center whitespace-nowrap rounded-lg flex-shrink-0 flex-grow-0
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                   : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -110,13 +110,13 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
           <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
           
           {/* Scrollable navigation container */}
-          <div className="flex gap-1 px-2 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
+          <div className="flex gap-3 px-6 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.to}
                 className={`
-                  flex-shrink-0 px-2 py-1 text-xs font-semibold tracking-wide transition-all duration-300 
+                  flex-shrink-0 px-3 py-1 text-xs font-semibold tracking-wide transition-all duration-300 
                   whitespace-nowrap rounded-lg
                   ${disabled 
                     ? 'text-white/50 cursor-not-allowed pointer-events-none' 
