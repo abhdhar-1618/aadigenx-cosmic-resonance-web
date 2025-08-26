@@ -1,7 +1,46 @@
 import React, { useState } from 'react';
-import { Navigation } from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+// Custom Navigation Component for AadiNaadPage
+const CustomNavigation = () => {
+  const navItems = [
+    { id: 'home', label: 'AadiAn', to: '/aadian' },
+    { id: 'about', label: 'AadiTatva', to: '/about' },
+    { id: 'naad', label: 'AadiNaad', to: '/naad' },
+    { id: 'srijan', label: 'SrijanPeeth', to: '/srijan' },
+    { id: 'kul', label: 'AadiKul', to: '/kul' },
+    { id: 'gallery', label: 'Drishyam', to: '/gallery' },
+    { id: 'blogs', label: 'AadiPath', to: '/blogs' },
+    { id: 'careers', label: 'AadiYatra', to: '/careers' },
+    { id: 'contact', label: 'TatSutra', to: '/contact' },
+  ];
+
+  return (
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="flex justify-center items-center py-2 px-4 max-w-6xl mx-auto">
+        <div className="flex gap-2 md:gap-4 justify-center items-center w-full overflow-hidden">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                px-1 md:px-2 py-1 text-xs md:text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 whitespace-nowrap text-center flex-1
+                ${item.id === 'naad' 
+                  ? 'text-yellow-400 bg-white/10 rounded-lg' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
+                }
+              `}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 const AadiNaadPage = () => {
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
@@ -9,7 +48,7 @@ const AadiNaadPage = () => {
   if (selectedProfile === 'dipanwita') {
     return (
       <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
+        <CustomNavigation />
         <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
           <div className="h-full overflow-y-auto custom-scrollbar">
             <div className="pt-12 px-4">
@@ -85,7 +124,7 @@ const AadiNaadPage = () => {
   if (selectedProfile === 'subir') {
     return (
       <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
+        <CustomNavigation />
         <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
           <div className="h-full overflow-y-auto custom-scrollbar">
             <div className="pt-8 px-4">
@@ -160,7 +199,7 @@ const AadiNaadPage = () => {
   if (selectedProfile === 'abhik') {
     return (
       <div className="min-h-screen scroll-background">
-        <Navigation currentSection="naad" />
+        <CustomNavigation />
         <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
           <div className="h-full overflow-y-auto custom-scrollbar">
             <div className="pt-8 px-4">
@@ -234,188 +273,99 @@ const AadiNaadPage = () => {
 
   return (
     <div className="min-h-screen scroll-background">
-      <Navigation currentSection="naad" />
+      <CustomNavigation />
       <div className="fixed inset-0 pt-16 pb-16 overflow-hidden">
         <div className="h-full overflow-y-auto scroll-smooth custom-scrollbar">
           <div className="pt-8 pb-8 px-4">
-            <div className="w-full max-w-4xl mx-auto">
-              {/* First Row */}
-              <div className="h-[50vh] flex items-center justify-center px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                  {/* Card 1 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer h-64 w-full"
-                    onClick={() => setSelectedProfile('dipanwita')}
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
-                          alt="Dipanwita DasChakrabarty" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-lg font-bold text-amber-900 mb-1">Dipanwita DasChakrabarty</h3>
-                        <p className="text-amber-800 text-sm">
-                          Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
+            <div className="w-full max-w-6xl mx-auto px-4">
+              {/* Responsive grid: 2 columns on screens ≥900px, 1 column on smaller screens */}
+              <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-6 min-[900px]:gap-8">
+                {/* Card 1 */}
+                <Card 
+                  className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer w-full"
+                  onClick={() => setSelectedProfile('dipanwita')}
+                >
+                  <CardContent className="p-6 text-center flex flex-col">
+                    <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                      <img 
+                        src="/lovable-uploads/b798b80c-d4cb-40bb-b626-b7882f45559e.png" 
+                        alt="Dipanwita DasChakrabarty" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="font-calibri">
+                      <h3 className="text-lg font-bold text-amber-900 mb-1">Dipanwita DasChakrabarty</h3>
+                      <p className="text-amber-800 text-sm">
+                        Founder & Research Lead, <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
 
-                  {/* Card 2 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer h-64 w-full"
-                    onClick={() => setSelectedProfile('subir')}
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
-                          alt="Prof. Subir Nandy" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-lg font-bold text-amber-900 mb-1">Prof. Subir Nandy</h3>
-                        <p className="text-amber-800 text-sm">Co-Founder & Head of Music,</p>
-                        <p className="text-amber-800 text-sm">
-                          <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
+                {/* Card 2 */}
+                <Card 
+                  className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer w-full"
+                  onClick={() => setSelectedProfile('subir')}
+                >
+                  <CardContent className="p-6 text-center flex flex-col">
+                    <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                      <img 
+                        src="/lovable-uploads/3a9c3557-6d9c-474f-b244-37b97da061b4.png" 
+                        alt="Prof. Subir Nandy" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="font-calibri">
+                      <h3 className="text-lg font-bold text-amber-900 mb-1">Prof. Subir Nandy</h3>
+                      <p className="text-amber-800 text-sm">Co-Founder & Head of Music,</p>
+                      <p className="text-amber-800 text-sm">
+                        <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
 
-                  {/* Card 3 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer h-64 w-full"
-                    onClick={() => setSelectedProfile('abhik')}
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
-                        <img 
-                          src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
-                          alt="Abhik Dhar" 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-lg font-bold text-amber-900 mb-1">Abhik Dhar</h3>
-                        <p className="text-amber-800 text-sm italic">Co-Founder & Head of Operation,</p>
-                        <p className="text-amber-800 text-sm">
-                          <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
+                {/* Card 3 */}
+                <Card 
+                  className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm cursor-pointer w-full"
+                  onClick={() => setSelectedProfile('abhik')}
+                >
+                  <CardContent className="p-6 text-center flex flex-col">
+                    <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden">
+                      <img 
+                        src="/lovable-uploads/1f8da09e-fd08-42be-9804-c0fab1f5075e.png" 
+                        alt="Abhik Dhar" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="font-calibri">
+                      <h3 className="text-lg font-bold text-amber-900 mb-1">Abhik Dhar</h3>
+                      <p className="text-amber-800 text-sm italic">Co-Founder & Head of Operation,</p>
+                      <p className="text-amber-800 text-sm">
+                        <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              {/* Second Row */}
-              <div className="h-[50vh] flex items-center justify-center px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                  {/* Card 4 */}
+                {/* Cards 4-9 */}
+                {[4, 5, 6, 7, 8, 9].map((cardNum) => (
                   <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
+                    key={cardNum}
+                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm w-full"
                   >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
+                    <CardContent className="p-6 text-center flex flex-col">
                       <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
                       </div>
                       <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 4</h3>
+                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card {cardNum}</h3>
                         <p className="text-amber-800 text-base font-bold">
                           Coming Soon
                         </p>
                       </div>
                     </CardContent>
                   </Card>
-
-                  {/* Card 5 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 5</h3>
-                        <p className="text-amber-800 text-base font-bold">
-                          Coming Soon
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Card 6 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 6</h3>
-                        <p className="text-amber-800 text-base font-bold">
-                          Coming Soon
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-
-              {/* Third Row */}
-              <div className="h-[50vh] flex items-center justify-center px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                  {/* Card 7 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 7</h3>
-                        <p className="text-amber-800 text-base font-bold">
-                          Coming Soon
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Card 8 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 8</h3>
-                        <p className="text-amber-800 text-base font-bold">
-                          Coming Soon
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Card 9 */}
-                  <Card 
-                    className="bg-amber-50/80 border-2 border-amber-800/60 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm h-64 w-full"
-                  >
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                      <div className="w-24 h-24 mx-auto mb-4 border-2 border-amber-800/40 rounded-full overflow-hidden bg-amber-100">
-                      </div>
-                      <div className="font-calibri">
-                        <h3 className="text-xl font-bold text-amber-900 mb-2">Card 9</h3>
-                        <p className="text-amber-800 text-base font-bold">
-                          Coming Soon
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                ))}
               </div>
             </div>
           </div>
