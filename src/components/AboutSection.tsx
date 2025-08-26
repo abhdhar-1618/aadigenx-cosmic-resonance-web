@@ -171,51 +171,57 @@ export const AboutSection = () => {
 
   return (
     <div 
-      className="min-h-screen pt-20 pb-12 px-4 bg-cover bg-center bg-no-repeat"
+      className="min-h-screen pt-20 pb-12 px-4 bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{
-        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
+        backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`,
+        objectFit: 'cover'
       }}
     >
       {/* Subtle warm overlay for comfortable viewing */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50/[0.16] via-yellow-50/[0.12] to-amber-100/[0.16]" />
       
-      <div className="max-w-5xl mx-auto relative z-10 px-12 pr-24">
-        <div className="flex flex-col lg:flex-row gap-[90px] h-[calc(100vh-160px)]">
-          {/* Left Sidebar Navigation */}
-          <div className="lg:w-[28%] flex-shrink-0">
-            <div className="bg-amber-900/30 backdrop-blur-md rounded-lg p-6 border border-amber-700/20 shadow-lg h-full flex flex-col">
-              <h2 className="text-2xl font-bold text-amber-900 mb-6 text-center drop-shadow-md">About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span></h2>
-              <nav className="space-y-2 flex-1">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`
-                      w-full text-left px-4 py-3 rounded-md transition-all duration-300 font-medium
-                      ${activeTab === tab.id 
-                        ? 'bg-yellow-400/20 text-amber-900 border-l-4 border-yellow-400 shadow-md backdrop-blur-sm' 
-                        : 'text-amber-800 hover:text-amber-900 hover:bg-amber-800/20 hover:shadow-sm'
-                      }
-                    `}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+      <div className="max-w-6xl mx-auto relative z-10 px-4 md:px-8">
+        {/* Two-column grid layout: collapses to single column below 900px */}
+        <div className="grid grid-cols-1 min-[900px]:grid-cols-[300px_1fr] gap-6 min-[900px]:gap-8 h-[calc(100vh-160px)]">
+          {/* Left Sidebar Navigation - appears above content on mobile */}
+          <div className="order-1 min-[900px]:order-1 w-full">
+            <div className="bg-amber-900/30 backdrop-blur-md rounded-lg p-6 border border-amber-700/20 shadow-lg h-full min-[900px]:h-full flex flex-col overflow-hidden">
+              <h2 className="text-xl md:text-2xl font-bold text-amber-900 mb-6 text-center drop-shadow-md">
+                About <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">G</span><span className="samarkan">en</span><span className="calibri">X</span>
+              </h2>
+              <nav className="space-y-2 flex-1 overflow-hidden">
+                <div className="min-[900px]:space-y-2 flex min-[900px]:flex-col gap-2 min-[900px]:gap-0 overflow-x-auto min-[900px]:overflow-x-visible min-[900px]:overflow-y-auto pb-2 min-[900px]:pb-0">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`
+                        w-full text-left px-4 py-3 rounded-md transition-all duration-300 font-medium whitespace-nowrap min-[900px]:whitespace-normal flex-shrink-0 min-[900px]:flex-shrink
+                        ${activeTab === tab.id 
+                          ? 'bg-yellow-400/20 text-amber-900 border-l-4 border-yellow-400 shadow-md backdrop-blur-sm' 
+                          : 'text-amber-800 hover:text-amber-900 hover:bg-amber-800/20 hover:shadow-sm'
+                        }
+                      `}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
               </nav>
             </div>
           </div>
 
-          {/* Right Content Panel */}
-          <div className="lg:w-[66%] flex-shrink-0">
+          {/* Right Content Panel - appears below navigation on mobile */}
+          <div className="order-2 min-[900px]:order-2 w-full overflow-hidden">
             <div className="h-full overflow-hidden rounded-lg shadow-2xl backdrop-blur-sm"
                  style={{
                    background: 'linear-gradient(135deg, rgba(244, 231, 209, 0.44) 0%, rgba(232, 213, 183, 0.44) 25%, rgba(220, 196, 156, 0.44) 50%, rgba(212, 185, 150, 0.44) 75%, rgba(201, 169, 110, 0.44) 100%)',
                    border: '1px solid rgba(139, 69, 19, 0.12)',
                    boxShadow: 'inset 0 0 12px rgba(255, 215, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06)'
                  }}>
-              <ScrollArea className="h-full p-8 [&_[data-radix-scroll-area-thumb]]:bg-white/40 [&_[data-radix-scroll-area-thumb]]:border-white/20">
+              <ScrollArea className="h-full p-6 md:p-8 [&_[data-radix-scroll-area-thumb]]:bg-white/40 [&_[data-radix-scroll-area-thumb]]:border-white/20">
                 <div 
-                  className="leading-relaxed prose prose-invert max-w-none"
+                  className="leading-relaxed prose prose-invert max-w-none [&_img]:object-cover [&_img]:w-full [&_img]:h-auto [&_video]:object-cover [&_video]:w-full [&_video]:h-auto"
                   style={{ color: '#654321' }}
                   dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
                 />
