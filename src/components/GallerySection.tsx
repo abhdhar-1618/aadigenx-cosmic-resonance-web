@@ -3,7 +3,7 @@ import React from 'react';
 
 export const GallerySection = () => {
   return (
-    <div className="min-h-screen pt-20 relative">
+    <div className="min-h-screen relative">
       {/* Background Image Container */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

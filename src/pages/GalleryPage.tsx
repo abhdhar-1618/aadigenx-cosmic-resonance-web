@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navigation } from '@/components/Navigation';
+import { HorizontalNavigation } from '@/components/HorizontalNavigation';
 import { GallerySection } from '@/components/GallerySection';
 
 const GalleryPage = () => {
   return (
     <div className="min-h-screen scroll-background">
-      <Navigation currentSection="gallery" />
+      <HorizontalNavigation currentSection="gallery" />
       <GallerySection />
     </div>
   );
