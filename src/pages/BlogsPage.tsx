@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation } from '@/components/Navigation';
+import { HorizontalNavigation } from '@/components/HorizontalNavigation';
 import { BlogsSection } from '@/components/BlogsSection';
 import { AuthProvider } from '@/hooks/useAuth';
 
@@ -7,7 +7,7 @@ const BlogsPage = () => {
   return (
     <AuthProvider>
       <div className="min-h-screen scroll-background">
-        <Navigation currentSection="blogs" />
+        <HorizontalNavigation currentSection="blogs" />
         
         {/* Main Content Area - constrained between top and bottom bars */}
         <div className="fixed inset-0 pt-20 pb-16 overflow-hidden">
