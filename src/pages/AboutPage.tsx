@@ -1,11 +1,11 @@
 import React from 'react';
-import { HorizontalNavigation } from '@/components/HorizontalNavigation';
+import { Navigation } from '@/components/Navigation';
 import { AboutSection } from '@/components/AboutSection';
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen scroll-background">
-      <HorizontalNavigation currentSection="about" />
+      <Navigation currentSection="about" />
       <AboutSection />
       
       {/* Bottom Roll Bar Text */}

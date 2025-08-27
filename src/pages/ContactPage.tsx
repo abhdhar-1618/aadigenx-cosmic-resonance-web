@@ -1,11 +1,11 @@
 import React from 'react';
-import { HorizontalNavigation } from '@/components/HorizontalNavigation';
+import { Navigation } from '@/components/Navigation';
 import { ContactSection } from '@/components/ContactSection';
 
 const ContactPage = () => {
   return (
     <div className="min-h-screen scroll-background relative">
-      <HorizontalNavigation currentSection="contact" />
+      <Navigation currentSection="contact" />
       
       {/* Main Content Area - constrained between top and bottom bars */}
       <div className="fixed inset-0 pt-20 pb-16 overflow-hidden">
