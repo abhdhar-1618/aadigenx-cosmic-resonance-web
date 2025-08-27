@@ -82,25 +82,26 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
 
   return (
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
-      <div className="w-full max-w-6xl mx-auto px-2">
+      <div className="w-full max-w-6xl mx-auto px-1 sm:px-2">
         {/* Responsive Grid Navigation Container */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1 sm:gap-2 px-2 py-2 min-h-16 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0.5 sm:gap-1 md:gap-2 py-2 min-h-16">
           {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              className={`
-                px-1 py-1 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
-                rounded-lg text-center flex items-center justify-center h-8 sm:h-10 max-w-full
-                ${disabled 
-                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                }
-                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-              `}
-            >
-              <span className="leading-tight text-center break-words hyphens-auto">{renderNavText(item)}</span>
-            </Link>
+            <div key={item.id} className="flex items-center justify-center p-0.5">
+              <Link
+                to={item.to}
+                className={`
+                  w-full max-w-full px-1 py-1 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
+                  rounded-lg text-center flex items-center justify-center min-h-8 sm:min-h-10 overflow-hidden
+                  ${disabled 
+                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                  }
+                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+                `}
+              >
+                <span className="leading-tight text-center whitespace-nowrap overflow-hidden text-ellipsis">{renderNavText(item)}</span>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
