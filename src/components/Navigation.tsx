@@ -83,34 +83,25 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   return (
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
       <div className="w-full max-w-6xl mx-auto px-2">
-        {/* Single Navigation Container - All Screen Sizes */}
-        <div className="relative">
-          {/* Left gradient fade for mobile */}
-          <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none md:hidden" />
-          
-          {/* Navigation container with horizontal scroll */}
-          <div className="flex justify-evenly gap-2 md:gap-4 px-6 md:px-4 py-2 overflow-x-auto scrollbar-hide h-12 items-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={`
-                  flex-shrink-0 px-2 md:px-3 py-1 text-xs md:text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 
-                  whitespace-nowrap rounded-lg text-center
-                  ${disabled 
-                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                  }
-                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                `}
-              >
-                {renderNavText(item)}
-              </Link>
-            ))}
-          </div>
-          
-          {/* Right gradient fade for mobile */}
-          <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none md:hidden" />
+        {/* Responsive Grid Navigation Container */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1 sm:gap-2 px-2 py-2 min-h-16 place-items-center">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                w-full px-1 py-1 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center flex items-center justify-center h-8 sm:h-10
+                ${disabled 
+                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                }
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+              `}
+            >
+              <span className="leading-tight">{renderNavText(item)}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

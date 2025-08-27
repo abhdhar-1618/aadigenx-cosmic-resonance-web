@@ -4,7 +4,7 @@ import React from 'react';
 export const CareersSection = () => {
   return (
     <div 
-      className="min-h-screen pt-16 md:pt-20 flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      className="min-h-screen pt-20 flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(/lovable-uploads/436bbf9d-755e-48d5-b4da-3bedfa04fc6e.png)`
       }}

@@ -74,7 +74,7 @@ export const HeroSection = ({ hasNavigated, triggerAudioSequence, isMuted = fals
   }, [triggerAudioSequence, audioSequenceStarted]);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-16 md:pt-20">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
       {/* Background Video - shows after logo rotation */}
       {showBackgroundVideo && (
         <video
