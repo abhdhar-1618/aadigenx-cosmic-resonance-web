@@ -90,8 +90,8 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
               key={item.id}
               to={item.to}
               className={`
-                w-full px-1 py-1 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
-                rounded-lg text-center flex items-center justify-center h-8 sm:h-10
+                px-1 py-1 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center flex items-center justify-center h-8 sm:h-10 max-w-full
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                   : 'text-white hover:text-yellow-400 hover:bg-white/10'
@@ -99,7 +99,7 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
                 ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
               `}
             >
-              <span className="leading-tight">{renderNavText(item)}</span>
+              <span className="leading-tight text-center break-words hyphens-auto">{renderNavText(item)}</span>
             </Link>
           ))}
         </div>
