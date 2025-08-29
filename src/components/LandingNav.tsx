@@ -83,48 +83,24 @@ export const LandingNav = ({ currentSection, disabled = false }: LandingNavProps
   return (
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
       <div className="w-full max-w-6xl mx-auto px-2">
-        {/* Mobile: Horizontal Scroll, Tablet+: Grid */}
-        <div className="md:hidden">
-          <div className="flex flex-wrap justify-center py-2 gap-2 min-h-16 items-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={`
-                  flex-shrink-0 px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
-                  rounded-lg text-center whitespace-nowrap
-                  ${disabled 
-                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                  }
-                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                `}
-              >
-                {renderNavText(item)}
-              </Link>
-            ))}
-          </div>
-        </div>
-        
-        {/* Tablet and Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-6 gap-2 py-2 min-h-16">
+        {/* Horizontal Scroll Navigation Container */}
+        <div className="flex overflow-x-auto scrollbar-hide py-2 gap-2 min-h-16 items-center">
           {navItems.map((item) => (
-            <div key={item.id} className="flex items-center justify-center">
-              <Link
-                to={item.to}
-                className={`
-                  w-full px-2 py-2 text-base font-semibold tracking-wide transition-all duration-300 
-                  rounded-lg text-center flex items-center justify-center min-h-10
-                  ${disabled 
-                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                  }
-                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                `}
-              >
-                <span className="leading-tight text-center">{renderNavText(item)}</span>
-              </Link>
-            </div>
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                flex-shrink-0 px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center whitespace-nowrap
+                ${disabled 
+                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                }
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+              `}
+            >
+              {renderNavText(item)}
+            </Link>
           ))}
         </div>
       </div>
