@@ -240,6 +240,16 @@ export type Database = {
         Args: { title: string }
         Returns: string
       }
+      get_public_profile_data: {
+        Args: { profile_user_id: string }
+        Returns: {
+          avatar_url: string
+          bio: string
+          created_at: string
+          id: string
+          name: string
+        }[]
+      }
       increment_blog_views: {
         Args: { blog_id: string }
         Returns: undefined
