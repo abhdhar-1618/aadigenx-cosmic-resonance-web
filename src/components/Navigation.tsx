@@ -84,14 +84,14 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
       <div className="w-full max-w-6xl mx-auto px-2">
         {/* Horizontal Scroll Navigation Container */}
-        <div className="flex justify-between items-center py-2 min-h-16 w-full overflow-x-auto">
+        <div className="flex justify-between items-center py-2 min-h-16 w-full">
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.to}
               className={`
-                flex-1 px-1 sm:px-2 py-2 text-xs sm:text-sm md:text-base font-semibold tracking-wide transition-all duration-300 
-                rounded-lg text-center whitespace-nowrap min-w-0
+                flex-1 px-2 py-2 text-base font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center whitespace-nowrap
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                   : 'text-white hover:text-yellow-400 hover:bg-white/10'
