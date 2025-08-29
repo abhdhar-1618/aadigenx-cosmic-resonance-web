@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import DOMPurify from 'dompurify';
 
 const aboutContent = {
   mission: {
@@ -223,7 +224,9 @@ export const AboutSection = () => {
                 <div 
                   className="leading-relaxed prose prose-invert max-w-none [&_img]:object-cover [&_img]:w-full [&_img]:h-auto [&_video]:object-cover [&_video]:w-full [&_video]:h-auto"
                   style={{ color: '#654321' }}
-                  dangerouslySetInnerHTML={{ __html: aboutContent[activeTab as keyof typeof aboutContent].content }}
+                  dangerouslySetInnerHTML={{ 
+                    __html: DOMPurify.sanitize(aboutContent[activeTab as keyof typeof aboutContent].content)
+                  }}
                 />
               </ScrollArea>
             </div>

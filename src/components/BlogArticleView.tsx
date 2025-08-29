@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import DOMPurify from 'dompurify';
 
 interface BlogArticleViewProps {
   blog: any;
@@ -65,7 +66,7 @@ export function BlogArticleView({ blog, onBack }: BlogArticleViewProps) {
           <div className="prose prose-amber max-w-none mt-6">
             <div 
               className="text-amber-900/90 text-base leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }}
             />
           </div>
         )}
