@@ -84,13 +84,13 @@ export const HorizontalNavigation = ({ currentSection, disabled = false }: Horiz
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
       <div className="w-full max-w-6xl mx-auto px-2">
         {/* Horizontal Scroll Navigation Container */}
-        <div className="flex justify-between items-center py-2 min-h-16 w-full">
+        <div className="flex overflow-x-auto scrollbar-hide py-2 gap-2 min-h-16 items-center">
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.to}
               className={`
-                flex-1 px-2 py-2 text-base font-semibold tracking-wide transition-all duration-300 
+                flex-shrink-0 px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
                 rounded-lg text-center whitespace-nowrap
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
