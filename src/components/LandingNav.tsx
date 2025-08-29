@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface LandingNavProps {
   currentSection: string;
@@ -7,14 +7,6 @@ interface LandingNavProps {
 }
 
 export const LandingNav = ({ currentSection, disabled = false }: LandingNavProps) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const location = useLocation();
-
-  // Close mobile menu on route change
-  React.useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
   const navItems = [
     { id: 'home', label: 'Aadian', to: '/aadian' },
     { id: 'about', label: 'AadiTatva', to: '/about' },
@@ -89,110 +81,29 @@ export const LandingNav = ({ currentSection, disabled = false }: LandingNavProps
   };
 
   return (
-    <>
-      <nav className="fixed top-0 w-full bg-white/70 dark:bg-neutral-900/70 backdrop-blur border-b border-black/10 dark:border-white/10 z-30">
-        <div className="w-full max-w-6xl mx-auto px-2">
-          <div className="flex h-14 items-center justify-between">
-            {/* Brand/Logo */}
-            <div className="flex min-w-0 items-center gap-2">
-              <Link
-                to="/"
-                className="font-semibold tracking-wide text-foreground"
-                aria-label="AadiGenX Home"
-              >
-                AadiGenX
-              </Link>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center">
-              <div className="flex overflow-x-auto scrollbar-hide gap-2 max-w-[calc(100vw-360px)] px-2 py-1">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.id}
-                    to={item.to}
-                    className={`
-                      flex-shrink-0 px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
-                      rounded-lg text-center whitespace-nowrap
-                      ${disabled 
-                        ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                        : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                      }
-                      ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                    `}
-                  >
-                    {renderNavText(item)}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile Hamburger Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center rounded-lg p-2 text-white hover:bg-white/10"
-                aria-label="Toggle navigation menu"
-                aria-expanded={mobileMenuOpen}
-              >
-                <svg
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
-            </div>
-          </div>
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+      <div className="w-full max-w-6xl mx-auto px-2">
+        {/* Horizontal Scroll Navigation Container */}
+        <div className="flex overflow-x-auto scrollbar-hide py-2 gap-2 min-h-16 items-center">
+          {navItems.map((item) => (
+            <Link
+              key={item.id}
+              to={item.to}
+              className={`
+                flex-shrink-0 px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center whitespace-nowrap
+                ${disabled 
+                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                }
+                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+              `}
+            >
+              {renderNavText(item)}
+            </Link>
+          ))}
         </div>
-
-        {/* Mobile Sliding Panel */}
-        <div
-          className={`
-            md:hidden overflow-hidden transition-[max-height,opacity] duration-300
-            ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-          `}
-        >
-          <div className="w-full max-w-6xl mx-auto px-2 pb-3">
-            <div className="flex flex-col gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  className={`
-                    px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
-                    rounded-lg text-center
-                    ${disabled 
-                      ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                      : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                    }
-                    ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-                  `}
-                >
-                  {renderNavText(item)}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-      {/* Spacer to prevent content from sliding under fixed nav */}
-      <div className="h-14" />
-    </>
+      </div>
+    </nav>
   );
 };
