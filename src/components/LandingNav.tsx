@@ -85,7 +85,7 @@ export const LandingNav = ({ currentSection, disabled = false }: LandingNavProps
       <div className="w-full max-w-6xl mx-auto px-2">
         {/* Mobile: Horizontal Scroll, Tablet+: Grid */}
         <div className="md:hidden">
-          <div className="flex overflow-x-auto scrollbar-hide py-2 gap-2 min-h-16 items-center">
+          <div className="flex flex-wrap justify-center py-2 gap-2 min-h-16 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.id}
