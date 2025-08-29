@@ -90,8 +90,8 @@ export const LandingNav = ({ currentSection, disabled = false }: LandingNavProps
               key={item.id}
               to={item.to}
               className={`
-                flex-1 px-1 sm:px-2 py-2 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 
-                rounded-lg text-center whitespace-nowrap min-w-0
+                flex-1 px-2 py-2 text-base font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center whitespace-nowrap
                 ${disabled 
                   ? 'text-white/50 cursor-not-allowed pointer-events-none' 
                   : 'text-white hover:text-yellow-400 hover:bg-white/10'
