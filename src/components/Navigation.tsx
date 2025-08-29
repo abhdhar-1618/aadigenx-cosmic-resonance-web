@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface NavigationProps {
   currentSection: string;
@@ -7,6 +7,9 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ currentSection, disabled = false }: NavigationProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const location = useLocation();
+  
   const navItems = [
     { id: 'home', label: 'Aadian', to: '/aadian' },
     { id: 'about', label: 'AadiTatva', to: '/about' },
@@ -18,6 +21,11 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
     { id: 'careers', label: 'Careers', to: '/careers' },
     { id: 'contact', label: 'Contact', to: '/contact' },
   ];
+
+  // Close mobile menu on route change
+  React.useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const renderNavText = (item: typeof navItems[0]) => {
     switch (item.id) {
@@ -81,27 +89,70 @@ export const Navigation = ({ currentSection, disabled = false }: NavigationProps
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
+    <nav className="fixed top-0 w-full bg-white/70 dark:bg-neutral-900/70 backdrop-blur border-b border-black/10 dark:border-white/10 z-30">
       <div className="w-full max-w-6xl mx-auto px-2">
-        {/* Horizontal Scroll Navigation Container */}
         <div className="flex justify-between items-center py-2 min-h-16 w-full">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              className={`
-                flex-1 px-1 sm:px-2 py-2 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 
-                rounded-lg text-center whitespace-nowrap min-w-0
-                ${disabled 
-                  ? 'text-white/50 cursor-not-allowed pointer-events-none' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
-                }
-                ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
-              `}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex justify-between items-center w-full">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                className={`
+                  flex-1 px-1 sm:px-2 py-2 text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 
+                  rounded-lg text-center whitespace-nowrap min-w-0
+                  ${disabled 
+                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                  }
+                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+                `}
+              >
+                {renderNavText(item)}
+              </Link>
+            ))}
+          </div>
+          
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex justify-between items-center w-full">
+            <div className="font-semibold text-white">AadiGenX</div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white hover:text-yellow-400 p-2"
+              aria-label="Toggle navigation menu"
             >
-              {renderNavText(item)}
-            </Link>
-          ))}
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Menu Dropdown */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="pb-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                className={`
+                  block px-3 py-2 text-sm font-semibold tracking-wide transition-all duration-300 
+                  rounded-lg mb-1
+                  ${disabled 
+                    ? 'text-white/50 cursor-not-allowed pointer-events-none' 
+                    : 'text-white hover:text-yellow-400 hover:bg-white/10'
+                  }
+                  ${currentSection === item.id ? 'text-yellow-400 bg-white/10' : ''}
+                `}
+              >
+                {renderNavText(item)}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
