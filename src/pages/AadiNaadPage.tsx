@@ -6,34 +6,96 @@ import { Link } from 'react-router-dom';
 // Custom Navigation Component for AadiNaadPage
 const CustomNavigation = () => {
   const navItems = [
-    { id: 'home', label: 'AadiAn', to: '/aadian' },
+    { id: 'home', label: 'Aadian', to: '/aadian' },
     { id: 'about', label: 'AadiTatva', to: '/about' },
     { id: 'naad', label: 'AadiNaad', to: '/naad' },
     { id: 'srijan', label: 'SrijanPeeth', to: '/srijan' },
     { id: 'kul', label: 'AadiKul', to: '/kul' },
-    { id: 'gallery', label: 'Drishyam', to: '/gallery' },
-    { id: 'blogs', label: 'AadiPath', to: '/blogs' },
-    { id: 'careers', label: 'AadiYatra', to: '/careers' },
-    { id: 'contact', label: 'TatSutra', to: '/contact' },
+    { id: 'gallery', label: 'DrisHyam', to: '/gallery' },
+    { id: 'blogs', label: 'Blogs', to: '/blogs' },
+    { id: 'careers', label: 'Careers', to: '/careers' },
+    { id: 'contact', label: 'Contact', to: '/contact' },
   ];
+
+  const renderNavText = (item: typeof navItems[0]) => {
+    switch (item.id) {
+      case 'home':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">A</span><span className="samarkan">n</span>
+          </>
+        );
+      case 'about':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">T</span><span className="samarkan">atva</span>
+          </>
+        );
+      case 'naad':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">N</span><span className="samarkan">aad</span>
+          </>
+        );
+      case 'srijan':
+        return (
+          <>
+            <span className="calibri">S</span><span className="samarkan">rijan</span><span className="calibri">P</span><span className="samarkan">eeth</span>
+          </>
+        );
+      case 'kul':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">K</span><span className="samarkan">ul</span>
+          </>
+        );
+      case 'gallery':
+        return (
+          <>
+            <span className="calibri">D</span><span className="samarkan">ris</span><span className="calibri">H</span><span className="samarkan">yam</span>
+          </>
+        );
+      case 'blogs':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">P</span><span className="samarkan">ath</span>
+          </>
+        );
+      case 'careers':
+        return (
+          <>
+            <span className="calibri">A</span><span className="samarkan">adi</span><span className="calibri">Y</span><span className="samarkan">atra</span>
+          </>
+        );
+      case 'contact':
+        return (
+          <>
+            <span className="calibri">Tat</span><span className="samarkan">Sutra</span>
+          </>
+        );
+      default:
+        return item.label;
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-transparent backdrop-blur-none z-30">
-      <div className="flex justify-center items-center py-2 px-4 max-w-6xl mx-auto">
-        <div className="flex gap-2 md:gap-4 justify-center items-center w-full overflow-hidden">
+      <div className="w-full max-w-6xl mx-auto px-2">
+        <div className="flex justify-between items-center py-2 min-h-16 w-full">
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.to}
               className={`
-                px-1 md:px-2 py-1 text-xs md:text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 whitespace-nowrap text-center flex-1
+                flex-1 px-2 py-2 text-base font-semibold tracking-wide transition-all duration-300 
+                rounded-lg text-center whitespace-nowrap
                 ${item.id === 'naad' 
-                  ? 'text-yellow-400 bg-white/10 rounded-lg' 
-                  : 'text-white hover:text-yellow-400 hover:bg-white/10 rounded-lg'
+                  ? 'text-yellow-400 bg-white/10' 
+                  : 'text-white hover:text-yellow-400 hover:bg-white/10'
                 }
               `}
             >
-              {item.label}
+              {renderNavText(item)}
             </Link>
           ))}
         </div>
