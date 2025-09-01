@@ -118,7 +118,7 @@ const projectsData = [
 ];
 
 
-const categories = ["Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"];
+const categories = ["Vimana Shastra", "Data Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"];
 
 export default function SrijanPeethPage() {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
@@ -132,7 +132,7 @@ export default function SrijanPeethPage() {
     switch (category) {
       case "Vimana Shastra":
         return <TrendingUp className="h-5 w-5" />; // Climate, Environment
-      case "Triveni Shastra":
+      case "Data Shastra":
         return <BarChart3 className="h-5 w-5" />; // Math + Lang + Logic
       case "Yantra Shastra":
         return <Settings className="h-5 w-5" />; // Robotics
