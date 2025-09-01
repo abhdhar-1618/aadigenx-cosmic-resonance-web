@@ -12,13 +12,13 @@ import { ScrollArea } from '../components/ui/scroll-area';
 const projectsData = [
   {
     id: 1,
-    title: "GanitPath - Reading Pattern Discovery through Triveni Shastra",
+    title: "GanitPath - Reading Pattern Discovery through Data Shastra",
     student: "",
     grade: "",
-    subject: "Triveni Shastra",
+    subject: "Data Shastra",
     description: "Statistical analysis of school library borrowing patterns using cross-subject logic, language, and math-based visualizations.",
     tools: ["Excel", "Google Sheets", "Chart.js"],
-    category: "Triveni Shastra",
+    category: "Data Shastra",
     date: "",
     views: 187,
     rating: 4.6,
