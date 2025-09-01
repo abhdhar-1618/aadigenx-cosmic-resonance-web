@@ -173,7 +173,7 @@ export default function SrijanPeethPage() {
           {/* Category Filter */}
           <div className="max-w-5xl mx-auto px-4 mb-8">
             <div className="flex flex-wrap gap-2 justify-center">
-              {["All", "Vimana Shastra", "Triveni Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"].map((category) => (
+              {["All", "Vimana Shastra", "Data Shastra", "Yantra Shastra", "Vana Veda Shastra", "Pashu Vritti Shastra", "Naad Shastra", "Aryogya Shastra"].map((category) => (
                 <Button
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
